@@ -10,7 +10,6 @@
 *.synctex.gz
 *.bbl
 *.blg
-*.pdf
 
 # Other build or binary files
 *.so
