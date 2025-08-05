@@ -1,0 +1,103 @@
+\subsection{\gls{mri}: How it works?}
+
+% ------------------------------------------------------------------------------
+% MRI Translational Forces – Background Section Writing Guide
+%
+% Section Structure with Topic Priorities:
+%
+% 1. Introduction
+%    - What is MRI and why is it used clinically      [🟠 Medium Priority]
+%      (Keep brief—serves as justification for MRI relevance to clinical care.)
+%
+% 2. Magnetic Interactions
+%    - Magnetic Moments & Magnetization              [🔴 High Priority]
+%      (Foundation for understanding how magnetic fields act on materials.)
+%    - Material Susceptibility (Δχ)                  [🔴 High Priority]
+%      (Include MR compatibility thresholds—Δχ < 0.01 for safety.)
+%
+% 3. MRI System Components
+%    - Main Magnet                                   [🔴 High Priority]
+%      (Primary source of static magnetic field and spatial gradients.)
+%    - Gradient Coils                                [🟠 Medium Priority]
+%      (Include brief note on eddy currents and induced Lorentz forces.)
+%    - RF Coils (Antennas)                           [🟡 Low Priority]
+%      (Mention briefly if relevant to antenna effect in retained leads.)
+%
+% 4. Background Physics
+%    - Resonance & Larmor Frequency                  [🟠 Medium Priority]
+%      (Describe precession, gyromagnetic ratio; sets up how B₀ interacts with protons.)
+%    - T1/T2 Relaxation                              [🟡 Low Priority]
+%      (Tissue-level effects, not directly tied to mechanical forces; keep concise.)
+%
+% 5. Out of Scope (Omit or Defer to Appendix)
+%    - Signal Localization and K-Space               [⚪ Skip]
+%    - Image Acquisition Parameters & Weighting      [⚪ Skip]
+%    - Basic Pulse Sequences                         [⚪ Skip]
+%
+% Legend:
+%   🔴 High Priority   – Discuss in full detail
+%   🟠 Medium Priority – Cover briefly, emphasize relevance
+%   🟡 Low Priority    – One or two sentences max
+%   ⚪ Skip            – Omit unless contextually needed
+% ------------------------------------------------------------------------------
+
+
+%	Quick review on the MRI components and principles
+
+
+% 1. Introduction
+%    - What is MRI and why is it used clinically      [🟠 Medium Priority]
+\gls{mri} or Magnetic Resonance Imaging is a medical imaging modality that uses magnetic fields and radiofrequency (\gls{rf}) energy to produce images, rather than ionizing radiation like X-rays making it inherent safe. \gls{mri} machines are capable of archiving high contrast sensitivity to soft tissue differences because of the reliance on micromagnetic properties of the tissue and its inherent differences leveraging on \gls{pd} and the relaxation phenomena.
+
+
+
+% 2. Magnetic Interactions
+%    - Magnetic Moments & Magnetization              [🔴 High Priority]
+%      (Foundation for understanding how magnetic fields act on materials.)
+%    - Material Susceptibility (Δχ)                  [🔴 High Priority]
+%      (Include MR compatibility thresholds—Δχ < 0.01 for safety.)
+
+
+forces are described as a function of the static field strength ($B_0$), its spatial gradient ($\nabla B_0$), and the magnetic susceptibility ($\chi$) and density ($\rho$) of the material. A well known and expected behavior is the magnetic pull on high susceptibility materials toward regions of higher field strength, like near the bore entrance of the scanner where the spatial gradient is highest \cite{aboyewa2021,bushberg2011,panych2018}. For instance, a nonmagnetic stainless steel wire with $\chi \approx 103$ ppm may experience a force equivalent to $\sim$30\% of its weight, whereas ferromagnetic materials like pure nickel can experience forces exceeding 20,000 times their own weight. That is more than enough to become dangerous projectiles unless restrained \cite{aboyewa2021,panych2018}.
+
+\subsubsection{Components:}
+
+% 3. MRI System Components
+%    - Main Magnet                                   [🔴 High Priority]
+%      (Primary source of static magnetic field and spatial gradients.)
+%    - Gradient Coils                                [🟠 Medium Priority]
+%      (Include brief note on eddy currents and induced Lorentz forces.)
+%    - RF Coils (Antennas)                           [🟡 Low Priority]
+%      (Mention briefly if relevant to antenna effect in retained leads.)
+
+For heat and electricity we are particularly interested on RF fields
+for mechanical we need to know the static magnetic field
+the mechanisim and intesity of the field
+
+Now we can explain the interactions between the two. Once RF is understood we can explain how this affect the leads resulting in heating and electric conductivity, based on the past local research and literature.			
+
+
+
+%//////////
+the physics
+
+Resonance and Signal Generation
+
+
+Tissue Contrast (Relaxation Phenomena)
+
+the interaction
+%//////////
+
+\subsection{Safety}
+
+the safety
+the 5 gauss line
+the examples of safety
+ASTM translational and torques studies
+the current protocols to assess objects near MRI field
+how this is different for us, size and suceptibility
+
+
+
+ASTM F2052-21 offers a standardized technique for assessing magnetically induced displacement force on medical equipment in order to set safety standards for such situations. This standard states that a device is MR Conditional if the deflection force it encounters in the MRI environment is less than the force of gravity upon it. This is usually verified if the deflection angle from vertical is less than 45$^\circ$ \cite{stoianovici2024,astmF2052}.

@@ -1,0 +1,127 @@
+
+
+
+%Establishing Context and Problem Statement
+%state briefly and clearly your purpose in writing the paper
+%the nature and scope of the problem investigated, indicating why the overall subject area is important
+
+%"funnel" shape
+
+
+%"contextualizing background,"
+%For knowledgeable peers, a quick opening is appropriate, implying familiarity with the concepts. For less technical or less informed audiences, a slower, more patient explanation of concepts may be necessary
+
+
+%explicitly state the "statement of the problem," which includes a condition of incomplete knowledge or understanding, and the significant consequences or costs of that condition if it remains unresolved, or the benefits if it is solved (the "So what?" question)
+
+
+%Literature Review: is a literature review valuable?
+
+% briefly review the pertinent literature to orient the reader and identify the gap in the existing literature that the current research aims to address
+
+%summarize only the key points from sources most relevant to your argument, especially those you intend to challenge, modify, or expand upon
+
+
+%Objective and Method: The introduction should then make clear the objective of the research.  state the method of the investigation, and, if necessary, briefly explain the reasons for choosing a particular method
+
+
+%Results and Conclusions (Optional): end by stating the principal results. promise a solution or main point that will be revealed later in the paper
+
+
+\chapter {Introduction}
+
+%Why is the overall subject area of your research important?.
+Medical diagnostics heavily rely on imaging tools such as \gls{mri}, a powerful and evolving application capable of showing high contrast sensitivity to soft tissue while not depending on ionizing radiation. However, safety concerns may arise during cardiac MRI procedures, \gls{ecg} leads are generally cataloged as  \gls{mri} unsafe because of the strong magnetic field and \gls{rf} pulses that may interact with these leads.
+
+Temporary epicardial pacing leads are frequently utilized as part of postoperative cardiac rhythm control procedures. When the surgical danger of removing these leads is too high, they are left in place to prevent further complications. These cases introduce long-term repercussions, most notably the loss of access to \gls{mri}. There is still a dearth of focused studies evaluating the precise dangers associated with retained epicardial leads, despite the frequent use of such leads and their repercussions. Existing clinical recommendations tend to be too cautious and frequently disqualify these individuals from \gls{mri} eligibility even when there is little evidence to support it.
+
+
+%outline the thesis
+In this document we will explain the current state of research on this matter, the main elements involved in the interaction of temporary epicardial leads and \gls{mri} - especially in relation to mechanical interactions like translational force and torque. We will explore... and propose a methodology that tests these micro-Newton forces with precision 
+
+
+%What are the significant consequences or costs of this condition if it remains unresolved, or the benefits if it is solved (the "So what?" question)?. How will not knowing the answer to your research question keep your readers from understanding something else more important?.
+
+More than 300,000 individuals are receiving new \gls{cied} implants every year in the U.S. alone, reported the \gls{hrs} in 2024 \cite{HRS2024_CIEDs}. Some of these patients will eventually require device explantation or revision, necessitating surgery \cite{Mubarak:2023aa}. For this, there is a protocol to monitor cardiac rhythm that involves the use of temporary epicardial leads, however there is a recognized practice when these leads are removed -only if significant resistance is encountered- to cut the wire flush with the skin, intentionally leaving a small segment inside the patient to prevent immediate complications \cite{aboyewa2021, doi:10.2214/ajr.168.5.9129404,PSA_Advisory_2006}.
+
+These provisional leads are frequently placed during open-heart surgery to regulate cardiac rhythm postoperatively, then are typically cut at the skin surface leaving behind a short length of wire embedded in the tissue \cite{reade2007}. In general, a device labeled as MRI safe is expected to be nonconductive, non-electrical, non-magnetic, and to present no known hazards in the MRI environment. However, this classification does not apply to most epicardial leads, as they are rarely physically characterized after removal. By the time they are cut, these leads have fulfilled their clinical purpose, and systematic safety evaluations are seldom performed. Although retained leads are nonfunctional and relatively short, they are frequently classified as MRI unsafe due to concerns over \gls{rf} heating, magnetically induced translational forces and torques, or inadvertent cardiac stimulation \cite{poh2017,muthalaly2018,ACC_2024_MRI_CIEDs}. Effectively preventing patients with \gls{cied} or cardiac surgery history, who are most likely to need a \gls{mri} scan during their lifetime, to not be able to enter \gls{mri} room. 
+
+Recent studies regarding this problem have shown both no image quality degradation and, most importantly, no serious safety events such as, device malfunction, myocardial injury or arrhythmias, associated with \gls{mri} examinations in patients with \gls{cied}s abandoned leads, including epicardial leads \cite{vuorinen2021,meier2024}. While these work have evaluated to some extent the resulting consequences of \gls{rf}-induced heating, mechanical forces and conductivity, detail is needed. For example translational motion and torque remain physically under-characterized.
+
+%What specific condition of incomplete knowledge or understanding does your research address within this context?.
+
+In that regard, the primary safety concerns regarding retained cardiac leads during \gls{mri} arise from three main interaction mechanisms. First, the strong magnetic field and its spatial gradient can exert translational forces and torques on the lead, resulting in mechanical displacement. Second, the lead can absorb energy from the \gls{mri}’s (\gls{rf}) field, potentially causing localized heating that poses a thermal risk to the patient. Third, the \gls{rf} field may induce alternating currents within the lead, which can electrically stimulate nearby cardiac tissue, potentially leading to dangerous physiological effects.
+ 
+ To properly situate this work, the following section will review pertinent literature on \gls{mri} devices, \gls{mri} safety principles, electromagnetic theory, lead design, lead-\gls{mri} interactions and previous studies to establish the technical and clinical context needed to fully understand the motivations and significance of this study.
+
+\section{Literature review}
+
+
+\input{LitRev/EpiLeads} %todo
+
+
+\input{LitRev/MRI} %halfway there
+
+\subsection{Instruments?}
+
+Gaussmeter and Hall effect?
+
+\subsection{Previous studies summary}
+%What pertinent literature needs to be reviewed to orient the reader and provide sufficient background information for them to understand your study?.
+
+%What are the main arguments or findings from the sources most relevant to your argument, especially those you intend to challenge, modify, or expand upon?.
+
+%Have there been previous effective reviews of your subject, and if so, what is the starting point (e.g., date of previous review) for your current review?.
+Previous studies made in our institution seek to illustrate the interaction of leads with the \gls{rf} field in terms of energy absorbed and heat produced. It showed that lead length, type, and orientation significantly influence heating behavior.This study found that short leads ($<13$ cm) posed no significant thermal hazard during MRI at a specific absorption rate (SAR) of 2 W/kg and is throughtfully described as Master Thesis in 2021 \cite{haddixProposal,astmF2182,aboyewa2021}.
+
+Along the same line of thought, we aim to cover the mechanical aspect of lead-\gls{mri} interaction covering (1) Characterization of the static magnetic field, (2) quantification of translational forces near the bore entrance, (3) Torque evaluation from bore entrance to isocenter.
+
+While some preliminary work has been conducted in our lab on these mechanical concerns, it remains unpublished, making this thesis a critical step in formalizing and extending that foundational effort.
+
+
+\section{Scope of Research}
+
+From here onwards I only stated the answers to some common questions the intro addresses.
+
+What is the nature and scope of the problem you investigated?.
+
+This research addresses the safety implications of retained temporary epicardial pacing leads during MRI procedures. Although these leads are commonly left in place after cardiac surgeries to avoid surgical risks, their presence is often treated as a contraindication for MRI access due to theoretical concerns over RF-induced heating, induced currents, and mechanical forces. While some studies have begun to evaluate heating and image quality, the mechanical interactions—specifically translational forces and torque—remain undercharacterized. This thesis focuses on quantifying those mechanical forces in order to clarify whether the static magnetic field in MRI poses a real risk to patients with retained leads.
+
+
+
+What is the clear objective of your research?.
+
+The primary objective of this study is to experimentally characterize the translational magnetic forces acting on retained epicardial pacing leads near the MRI bore entrance, and to map how those forces evolve with distance from the isocenter. This aims to directly assess whether the magnitude of such forces constitutes a meaningful mechanical risk in clinical settings.
+
+
+
+What's the specific hypotheses or research questions that your study addressed?.
+
+The central research question is: Do retained epicardial pacing leads experience translational magnetic forces within an MRI environment that are clinically significant enough to justify current safety restrictions?
+
+
+
+What is your purpose in writing this paper?
+
+The purpose of this thesis is to provide experimental evidence on MRI-induced mechanical forces acting on retained cardiac leads, with the goal of informing clinical decision-making regarding MRI safety. By addressing a gap in the literature, the study seeks to support more nuanced guidelines that balance patient safety with access to essential imaging.
+
+
+What method of investigation did you use in your study?.
+
+In the lab, the investigation used a PVC controlled pendulum-based measurement setup simulating exposure to a magnetic field gradient similar to that found at the MRI bore entrance. A solenoid coil was employed to replicate the spatial gradient of the static magnetic field, and micro-Newton displacements were recorded to estimate translational forces on test rods. For torque a set of neodymium magnets would create the static field while a metallic rod would be fixed in a position perpendicular to the field with an attachment and be allowed to rotate, counter forces would then be measured out the attachment with a circuit and sensor of our own fabrication.
+
+
+What were the reasons for choosing your particular method?.
+
+These methods allow for high sensitivity in detecting small magnetic forces in a controlled environment, without the complications of patient variability or direct MRI scanner use. The pendulum approach provides a clear physical model that isolates translational force components for precise characterization. The torque model allows to independently assess strength of force exerted.
+
+
+
+Materials and methods bridge [placeholder]
+
+What are the few key concepts and themes that will run through all parts of your thesis, starting from this introduction?
+
+The thesis will consistently engage with 1 of the 3 main interaction modes between MRI and retained leads: mechanical forces, RF-induced heating, and induced currents. In these mechanical forces aspect we particularly care about translational and rotational displacement due to static field gradients. Concepts from electromagnetism, MRI safety standards, and biomedical device regulation form the thematic backbone of the work.
+
+Measurements are interpreted in the context of magnetic susceptibility theory and compared to relevant thresholds from the literature \cite{haddixProposal,astmF2052}. These techniques will help with more thorough evaluations of MRI safety in patients with retained temporary epicardial leads and set the stage for a future clinical adaptation of the protocol employing a 1.5 T MRI scanner. This method aids in the improvement of device classification and the creation of uniform experimental procedures for the assessment of torque and translational safety.
+

@@ -1,0 +1,32 @@
+\includepdf[
+pages=1,
+landscape=true,
+scale=0.85,
+pagecommand={%
+	\thispagestyle{plain}%
+    % Title across the top (in landscape coordinates)
+\makebox[0pt][l]{%
+	\raisebox{-20cm}[0pt][0pt]{%
+		\hspace*{-2cm}%
+		\rotatebox{90}{\Huge\textbf{Appendix A: Engineering Drawings}}%
+	}%
+}
+	\makebox[0pt][l]{%
+		\raisebox{2cm}[0pt][0pt]{\hspace*{2cm}\Huge\textbf{Appendix A1: Pole drawing}}%
+	}%
+}
+]{Assests/schematic.pdf}
+
+
+
+\includepdf[
+pages=-,
+landscape=true,
+scale=0.85,
+pagecommand={%
+	\thispagestyle{plain}%
+	\makebox[0pt][l]{%
+		\raisebox{2cm}[0pt][0pt]{\hspace*{2cm}\Huge\textbf{Appendix A2: Frame drawing}}%
+	}%
+}
+]{Assests/Planos_marco.pdf}
