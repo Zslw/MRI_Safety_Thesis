@@ -1,6 +1,6 @@
 \subsection{Translational Force Measurement via Angular Deflection}
 
-\subsubsection{Laboratory Simulation with Solenoid Coil}
+\subsubsection{Measurement Device}
 
 To assess MRI-induced translational forces in a laboratory environment, Creighton University developed a pendulum-style apparatus following the geometry and physics outlined in ASTM F2052-15\cite{astmF2052}. The vertical post includes a screw clamp mechanism that enables height adjustment; however, a default suspension height of 1 meter was used for consistency across trials.
 
@@ -41,8 +41,6 @@ The mesh needs to be suspended such that the lead axis was aligned approximately
 
 A summary schematic of the apparatus and frame are included in Figures \ref{fig:schematic} and \ref{fig:leadHolder}, with additional engineering drawings available in %\textbf{\AppendixAone} and \textbf{\AppendixAtwo}.
 
-
-
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.6\textwidth]{Assests/Picture2.jpg}
@@ -52,7 +50,36 @@ A summary schematic of the apparatus and frame are included in Figures \ref{fig:
 
 \subsubsection*{In Lab Measurement Protocol}
 
-Magnetic field measurements were performed using the \textbf{AlphaLab Inc. Gaussmeter} described before. To characterize local field gradients, measurements were taken at three positions: at the pendulum's equilibrium position, 0.5 mm below, and 0.5 mm above, yielding values of $B_{-0.5}$, $B_0$, and $B_{+0.5}$, respectively. Each position was sampled \textbf{nine times per current level}, and gradients were computed using python pandas library and the central finite difference method:
+Magnetic field measurements were performed using the \textbf{AlphaLab Inc. Gaussmeter} described before. The setup consisted of a custom-made solenoid connected to a Pasco power supply capable to deliver up 8 A acting as variable magnetic field generator for our experiment, the subject - a small ferromagnetic rod - was attached to a string pending from the \gls{mri} safe pole and angle of deflection was measured visually with a ruler on the subject horizontal displacement towards the coil. The Gaussmeter was positioned such that it allowed for small displacements and magnetic field measurements at the same time as angle deflection.
+
+Figure \ref{labsetup} shows the experimental lab setup used to assess the methodology accuracy and reliability with all used components.
+
+%figure from pptx
+
+\begin{figure}[H]
+	\centering
+	\begin{minipage}[t]{0.58\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{Assests/labsetup.png} % Update with the labeled version if needed
+	\end{minipage}%
+	\hfill
+	\begin{minipage}[t]{0.42\textwidth}
+		\footnotesize
+		\vspace*{-50ex}
+		\begin{enumerate}
+			\item Power Supply with Ammeter $\pm$ .001 A 
+			\item Solenoid (1 to 20 Gauss)
+			\item Ruler (Deflection Angle) $\pm$1 mm 
+			\item PVC String Pole
+			\item Ferromagnetic Cylinder
+			\item AlphaLab, Inc. Gaussmeter $\pm$0.001 G  
+		\end{enumerate}
+	\end{minipage}
+	\caption{In-lab experimental setup for MRI translational force assessment. Labeled components include the solenoid, pendulum fixture, measurement tools, and control equipment.}
+	\label{labsetup}
+\end{figure}
+
+To characterize local field gradients, measurements were taken at three positions: at the pendulum's equilibrium position, 0.5 mm below, and 0.5 mm above, yielding values of $B_{-0.5}$, $B_0$, and $B_{+0.5}$, respectively. Each position was sampled \textbf{nine times per current level}, and gradients were computed using python pandas library and the central finite difference method:
 
 \begin{equation}
 	\frac{dB}{dz} \approx \frac{B_{+0.5} - B_{-0.5}}{1\ \text{mm}}
