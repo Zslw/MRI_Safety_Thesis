@@ -1,0 +1,85 @@
+\begin{tikzpicture}[node distance=1.5cm, every node/.style={transform shape}, scale=0.6]
+	
+	% Start
+	\node (start) [startstop] {Start VI};
+	
+	% Initialization
+	\node (initserial) [process, below of=start] {Initialize serial port (COM3, 115200 baud)};
+	\node (readinput) [process, below of=initserial] {Read user inputs (file name, mode, delay, coords)};
+	\node (clearbuf) [process, below of=readinput] {Clear buffers and arrays, create CSV};
+	
+	% Mode decision
+	\node (mode) [decision, below of=clearbuf, yshift=-0.5cm] {Data collection mode?};
+	
+	% Individual branch: manual trigger wait before data steps
+	\node (manualTrigger) [process, left=3.5cm of mode] {Wait for manual trigger};
+	
+	%Continuous loop
+	\node (loopCount) [process, below =3cm of mode] {Loop: For i = 1 to N points};
+	
+	% Data acquisition steps (common)
+	\node (readcoords) [process, below of=loopCount] {Read MRI coordinates (x,y,z)};
+	\node (sendcmd) [process, below of=readcoords] {Send command to Gaussmeter};
+	\node (readflux) [process, below of=sendcmd] {Read flux data (time, flux, error byte)};
+	\node (store) [process, below of=readflux] {Append to arrays and CSV};
+	\node (updateplots) [process, below of=store] {Update XY graph and polar plot};
+	\node (checkerrors) [process, below of=updateplots] {Check for errors};
+	
+	% Continuous mode: wait delay after error check
+	\node (delayWait) [process, below of=checkerrors, yshift=-1cm] {Wait preset delay};
+
+	
+	% Loop decision
+	\node (moreRuns) [decision, below of=delayWait, yshift=-0.5cm] {More runs/points?};
+	
+	% End
+	\node (end) [startstop, below of=moreRuns, yshift=-1cm] {End VI};
+	
+	% Arrows: initialization flow
+	\draw [arrow] (start) -- (initserial);
+	\draw [arrow] (initserial) -- (readinput);
+	\draw [arrow] (readinput) -- (clearbuf);
+	\draw [arrow] (clearbuf) -- (mode);
+	
+	% Mode branches
+	\draw [arrow] (mode) -- node[above] {Individual} (manualTrigger);
+	\draw [arrow] (mode) -- node[above] {Continuous} (loopCount);
+	
+	% Individual flow to data steps
+	\draw [arrow] (manualTrigger) |- (readcoords.west);
+	
+	% Data acquisition common flow
+	\draw [arrow] (loopCount) -- (readcoords);
+	\draw [arrow] (readcoords) -- (sendcmd);
+	\draw [arrow] (sendcmd) -- (readflux);
+	\draw [arrow] (readflux) -- (store);
+	\draw [arrow] (store) -- (updateplots);
+	\draw [arrow] (updateplots) -- (checkerrors);
+	
+	% Continuous flow: after errors wait delay, then loop decision
+	\draw [arrow] (checkerrors) -- (delayWait);
+	\draw [arrow] (delayWait) -- (moreRuns);
+	
+	% Individual flow: after errors go directly to loop decision (skip delay)
+	\draw [arrow] (checkerrors.east) -- ++(1,0) node[pos=0.3, right, xshift=20pt] {Individual only} |- (moreRuns.north);
+
+	% Loop decision arrows:
+	% If yes, loop back to the start of the mode branch
+	% Intermediate branch point for Yes
+	\node (yesBranch) [coordinate, left=2.5cm of moreRuns.west] {};
+	
+	% Arrow from moreRuns to yesBranch labeled "Yes"
+	\draw [arrow] (moreRuns.west) -- node[midway, above] {Yes} (yesBranch);
+	
+	% Branch to Individual
+	\draw [arrow] (yesBranch) -- node[pos=0.85,above] {Individual} ++(-7,0) |- (manualTrigger.west);
+	
+	% Branch to Continuous
+	\draw [arrow] (yesBranch) -- node[pos=0.8,below] {Continuous} ++(-3,0) |- (loopCount.west);
+
+
+	
+	% If no, end program
+	\draw [arrow] (moreRuns.east) -- node[midway, above] {No} ++(3,0) |- (end.east);
+	
+\end{tikzpicture}
