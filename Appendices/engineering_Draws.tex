@@ -1,16 +1,25 @@
+
+% Create numbered section but hide header and spacing
+\makeatletter
+\newcommand{\invisiblesection}[1]{%
+	\refstepcounter{section}% increase section counter
+	\addcontentsline{toc}{section}{#1}% optional: add to TOC
+	\phantomsection % for hyperref anchors
+	% No header text printed, no vertical space
+	\def\@currentlabel{\thesection}% for \ref to work correctly
+}
+\makeatother
+
+
+\invisiblesection{Appendix A1: Pole drawing}
+\label{app:A1}
+
 \includepdf[
 pages=1,
 landscape=true,
-scale=0.85,
+scale=0.90,
 pagecommand={%
 	\thispagestyle{plain}%
-    % Title across the top (in landscape coordinates)
-\makebox[0pt][l]{%
-	\raisebox{-20cm}[0pt][0pt]{%
-		\hspace*{-2cm}%
-		\rotatebox{90}{\Huge\textbf{Appendix A: Engineering Drawings}}%
-	}%
-}
 	\makebox[0pt][l]{%
 		\raisebox{2cm}[0pt][0pt]{\hspace*{2cm}\Huge\textbf{Appendix A1: Pole drawing}}%
 	}%
@@ -18,11 +27,13 @@ pagecommand={%
 ]{Assests/schematic.pdf}
 
 
+\invisiblesection{Appendix A2: Frame drawing}
+\label{app:A2}
 
 \includepdf[
 pages=-,
 landscape=true,
-scale=0.85,
+scale=0.90,
 pagecommand={%
 	\thispagestyle{plain}%
 	\makebox[0pt][l]{%
