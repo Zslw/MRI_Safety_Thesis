@@ -1,38 +1,97 @@
-\subsection{Torque Measurement Apparatus (In Progress)}
+\subsection{Torque Measurement Apparatus}
 
-On the final part of the assesment, torque on a straight oriented subject was measured. To archive this a similar non-magnetic pole was fabricated with clinical considerations in mind. As explained in chapter ~/ref{ch2} the induced torque on the subject would be transmitted mechanically to a non-magnetic ruler which then would apply a force on a custom build force sesor. This force sensor would bend on and the counterforce would be measured using strain gauges.
+On the final part of the assessment, torque on a horizontally oriented subject, as described in the figure ref~ was measured. To archive this a non-magnetic pole was fabricated with clinical considerations in mind. The pole was made from PLASTIC and is 200 mm tall with 51 mm of diameter it can be attached to a PVC base for support with a nylon screw and it features a space for a ceramic bearing to sit. This ceramic bearing is meant to reduce as much friction for the rotation as positble while keeping everything non magnetic, the bearing has a plastic notch capable of holding a 10 mm thick ruler or rod to spin. This set up is shown in Figure ref~.  The induced torque on the subject, from the torque explained in chapter ~/ref{ch2}, would be transmitted mechanically to a non-magnetic ruler which then would apply a force on a custom build force sensor (Gauge sensor). This force sensor would bend on and the counterforce would be measured using strain gauges. The strain-gauge-based force sensor and its circuitry were fabricated in our laboratory following a proved methodology \ref{Chiu2016CharacterizationOA} and detailed by a previous graduate student. The assembly, consisting of 4 wire, precision strain gauges, and a half-bridge Wheatstone configuration with amplification and filtering, was inherited as a completed system. In the present work, I performed calibration and validation of the sensor response, and subsequently employed it for torque measurements in the experimental setup.
 
-In figure ~ref we can see the mount it consists of 
+The following space lists all materials used and figure ~ref shows the whole experimental setup for a) calibration and b) torque measurement 
+
+\begin{figure}[h]
+	\centering
+	% Left side: photo
+	\begin{minipage}[t]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{Assests/CalibrationBoat1.png} 
+		\caption*{Experimental setup photo}
+	\end{minipage}%
+	\hfill%
+	% Right side: list
+	\begin{minipage}[t]{0.58\textwidth}
+	\footnotesize
+	\vspace*{-50ex}
+		\begin{enumerate}
+			\item Power supply
+			\item Ammeter
+			\item Helmholtz coils
+			\item Subject (small rod, big rod, lead)
+			\item Ruler
+			\item Ceramic bearing (why a ceramic bearing? friction and magnets)
+			\item Pole
+			\item Ring
+			\item Tube
+			\item Clamp
+			\item Gauge sensor
+			\item Circuit including noise calibration
+			\item DAQ
+			\item Computer
+			\item Universal support with gaussmeter probe and gaussmeter
+		\end{enumerate}
+		\noindent \textbf{Extra:} Calibration boat, pipet, and 200 $\mu$L tube
+		\vspace{0.5em}
+	\end{minipage}
+	\caption{Experimental equipment and corresponding list.}
+	\label{fig:equipment_list}
+\end{figure}
 
 
-include sizes, materials and 
-power supply
-Ammetter
-helmholtz coils
 
-subject (small rod, big rod, lead)
-ruler
-ceramic bearing (why a ceramic bearing?) friccion and magntes
+\subsubsection*{System calibration}
 
-Universal suport with gaussmeter probe and gausmeter
 
-pole
-ring
-tube
-clamp
+%include scale like calibration and boats, point to graphs on the appendix
 
-Gauge sensor
 
-circuit include noise calibration 
+For calibration in our lab, the custom-built sensor was flipped so the bar face horizontally and a small cone-shaped basket made out of tape was attached to hold increments of water. Water was added in $\mu$L increments (equivalent to milligrams) simulating torque loads from 0 to 800 mg. Initial increments of 10 up to 200 $\mu$L covered the expected force range of epicardial leads weight, followed by 50 μL increments to demonstrate linearity and sensor stability.
 
-DAQ
-Computer
+%\subsubsection*{Smallest measurable force}
+From Fig \ref{fig:scaleCalb} the smallest measurable force from our instrument can be determined. Using the slope of the most reliable fit of Aluminum rod $m=-3.4132e-05 (≤0.29\%), \chi_red=1.05$.
 
+The slope relates voltage changes to mass changes:
+
+$$
+\Delta V = \text{slope} \cdot \Delta m
+$$
+so the smallest measurable mass is
+$$
+m_{min}  =\frac{\Delta V}{| \text{slope}|}
+$$
+
+In our case, the standard error in voltage is $\Delta V$ is $1.4123e-06$ which results in $m_{min}​\sim0.0414 \text{mg}$.This corresponds to a force of roughly 0.41$\mu$Newton, which is significant because forces expected on an epicardial lead under a \gls{mri} magnetic field are extremely small.
+
+Along with these measurements we also tested sensitivity along the length of sensor showing that the further out from the gauge bridge the more sensitive the sensor was. This is demonstrated on an appendix \ref{app:B } figure \ref{fig:posAndHeight}. 
+
+In order to find the best position for sensor we set the following experiment, a set of neodymium magnets were aligned to the ceramic bearing to get a static magnetic field, and a platform angled at 45$^\circ$ carried the sensor as we moved it inwards.
+
+From theory, we can show that the maximum torque should appear at this angle - see ch ref~- , and then we tested for the optimal length and position from the center, once the torque is transmitted from the metallic rod onto the ruler and it applies the force to the sensor. This process was repeated to find the sweet spot on distance from the center up to a 100 mm radius and the best height.
+
+Figure \ref{fig:posAndHeight} shows a small voltage for all distances from 50mm to 100mm and a range of voltages once we are high up (far from the bridge) with higher sensitivity near the center at 50mm.
 
 \subsubsection*{In Lab Measurement Protocol}
 
+These features and measurements lead to a new design of the apparatus. One that is more portable and allows to leverage on the sweet spots of the system. A \gls{pvc} ring with a small tube for the clamp to sit was added and with it more repeatibility was ensured.
 
-max and min measures 
+During the experiment 2 measurements were performed. Magnetic field flux in Gauss using the \textbf{AlphaLab Inc. Gaussmeter}, described before, and Voltage from the strain gauge plus circuit sensor. 
 
-include scale like calibration and boats, point to graphs on the appendix
+
+\subsubsection{In Clinic Measurement Protocol}
+
+Torque measurements were conducted ensuring consistency and reproducibility. Prior to setup, both researchers confirmed that all personal belongings and ferromagnetic items had been removed from their pockets. The \gls{lvi} was opened with the necessary parameters configured, and the \gls{dac} was powered on. 
+
+A 10-meter jumper wire was connected to the \gls{dac} and integrated into the circuit, with the computer system interfaced to the \gls{dac} for real-time data collection. 
+
+
+The experimental apparatus was then fitted with the test object—either the magnetically susceptible calibration material or the epicardial lead—mounted on the rotating ruler. 
+ The 10-meter jumper wire was taped down at 1-meter intervals, ensuring stability while leaving approximately 2 meters of excess length between the tape nearest to the probe and the next closest tape point. This excess allowed flexibility in bench movement while ensuring that the second tape point was not placed directly on the bench. The apparatus was positioned on the MRI room bench at a distance of 1 meter from the bore, measured from the base of the apparatus to the bore face. The ruler arm was aligned to rest against the strain gauge, oriented as close as possible to 45° relative to the bore axis. With the setup complete, both researchers exited the MRI room to proceed with data collection from the control room.
+In the control room, torque measurements were acquired according to a predefined flowchart procedure, with results recorded on the MEASUREMENT WORKSHEET. A section of the worksheet was considered complete only when all data fields were marked with an “X.” Section 1 of the worksheet corresponded to measurements performed with the magnetically susceptible calibration object. Following these measurements, the apparatus was retrieved from the MRI room, and the calibration object was replaced with the epicardial lead affixed to the ruler. Section 2 of the worksheet was then completed by repeating the flowchart process with the lead in place.
+After both sets of measurements were concluded, the apparatus was dismantled. The jumper wire was untaped, fed back through the access port, and the used tape discarded. The apparatus itself was removed from the bench and taken out of the MRI room to complete the experimental run.
+Data collection in each section was performed at incremental positions along the MRI bore axis. For both the calibration object (Section 1) and the epicardial lead (Section 2), torque measurements were acquired at eleven translational positions: 100, 90, 80, 70, 60, 50, 40, 30, 20, 10, and 0 cm from the bore face. This systematic sampling allowed for direct comparison of torque response between the calibration object and the epicardial lead across the same magnetic field gradient.
+
 
