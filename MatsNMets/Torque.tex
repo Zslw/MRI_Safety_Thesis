@@ -2,21 +2,21 @@
 
 \subsection{Torque Measurement Apparatus}
 
-On the final part of the assessment, torque on a horizontally oriented subject, as described in the figure ref~ was measured. To archive this a non-magnetic pole was fabricated with clinical considerations in mind. The pole was made from PLASTIC and is 200 mm tall with 51 mm of diameter it can be attached to a PVC base for support with a nylon screw and it features a space for a ceramic bearing to sit. This ceramic bearing is meant to reduce as much friction for the rotation as positble while keeping everything non magnetic, the bearing has a plastic notch capable of holding a 10 mm thick ruler or rod to spin. This set up is shown in Figure ref~.  The induced torque on the subject, from the torque explained in chapter ~/ref{ch2}, would be transmitted mechanically to a non-magnetic ruler which then would apply a force on a custom build force sensor (Gauge sensor). This force sensor would bend on and the counterforce would be measured using strain gauges. The strain-gauge-based force sensor and its circuitry were fabricated in our laboratory following a proved methodology \cite{Chiu2016CharacterizationOA} and detailed by a previous graduate student. The assembly, consisting of 4 wire, precision strain gauges, and a half-bridge Wheatstone configuration with amplification and filtering, was inherited as a completed system. In the present work, I performed calibration and validation of the sensor response, and subsequently employed it for torque measurements in the experimental setup.
+On the final part of the assessment, torque on a horizontally oriented subject, as described in the figure ref~ was measured. To archive this a non-magnetic pole was fabricated with clinical considerations in mind. The pole was made from PLASTIC and is 200 mm tall with 51 mm of diameter it can be attached to a PVC base for support with a nylon screw and it features a space for a ceramic bearing to sit. This ceramic bearing is meant to reduce as much friction for the rotation as positble while keeping everything non magnetic, the bearing has a plastic notch capable of holding a 10 mm thick ruler or rod to spin. This set up is shown in Figure ref~.  The induced torque on the subject, from the torque explained in chapter ~/ref{ch2}, would be transmitted mechanically to a non-magnetic ruler which then would apply a force on a custom build force sensor (Gauge sensor). This force sensor would bend on and the counterforce would be measured using strain gauges. The strain-gauge-based force sensor and its circuitry were fabricated in laboratory following a proved methodology \cite{Chiu2016CharacterizationOA} and detailed by a previous graduate student. The assembly, consisting of 4 wire, precision strain gauges, and a half-bridge Wheatstone configuration with amplification and filtering, was inherited as a completed system. In the present work, I performed calibration and validation of the sensor response, and subsequently employed it for torque measurements in the experimental setup.
 
 The following space lists all materials used and figure ~ref shows the whole experimental setup for a) calibration and b) torque measurement 
 
-\begin{figure}[htb]
+\begin{figure}[H]
 	\centering
 	% Left side: photo
 	\begin{minipage}[t]{0.45\textwidth}
 		\centering
-		\includegraphics[width=0.58\textwidth]{Assests/CalibrationBoat1.png} 
+		\includegraphics[width=0.52\textwidth]{Assests/CalibrationBoat1.png} 
 		\caption*{Experimental setup photo}
 	\end{minipage}%
 	\hfill%
 	% Right side: list
-	\begin{minipage}[t]{0.58\textwidth}
+	\begin{minipage}[t]{0.55\textwidth}
 	\footnotesize
 	\vspace*{-50ex}
 		\begin{enumerate}
@@ -74,10 +74,10 @@ DAQ, Computer, a \gls{lvi} was developed for the purpose of registering the volt
 
 
 %include scale like calibration and boats, point to graphs on the appendix
-For calibration in our lab, the custom-built sensor was flipped so the bar face horizontally and a small cone-shaped basket made out of tape was attached to hold increments of water. Water was added in $\mu$L increments (equivalent to milligrams) simulating torque loads from 0 to 800 mg. Initial increments of 10 up to 200 $\mu$L covered the expected force range of epicardial leads weight, followed by 50 $\mu L$ increments to demonstrate linearity and sensor stability.
+For calibration in the lab, the custom-built sensor was flipped so the bar face horizontally and a small cone-shaped basket made out of tape was attached to hold increments of water. Water was added in $\mu$L increments (equivalent to milligrams) simulating torque loads from 0 to 800 mg. Initial increments of 10 up to 200 $\mu$L covered the expected force range of epicardial leads weight, followed by 50 $\mu L$ increments to demonstrate linearity and sensor stability.
 
 %\subsubsection*{Smallest measurable force}
-From Fig \ref{fig:scaleCalb} the smallest measurable force from our instrument can be determined. Using the slope of the most reliable fit of Aluminum rod $m=-3.4132e-05 (\le 0.29\%), \chi_{red}=1.05$.
+From Fig \ref{fig:scaleCalb} the smallest measurable force the instrument can be determined. Using the slope of the most reliable fit of Aluminum rod $m=-3.4132e-05 (\le 0.29\%), \chi_{red}=1.05$.
 
 The slope relates voltage changes to mass changes:
 
@@ -89,7 +89,7 @@ $$
 m_{min}  =\frac{\Delta V}{| \text{slope}|}
 $$
 
-In our case, the standard error in voltage is $\Delta V = 1.4123e-06$ which results in $m_{min} ​\sim0.0414 \text{mg}$.This corresponds to a force of roughly 0.41$\mu$Newton, which is significant because forces expected on an epicardial lead under a \gls{mri} magnetic field are extremely small.
+In this case, the standard error in voltage is $\Delta V = 1.4123e-06$ which results in $m_{min}\sim0.0414 \text{mg}$.This corresponds to a force of roughly 0.41$\mu$Newton, which is significant because forces expected on an epicardial lead under a \gls{mri} magnetic field are extremely small.
 
 Along with these measurements we also tested sensitivity along the length of sensor showing that the further out from the gauge bridge the more sensitive the sensor was. This is demonstrated on an appendix \ref{app:B} figure \ref{fig:posAndHeight}. 
 
@@ -105,7 +105,7 @@ These features and measurements lead to a new design of the apparatus. One that 
 
 During the experiment 2 measurements were performed. Magnetic field flux in Gauss using the \textbf{AlphaLab Inc. Gaussmeter}, described before, and Voltage from the strain gauge plus circuit sensor. 
 
-The experiment consisted of, with the sensor fixed in the ideal position, vary the magnetic field produced by the Helmholtz coils -mimicking the behavior in distance as a real MRI-increasing as we get closer to isocenter. Then the respective voltage produced by the deformation of the sensor is recorded and with our voltage to weight calibration we can estimate the induced torque of our system.
+The experiment consisted of, with the sensor fixed in the ideal position, vary the magnetic field produced by the Helmholtz coils -mimicking the behavior in distance as a real MRI-increasing as we get closer to isocenter. Then the respective voltage produced by the deformation of the sensor is recorded. Finally, the voltage to weight calibration serves to estimate the induced torque of the system.
 
 
 \subsubsection{In Clinic Measurement Protocol}
