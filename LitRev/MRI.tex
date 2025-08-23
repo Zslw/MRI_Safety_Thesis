@@ -44,23 +44,74 @@
 
 %	Quick review on the MRI components and principles
 
-
 % 1. Introduction
 %    - What is MRI and why is it used clinically      [🟠 Medium Priority]
-\gls{mri} or Magnetic Resonance Imaging is a medical imaging modality that uses magnetic fields and radiofrequency (\gls{rf}) energy to produce images, rather than ionizing radiation like X-rays making it inherent safe. \gls{mri} machines are capable of archiving high contrast sensitivity to soft tissue differences because of the reliance on micromagnetic properties of the tissue and its inherent differences leveraging on \gls{pd} and the relaxation phenomena.
+\gls{mri} or Magnetic Resonance Imaging is a medical imaging modality that uses magnetic fields and radiofrequency (\gls{rf}) energy to produce images, rather than ionizing radiation like X-rays making it inherent safe. Moreover, \gls{mri} machines are capable of archiving high contrast sensitivity to soft tissue differences because of the reliance on micromagnetic properties of the tissue and its inherent differences leveraging on \gls{pd} and the relaxation phenomena.
 
+A common \gls{mri} has several components that interact with matter around it, for example, heat and electricity interactions could be a concern on RF fields or Gradient Coils. For mechanical interactions, we need to know what are the mechanisms in which the static magnetic field could possibly interact with wire like devices. This subsection provides a review of the physcis and its implications for the clinic and our lab setting. Most of its content was based on physics and imaging well known textbooks, including Young's $\&$ Freedman's University Physics, Griffith's Introduction to Electrodynamics, and Bushberg's Physics of Medical Imaging \cite{bushberg2011}
 
+% 1. - Main Magnet                                   [🔴 High Priority]
+%      (Primary source of static magnetic field and spatial gradients.)
+
+Magnets are at the core of MR systems, and their performance is judged by field strength, temporal stability, and homogeneity. The strength of a magnetic field, also known as magnetic flux density ($B$), is measured in Tesla (T). An older, alternative unit is the gauss (G), where 1 T = 10,000 G. For perspective, Earth's magnetic field is significantly weaker, around 0.00005 T (0.05 mT or 0.5-1.0 G).
+
+Magnetic fields can be induced by moving charges in a wire, where the direction depends on the charge's sign and direction, described by the "right-hand rule". Coiling a current-carrying wire, creating a solenoid or electromagnet, superimposes these magnetic fields, significantly augmenting the field strength inside the coil and causing a rapid falloff outside. The amplitude of the current and the number of coil turns determine the overall magnitude of the magnetic field strength as follows:
+
+% Magnetic field of a solenoid
+\begin{equation}
+	B = \mu_{0} \, n I
+	\label{eq:solenoid}
+\end{equation}
+
+Where B is the magnetic field, $\mu_{0}$ is the vacuum permeability, $n$ is the number of turns and $I$ is the current. Common \gls{mri} are typically made of superconducting wire-wrapped cylinders. These wires are made from niobium-titanium alloys and show no resistance to electric current when maintained at extremely low temperatures. The wire-wrapped cylinder produce a magnetic field parallel to the cylinder's long axis, usually horizontal (along the patient's cranial-caudal axis in clinical systems).
 
 % 2. Magnetic Interactions
+
+\gls{mri}, as the name suggests, leverages on the magnetic properties of matter to capture information ultimately forming an image. It is important then to understand these properties and how they are characterized. In a particle scale these effects are shown in protons and neutrons within the nucleus due to their nuclear spin and charge distribution.
+
+Hydrogen (specifically its proton, $^1H$ ) is the most utilized element in clinical MRI because it has the largest magnetic moment and is highly abundant in biological tissues, primarily in water and fat. When placed in a strong static magnetic field ($B_0$), these protons align in parallel (low-energy state) and antiparallel (high-energy state) directions. A slight majority align in the low-energy, parallel direction, resulting in an observable net \textbf{magnetic moment} for the sample.
+
+Let us then ground this knowledge in electromagnetism theory, 
 %    - Magnetic Moments & Magnetization              [🔴 High Priority]
 %      (Foundation for understanding how magnetic fields act on materials.)
+
+% Magnetization definition
+\begin{equation}
+	\mathbf{M} \equiv \frac{\boldsymbol{\mu}}{V}
+	\label{eq:magnetization}
+\end{equation}
+
+
 %    - Material Susceptibility (Δχ)                  [🔴 High Priority]
 %      (Include MR compatibility thresholds—Δχ < 0.01 for safety.)
 
+% Torque
+\begin{equation}
+	\boldsymbol{\tau} = \boldsymbol{\mu} \times \mathbf{B}
+	\label{eq:torque}
+\end{equation}
 
-forces are described as a function of the static field strength ($B_0$), its spatial gradient ($\nabla B_0$), and the magnetic susceptibility ($\chi$) and density ($\rho$) of the material. A well known and expected behavior is the magnetic pull on high susceptibility materials toward regions of higher field strength, like near the bore entrance of the scanner where the spatial gradient is highest \cite{aboyewa2021,bushberg2011,panych2018}. For instance, a nonmagnetic stainless steel wire with $\chi \approx 103$ ppm may experience a force equivalent to $\sim$30\% of its weight, whereas ferromagnetic materials like pure nickel can experience forces exceeding 20,000 times their own weight. That is more than enough to become dangerous projectiles unless restrained \cite{aboyewa2021,panych2018}.
 
-\subsubsection{Components:}
+
+
+
+% Potential Energy
+\begin{equation}
+	U = -\boldsymbol{\mu} \cdot \mathbf{B}
+	\label{eq:potential_energy}
+\end{equation}
+
+% Force
+\begin{equation}
+	\mathbf{F} = (\boldsymbol{\mu} \cdot \nabla)\mathbf{B}
+	\label{eq:force}
+\end{equation}
+
+
+
+In general, forces are described as a function of the static field strength ($B_0$), its spatial gradient ($\nabla B_0$), and the magnetic susceptibility ($\chi$) and density ($\rho$) of the material. A well known and expected behavior is the magnetic pull on high susceptibility materials toward regions of higher field strength, like near the bore entrance of the scanner where the spatial gradient is highest \cite{aboyewa2021,bushberg2011,panych2018}. For instance, a nonmagnetic stainless steel wire with $\chi \approx 103$ ppm may experience a force equivalent to $\sim$30\% of its weight, whereas ferromagnetic materials like pure nickel can experience forces exceeding 20,000 times their own weight. That is more than enough to become dangerous projectiles unless restrained \cite{aboyewa2021,panych2018}.
+
+%\subsubsection{Components:}
 
 % 3. MRI System Components
 %    - Main Magnet                                   [🔴 High Priority]
@@ -69,24 +120,19 @@ forces are described as a function of the static field strength ($B_0$), its spa
 %      (Include brief note on eddy currents and induced Lorentz forces.)
 %    - RF Coils (Antennas)                           [🟡 Low Priority]
 %      (Mention briefly if relevant to antenna effect in retained leads.)
+Do I need to explain other components of the MRI? Gradient coils and RF coils, are relevant in the broader view like from brights thesis. and future work.
 
-For heat and electricity we are particularly interested on RF fields
-for mechanical we need to know the static magnetic field
-the mechanisim and intesity of the field
-
-Now we can explain the interactions between the two. Once RF is understood we can explain how this affect the leads resulting in heating and electric conductivity, based on the past local research and literature.			
-
-
+Once RF is understood we can explain how this affect the leads resulting in heating and electric conductivity, based on the past local research and literature. (Bright's thesis)
 
 %//////////
-the physics
+Do I need more info on the rest of the image generation?
 
 Resonance and Signal Generation
 
 
-Tissue Contrast (Relaxation Phenomena)
+Tissue Contrast (Relaxation Phenomena) T1 T2...
 
-the interaction
+
 %//////////
 
 \subsection{Safety}
