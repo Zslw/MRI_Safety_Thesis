@@ -11,30 +11,22 @@ The following space lists all materials used and figure ~ref shows the whole exp
 	% Left side: photo
 	\begin{minipage}[t]{0.45\textwidth}
 		\centering
-		\includegraphics[width=0.52\textwidth]{Assests/CalibrationBoat1.png} 
+		\includegraphics[width=\textwidth]{Assests/4 copy.png} 
 		\caption*{Experimental setup photo}
 	\end{minipage}%
 	\hfill%
 	% Right side: list
 	\begin{minipage}[t]{0.55\textwidth}
 	\footnotesize
-	\vspace*{-50ex}
+	\vspace*{-60ex}
 		\begin{enumerate}
 			\item Power supply
 			\item Ammeter
 			\item Helmholtz coils
-			\item Subject (small rod, big rod, lead)
-			\item Ruler
-			\item Ceramic bearing (why a ceramic bearing? friction and magnets)
-			\item Pole
-			\item Ring
-			\item Tube
-			\item Clamp
-			\item Gauge sensor
+			\item Universal support with gaussmeter probe and gaussmeter
 			\item Circuit including noise calibration
 			\item DAQ
-			\item Computer
-			\item Universal support with gaussmeter probe and gaussmeter
+			\item Main device
 		\end{enumerate}
 		\noindent \textbf{Extra:} Calibration boat, pipet, and 200 $\mu$L tube
 		\vspace{0.5em}
@@ -42,6 +34,36 @@ The following space lists all materials used and figure ~ref shows the whole exp
 	\caption{Experimental equipment and corresponding list.}
 	\label{fig:equipment_list}
 \end{figure}
+
+\begin{figure}[H]
+	\centering
+	% Left side: list
+	\begin{minipage}[t]{0.45\textwidth}
+		\footnotesize
+		\vspace*{-35ex}
+		\begin{enumerate}
+			\item Subject (small rod, big rod, lead)
+			\item Ruler
+			\item Ceramic bearing 
+			\item Pole
+			\item Ring
+			\item Tube
+			\item Clamp
+			\item Gauge sensor
+			\item Computer
+		\end{enumerate}
+	\end{minipage}%
+	\hfill%
+	% Right side: photo
+	\begin{minipage}[t]{0.55\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{Assests/6.png} 
+		\caption*{Experimental setup photo}
+	\end{minipage}
+	\caption{Experimental equipment and corresponding list.}
+	\label{fig:equipment_list_zoomed}
+\end{figure}
+
 
 %Power supply
 % Ammeter
@@ -62,8 +84,16 @@ Ceramic bearing (why a ceramic bearing? friction and magnets)
 %Clamp
 
 
-Gauge sensor, a set of sensors of different materials were fabricated. Materials included glass, aluminum and clear plastic. During calibration, aluminum based sensor was proven to be the best. Comparison plots can be found in appendix \ref{app:B}
+Gauge sensor, set of sensors from different materials were fabricated. These  included glass, aluminum and clear plastic. As table \ref{tab:rods} illustrate, they were made of similar sizes to test repeatability.
 
+\begin{table}[h!]
+	\centering
+	\caption{Characteristics of the rods used in experiments.}
+	\label{tab:rods}
+	\input{MatsNMets/rod_characteristics_table}
+\end{table}
+
+During calibration, aluminum based sensor was proven to be the best. Comparison plots can be found in appendix \ref{app:B} %add an image of the sensor
 
 Circuit including noise calibration, should I include a diagram and explanation of this circuit? If so should I attach it to the appendix as well?
 DAQ, Computer, a \gls{lvi} was developed for the purpose of registering the voltages a flowchart would be useful here as well.
