@@ -16,7 +16,7 @@ Magnetic field strength ($B_0$) and gradient ($\nabla B_0$) measurements were pe
 
 To ensure spatial accuracy and reproducibility, a fixture made from rigid  \gls{pvc} was constructed by previous Creighton University students \cite{haddixProposal}. The platform comprises a 300 mm square base and a 280 mm diameter vertical circular plate, perforated with a 5x5 grid of probe-access holes spaced at 20 mm intervals as shown in figure \ref{fig:fieldmapping}. Each access point was numerically indexed to facilitate 2D field mapping in the X-Y plane.
 
-\begin{figure}[H]
+\begin{figure}[hbt!]
 	\centering
 	\begin{minipage}[t]{0.48\textwidth}
 		\centering
@@ -41,9 +41,9 @@ The data acquisition procedure for magnetic flux mapping is organized in this \g
 
 While the flowchart reflects the core logic, it does not fully convey the customization added to the \gls{lvi} interface. For example, the front panel includes input fields for patient table (couch) parameters such as couch speed and displacement points. As mentioned above, our phantom is discretized with radial and angular indices: angular positions span 12 sectors clockwise from the 12 o’clock position (0 to 11 or A to L), and radial depths range from the center (0) to the outer edge (6). The probe’s spatial location is represented in polar coordinates, and the system plots magnetic flux as a function of position rather than time, allowing for intuitive visualization of the MRI fringe field across the phantom surface.
 
-\begin{figure}[H]
+\begin{figure}[hbt!]
 	\centering
-    \includegraphics[width=0.5\textwidth]{tikZ/flowchart.pdf} 
+    \includegraphics[width=0.5\textwidth]{TikZ/flowchart.pdf} 
 	\caption{Flowchart of the Gaussmeter VI data acquisition algorithm.}
 	\label{fig:gaussmeter-flowchart}
 \end{figure}
