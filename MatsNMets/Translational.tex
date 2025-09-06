@@ -1,12 +1,14 @@
-\subsection{Translational Force Measurement via Angular Deflection}
+\section{Translational Force Measurement via Angular Deflection}
 
-\subsubsection{Measurement Device}
+\subsection{Measurement Device}
 
-To assess MRI-induced translational forces in a laboratory environment, Creighton University developed a pendulum-style apparatus following the geometry and physics outlined in ASTM F2052-15\cite{astmF2052}. The vertical post includes a screw clamp mechanism that enables height adjustment; however, a default suspension height of 1 meter was used for consistency across trials.
+To assess MRI-induced translational forces in a laboratory environment, Creighton University developed a pendulum-style apparatus following the geometry and physics outlined in ASTM F2052-15\cite{astmF2052}. The vertical post includes a screw clamp mechanism that enables height adjustment; however, a default suspension height of $L= 1$ meter was used for consistency across trials.
 
-The experimental frame was constructed entirely from \gls{pvc} components (Figure \ref{fig:schematic_a}), including a vertical post of 1.5 meters and a rigid base for stabilization. The sample—a \textbf{solid ferromagnetic cylinder} (length = 6 mm, diameter = 3 mm, mass = 0.3648 g, density = 8.6 g/cm$^3$)—was suspended by a \textbf{955 mm-long sewing thread}, tied via a simple knot at its center. For clinical applications, a \textbf{0.25 mm nylon monofilament} is recommended for improved reproducibility and safety. A Monofilament Nylon thread has low stretch,  complies with MR-safe properties (Non-metallic, Non-conductive, Non-magnetic), and reduces variability introduced by torsional drift or thread elasticity  \cite{stoianovici2024, astmF2052}. The bottom of the sample was free to swing, forming a pendulum under gravity. A horizontal ruler, fixed along the Z-axis, served as the visual reference to quantify lateral displacements as shown in Figure \ref{fig:schematic_b} and detailed in Figure~\ref{fig:schematic_c}. 
+The experimental frame was constructed entirely from \gls{pvc} components (Figure \ref{fig:schematic_a}), including a vertical post of about 1.5 meters and a rigid base for stabilization. Attached to the pole a set of rings were attached to the pole with a nylon screw to held positions. The lower one features a slit, where a custom made Kydex ruler sits held by smaller nylon screws. This ruler is interchangeable. The upper ring shows a rubber clamp from which a string passes. Then the lenght of suspentson $L= 1$ meter was set as the distance between these two rings, more specifically from the last contact point of the string to the rubber on the top ring to the sample hanging free at ruler's height as shown in Figure~\ref{fig:schematic_c}. 
 
-\begin{figure}[hbt!]
+ The sample—a \textbf{solid ferromagnetic cylinder} (length = 6 mm, diameter = 3 mm, mass = 0.3648 g, density = 8.6 g/cm$^3$)—was suspended by a \textbf{955 mm-long sewing thread}, tied via a simple knot at its center. For clinical applications, a \textbf{0.25 mm nylon monofilament} is recommended for improved reproducibility and safety. A Monofilament Nylon thread has low stretch,  complies with MR-safe properties (Non-metallic, Non-conductive, Non-magnetic), and reduces variability introduced by torsional drift or thread elasticity  \cite{stoianovici2024, astmF2052}. The bottom of the sample was free to swing, forming a pendulum under gravity. A horizontal ruler, fixed along the Z-axis, served as the visual reference to quantify lateral displacements as shown in Figure \ref{fig:schematic_b} 
+
+\begin{figure}[H]
 	\centering
 	
 	% Row 1: (a) and (b)
@@ -44,7 +46,7 @@ To accommodate epicardial lead positioning while maintaining MRI compatibility, 
 
 The mesh needs to be suspended such that the lead axis was aligned approximately parallel to the magnetic field gradient (Z-axis). The mesh's lightweight design aimed to minimize its contribution to the total magnetic force, however its mass was not explicitly subtracted from the translational force calculations.
 
-\begin{figure}[hbt!]
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=0.5\textwidth]{Assests/frameHolder.png}
 	\caption[3D render of the design on lead holder]{The design on lead holder comprises a rectangular lightweight bee comb mesh to wrap the epicardial lead around and hold it in a pendulum with a nylon string}	
@@ -55,17 +57,13 @@ A summary schematic of the apparatus and frame are included in Figures \ref{fig:
 
 %add a photo of the actual epicardial lead wrapped arround the frame and explain center of gravity and force expected.
 
-\subsubsection*{Smallest measurable force}
-
-
-
 \subsubsection*{In Lab Measurement Protocol}
 
 Magnetic field measurements were performed using the \textbf{AlphaLab Inc. Gaussmeter} described before. The setup consisted of a custom-made solenoid connected to a Pasco power supply capable to deliver up 8 A acting as variable magnetic field generator for our experiment, the subject - a small ferromagnetic rod - was attached to a string pending from the \gls{mri} safe pole and angle of deflection was measured visually with a ruler on the subject horizontal displacement towards the coil. The Gaussmeter was positioned such that it allowed for small displacements and magnetic field measurements at the same time as angle deflection.
 
 Figure \ref{labsetup} shows the experimental lab setup used to assess the methodology accuracy and reliability with all used components.
 
-\begin{figure}[hbt!]
+\begin{figure}[H]
 	\centering
 	\begin{minipage}[t]{0.58\textwidth}
 		\centering
@@ -114,7 +112,7 @@ Where $\alpha$ is the deflection angle from vertical, $F_m$ is the magnetically 
 
 This is also derived from Newtonian force balancing as in Appendix X2 of ASTM F2052-15 (Fig \ref{fig:astm_diagram}), and is valid even in cases when the magnetic force does not operate exactly at the center of mass. As a result, the approach is reliable for evaluating a variety of devices.
 
-\begin{figure}[htb!]
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=0.6\textwidth]{Assests/astm_diagram.png}
 	\caption{Free-body diagram of device in magnetic field (adapted from ASTM F2052-15, Appendix X2).}
@@ -151,6 +149,10 @@ In the clinical MRI environment, $B_0$ may reach 3 T, but the $\chi$ of implante
 
 All measurements were logged in \textbf{Microsoft Excel}, and photos/videos were captured via smartphone to document behavior. A minimum of \textbf{three trials} were performed for each current level; however, only the final (most consistent) dataset was retained for analysis. Data were exported to a Jupyter Notebook for clean up and processing with pandas. Then plotted to evaluate $\tan \alpha$ vs. field gradient force. Propagated uncertainties in $\alpha$ and $dB_0/dz$ were computed using standard error propagation formulas.
 
+
+\subsubsection*{Smallest measurable force}
+
+The smallest measurable force can be obtained with geometry, as the pendulum forms a right-angled triangle where the vertical line is the pole itself \textit{"L"}, the horizontal is the ruler \textit{"x"} and the hypotenuse is the pendulum's string as depicted on figure \ref{labsetup}. Both of these measurements have a $1mm$ accuracy and equips us with a 1m by 1mm triangle 
 
 Max and min forces measured
 

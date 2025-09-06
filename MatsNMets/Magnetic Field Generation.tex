@@ -1,4 +1,4 @@
-\section*{Magnetic Field Generation and mapping}
+\section{Magnetic Field Generation and mapping}
 
 Magnetic fields were generated in multiple ways, seeking to archive the most reliable or similar situation as one would encounter on a clinic. The most intuitive way to accomplish this in a lab setting was to use neodymium magnets with the only problem being static or step-wise change of its magnetic flux, but proving to be quite effective and strong. 
 
@@ -10,7 +10,7 @@ Further describe this coils, size, number of turns, pasco, series so on
 
 Around our torque contraption allowing us to see changes with its strength in real time using the same \textbf{Pasco Scientific SF-9584 DC power supply}.
 
-\section{Magnetic Field and Gradient Mapping Platform}
+\subsection{Magnetic Field and Gradient Mapping Platform}
 
 Magnetic field strength ($B_0$) and gradient ($\nabla B_0$) measurements were performed using a commercial Gaussmeter (Model GM2, AlphaLab Inc., Salt Lake City, UT).  The GM2 operates on the Hall effect principle, wherein a voltage is generated across a probe when exposed to a perpendicular magnetic field. This voltage is proportional to the local magnetic flux density, enabling precise spot measurements of field magnitude. The Gaussmeter used has an accuracy of 1\% of the DC reading in the 16$^\circ$C to 29$^\circ$C range.
 
@@ -41,7 +41,7 @@ The data acquisition procedure for magnetic flux mapping is organized in this \g
 
 While the flowchart reflects the core logic, it does not fully convey the customization added to the \gls{lvi} interface. For example, the front panel includes input fields for patient table (couch) parameters such as couch speed and displacement points. As mentioned above, our phantom is discretized with radial and angular indices: angular positions span 12 sectors clockwise from the 12 o’clock position (0 to 11 or A to L), and radial depths range from the center (0) to the outer edge (6). The probe’s spatial location is represented in polar coordinates, and the system plots magnetic flux as a function of position rather than time, allowing for intuitive visualization of the MRI fringe field across the phantom surface.
 
-\begin{figure}[hbt!]
+\begin{figure}[H]
 	\centering
     \includegraphics[width=0.5\textwidth]{TikZ/flowchart.pdf} 
 	\caption{Flowchart of the Gaussmeter VI data acquisition algorithm.}
