@@ -1,6 +1,4 @@
-\subsection{\texorpdfstring{\gls{mri}: How it works?}{MRI: How it works?}}
-
-
+\subsection{Magnetic Resonance Imaging}
 % ------------------------------------------------------------------------------
 % MRI Translational Forces – Background Section Writing Guide
 %
@@ -49,8 +47,29 @@
 %    - What is MRI and why is it used clinically      [🟠 Medium Priority]
 \gls{mri} or Magnetic Resonance Imaging is a medical imaging modality that uses magnetic fields and radiofrequency (\gls{rf}) energy to produce images, rather than ionizing radiation like X-rays making it inherent safe. Moreover, \gls{mri} machines are capable of archiving high contrast sensitivity to soft tissue differences because of the reliance on micromagnetic properties of the tissue and its inherent differences leveraging on \gls{pd} and the relaxation phenomena.
 
-A common \gls{mri} has several components that interact with matter around it, for example, heat and electricity interactions could be a concern on RF fields or Gradient Coils. For mechanical interactions, we need to know what are the mechanisms in which the static magnetic field could possibly interact with wire like devices. This subsection provides a review of the physcis and its implications for the clinic and our lab setting. Most of its content was based on physics and imaging well known textbooks, including Young's $\&$ Freedman's University Physics, Griffith's Introduction to Electrodynamics, and Bushberg's Physics of Medical Imaging \cite{bushberg2011}
+% 2. Magnetic Interactions
 
+\gls{mri}, as the name suggests, leverages on the magnetic properties of matter to capture information ultimately forming an image. It is important, then, to understand these properties and how they are characterized. In a particle scale these effects are shown in protons and neutrons within the nucleus due to their nuclear spin and charge distribution. Hydrogen (specifically its proton, $^1H$ ) is the most utilized element in clinical MRI because it has the largest magnetic moment and is highly abundant in biological tissues, primarily in water and fat. 
+
+When placed in a strong static magnetic field ($B_0$), these protons align in parallel (low-energy state) and antiparallel (high-energy state) directions. A slight majority align in the low-energy, parallel direction, resulting in an observable net magnetic moment for the sample.  As illustrated in Figure~\ref{fig:proton_alignment}, the net magnetic moment of hydrogen protons forms the basis of MRI signal generation.
+
+
+\begin{figure}[htb!]
+	\centering
+	\includegraphics[width=\textwidth]{Assests/MRIproton.png}
+	\caption[Proton alignment in a magnetic field]{Schematic illustration of how hydrogen protons ($^1$H) behave in the presence of a strong static magnetic field ($B_0$). 
+		A: In the absence of a field, proton magnetic moments are randomly oriented, producing no net magnetization. 
+		B: When exposed to $B_0$, protons align either parallel or antiparallel to the field. 
+ \cite{bushberg2011}.}
+	\label{fig:proton_alignment}
+\end{figure}
+
+A common \gls{mri} has several components that interact with matter around it, for example, heat and electricity interactions could be a concern on RF fields or Gradient Coils. For mechanical interactions, the interest falls under the question ``What are the mechanisms in which the static magnetic field could possibly interact with wire or thin cylinder like devices?". 
+
+This subsection provides a review of the physics and its implications for the clinic and the lab setting. Most of its content was based on physics and imaging well known textbooks, including Young's $\&$ Freedman's University Physics, Griffith's Introduction to Electrodynamics, and Bushberg's Physics of Medical Imaging \cite{bushberg2011}
+
+
+\subsubsection{The Static Field}
 % 1. - Main Magnet                                   [🔴 High Priority]
 %      (Primary source of static magnetic field and spatial gradients.)
 
@@ -66,47 +85,45 @@ Magnetic fields can be induced by moving charges in a wire, where the direction 
 
 Where B is the magnetic field, $\mu_{0}$ is the vacuum permeability, $n$ is the number of turns and $I$ is the current. Common \gls{mri} are typically made of superconducting wire-wrapped cylinders. These wires are made from niobium-titanium alloys and show no resistance to electric current when maintained at extremely low temperatures. The wire-wrapped cylinder produce a magnetic field parallel to the cylinder's long axis, usually horizontal (along the patient's cranial-caudal axis in clinical systems).
 
-% 2. Magnetic Interactions
+\begin{figure}[htb!]
+	\centering
+	\includegraphics[width=\textwidth]{Assests/FringeFields.png}
+\end{figure}
 
-\gls{mri}, as the name suggests, leverages on the magnetic properties of matter to capture information ultimately forming an image. It is important then to understand these properties and how they are characterized. In a particle scale these effects are shown in protons and neutrons within the nucleus due to their nuclear spin and charge distribution.
+Let us then follow the physics of a static magnetic field and is interaction with matter with electromagnetism theory, any material placed in a magnetic field develops a magnetization, $\mathbf{M}$, defined as the net magnetic dipole moment per unit volume:
 
-Hydrogen (specifically its proton, $^1H$ ) is the most utilized element in clinical MRI because it has the largest magnetic moment and is highly abundant in biological tissues, primarily in water and fat. When placed in a strong static magnetic field ($B_0$), these protons align in parallel (low-energy state) and antiparallel (high-energy state) directions. A slight majority align in the low-energy, parallel direction, resulting in an observable net \textbf{magnetic moment} for the sample.
-
-Let us then ground this knowledge in electromagnetism theory, 
-%    - Magnetic Moments & Magnetization              [🔴 High Priority]
-%      (Foundation for understanding how magnetic fields act on materials.)
-
-% Magnetization definition
 \begin{equation}
 	\mathbf{M} \equiv \frac{\boldsymbol{\mu}}{V}
 	\label{eq:magnetization}
 \end{equation}
 
+\noindent where $\boldsymbol{\mu}$ is the sum of the microscopic magnetic dipoles within the volume $V$ \cite{griffiths2013electrodynamics}. In practice, the microscopic magnetic field inside a material fluctuates rapidly due to atomic and electronic motion. To describe macroscopic behavior, we use an average field over many atoms, and $\mathbf{M}$ represents this ``smoothed'' magnetization.
 
-%    - Material Susceptibility (Δχ)                  [🔴 High Priority]
-%      (Include MR compatibility thresholds—Δχ < 0.01 for safety.)
+Different materials respond differently to an applied field. Diamagnetic materials, such as water, calcium, and most organic compounds, develop a magnetization opposite to the applied B-field due to paired electrons. Paramagnetic substances, like molecular oxygen, deoxyhemoglobin, or gadolinium-based MRI contrast agents, align weakly with the field, enhancing the local magnetic flux. The degree to which a material becomes magnetized is quantified by its magnetic susceptibility, $\chi$, which is typically small in biological tissues ($|\Delta \chi| < 0.01$). Ferromagnetic materials, by contrast, exhibit strong self-sustained magnetization but are generally avoided in MRI due to safety hazards.
 
-% Torque
+To simplify the analysis of materials in magnetic fields, physicists define the auxiliary magnetic field $\mathbf{H}$:
+
+\begin{equation}
+	\mathbf{H} \equiv \frac{1}{\mu_0} \mathbf{B} - \mathbf{M}
+\end{equation}
+
+\noindent where $\mathbf{B}$ is the macroscopic magnetic flux density and $\mu_0$ is the permeability of free space. $\mathbf{H}$ accounts for the part of the magnetic field produced by free currents, separating it from the bound currents induced by magnetization. This distinction becomes useful when analyzing mechanical effects on magnetic dipoles.
+
+Magnetic dipoles interact mechanically with a magnetic field through forces and torques. A dipole $\boldsymbol{\mu}$ in an inhomogeneous field experiences a force:
+
+\begin{equation}
+	\mathbf{F} = (\boldsymbol{\mu} \cdot \nabla)\mathbf{B}
+	\label{eq:force}
+\end{equation}
+
+\noindent and a torque:
+
 \begin{equation}
 	\boldsymbol{\tau} = \boldsymbol{\mu} \times \mathbf{B}
 	\label{eq:torque}
 \end{equation}
 
-
-
-
-
-% Potential Energy
-\begin{equation}
-	U = -\boldsymbol{\mu} \cdot \mathbf{B}
-	\label{eq:potential_energy}
-\end{equation}
-
-% Force
-\begin{equation}
-	\mathbf{F} = (\boldsymbol{\mu} \cdot \nabla)\mathbf{B}
-	\label{eq:force}
-\end{equation}
+From these two equations we can solve for more specific physical setups. For instance, consider a pendulum that is exposed to a strong 
 
 
 
@@ -121,22 +138,25 @@ In general, forces are described as a function of the static field strength ($B_
 %      (Include brief note on eddy currents and induced Lorentz forces.)
 %    - RF Coils (Antennas)                           [🟡 Low Priority]
 %      (Mention briefly if relevant to antenna effect in retained leads.)
+
+
+\subsubsection{Gradient coils and RF coils?}
 Do I need to explain other components of the MRI? Gradient coils and RF coils, are relevant in the broader view like from brights thesis. and future work.
 
 Once RF is understood we can explain how this affect the leads resulting in heating and electric conductivity, based on the past local research and literature. (Bright's thesis)
 
 %//////////
-Do I need more info on the rest of the image generation?
+%Do I need more info on the rest of the image generation?
 
-Resonance and Signal Generation
+%Resonance and Signal Generation
 
 
-Tissue Contrast (Relaxation Phenomena) T1 T2...
+%Tissue Contrast (Relaxation Phenomena) T1 T2...
 
 
 %//////////
 
-\subsection{Safety}
+\subsubsection{Safety}
 
 the safety
 the 5 gauss line
