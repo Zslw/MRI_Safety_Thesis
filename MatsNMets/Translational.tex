@@ -61,68 +61,23 @@ Figure \ref{labsetup} shows the experimental lab setup used to assess the method
 	\label{labsetup}
 \end{figure}
 
-To characterize local field gradients, measurements were taken at three positions: at the pendulum's equilibrium position, 0.5 mm below, and 0.5 mm above, yielding values of $B_{-0.5}$, $B_0$, and $B_{+0.5}$, respectively. Each position was sampled \textbf{nine times per current level}, and gradients were computed using python pandas library and the central finite difference method:
+To characterize local field gradients, measurements were taken at three positions: at the pendulum's equilibrium position, 0.5 mm below, and 0.5 mm above, yielding values of $B_{-0.5}$, $B_0$, and $B_{+0.5}$, respectively. Each position was sampled nine times per current level, and gradients were computed using python pandas library and the central finite difference method:
 
 \begin{equation}
 	\frac{dB}{dz} \approx \frac{B_{+0.5} - B_{-0.5}}{1\ \text{mm}}
 \end{equation}
 
-Once the pendulum reached equilibrium under each magnetic condition, the horizontal displacement on $z$ was recorded visually using the ruler as a reference. With known suspension length $L$, the \textbf{deflection angle $\alpha$} was calculated as:
+Once the pendulum reached equilibrium under each magnetic condition, the horizontal displacement on $z$ was recorded visually using the ruler as a reference. With known suspension length $L$, the deflection angle $\alpha$ was calculated as:
 
 \begin{equation}
 	\alpha = \tan^{-1}\left(\frac{x}{L}\right)
 \end{equation}
 
-Following ASTM F2052-15, the translational force exerted on a device due to a static magnetic field spatial gradient can be evaluated through angular deflection. In this setup, the test object is suspended in equilibrium, and the balance of forces leads to:
-
-\begin{equation}
-	\tan \alpha = \frac{F_m}{mg}
-\end{equation}
-
-Where $\alpha$ is the deflection angle from vertical, $F_m$ is the magnetically induced translational force, $m$ is the mass of the object, and $g$ is the gravitational acceleration. Rearranging gives:
-
-\begin{equation}
-	F_m = mg \tan \alpha
-\end{equation}
-
-This is also derived from Newtonian force balancing as in Appendix X2 of ASTM F2052-15 (Fig \ref{fig:astm_diagram}), and is valid even in cases when the magnetic force does not operate exactly at the center of mass. As a result, the approach is reliable for evaluating a variety of devices.
-
-\begin{figure}[htb!]
-	\centering
-	\includegraphics[width=0.6\textwidth]{Assests/astm_diagram.png}
-	\caption{Free-body diagram of device in magnetic field (adapted from ASTM F2052-15, Appendix X2).}
-	\label{fig:astm_diagram}
-\end{figure}
-
-For materials where magnetization is induced by a static field (e.g., paramagnetic or unsaturated ferromagnetic materials), the translational force can also be expressed in terms of volumetric magnetic susceptibility $\chi$, assuming linear response:
-
-\begin{equation}
-	F_m = \frac{\chi V}{\mu_0} B_0 \frac{dB_0}{dz}
-	\quad \Rightarrow \quad
-	\chi = \frac{\mu_0 F_m}{V B_0 \frac{dB_0}{dz}}
-\end{equation}
-
-Combining this with the earlier result:
-
-\begin{equation}
-	\chi = \frac{\mu_0 m g \tan \alpha}{V B_0 \frac{dB_0}{dz}}
-\end{equation}
-
-This provides a direct estimation of magnetic susceptibility from angular deflection measurements, provided the field and its gradient are known. 
-
-The ratio is expressed as follows using a different, dimensionally reduced form from ASTM F2052-15's Appendix X3:
-
-\begin{equation}
-	\frac{\chi}{\rho \mu_0 g} = \frac{\tan \alpha}{B_0 \frac{dB_0}{dz}}
-\end{equation}
-
-This formulation explains why the measured deflection angle $\alpha$ (and thus $F_m$) depends not on $\chi$ or $B_0$ independently, but on their product. Practically, this insight justifies our lab methodology: although our solenoid generates only ~20 Gauss, we used a highly ferromagnetic sample (large $\chi$), allowing us to replicate clinically relevant force-to-weight ratios ($F_m / mg$).
-
 In the clinical MRI environment, $B_0$ may reach 3 T, but the $\chi$ of implanted materials is often orders of magnitude smaller. This inverse balance preserves the translational force regime, and supports translating results from lab simulations to clinical conditions.
 
 %\subsection*{Data Collection and Analysis}
 
-All measurements were logged in \textbf{Microsoft Excel}, and photos/videos were captured via smartphone to document behavior. A minimum of \textbf{three trials} were performed for each current level; however, only the final (most consistent) dataset was retained for analysis. Data were exported to a Jupyter Notebook for clean up and processing with pandas. Then plotted to evaluate $\tan \alpha$ vs. field gradient force. Propagated uncertainties in $\alpha$ and $dB_0/dz$ were computed using standard error propagation formulas.
+All measurements were logged in Microsoft Excel, and photos/videos were captured via smartphone to document behavior. A minimum of three trials were performed for each current level; however, only the final (most consistent) dataset was retained for analysis. Data were exported to a Jupyter Notebook for clean up and processing with pandas. Then plotted to evaluate $\tan \alpha$ vs. field gradient force. Propagated uncertainties in $\alpha$ and $dB_0/dz$ were computed using standard error propagation formulas.
 
 
 \subsubsection*{Smallest measurable force}

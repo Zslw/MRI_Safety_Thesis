@@ -1,4 +1,6 @@
-\subsection{Magnetic Resonance Imaging}
+
+
+\section{Magnetic Resonance Imaging}
 % ------------------------------------------------------------------------------
 % MRI Translational Forces – Background Section Writing Guide
 %
@@ -69,7 +71,7 @@ A common \gls{mri} has several components that interact with matter around it, f
 This subsection provides a review of the physics and its implications for the clinic and the lab setting. Most of its content was based on physics and imaging well known textbooks, including Young's $\&$ Freedman's University Physics, Griffith's Introduction to Electrodynamics, and Bushberg's Physics of Medical Imaging \cite{bushberg2011}
 
 
-\subsubsection{The Static Field}
+\subsection{The Static Field}
 % 1. - Main Magnet                                   [🔴 High Priority]
 %      (Primary source of static magnetic field and spatial gradients.)
 
@@ -127,6 +129,63 @@ From these two equations we can solve for more specific physical setups. For ins
 
 
 
+
+
+
+
+
+Following ASTM F2052-15, the translational force exerted on a device due to a static magnetic field spatial gradient can be evaluated through angular deflection. In this setup, the test object is suspended in equilibrium, and the balance of forces leads to:
+
+\begin{equation}
+	\tan \alpha = \frac{F_m}{mg}
+\end{equation}
+
+Where $\alpha$ is the deflection angle from vertical, $F_m$ is the magnetically induced translational force, $m$ is the mass of the object, and $g$ is the gravitational acceleration. Rearranging gives:
+
+\begin{equation}
+	F_m = mg \tan \alpha
+\end{equation}
+
+This is also derived from Newtonian force balancing as in Appendix X2 of ASTM F2052-15 (Fig \ref{fig:astm_diagram}), and is valid even in cases when the magnetic force does not operate exactly at the center of mass. As a result, the approach is reliable for evaluating a variety of devices.
+
+\begin{figure}[htb!]
+	\centering
+	\includegraphics[width=0.6\textwidth]{Assests/astm_diagram.png}
+	\caption{Free-body diagram of device in magnetic field (adapted from ASTM F2052-15, Appendix X2).}
+	\label{fig:astm_diagram}
+\end{figure}
+
+For materials where magnetization is induced by a static field (e.g., paramagnetic or unsaturated ferromagnetic materials), the translational force can also be expressed in terms of volumetric magnetic susceptibility $\chi$, assuming linear response:
+
+\begin{equation}
+	F_m = \frac{\chi V}{\mu_0} B_0 \frac{dB_0}{dz}
+	\quad \Rightarrow \quad
+	\chi = \frac{\mu_0 F_m}{V B_0 \frac{dB_0}{dz}}
+\end{equation}
+
+Combining this with the earlier result:
+
+\begin{equation}
+	\chi = \frac{\mu_0 m g \tan \alpha}{V B_0 \frac{dB_0}{dz}}
+\end{equation}
+
+This provides a direct estimation of magnetic susceptibility from angular deflection measurements, provided the field and its gradient are known. 
+
+The ratio is expressed as follows using a different, dimensionally reduced form from ASTM F2052-15's Appendix X3:
+
+\begin{equation}
+	\frac{\chi}{\rho \mu_0 g} = \frac{\tan \alpha}{B_0 \frac{dB_0}{dz}}
+\end{equation}
+
+This formulation explains why the measured deflection angle $\alpha$ (and thus $F_m$) depends not on $\chi$ or $B_0$ independently, but on their product. Practically, this insight justifies our lab methodology: although our solenoid generates only ~20 Gauss, we used a highly ferromagnetic sample (large $\chi$), allowing us to replicate clinically relevant force-to-weight ratios ($F_m / mg$).
+
+
+
+
+
+
+
+
 In general, forces are described as a function of the static field strength ($B_0$), its spatial gradient ($\nabla B_0$), and the magnetic susceptibility ($\chi$) and density ($\rho$) of the material. A well known and expected behavior is the magnetic pull on high susceptibility materials toward regions of higher field strength, like near the bore entrance of the scanner where the spatial gradient is highest \cite{aboyewa2021,bushberg2011,panych2018}. For instance, a nonmagnetic stainless steel wire with $\chi \approx 103$ ppm may experience a force equivalent to $\sim$30\% of its weight, whereas ferromagnetic materials like pure nickel can experience forces exceeding 20,000 times their own weight. That is more than enough to become dangerous projectiles unless restrained \cite{aboyewa2021,panych2018}.
 
 %\subsubsection{Components:}
@@ -140,7 +199,7 @@ In general, forces are described as a function of the static field strength ($B_
 %      (Mention briefly if relevant to antenna effect in retained leads.)
 
 
-\subsubsection{Gradient coils and RF coils?}
+\subsection{Gradient coils and RF coils?}
 Do I need to explain other components of the MRI? Gradient coils and RF coils, are relevant in the broader view like from brights thesis. and future work.
 
 Once RF is understood we can explain how this affect the leads resulting in heating and electric conductivity, based on the past local research and literature. (Bright's thesis)
@@ -155,16 +214,3 @@ Once RF is understood we can explain how this affect the leads resulting in heat
 
 
 %//////////
-
-\subsubsection{Safety}
-
-the safety
-the 5 gauss line
-the examples of safety
-ASTM translational and torques studies
-the current protocols to assess objects near MRI field
-how this is different for us, size and suceptibility
-
-
-
-ASTM F2052-21 offers a standardized technique for assessing magnetically induced displacement force on medical equipment in order to set safety standards for such situations. This standard states that a device is MR Conditional if the deflection force it encounters in the MRI environment is less than the force of gravity upon it. This is usually verified if the deflection angle from vertical is less than 45$^\circ$ \cite{stoianovici2024,astmF2052}.
