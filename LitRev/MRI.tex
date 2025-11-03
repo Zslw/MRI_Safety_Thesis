@@ -1,6 +1,3 @@
-
-
-\section{Magnetic Resonance Imaging}
 % ------------------------------------------------------------------------------
 % MRI Translational Forces – Background Section Writing Guide
 %
@@ -47,147 +44,89 @@
 
 % 1. Introduction
 %    - What is MRI and why is it used clinically      [🟠 Medium Priority]
-\gls{mri} or Magnetic Resonance Imaging is a medical imaging modality that uses magnetic fields and radiofrequency (\gls{rf}) energy to produce images, rather than ionizing radiation like X-rays making it inherent safe. Moreover, \gls{mri} machines are capable of archiving high contrast sensitivity to soft tissue differences because of the reliance on micromagnetic properties of the tissue and its inherent differences leveraging on \gls{pd} and the relaxation phenomena.
+\gls{mri} or Magnetic Resonance Imaging is a medical imaging modality that uses magnetic fields and radiofrequency (\gls{rf}) energy to produce images, rather than ionizing radiation like X-rays making it inherent safe. Moreover, \gls{mri} machines are capable of achieving high contrast sensitivity to soft tissue differences because of the reliance on micromagnetic properties of the tissue and its inherent differences leveraging on \gls{pd} and the relaxation phenomena.
 
 % 2. Magnetic Interactions
 
-\gls{mri}, as the name suggests, leverages on the magnetic properties of matter to capture information ultimately forming an image. It is important, then, to understand these properties and how they are characterized. In a particle scale these effects are shown in protons and neutrons within the nucleus due to their nuclear spin and charge distribution. Hydrogen (specifically its proton, $^1H$ ) is the most utilized element in clinical MRI because it has the largest magnetic moment and is highly abundant in biological tissues, primarily in water and fat. 
+\gls{mri}, as the name suggests, leverages the magnetic properties of matter (its atoms) to capture information by applying \gls{rf} energy at the resonance frequency and detects the re-emitted signals to ultimately create an image. In fact, \gls{mri} was originally named Nuclear Magnetic Resonance (NMR), because it involves the spectroscopic study of the magnetic properties of the nucleus of the atom as it resonates and aligns to the magnetic field changes.
 
-When placed in a strong static magnetic field ($B_0$), these protons align in parallel (low-energy state) and antiparallel (high-energy state) directions. A slight majority align in the low-energy, parallel direction, resulting in an observable net magnetic moment for the sample.  As illustrated in Figure~\ref{fig:proton_alignment}, the net magnetic moment of hydrogen protons forms the basis of MRI signal generation.
+It is important, then, to understand these properties and how they are characterized. On the scale of elementary particles, these effects involve interactions with protons and neutrons within the atomic nucleus due to their nuclear spin and charge distribution. Hydrogen (specifically its proton, $^1H$ ) is the most utilized element in clinical MRI because it has the largest magnetic moment and is highly abundant in biological tissues, primarily in water and fat. 
 
+Normally, these unbound hydrogen atoms have a random orientation of their nuclear magnetic moments (protons) due to thermal energy. When placed in a strong static magnetic field ($B_0$), these nuclear magnetic moments align in parallel (same direction of $B_0$, low-energy state) and antiparallel (opposite direction of $B_0$, high-energy state) directions. This is illustrated in Figure~\ref{fig:proton_alignment}, notice that the distribution of protons into these two states is influenced by thermal energy and a slight majority align in the low-energy, parallel direction, resulting in an observable net magnetic moment (red arrow) usually denoted as equilibrium magnetization ($M_0$).
 
 \begin{figure}[htb!]
 	\centering
-	\includegraphics[width=\textwidth]{Assests/MRIproton.png}
+	\includegraphics[width=\textwidth]{Assets/MRIproton.png}
 	\caption[Proton alignment in a magnetic field]{Schematic illustration of how hydrogen protons ($^1$H) behave in the presence of a strong static magnetic field ($B_0$). 
 		A: In the absence of a field, proton magnetic moments are randomly oriented, producing no net magnetization. 
 		B: When exposed to $B_0$, protons align either parallel or antiparallel to the field. 
- \cite{bushberg2011}.}
+From Bushberg, J.T., \textit{The Essential Physics of Medical Imaging} (2011) \cite{bushberg2011}.}
 	\label{fig:proton_alignment}
 \end{figure}
 
-A common \gls{mri} has several components that interact with matter around it, for example, heat and electricity interactions could be a concern on RF fields or Gradient Coils. For mechanical interactions, the interest falls under the question ``What are the mechanisms in which the static magnetic field could possibly interact with wire or thin cylinder like devices?". 
+%Precession and Larmor frequency
+In addition to aligning with $B_0$, the protons also experience precession, much like the Earth’s rotation around its tilted axis or a spinning top under gravity. Depicted in Figure \ref{fig:protonPrecession}, the motion happens around the axis of the applied magnetic field due to the perpendicular torque they experience. This precession occurs at an angular frequency ($\omega_0$) known as the Larmor frequency, which is directly proportional to the magnetic field strength ($B_0$), as described by the Larmor equation (\ref{eq:larmor}):
 
-This subsection provides a review of the physics and its implications for the clinic and the lab setting. Most of its content was based on physics and imaging well known textbooks, including Young's $\&$ Freedman's University Physics, Griffith's Introduction to Electrodynamics, and Bushberg's Physics of Medical Imaging \cite{bushberg2011}
-
-
-\subsection{The Static Field}
-% 1. - Main Magnet                                   [🔴 High Priority]
-%      (Primary source of static magnetic field and spatial gradients.)
-
-Magnets are at the core of MR systems, and their performance is judged by field strength, temporal stability, and homogeneity. The strength of a magnetic field, also known as magnetic flux density ($B$), is measured in Tesla (T). An older, alternative unit is the gauss (G), where 1 T = 10,000 G. For perspective, Earth's magnetic field is significantly weaker, around 0.00005 T (0.05 mT or 0.5-1.0 G).
-
-Magnetic fields can be induced by moving charges in a wire, where the direction depends on the charge's sign and direction, described by the "right-hand rule". Coiling a current-carrying wire, creating a solenoid or electromagnet, superimposes these magnetic fields, significantly augmenting the field strength inside the coil and causing a rapid falloff outside. The amplitude of the current and the number of coil turns determine the overall magnitude of the magnetic field strength as follows:
-
-% Magnetic field of a solenoid
 \begin{equation}
-	B = \mu_{0} \, n I
-	\label{eq:solenoid}
+	\label{eq:larmor}
+	\omega_0 = \gamma B_0.
 \end{equation}
-
-Where B is the magnetic field, $\mu_{0}$ is the vacuum permeability, $n$ is the number of turns and $I$ is the current. Common \gls{mri} are typically made of superconducting wire-wrapped cylinders. These wires are made from niobium-titanium alloys and show no resistance to electric current when maintained at extremely low temperatures. The wire-wrapped cylinder produce a magnetic field parallel to the cylinder's long axis, usually horizontal (along the patient's cranial-caudal axis in clinical systems).
 
 \begin{figure}[htb!]
 	\centering
-	\includegraphics[width=\textwidth]{Assests/FringeFields.png}
+	\includegraphics[width=0.55\linewidth]{Assets/protonPrecession.jpg}
+	\caption{Illustration of proton precession under a static magnetic field $B_0$ compared to that of a spinning top under gravity. Adapted from Pooley, R. A., \textit{Fundamental physics of MR imaging}, (2005) \cite{Pooley2005}.}
+	\label{fig:protonPrecession}
 \end{figure}
 
-Let us then follow the physics of a static magnetic field and is interaction with matter with electromagnetism theory, any material placed in a magnetic field develops a magnetization, $\mathbf{M}$, defined as the net magnetic dipole moment per unit volume:
+An RF energy pulse ($B_1$) is then applied, synchronized to the Larmor frequency of protons (about 42.58 MHz per tesla), magnetizing the protons and tipping the net magnetization ($M$) away from the longitudinal direction ($M_z$). This pulse provides just enough energy for some protons to move into a higher energy state, also called RF excitation. In doing so, it also causes the magnetic moments of many protons to become synchronized, or phase-coherent. They start to precess together in the transverse plane, creating what is called transverse magnetization ($M_{xy}$).
 
-\begin{equation}
-	\mathbf{M} \equiv \frac{\boldsymbol{\mu}}{V}
-	\label{eq:magnetization}
-\end{equation}
+The instant the RF pulse is turned off, the relaxation process starts, these precessing protons start to lose that synchronization due to slight variations in their local magnetic environments. This causes the transverse magnetization signal to gradually fade over time. The oscillations of this signal are detected by the same RF coils that sent them. The strength and rate of decay of this signal are dependent on the tissue type and are characterized by two time constants: $T1$ and $T2$.
 
-\noindent where $\boldsymbol{\mu}$ is the sum of the microscopic magnetic dipoles within the volume $V$ \cite{griffiths2013electrodynamics}. In practice, the microscopic magnetic field inside a material fluctuates rapidly due to atomic and electronic motion. To describe macroscopic behavior, we use an average field over many atoms, and $\mathbf{M}$ represents this ``smoothed'' magnetization.
-
-Different materials respond differently to an applied field. Diamagnetic materials, such as water, calcium, and most organic compounds, develop a magnetization opposite to the applied B-field due to paired electrons. Paramagnetic substances, like molecular oxygen, deoxyhemoglobin, or gadolinium-based MRI contrast agents, align weakly with the field, enhancing the local magnetic flux. The degree to which a material becomes magnetized is quantified by its magnetic susceptibility, $\chi$, which is typically small in biological tissues ($|\Delta \chi| < 0.01$). Ferromagnetic materials, by contrast, exhibit strong self-sustained magnetization but are generally avoided in MRI due to safety hazards.
-
-To simplify the analysis of materials in magnetic fields, physicists define the auxiliary magnetic field $\mathbf{H}$:
-
-\begin{equation}
-	\mathbf{H} \equiv \frac{1}{\mu_0} \mathbf{B} - \mathbf{M}
-\end{equation}
-
-\noindent where $\mathbf{B}$ is the macroscopic magnetic flux density and $\mu_0$ is the permeability of free space. $\mathbf{H}$ accounts for the part of the magnetic field produced by free currents, separating it from the bound currents induced by magnetization. This distinction becomes useful when analyzing mechanical effects on magnetic dipoles.
-
-Magnetic dipoles interact mechanically with a magnetic field through forces and torques. A dipole $\boldsymbol{\mu}$ in an inhomogeneous field experiences a force:
-
-\begin{equation}
-	\mathbf{F} = (\boldsymbol{\mu} \cdot \nabla)\mathbf{B}
-	\label{eq:force}
-\end{equation}
-
-\noindent and a torque:
-
-\begin{equation}
-	\boldsymbol{\tau} = \boldsymbol{\mu} \times \mathbf{B}
-	\label{eq:torque}
-\end{equation}
-
-From these two equations we can solve for more specific physical setups. For instance, consider a pendulum that is exposed to a strong 
-
-
-
-
-
-
-
-
-Following ASTM F2052-15, the translational force exerted on a device due to a static magnetic field spatial gradient can be evaluated through angular deflection. In this setup, the test object is suspended in equilibrium, and the balance of forces leads to:
-
-\begin{equation}
-	\tan \alpha = \frac{F_m}{mg}
-\end{equation}
-
-Where $\alpha$ is the deflection angle from vertical, $F_m$ is the magnetically induced translational force, $m$ is the mass of the object, and $g$ is the gravitational acceleration. Rearranging gives:
-
-\begin{equation}
-	F_m = mg \tan \alpha
-\end{equation}
-
-This is also derived from Newtonian force balancing as in Appendix X2 of ASTM F2052-15 (Fig \ref{fig:astm_diagram}), and is valid even in cases when the magnetic force does not operate exactly at the center of mass. As a result, the approach is reliable for evaluating a variety of devices.
+First, the signal in the transverse plane, ($M_{xy}$), decreases as the protons desynchronize, this is described by $T2$ (Transverse Relaxation). And the process by which the system regains equilibrium is described by $T1$ (Longitudinal Relaxation).  The longitudinal magnetization ($M_z$) returns, and the particles realign with the main magnetic field ($B_0$). The final MRI image's depiction of a tissue's brightness or darkness is determined by these relaxation processes taken together.  For instance, on $T1$-weighted images, tissues with short $T1$ times (such as fat) seem bright, whereas on $T2$-weighted images, tissues with longer $T2$ periods (such as cerebrospinal fluid) appear bright, see Figure~\ref{fig:T2vsT1}.
 
 \begin{figure}[htb!]
 	\centering
-	\includegraphics[width=0.6\textwidth]{Assests/astm_diagram.png}
-	\caption{Free-body diagram of device in magnetic field (adapted from ASTM F2052-15, Appendix X2).}
-	\label{fig:astm_diagram}
+	\includegraphics[width=0.65\textwidth]{Assets/T2vsT1.jpg}
+	\caption[Comparison between T1- and T2-weighted brain MRI images.]{Comparison between T1- and T2-weighted brain MRI images of the same subject. The left image shows a T2-weighted scan, where cerebrospinal fluid (CSF) appears bright, and the right image shows a T1-weighted scan, where fat and white matter appear bright. Adapted from \cite{riteadvantageT1T2}.}
+	\label{fig:T2vsT1}
 \end{figure}
 
-For materials where magnetization is induced by a static field (e.g., paramagnetic or unsaturated ferromagnetic materials), the translational force can also be expressed in terms of volumetric magnetic susceptibility $\chi$, assuming linear response:
+However, this covers one a single signal from a particular spot. To make an image rather, the \gls{mri} system must know where each signal is coming from. This is achieved using small, precisely controlled variations in the magnetic field known as gradient fields. These gradient coils, superimposed on $B_0$, make the magnetic field slightly stronger or weaker depending on position, causing the Larmor frequency of the protons to vary with location.
 
-\begin{equation}
-	F_m = \frac{\chi V}{\mu_0} B_0 \frac{dB_0}{dz}
-	\quad \Rightarrow \quad
-	\chi = \frac{\mu_0 F_m}{V B_0 \frac{dB_0}{dz}}
-\end{equation}
+Three gradient systems work together to map space. First, \gls{ssg} is a applied during excitation so that only protons in a particular “slice” of the body resonate at the RF pulse frequency. This defines the plane of imaging. Then, \gls{peg}, briefly changes the precession speed of protons in one direction, giving each row of tissue a unique phase ``signature". Finally, \gls{feg} is applied during signal readout so that protons along another axis precess at slightly different frequencies.
 
-Combining this with the earlier result:
+The resulting signals are stored in a matrix called k-space. Each line in k-space represents one measurement with a specific gradient configuration. When all necessary lines are filled, the Fourier Transform reconstructs the data into an image, where each pixel corresponds to a small volume element (voxel) of tissue.
 
-\begin{equation}
-	\chi = \frac{\mu_0 m g \tan \alpha}{V B_0 \frac{dB_0}{dz}}
-\end{equation}
+So far we have highlighted three of the five main components in the image formation process. That is, Static Field, RF pulses and Field gradients. Figure \ref{fig:scannerDesign} shows all these components and Figure \ref{fig:siemensTrio} provides an example of a actual, clinically relevant \gls{mri} scanner like the one used at CHI Health Creighton University Medical Center - Bergan Mercy. Each of these pieces are accompanied by interaction complications if a foreign object lays around the test space. For example, as explained in section \ref{sec:LitRev} heat and electrical interactions are a concern of RF fields or Gradient Coils \cite{aboyewa2021,schaller2021}. For mechanical interactions, the interest falls under the mechanisms in which the static magnetic field could possibly interact with wire or thin cylinder like devices. In the next section a review of an \gls{mri} scanner components is given, followed by a complete explanation on the main magnet as it is the focus of this document.
 
-This provides a direct estimation of magnetic susceptibility from angular deflection measurements, provided the field and its gradient are known. 
-
-The ratio is expressed as follows using a different, dimensionally reduced form from ASTM F2052-15's Appendix X3:
-
-\begin{equation}
-	\frac{\chi}{\rho \mu_0 g} = \frac{\tan \alpha}{B_0 \frac{dB_0}{dz}}
-\end{equation}
-
-This formulation explains why the measured deflection angle $\alpha$ (and thus $F_m$) depends not on $\chi$ or $B_0$ independently, but on their product. Practically, this insight justifies our lab methodology: although our solenoid generates only ~20 Gauss, we used a highly ferromagnetic sample (large $\chi$), allowing us to replicate clinically relevant force-to-weight ratios ($F_m / mg$).
-
-
+\begin{figure}[hbt!]
+	\centering
+	\subfigure[Diagram illustrating the main five components of an MRI scanner. \label{fig:scannerDesign}]{
+		\includegraphics[width=0.50\textwidth]{Assets/scannerDesign.png}
+	}
+	\hfill
+	\subfigure[Siemens 3T Magnetom Trio clinical MRI system.\label{fig:siemensTrio}]{
+		\includegraphics[width=0.42\textwidth]{Assets/siemens-magnetom-trio-3T.png}
+	}
+	
+	\caption[Design schematic and example of a clinical MRI scanner]{MRI scanner schematic and a clinical MRI system.  
+		(a) Simplified MRI scanner design highlighting the main magnet, gradient coils, and RF system, Control electronics, and Console. Adapted from Prince \cite{Prince_MedicalImaging_2015}.  
+		(b) Siemens Magnetom Trio 3T system, like at CUMC Bergan Mercy Hospital. As a modern whole-body MRI scanners, adapted from \cite{Siemens_MagnetomTrio_2025}.}
+	\label{fig:scanner}
+\end{figure}
 
 
+%\subsection{Gradient coils and RF coils?}
+\subsection{Scanner Design and Subsystems}
 
+As mentioned above, after the main static field ($B_0$) has been established and shimmed to high homogeneity the gradient coils introduce controlled spatial variation in the magnetic field for encoding localizing signals generated during MR. Gradient coils, are wire conductors located within the main bore of the magnet with typical strength values from 1 to 50 mT/m and correspond to the logical coordinate axes: x, y, and z which relate to \gls{ssg}, \gls{peg}, and \gls{feg}. They operate by adding to or subtracting from the magnitude of the main field ($B_0$), but they do not change the direction of the magnetic field \cite{bushberg2011}.
 
+These gradients must switch rapidly and with large current flows, typical slew rate ranges from 5 to 250 mT/m/ms, with currents on the order of 100–200 A \cite{bushberg2011,Prince_MedicalImaging_2015}, to accomplish encoding. For this reason, they introduce hazard mechanisms beyond magnetic fields. For example, when the gradient currents are repeatedly turned on and off, large forces (Lorentz forces) are applied to the coils in the strong magnetic field, leading to significant vibration. That, is the source of the loud "knocking" sounds during MR scans. Noise levels in modern MRI systems can easily exceed 130 dB and temporary hearing loss was reported in early studies \cite{panych2018}. Consequently, hearing protection is now considered mandatory during MRI procedures.
 
+Moreover, the rapid temporal variation of \gls{mri} gradient fields induces electric fields within conductive tissues via Faraday’s law. Although these fields are much weaker than those associated with RF transmission in terms of tissue heating the time-varying electric potentials can depolarize excitable membranes, producing peripheral nerve stimulation PNS) or, in extreme cases, involuntary muscle twitching \cite{panych2018,Grainger_MHRA_2014}. The effect scales with both the rate of change of the magnetic field and the spatial extent of the conductive path through tissue, so even though the absolute magnetic field perturbation from gradients (10–60 mT/m, or less than 1\% of $B_0$) is small, the rapid temporal ramping can induce voltages large enough to reach neural activation thresholds \cite{Davids:2017aa}.Typical clinical systems, limited by FDA guidelines to $\sim$ 40 T/s, remain below the threshold for cardiac excitation, but research systems capable of 300 mT/m gradients and higher slew rates approach that regime, posing theoretical cardiac stimulation risks \cite{bushberg2011,Prince_MedicalImaging_2015, panych2018}.
 
-In general, forces are described as a function of the static field strength ($B_0$), its spatial gradient ($\nabla B_0$), and the magnetic susceptibility ($\chi$) and density ($\rho$) of the material. A well known and expected behavior is the magnetic pull on high susceptibility materials toward regions of higher field strength, like near the bore entrance of the scanner where the spatial gradient is highest \cite{aboyewa2021,bushberg2011,panych2018}. For instance, a nonmagnetic stainless steel wire with $\chi \approx 103$ ppm may experience a force equivalent to $\sim$30\% of its weight, whereas ferromagnetic materials like pure nickel can experience forces exceeding 20,000 times their own weight. That is more than enough to become dangerous projectiles unless restrained \cite{aboyewa2021,panych2018}.
-
+RF coils and heating
 %\subsubsection{Components:}
 
 % 3. MRI System Components
@@ -198,11 +137,9 @@ In general, forces are described as a function of the static field strength ($B_
 %    - RF Coils (Antennas)                           [🟡 Low Priority]
 %      (Mention briefly if relevant to antenna effect in retained leads.)
 
+%Control Systems
 
-\subsection{Gradient coils and RF coils?}
-Do I need to explain other components of the MRI? Gradient coils and RF coils, are relevant in the broader view like from brights thesis. and future work.
-
-Once RF is understood we can explain how this affect the leads resulting in heating and electric conductivity, based on the past local research and literature. (Bright's thesis)
+The control and computing subsystems coordinate every stage of image acquisition and reconstruction. The host computer and operator console provide the interface through which the technologist selects and supervises scanning protocols, while the pulse programming and measurement control systems synchronize gradient and RF activity \cite{bushberg2011}. Supporting units such as the digitizer, image processor, and compute engine translate the raw analog signals into interpretable digital images through Fourier-based reconstruction algorithms \cite{Prince_MedicalImaging_2015}; Finally, the dedicated power supplies, patient table mechanics, and electromagnetic shielding ensure stable operation, patient positioning, and noise minimization. 
 
 %//////////
 %Do I need more info on the rest of the image generation?
@@ -214,3 +151,187 @@ Once RF is understood we can explain how this affect the leads resulting in heat
 
 
 %//////////
+
+\subsection{The Static Field}
+% 1. - Main Magnet                                   [🔴 High Priority]
+%      (Primary source of static magnetic field and spatial gradients.)
+
+Magnets are at the core of MR systems, and their performance is judged by field strength, temporal stability, and homogeneity. The strength of a magnetic field, also known as magnetic flux density ($B$), is measured in Tesla (T). An older, alternative unit is the gauss (G), where 1 T = 10,000 G. For perspective, Earth's magnetic field is significantly weaker, around 0.00005 T (0.05 mT or 0.5-1.0 G).
+
+Magnetic fields can be induced by moving charges in a wire, where the direction depends on the charge's sign and direction, described by the "right-hand rule". Coiling a current-carrying wire, creating a solenoid or electromagnet, superimposes these magnetic fields, significantly augmenting the field strength inside the coil and causing a rapid falloff outside. Equation \ref{eq:solenoid} shows how the amplitude of the current and the number of coil turns determine the overall magnitude of the magnetic field strength for and ideal solenoid and the shape of such field is depicted in figure \ref{fig:solenoid_Field}. 
+
+% Magnetic field of a solenoid
+\begin{equation}
+	B = \mu_{0} \, n I.
+	\label{eq:solenoid}
+\end{equation}
+
+\noindent Where B is the magnetic field, $\mu_{0}$ is the vacuum permeability, $n$ is the number of turns and $I$ is the current. Common \gls{mri} are typically made of superconducting wire-wrapped cylinders. These wires are made from niobium-titanium alloys and show no resistance to electric current when maintained at extremely low temperatures. Notice that on Figure \ref{fig:solenoid_Field} produced magnetic field is parallel to the cylinder's long axis, usually horizontal (along the patient's cranial-caudal axis in clinical systems).
+
+\begin{figure}[htb!]
+	\centering
+	\includegraphics[width=\textwidth]{Assets/FringeFields.png}
+	\caption{. Adapted from \cite{bushberg2011}.}
+	\label{fig:solenoid_Field}
+\end{figure}
+
+A more accurate depiction of the magnetic field can be obtained by modeling a finite solenoid of length $L$ and radius $R$ using a formula derived from Biot–Savart law with B = 3T from equation \ref{eq:solenoid} as follows:
+
+\begin{equation}
+	B(z) = \frac{\mu_0 n I}{2} 
+	\left[
+	\frac{z + \frac{L}{2}}{\sqrt{R^2 + \left(z + \frac{L}{2}\right)^2}} 
+	-
+	\frac{z - \frac{L}{2}}{\sqrt{R^2 + \left(z - \frac{L}{2}\right)^2}}
+	\right].
+\end{equation}
+
+\noindent where $\mu_0$ is the permeability of free space. The first term in the brackets represents the contribution from the far end of the solenoid, and the second term represents the contribution from the near end. 
+
+This formula provides the axial field along the solenoid, with the maximum occurring at the center ($z=0$) and decreasing smoothly toward the ends. Then, calculating the gradient and finding its maximum value, the bore entrance can be located \cite{astmF2052,ferreira2017}. Figure \ref{fig:Bz_vs_z} showcases this model, it features the magnetic field ($B_0$) along the z-axis, the origin $z=0$ corresponds to the entrance of the bore. The field is normalized to a maximum of $B_0 = 3$~T, with no shielding or distortion applied.
+
+\begin{figure}[htb!]
+	\centering
+	\includegraphics[width=0.7\textwidth]{Assets/Bz_vs_z.png}
+	\caption{Expected 1D axial magnetic field $B_z$ for an ideal solenoid, mimicking an MRI scanner. }
+	\label{fig:Bz_vs_z}
+\end{figure}
+
+From the same model a 3D render with slices of the field can also be constructed. Figure \ref{fig:3D_field_plot} is the resulting plot with a reference cylinder superimposed to indicate the bore space.
+
+\begin{figure}[htb!]
+	\centering
+	\includegraphics[width=0.8\textwidth]{Assets/3D_field_plot.png}
+	\caption{3D rendering of the axial magnetic field of a 3~T MRI solenoid. }
+	\label{fig:3D_field_plot}
+\end{figure}
+
+
+ 
+
+
+Let us then follow the physics of a static magnetic field and is interaction with matter with electromagnetism theory. Any material placed in a magnetic field develops a magnetization, $\mathbf{M}$, defined as the net magnetic dipole moment per unit volume:
+
+\begin{equation}
+	\mathbf{M} \equiv \frac{\boldsymbol{\mu}}{V}.
+	\label{eq:magnetization}
+\end{equation}
+
+\noindent where $\boldsymbol{\mu}$ is the sum of the microscopic magnetic dipoles within the volume $V$ \cite{griffiths2013electrodynamics}. In practice, the microscopic magnetic field inside a material fluctuates rapidly due to atomic and electronic motion. To describe macroscopic behavior, we use an average field over many atoms, and $\mathbf{M}$ represents this ``smoothed'' magnetization.
+
+To simplify the analysis of materials in magnetic fields, physicists define the auxiliary magnetic field $\mathbf{H}$:
+
+\begin{equation}
+	\mathbf{H} \equiv \frac{1}{\mu_0} \mathbf{B} - \mathbf{M}.
+	\label{eq:Hfield}
+\end{equation}
+
+\noindent where $\mathbf{B}$ is the macroscopic magnetic flux density and $\mu_0$ is the permeability of free space. $\mathbf{H}$ accounts for the part of the magnetic field produced by free currents, separating it from the bound currents induced by magnetization \cite{griffiths2013electrodynamics}. This distinction becomes useful when analyzing mechanical effects on magnetic dipoles.
+
+Different materials respond differently to an applied field. As magnetization is also directly proportional to the field strength $\mathbf{H}$:
+
+\begin{equation}
+	\mathbf{M} = \chi_m \mathbf{H}.
+	\label{eq:magnetizationproportion}
+\end{equation}
+
+\noindent The degree to which a material becomes magnetized is quantified by its magnetic susceptibility, $\chi$, which is typically small in biological tissues ($|\Delta \chi| < 0.01$). Diamagnetic materials, such as water, calcium, and most organic compounds, develop a magnetization opposite to the applied B-field due to paired electrons. Paramagnetic substances, like molecular oxygen, deoxyhemoglobin, or gadolinium-based MRI contrast agents, align weakly with the field, enhancing the local magnetic flux. Ferromagnetic materials, by contrast, exhibit strong self-sustained magnetization but are generally avoided in MRI due to safety hazards. Figure \ref{fig:chi_spectrum} shows a spectrum of magnetic susceptibilities with a zoom in for the MRI compativility obscure section.
+ 
+ \begin{figure}[htb!]
+ 	\centering
+ 	\includegraphics[width=0.95\textwidth]{Assets/Chi_inMRI.jpg}
+ 	\caption{
+ 		Spectrum of magnetic susceptibilities. The upper diagram uses a logarithmic scale to indicate the full range of observed magnetic susceptibility values: it extends from -1.0 for superconductors to 100,000 for soft ferromagnetic materials. The bottom diagram uses a linear scale (in ppm) to indicate the properties of some materials with 20 ppm. The susceptibilities of most human tissues are in the range from 7.0 to 11.0 ppm. Adapted from Schenck \cite{Schenck2000}.
+ 	}
+ 	\label{fig:chi_spectrum}
+ \end{figure}
+ 
+For materials that obey Eq. \ref{eq:magnetizationproportion}, called \emph{linear media}, the magnetic flux density can be expressed as
+
+\begin{subequations}
+	\begin{align}
+		\mathbf{B} &= \mu_0 (1 + \chi_m) \mathbf{H}, \label{eq:B_linear}\\
+		\mathbf{B} &\approx \mu_0 \mathbf{H}, \quad (|\chi_m| \ll 1). \label{eq:B_approx}
+	\end{align}
+\end{subequations}
+
+where $\chi_m$ is the magnetic susceptibility of the material. We can define the \emph{permeability} of the material as $	\mu \equiv \mu_0 (1 + \chi_m),$ so that the relationship between $\mathbf{B}$ and $\mathbf{H}$ simplifies to $\mathbf{B} = \mu \mathbf{H}$. Moreover for paramagnetic materials which susceptibility is tiny ($|\chi_m| \ll 1$) B can approximate to $\mathbf{B} \approx \mu_0 \mathbf{H}$.
+
+This formulation shows that in linear media, the magnetic flux density is directly proportional to the applied field strength, statement that will come in handy when calculating for forces and torque in the next section. In the particular case of magnetic dipoles $\boldsymbol{\mu}$, mechanical interactions with a magnetic field such as forces and torques the following expressions are the foundation from general physics.
+
+\begin{equation}
+	\mathbf{F} = (\boldsymbol{\mu} \cdot \nabla)\mathbf{B}.
+	\label{eq:force}
+\end{equation}
+
+\noindent and a torque:
+
+\begin{equation}
+	\boldsymbol{\tau} = \boldsymbol{\mu} \times \mathbf{B}.
+	\label{eq:torque}
+\end{equation}
+
+\noindent where $\boldsymbol{\mu}$ is the magnetic dipole moment and $B$ is the magnetic field. From these two equations we can solve for more specific physical setups. For translational force the equation (\ref{eq:force}) is developed following ASTM F2052-15, as same methodology was employed. While equation (\ref{eq:torque}) for torque is dependent to the particular procedure used on the lab, and will be developed in more detail based on our own experimental setup.
+
+
+\subsection{Translational Forces induced by the Static Field}
+
+Consider a simple pendulum, free to swing along the z-axis of an \gls{mri} (for simplicity, left to right), along with a magnet that produce a static magnetic field along that same axis. The pendulum is then pulled towards the magnet with a force $F_m$ until it reaches equilibrium with its weight $mg$. Figure \ref{fig:astm_diagram} shows a complete free body diagram, a simpler version excludes $\Theta$ and assumes point particle at the end of the pendulum.
+
+
+\begin{figure}[htb!]
+	\centering
+	\includegraphics[width=0.6\textwidth]{Assets/astm_diagram.png}
+	\caption{Free-body diagram of device in magnetic field (adapted from ASTM F2052-15 \cite{astmF2052}, Appendix X2).}
+	\label{fig:astm_diagram}
+\end{figure}
+
+The magnetic force $F_m$ is described from equation (\ref{eq:force}) and using equation (\ref{eq:magnetization}) and (\ref{eq:magnetizationproportion}) we can write:
+
+\begin{align*}
+	F_m &= M V \nabla B ,\\
+			&= \chi_m H V \nabla B.
+\end{align*}
+
+Finally, with equation (\ref{eq:B_approx}) the magnetic force in a single dimension is given by:
+
+\begin{equation}
+	F_m = \frac{\chi_m V}{\mu_0} B \nabla B  	\quad \Rightarrow \quad  F_m = \frac{\chi_m }{\mu_0} B_0 \frac{dB_0}{dz}.
+	\label{eq:translationalForce}
+\end{equation}
+
+Then following ASTM F2052-15, the translational force exerted on a device due to a static magnetic field spatial gradient can be evaluated through angular deflection. In the pendulum, test subject is suspended in equilibrium, and the balance of forces leads to
+
+\begin{equation}
+	\frac{F_m}{mg} = \tan \alpha.
+	\label{eq:deflectionAngle}
+\end{equation}
+
+\noindent where $\alpha$ is the deflection angle from vertical, $F_m$ is the magnetically induced translational force, $m$ is the mass of the object, and $g$ is the gravitational acceleration. 
+
+This is also derived from Newtonian force balancing ( see Fig \ref{fig:astm_diagram}), and is valid even in cases when the magnetic force does not operate exactly at the center of mass. As a result, the approach is reliable for evaluating a variety of devices. 
+
+The formulation of equation (\ref{eq:deflectionAngle} explains why the measured deflection angle $\alpha$ (and thus $F_m$) depends not on $\chi$ or $B_0$ independently, but on their product. Practically, this insight justifies the lab methodology. Although magnets in our lab , a solenoid or neodymium magnets, generate small magnetic fields (only about 20 to 300 Gauss), we used a highly ferromagnetic sample (assuming large $\chi$), allowing us to replicate clinically relevant force-to-weight ratios ($F_m / mg$).
+
+According to ASTM F2052 \cite{astmF2052}, a deflection below $45^{\circ}$ corresponds to $F_m / (mg) < 1$, meaning the magnetic force is less than the object's weight, a conservative reference point for safety, though not a strict acceptance criterion \cite{Woods2021_MRIdisplacement}. In contrast,  a nonmagnetic stainless steel wire ($\chi \approx 10^{-4}$) might show $F_m / (mg) \approx 0.3$, whereas ferromagnetic metals like nickel can exceed $F_m / (mg) > 2 \times 10^{4}$.  That is more than enough to become dangerous projectiles unless restrained \cite{aboyewa2021,Woods2021_MRIdisplacement,panych2018}.
+
+In our lab, we aimed to determine the magnetic susceptibility $\chi_m$ of the test sample. Using Eqs.~(\ref{eq:translationalForce}) and (\ref{eq:deflectionAngle}), it can be expressed as
+
+
+\begin{equation}
+	\chi = \frac{\mu_0 m g \tan \alpha}{V B_0 \frac{dB_0}{dz}}
+\end{equation}
+
+\noindent this provides a direct estimation of magnetic susceptibility from angular deflection measurements, provided the field and its gradient are known. For experimental purposes, a plot of the deflection angle versus the product of field strength and field gradient allows one to extract $\chi_m$ from the slope of a linear fit, following
+
+\begin{equation}
+	\tan \alpha =   \frac{\chi_m V}{\rho \mu_0 g}  \cdot B_0 \frac{dB_0}{dz}
+	\label{eq:forFit}
+\end{equation}
+
+In general, these forces are described as a function of the static field strength ($B_0$), its spatial gradient ($\nabla B_0$), and the material properties such as magnetic susceptibility ($\chi$) and density ($\rho$). The expectation is then, magnetic pull on high susceptibility materials toward regions of higher field strength, like near the bore entrance of the scanner where the spatial gradient is highest \cite{bushberg2011,aboyewa2021,panych2018}. 
+
+
+\subsection{Torque induced by the Static Field and Torque Transfer}
+
+

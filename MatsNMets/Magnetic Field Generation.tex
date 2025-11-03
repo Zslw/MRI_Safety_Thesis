@@ -2,8 +2,7 @@
 
 Magnetic fields were generated in multiple ways, seeking to archive the most reliable or similar situation as one would encounter on a clinic. The most intuitive way to accomplish this in a lab setting was to use neodymium magnets with the only problem being static or step-wise change of its magnetic flux, but proving to be quite effective and strong. 
 
-Another approach included using a custom-built air-core solenoid, approximately 15 cm in length and 10 cm in outer diameter. The solenoid was densely wound with copper wire ($\sim$1 mm diameter), forming an inner core of approximately 5 cm. A Pasco Scientific SF-9584 DC power supply was used to deliver currents in the range of 0--4 A, corresponding to magnetic field strengths from 1 to 18.9 Gauss for this solenoid. This magnet was particularly useful for magnetic field and translational forces measurement tests and was operated in a continuous mode; no rest periods were applied between trials due to the time required to stabilize the pendulum after each adjustment. 
-
+Another approach included using a custom-built air-core solenoid, approximately 15 cm in length and 10 cm in outer diameter. The solenoid was densely wound with copper wire ($\sim$1 mm diameter), forming an inner core of approximately 5 cm. A Pasco Scientific SF-9584 DC power supply was used to deliver currents in the range of 0--4 A, corresponding to magnetic field strengths from 1 to 18.9 Gauss for this solenoid. 
 Finally, in line to mimic that of a static but increasingly stronger magnetic field inside an \gls{mri} we used a set of educational Helmholtz coils
 
 Further describe this coils, size, number of turns, pasco, series so on
@@ -19,11 +18,11 @@ To ensure spatial accuracy and reproducibility, a fixture made from rigid  \gls{
 \begin{figure}[hbt!]
     \centering
     \subfigure[PVC-based mapping platform.\label{fig:fieldmapping_a}]{
-        \includegraphics[width=0.48\textwidth]{Assests/Picture3.jpeg}
+        \includegraphics[width=0.48\textwidth]{Assets/Picture3.jpeg}
     }
     \hfill
     \subfigure[Example field map output from MRI fringe region.\label{fig:fieldmapping_b}]{
-        \includegraphics[width=0.40\textwidth]{Assests/MagFieldMap.png}
+        \includegraphics[width=0.40\textwidth]{Assets/MagFieldMap.png}
     }
 
     \caption[PVC-based magnetic field mapping platform]{PVC-based magnetic field mapping platform. Used for spatial $B_0$ and $\nabla B_0$ measurement. As shown in Ferreira 2017 \cite{haddixProposal,ferreira2017}.}
@@ -39,9 +38,10 @@ The data acquisition procedure for magnetic flux mapping is organized in this \g
 
 While the flowchart reflects the core logic, it does not fully convey the customization added to the \gls{lvi} interface. For example, the front panel includes input fields for patient table (couch) parameters such as couch speed and displacement points. As mentioned above, phantom is discretized with radial and angular indices: angular positions span 12 sectors clockwise from the 12 o’clock position (0 to 11 or A to L), and radial depths range from the center (0) to the outer edge (6). The probe’s spatial location is represented in polar coordinates, and the system plots magnetic flux as a function of position rather than time, allowing for intuitive visualization of the MRI fringe field across the phantom surface.
 
+
 \begin{figure}[htb!]
 	\centering
-    \includegraphics[width=0.5\textwidth]{TikZ/flowchart.pdf} 
+    \includegraphics[width=0.80\textwidth]{Assets/flowchart.png} 
 	\caption{Flowchart of the Gaussmeter VI data acquisition algorithm.}
 	\label{fig:gaussmeter-flowchart}
 \end{figure}

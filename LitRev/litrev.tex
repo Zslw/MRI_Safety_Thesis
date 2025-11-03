@@ -1,38 +1,62 @@
-\section{Literature Review}
 %Previous studies summary}
 %What pertinent literature needs to be reviewed to orient the reader and provide sufficient background information for them to understand your study?.
-ASTM-F standards and mechanical risks
-\cite{Schenck2000} safety
-\cite{Ghadimi2025} Contraindications
 
-both
-\cite{stoianovici2024}, 
 
-force
-\cite{Yin2024473}
+%intro
+A large observational study by Schaller et al. \cite{schaller2021} evaluated 200 MRI examinations in 139 patients with a total of 243 abandoned leads. Their objective was to assess the safety of 1.5-T MRI in patients with at least one abandoned CIED lead and to evaluate any potentially harmful effects on the active CIED leads.The research found a low rate of adverse events (3\%), with no serious complications such as sustained arrhythmias or device resets. The observed events were primarily transient, non-life-threatening changes in lead sensing parameters that resolved spontaneously. Notably, this safety profile held for thoracic and cardiac \gls{mri}s, where the theoretical risk is highest.
 
-torque
-\cite{Seo2021767}
+Complementing this, a retrospective study by Vuorinen et al. \cite{vuorinen2021} focused on 26 MRIs in 17 patients with epicardial leads. The study's key finding was that MRIs performed on patients with "modern" epicardial leads (implanted in 2000 or later) had no detectable adverse events. However, one definite and one possible adverse event were noted in patients with "old" leads (implanted before 2000), suggesting that lead age and technology may be a factor in the risk profile.
 
+%safety
+%static field
+From a safety standpoint, the static magnetic field ($B_0$) represents the main source of hazard and must be shielded properly. A huge number of diagnostic clinical scans are daily completed without incidents indicating that magnetic interactions with normal tissues are within the bounds of safety up to the highest fields now in use for \gls{mri} \cite{Schenck2000}.  However, there had been incidents associated with ferromagnetic objects either implanted in the patient or located in the fringing field of the magnets \cite{Delnoa2019,Sawyer2024}.
+
+%the current protocols to assess objects near MRI field
+ASTM F2052-21 \cite{astmF2052} offers a standardized technique for assessing magnetically induced displacement force on medical equipment in order to set safety standards for such situations. The methodology includes a non-magnetic pendulum apparatus with a protractor that allows for the a suspended subject to be pulled by the magnetic field. The characterization of the static magnetic field and its spacial gradient is required. For this purpose, Ferreira et al. \cite{ferreira2017}, developed a custom-designed fixture with an AlphaLab Gaussmeter probe to map the spatial gradients inside a Siemens Magnetom Trio 3T MRI scanner. Measurements of the magnetic field vector components (X, Y, and Z) were collected along the Z-axis in 5cm increments, correctly capturing the static magnetic field and ensuring repeatability and showing a steady spatial gradiant. 
+
+Furthermore, Woods et al. \cite{Woods2021_MRIdisplacement}, conducted a similar experiment, to assess the magnetically induced displacement force on eleven metal alloys commonly used in medical implants. For deflection force testing, nine specimens (in three nominal mass categories: 2, 20, and 200 g) of each alloy were tested in a Siemens MAGNETOM Trio 3T MR system. 
+The main results regarding magnetically induced deflection force showed that for seven of the eleven tested alloys, the magnetic force was found to be less than the device weight in any current clinical 1.5 T, 3.0 T, and 7.0 T MR system. These safe alloys included various grades of CP titanium, Ti-6Al-7Nb, Ti-6Al-4V ELI, Ti-15Mo, Biodur 108, and Co-28Cr-6M. However, for the other alloys, including 316L stainless steel and 22Cr-13Ni-5Mn, the magnetically induced force was calculated to be greater than the device weight in certain high-field systems, such as 3.0 T and 7.0 T clinical scanners.
+
+In terms of torque measurements, Woods et al. \cite{Woods2021_MRIdisplacement} claimed that for medical instruments made from their list of alloys the magnetically induced torque will always be less than the worst case torque produced by gravity in a 3.0 T or less static magnetic field. And emphasized that \textit{``No movement was observed for any of the magnetically induced torque specimens at 3.0 T."} This, was probably measured using ASTM F2213-17 \cite{astm2213} Low Friction Surface Method methodology which estimates magnetically induced torque by placing the device on a low-friction, non-metallic, non-conductive surface near the MRI isocenter. The device is rotated stepwise, and any spontaneous alignment or rotation toward the static magnetic field is observed. If no movement occurs, the maximum possible torque is estimated from the device’s weight and the surface’s friction coefficient outside the MR environment.
+
+ASTM F2213-17 states that, if rotation is observed, more precise tests (such as the Torsional Spring or Pulley Method) should be used instead which means this method relies on macroscopic motion and may not be able to detect $\mu$Newton forces.
+
+Another study by Seo et al. \cite{Seo2021767}, utilized the ``Pulley Method" for the safety assessment of magnetically induced torques on \gls{aimd}s in 1.5 T and 3.0 T magnetic resonance imaging (MRI) environments. The apparatus, has a cylindrical shape and was fabricated entirely from acrylic (including the bearings) to minimize magnetic field resistance. 
+
+This methodology determines the maximum magnetically induced torque by fixing the \gls{aimd} onto a rotating plate placed at the MRI isocenter. A thread attached to the plate is connected to a force gauge located far enough to avoid interference with the magnetic field. As the plate rotates to align with 
+field, the thread tension is measured. The torque is then calculated by multiplying the plate’s radius (at the \gls{aimd}’s position) by the measured force, after subtracting the plate’s frictional resistance.
+
+The main results showed that the bone conduction implant consistently exhibited the highest average torque (9.460 Ncm at 1.5 T and 14.618 Ncm at 3.0 T), while the pacemaker showed the lowest (0.255 Ncm at 1.5 T and 0.668 Ncm at 3.0 T). AIMDs containing magnets (cochlear and bone conduction implants) generally showed significantly higher torques than devices without magnets (ICD and pacemaker).
+
+Similarly, Stoianovici et al. \cite{stoianovici2024} showcases a variation of the ASTM F2213 Torsional Spring measurement technique, referred as the 2-string method. This method address the difficulty of measuring very low magnetically induced torques on lightweight, slender medical devices, such as needles. This approach utilizes two strings to suspend the device by its ends and creates a torsional spring mechanism that is frictionless.
+
+The needle rotates due to magnetic torque, the torque is calculated analytically based on the measured rotation angle and compared to the weight of the object. The main results showed that the method successfully measured torques between 0.0001 Nm and 0.0018 Nm in the MRI environment. the maximum magnetically induced deflection angle remained below the 25$\circ$ limit required by the ASTM F2213.
+
+%RF and gradient fields
+In contrast, the gradient and RF fields are primarily associated with peripheral nerve stimulation and tissue heating, respectively. These effects are relevant for patients with conductive leads or elongated implants that may act as antennas or current loops. Previous studies of Aboyewa, et al. \cite{aboyewa2021}, seek to illustrate the interaction of leads with the \gls{rf} field in terms of energy absorbed and heat produced.  
+
+The experiment was performed on a 3 T \gls{mri} scanner using a turbo spin echo pulse sequence. The pulse sequence was set to produce a whole-body Specific Absorption Rate (SAR) of approximately 2 W/kg and fluoroptic probes where used to measure the temperature rise. Several factors on induced heating were tested, including lead length (such as 6.33 cm, 12.65 cm, and 18.98 cm), lead type (bipolar vs. unipolar), orientation, and shape
+
+It showed that lead length, type, and orientation significantly influence heating behavior.This study found that short leads ($<13$ cm) posed no significant thermal hazard during MRI at a specific absorption rate (SAR) of 2 W/kg but the maximum temperature rise observed at the lead tips. For both lead types investigated, the amount of heat induced increased with increasing lead length. Notably, bipolar leads showed slightly higher heating than unipolar leads and the straight lead configuration produced the highest maximum temperature rise.
+
+
+%Significance
+Stoianovici et al. \cite{stoianovici2024} solves the technical challenge of measuring very low magnetically induced torques on slender, lightweight medical devices, such as needles, where conventional ASTM F2213 methods often become unreliable due to friction bias with their new methodology variant (The-2-string-method). Similarly, Seo et al. \cite{Seo2021767} validates the pulley methodology for \gls{aimd}s. The modeling of clinically relevant allows done by Woods et al. \cite{Woods2021_MRIdisplacement} shows experimental basis to rely on the listed alloys but requires further testing in terms of torque. While the modeling of the static magnetic field done by Ferreira et al. \cite{ferreira2017} provided a practical way to accurately map the magnetic field and calculate its spacial gradient.  
+
+%conclusion
+Finally, MRI safety protocols are grounded in a system of absolute and relative contraindications. Absolute contraindications include non–MR-conditional cardiac implantable electronic devices (CIEDs), metallic intraocular, and foreign bodies, among others. Relative contraindications consider implants such as stents, surgical clips, and programmable shunts that may be scanned under controlled conditions \cite{Ghadimi2025}. The safety classification of each device is guided by testing standards and certification data, with CIEDs representing a critical category due to their susceptibility to electromagnetic interactions \cite{Schenck2000, fda2023testing}. 
+
+The American College of Radiology (ACR) Manual on MR Safety (2024) \cite{ACR_Manual_on_MR_Safety_2024} outlines the current regulatory and procedural framework for MRI safety. Recommendations include structured zoned access control and interprofessional collaboration through clearly defined positions (MR Medical Director, MR Safety Officer, and MR Safety Expert) to avoid unscreened individuals or ferromagnetic objects from inadvertently entering the magnet room. Pre-scan screening, implant model and status verification, and continuous patient monitoring are still necessary for this safety infrastructure \cite{Ghadimi2025}.
+
+
+
+%how this is different for us, size and suceptibility
 
 %What are the main arguments or findings from the sources most relevant to your argument, especially those you intend to challenge, modify, or expand upon?.
 
-Do I need to add a case when a metal object was attracted violently towards the bore? Just to make an impact... 
 
-%Have there been previous effective reviews of your subject, and if so, what is the starting point (e.g., date of previous review) for your current review?.
-Previous studies made in our institution seek to illustrate the interaction of leads with the \gls{rf} field in terms of energy absorbed and heat produced. It showed that lead length, type, and orientation significantly influence heating behavior.This study found that short leads ($<13$ cm) posed no significant thermal hazard during MRI at a specific absorption rate (SAR) of 2 W/kg and is throughtfully described as Master Thesis in 2021 \cite{haddixProposal,astmF2182,aboyewa2021}.
-
-Along the same line of thought, we aim to cover the mechanical aspect of lead-\gls{mri} interaction covering (1) Characterization of the static magnetic field, (2) quantification of translational forces near the bore entrance, (3) Torque evaluation from bore entrance to isocenter.
-
-While some preliminary work has been conducted in our lab on these mechanical concerns, it remains unpublished, making this thesis a critical step in formalizing and extending that foundational effort.
-
-the safety
-the 5 gauss line
-the examples of safety
-ASTM translational and torques studies
-the current protocols to assess objects near MRI field
-how this is different for us, size and suceptibility
+%Do I need to add a case when a metal object was attracted violently towards the bore? Just to make an impact... 
 
 
 
-ASTM F2052-21 offers a standardized technique for assessing magnetically induced displacement force on medical equipment in order to set safety standards for such situations. This standard states that a device is MR Conditional if the deflection force it encounters in the MRI environment is less than the force of gravity upon it. This is usually verified if the deflection angle from vertical is less than 45$^\circ$ \cite{stoianovici2024,astmF2052}.
+
