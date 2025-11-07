@@ -213,7 +213,7 @@ From the same model a 3D render with slices of the field can also be constructed
 Let us then follow the physics of a static magnetic field and is interaction with matter with electromagnetism theory. Any material placed in a magnetic field develops a magnetization, $\mathbf{M}$, defined as the net magnetic dipole moment per unit volume:
 
 \begin{equation}
-	\mathbf{M} \equiv \frac{\boldsymbol{\mu}}{V}.
+	\mathbf{M} \equiv \frac{\boldsymbol{m}}{V}.
 	\label{eq:magnetization}
 \end{equation}
 
@@ -257,10 +257,10 @@ For materials that obey Eq. \ref{eq:magnetizationproportion}, called \emph{linea
 
 where $\chi_m$ is the magnetic susceptibility of the material. We can define the \emph{permeability} of the material as $	\mu \equiv \mu_0 (1 + \chi_m),$ so that the relationship between $\mathbf{B}$ and $\mathbf{H}$ simplifies to $\mathbf{B} = \mu \mathbf{H}$. Moreover for paramagnetic materials which susceptibility is tiny ($|\chi_m| \ll 1$) B can approximate to $\mathbf{B} \approx \mu_0 \mathbf{H}$.
 
-This formulation shows that in linear media, the magnetic flux density is directly proportional to the applied field strength, statement that will come in handy when calculating for forces and torque in the next section. In the particular case of magnetic dipoles $\boldsymbol{\mu}$, mechanical interactions with a magnetic field such as forces and torques the following expressions are the foundation from general physics.
+This formulation shows that in linear media, the magnetic flux density is directly proportional to the applied field strength, statement that will come in handy when calculating for forces and torque in the next section. In the particular case of magnetic dipoles $\boldsymbol{m}$, mechanical interactions with a magnetic field such as forces and torques the following expressions are the foundation from general physics.
 
 \begin{equation}
-	\mathbf{F} = (\boldsymbol{\mu} \cdot \nabla)\mathbf{B}.
+	\mathbf{F} = (\boldsymbol{m} \cdot \nabla)\mathbf{B}.
 	\label{eq:force}
 \end{equation}
 
@@ -271,12 +271,16 @@ This formulation shows that in linear media, the magnetic flux density is direct
 	\label{eq:torque}
 \end{equation}
 
-\noindent where $\boldsymbol{\mu}$ is the magnetic dipole moment and $B$ is the magnetic field. From these two equations we can solve for more specific physical setups. For translational force the equation (\ref{eq:force}) is developed following ASTM F2052-15, as same methodology was employed. While equation (\ref{eq:torque}) for torque is dependent to the particular procedure used on the lab, and will be developed in more detail based on our own experimental setup.
+\noindent where $\boldsymbol{\mu}$ is the magnetic dipole moment and $B$ is the magnetic field. From these two equations we can solve for more specific physical setups. For translational force the equation (\ref{eq:force}) is developed following ASTM F2052-15, as same methodology was employed. While equation (\ref{eq:torque}) for torque is dependent to the particular procedure used on the lab, and will be developed in more detail based on our own experimental setup. For paramagnetic materials (case of eq. \ref{eq:B_approx}), we can estimate the magnetic moment as the product of the magnetic susceptibility, magnitude of the field strength, and volume of the material.
 
+\begin{equation}
+	\boxed{m_0 = \frac{1}{\mu_0} \chi_m B_0 V}
+	\label{eq:magnitudemoment}
+\end{equation}
 
 \subsection{Translational Forces induced by the Static Field}
 
-Consider a simple pendulum, free to swing along the z-axis of an \gls{mri} (for simplicity, left to right), along with a magnet that produce a static magnetic field along that same axis. The pendulum is then pulled towards the magnet with a force $F_m$ until it reaches equilibrium with its weight $mg$. Figure \ref{fig:astm_diagram} shows a complete free body diagram, a simpler version excludes $\Theta$ and assumes point particle at the end of the pendulum.
+Consider a simple pendulum with a metallic object at its end. This object is free to swing along the z-axis of an \gls{mri}. A static magnetic field along that same axis is then applied. The pendulum is then pulled towards the magnet with a force $F_m$ until it reaches equilibrium with its weight $mg$. Figure \ref{fig:astm_diagram} shows a complete free body diagram, a simpler version excludes $\Theta$ and assumes point particle at the end of the pendulum.
 
 
 \begin{figure}[htb!]
@@ -293,25 +297,23 @@ The magnetic force $F_m$ is described from equation (\ref{eq:force}) and using e
 			&= \chi_m H V \nabla B.
 \end{align*}
 
-Finally, with equation (\ref{eq:B_approx}) the magnetic force in a single dimension is given by:
+\noindent which is the the claim from before (see eq. \ref{eq:magnitudemoment}). Finally, with equation (\ref{eq:B_approx}) the magnetic force in a single dimension is given by:
 
 \begin{equation}
-	F_m = \frac{\chi_m V}{\mu_0} B \nabla B  	\quad \Rightarrow \quad  F_m = \frac{\chi_m }{\mu_0} B_0 \frac{dB_0}{dz}.
+	F_m = \frac{\chi_m V}{\mu_0} B \nabla B  	\quad \Rightarrow \quad  \boxed{F_m = \frac{\chi_m V}{\mu_0} B_0 \frac{dB_0}{dz}}
 	\label{eq:translationalForce}
 \end{equation}
 
-Then following ASTM F2052-15, the translational force exerted on a device due to a static magnetic field spatial gradient can be evaluated through angular deflection. In the pendulum, test subject is suspended in equilibrium, and the balance of forces leads to
+\noindent then following ASTM F2052-15, the translational force exerted on a device due to a static magnetic field spatial gradient can be evaluated through angular deflection. In the pendulum, test subject is suspended in equilibrium, and the balance of forces leads to
 
 \begin{equation}
-	\frac{F_m}{mg} = \tan \alpha.
+	\frac{F_m}{F_g} = \tan (\alpha).
 	\label{eq:deflectionAngle}
 \end{equation}
 
 \noindent where $\alpha$ is the deflection angle from vertical, $F_m$ is the magnetically induced translational force, $m$ is the mass of the object, and $g$ is the gravitational acceleration. 
 
-This is also derived from Newtonian force balancing ( see Fig \ref{fig:astm_diagram}), and is valid even in cases when the magnetic force does not operate exactly at the center of mass. As a result, the approach is reliable for evaluating a variety of devices. 
-
-The formulation of equation (\ref{eq:deflectionAngle} explains why the measured deflection angle $\alpha$ (and thus $F_m$) depends not on $\chi$ or $B_0$ independently, but on their product. Practically, this insight justifies the lab methodology. Although magnets in our lab , a solenoid or neodymium magnets, generate small magnetic fields (only about 20 to 300 Gauss), we used a highly ferromagnetic sample (assuming large $\chi$), allowing us to replicate clinically relevant force-to-weight ratios ($F_m / mg$).
+This is also derived from Newtonian force balancing ( see Fig \ref{fig:astm_diagram}), and is valid even in cases when the magnetic force does not operate exactly at the center of mass. As a result, the approach is reliable for evaluating a variety of devices. The formulation of equation (\ref{eq:deflectionAngle} explains why the measured deflection angle $\alpha$ (and thus $F_m$) depends not on $\chi$ or $B_0$ independently, but on their product. Practically, this insight justifies the lab methodology. Although magnets in our lab , a solenoid or neodymium magnets, generate small magnetic fields (only about 20 to 300 Gauss), we used a highly ferromagnetic sample (assuming large $\chi$), allowing us to replicate clinically relevant force-to-weight ratios ($F_m / mg$).
 
 According to ASTM F2052 \cite{astmF2052}, a deflection below $45^{\circ}$ corresponds to $F_m / (mg) < 1$, meaning the magnetic force is less than the object's weight, a conservative reference point for safety, though not a strict acceptance criterion \cite{Woods2021_MRIdisplacement}. In contrast,  a nonmagnetic stainless steel wire ($\chi \approx 10^{-4}$) might show $F_m / (mg) \approx 0.3$, whereas ferromagnetic metals like nickel can exceed $F_m / (mg) > 2 \times 10^{4}$.  That is more than enough to become dangerous projectiles unless restrained \cite{aboyewa2021,Woods2021_MRIdisplacement,panych2018}.
 
@@ -319,19 +321,169 @@ In our lab, we aimed to determine the magnetic susceptibility $\chi_m$ of the te
 
 
 \begin{equation}
-	\chi = \frac{\mu_0 m g \tan \alpha}{V B_0 \frac{dB_0}{dz}}
+	\chi = \frac{\mu_0 m g}{V}\frac{\tan (\alpha)}{ B_0 \frac{dB_0}{dz}}.
 \end{equation}
 
 \noindent this provides a direct estimation of magnetic susceptibility from angular deflection measurements, provided the field and its gradient are known. For experimental purposes, a plot of the deflection angle versus the product of field strength and field gradient allows one to extract $\chi_m$ from the slope of a linear fit, following
 
 \begin{equation}
-	\tan \alpha =   \frac{\chi_m V}{\rho \mu_0 g}  \cdot B_0 \frac{dB_0}{dz}
+	\boxed{\tan \alpha =   \frac{\chi_m }{\rho \mu_0 g}  \cdot B_0 \frac{dB_0}{dz}}
 	\label{eq:forFit}
 \end{equation}
 
 In general, these forces are described as a function of the static field strength ($B_0$), its spatial gradient ($\nabla B_0$), and the material properties such as magnetic susceptibility ($\chi$) and density ($\rho$). The expectation is then, magnetic pull on high susceptibility materials toward regions of higher field strength, like near the bore entrance of the scanner where the spatial gradient is highest \cite{bushberg2011,aboyewa2021,panych2018}. 
 
-
 \subsection{Torque induced by the Static Field and Torque Transfer}
+
+Similar to translational forces, let us start by explaining the physical system. Consider a metallic rigid cylinder shaped subject (a wire or rod) free to rotate, in a low friction surface, and align itself to a static magnetic field ($B_0$). The cylinder experiences a torque and has magnetic dipole moment according to eq. (\ref{eq:torque}). For a thin, linear paramagnetic material, the induced magnetic moment depends on its orientation relative to the static magnetic field. It can be expressed as
+
+\begin{equation}
+	\mathbf{m} = m_0 \cos (\theta),
+	\label{eq:mprojection}
+\end{equation}
+
+\noindent where $m_0$ is the maximum induced dipole moment, which occurs when the material’s axis is aligned parallel to the $B_0$ field ($\theta$ = 0^$\circ$). When the material is oriented perpendicular to$B_0$ ($\theta$ = 90^$\circ$), the effective component of the dipole moment along the field direction vanishes. This follows from the projection of the dipole moment vector onto the magnetic field axis.
+
+\begin{figure}[htb!]
+	\centering
+	\includegraphics[width=0.65\textwidth]{Assets/m0mcost.png}
+	\caption{Vector diagram of a magnetic dipole $\mathbf{m}$ in a uniform magnetic field $\mathbf{B}$ directed along the $z$-axis.}
+	\label{fig:m0mcost}
+\end{figure}
+
+In Figure \ref{fig:m0mcost}, the dipole of length $a$, experiences equal and opposite forces on its “horizontal” sides, producing no net force but a torque magnitude $|\boldsymbol{\tau}| = |\mathbf{m} \times \mathbf{B}| = m B_0 \sin\theta$. And a visual representation of the component of $\mathbf{m}$ along the field direction is given \cite{griffiths2013electrodynamics}.
+
+\noindent
+From the geometric projection of the dipole moment onto the magnetic field direction (eq. \ref{eq:mprojection}), and the torque experienced by the dipole we can write
+\begin{equation*}
+	|\boldsymbol{\tau}| = m_0 B_0 \sin(\theta) \cos(\theta) = m_0 B_0 \frac{\sin (2\theta)}{2},\footnote{Using the trigonometric identity $\sin(2\theta) = 2\sin(\theta)\cos(\theta)$.}
+\end{equation*}
+
+\noindent using equation \ref{eq:magnitudemoment} for the dipole moment, we then write 
+
+\begin{subequations}
+	\begin{equation}
+		\tau(\theta) = \tau_{max} \sin(2\theta) ,
+		\label{eq:torque_thetadependece}
+	\end{equation}
+	\begin{equation}
+		\boxed{\tau_{max} = \frac{\chi_m B_0^2 V}{2 \mu_0}}
+		 \label{eq:maxtorque}
+	\end{equation}
+	\label{eq:magnetic_torque}
+\end{subequations}
+
+A problem to overcome is that, as explained in section \ref{sec:leads}, epicardial leads are malleable (they can be bent or curved into any shape). The model above assumes a rigid dipole that spins uniformly with the magnetic field ($B_0$), for that reason a rigid torque transfer arm should be considered.
+
+The magnetically susceptible test piece experiences a magnetic torque following equation (\ref{eq:magnetic_torque}) and is exerted around the attachment point. The torque transmitted through the joint becomes a force, that can be measured with a sensor located at a known distance ($r$). The relationship of this force to the torque is 
+
+\begin{equation}
+	F_{sensor} = \frac{\tau}{r_{sensor}} 
+\end{equation}
+
+\noindent and will be confirmed later in this document. Because torque is conserved along the rigid body, it provides a practical means to extend the moment arm beyond the base geometry ensuring sufficient space for accurate force sensing while maintaining constant torque transmission. 
+
+Furthermore, the sensor design will determine the signal resolution. In this case, a thin rod stops the arm and bends following the cantilever beam deflection equations. These equations indicate that the strain at the fixed end increases linearly with both the applied force and the beam length, suggesting a mechanical advantage for measuring small forces. Then the strain on the sensor caused by the force applied is measured via strain gauges leading to resistance change. A half whetstone bridge is setup to measure its voltage that with calibration will be converted to weight or force. Implementation of this sensor can be found on section \ref{sec:sensor} and a further investigation on how small of a force can these devices measure is given below.
+
+\subsection{Smallest measurable force and torque}
+
+The smallest measurable translational force can be obtained with geometry. The pendulum forms a right triangle where the vertical line is the pole itself \textit{"L"}, the horizontal is the ruler \textit{"x"} and the hypotenuse is the pendulum's string as depicted on figure \ref{fig:triangleDiagram}. Both of these measurements have a $1mm$ precision, yielding a L=1m and z=1mm triangle. Then, the smallest deflection angle capable of measurement is given by $\alpha=\tan(z/L) \sim z/L$ for small angle which is about of a $10^{-3}$ ($\sim$ 0.057 deg).
+
+\begin{wrapfigure}{r}{0.35\textwidth}
+	\vspace{-10pt}
+	\centering
+	\includegraphics[width=0.15\textwidth]{Assets/leastmeasure.png}
+	\caption{Right-angled triangle formed by the pendulum geometry at equilibrium.}
+	\label{fig:triangleDiagram}
+	\vspace{20pt}
+\end{wrapfigure}
+
+
+Since the angular deflection corresponds to the ratio of magnetic to gravitational forces (see eq. \ref{eq:deflectionAngle}) the smallest measurable magnetic force is 
+
+\begin{equation}
+	F_{m,min} = \tan(\alpha_{min})= mg (\frac{z}{L}).
+\end{equation}
+
+For a 1g test mass\footnote{Sample calculations on this limit can be found on appendix \ref{sec:smallestForce}}, this corresponds to a detection threshold of $F_{m,min} \sim 10^{-6}N$ ($1\mu N$). Thus, the apparatus can resolve magnetic force as small as one-thousandth of the object’s weight. This resolution defines the lower limit of measurable magnetic susceptibility using the pendulum method. For nonmagnetic or weakly paramagnetic materials, such sensitivity ensures that even subtle translational forces can be quantified, making the setup suitable for assessing device safety under MRI static field gradients.
+
+
+\begin{wrapfigure}{l}{0.45\textwidth}
+	\centering
+	\vspace{5pt}
+	\includegraphics[width=\linewidth]{Assets/cantileverDiagram.png}
+	\caption{Cantilever Beam of length L with concentrated load F at the free end.}
+	\label{fig:cantileverDiagram}
+	\vspace{-10pt}
+\end{wrapfigure}
+
+
+On the side of torque measurements, the sensitivity of cantilever-based torque sensors is determined primarily by the relationship between the applied tip load and the strain induced at the fixed end of the beam. Figure \ref{fig:cantileverDiagram} shows a diagram for a thin cylindrical beam of length $L$, diameter $D$, and Young’s modulus $E$, fixed at one end and subjected to a transverse point load $F$ at the free tip, classical beam theory \cite{hibbeler2016mechanics} gives the maximum surface strain as
+
+\begin{equation}
+	\epsilon = \frac{32 F L}{\pi E D^3}.
+	\label{eq:strain_beam}
+\end{equation}
+
+\noindent
+This relationship indicates that the strain is inversely related to the Young's modulus and the cube of the diameter and directly proportional to beam length. As a result, longer and thinner rods increase the observable signal by producing greater stresses for the same applied force.  
+
+\begin{wrapfigure}{r}{0.48\textwidth}
+	\centering
+	\vspace{-20pt}
+	\includegraphics[width=\linewidth]{Assets/cantilever3d.png}
+	\caption{Cantilever setup showing the fixed cylinder and strain gauges ''sandwiching" the rod at its base.}
+	\label{fig:cantilever3d}
+	\vspace{-10pt}
+\end{wrapfigure}
+
+Following the geometry used by Chiu \textit{et al.} \cite{Chiu2016CharacterizationOA}, a wire of $L = 69.85\,{mm}$ and $D = 0.64\,{mm}$ fabricated from Nitinol ($E = 66.2\,{GPa}$) achieved an empirical detection limit of $0.49\,{mN}$, corresponding to an output change of approximately $5\,{mV}$. 
+Using Equation~\ref{eq:strain_beam}\footnote{Sample calculations on this limit can be found on appendix \ref{sec:smallestForce}}, this translates to a geometric sensitivity factor on the order of $L/D^3 \approx 2.66\times10^8\,{m^{-2}}$. 
+
+A similar configuration can, in principle, achieve micro-Newton sensitivity when paired with a low-noise amplification circuit, provided the strain gauge and readout maintain linear response and the system noise floor remains below the equivalent strain corresponding to the smallest measurable force.
+
+%\subsection{Conversion from Strain to Electrical Signal}
+
+A metallic foil strain gauge bonded to the beam surface, which its position is shown in Figure \ref{fig:cantilever3d} converts the mechanical strain into a measurable change in electrical resistance. For small elastic deformations, the fractional change in resistance is linearly related to strain through the gauge factor $GF$ \cite{fraden2016handbook,MicroMeasurements,OmegaSG}
+
+\begin{equation}
+	\frac{\Delta R}{R} = GF \, \epsilon,
+	\label{eq:resistance_strain}
+\end{equation}
+
+\noindent
+where $GF$ is typically in the range of $2.0$–$2.2$ for constant foil gauges. 
+Combining Equations~\ref{eq:strain_beam} and \ref{eq:resistance_strain} gives the total resistance change due to an applied tip force $F$
+
+\begin{equation}
+	\Delta R = R_0 \, GF \, \frac{32 F L}{\pi E D^3}.
+	\label{eq:resistance_force}
+\end{equation}
+
+\noindent
+This resistance change is converted to a differential voltage when the gauge is part of a Wheatstone bridge circuit. 
+For a half-bridge configuration, utilized by Chiu, \textit{et al.} \cite{Chiu2016CharacterizationOA} , where two active strain gauges form adjacent arms of the bridge, the small-signal output voltage under excitation $V_{exc}$ is approximately \cite{fraden2016handbook,NI_AN078_1998}
+
+\begin{equation}
+	V_{out} \approx \frac{V_{exc}}{2} \, GF \, \epsilon,
+	\label{eq:bridge_output}
+\end{equation}
+
+\noindent Assuming perfect linearity, little temperature drift, and perfect bridge balancing. The direct proportionality between applied force and bridge voltage may be obtained by substituting Equation~\ref{eq:strain_beam}:
+
+\begin{equation}
+	V_{out} = \frac{16 \, GF \, V_{exc}}{\pi E D^3} \, L \, F.
+	\label{eq:force_to_voltage}
+\end{equation}
+
+In practice, the smallest detectable force is governed by the combined noise of the gauge, bridge, and amplifier system. 
+If the noise-equivalent output voltage $V_{noise}$ corresponds to a minimum detectable strain $\epsilon_{min} = 2V_{noise}/(V_{exc} GF)$, then the force detection limit follows from Equation~\ref{eq:strain_beam} as
+
+\begin{equation}
+	F_{min} = \frac{\pi E D^3}{32 L} \, \epsilon_{min}.
+	\label{eq:force_limit}
+\end{equation}
+
+Theoretically, the sensor can resolve forces in the micro-Newton range by optimizing the ratio $L/D^3$, minimizing circuit noise, and utilizing materials with moderate modulus (such as aluminum or Nitinol), though Chiu \textit{et al}. \cite{Chiu2016CharacterizationOA} report a practical detection limit of 0.49 mN for a Nitinol wire of similar dimensions.
 
 
