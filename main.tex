@@ -8,6 +8,8 @@
 \usepackage{graphicx}
 \usepackage[table]{xcolor}
 \usepackage{amsmath}
+\usepackage{cancel} 
+
 \usepackage{hyperref}
 \usepackage{url}
 \usepackage{multicol}
@@ -103,18 +105,24 @@
 %\clearpage
 
 \appendix %begin appendix section
-\chapter{Engineering Drawings} \label{sec:appa}% Input Appendix titles as chapters.  \label{sec:appa} is a section label, which makes it easy to reference the section with the command \ref{sec:appa}
+\chapter{Engineering Drawings} \label{sec:appDrawings}% Input Appendix titles as chapters. 
 \input{Appendices/engineering_Draws}
 %\clearpage
 
-\chapter{Sample calculations}
+\chapter{Sample calculations}\label{sec:sampleCalcs}
 \input{Appendices/sample_calculations}
 
-\chapter{Calibration Logs}\label{sec:appb}% and Supplementary Graphs} \label{sec:appb}
+\chapter{Materials and Components Reference Sheet}\label{sec:matSpecs}
+
+\chapter{Calibration Logs}\label{sec:app_calLogs}% and Supplementary Graphs} \label{sec:appb}
 \input{Appendices/calibrations}
 %\clearpage
 
-\chapter{Copyright permissions}\label{sec:appc}
+\chapter{Codes and data samples}\label{sec:appCodeNData}
+\input{Appendices/codesNdata}
+
+
+\chapter{Copyright permissions}\label{sec:app_copyright}
 \input{Appendices/appendixb}
 %\clearpage
 

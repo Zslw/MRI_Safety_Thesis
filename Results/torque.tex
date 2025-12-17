@@ -1,0 +1,64 @@
+\subsection{Sensor Calibration}
+\label{sec:calResult}
+
+During calibration, aluminum based sensor was proven to be the best. 
+
+\begin{figure}[htb!]
+	\centering
+	\includegraphics[width=0.85\textwidth]{Assets/al_fit_Keep.png}
+	\caption{Calibration curves for two aluminum (AL) rods in three different orientations. Linear fits show consistent response across orientations, confirming the reliability of the lab-built sensor (see Methods Section for details).}
+	\label{fig:scaleCalb}
+\end{figure}
+
+\begin{figure}[htb!]
+	\centering
+	\includegraphics[width=0.85\textwidth]{Assets/bestRodfit.png}
+	\caption{}
+\end{figure}
+
+From Fig \ref{fig:scaleCalb} the smallest measurable force the instrument can be determined. Using the slope of the most reliable fit of Aluminum rod $m=-3.4132e-05 (\le 0.29\%), \chi_{red}=1.05$.
+
+The slope relates voltage changes to mass changes:
+
+$$
+\Delta V = \text{slope} \cdot \Delta m
+$$
+so the smallest measurable mass is
+$$
+m_{min}  =\frac{\Delta V}{| \text{slope}|}
+$$
+
+In this case, the standard error in voltage is $\Delta V = 1.4123e-06$ which results in $m_{min}\sim0.0414 \text{mg}$.This corresponds to a force of roughly 0.41$\mu$Newton, which is significant because forces expected on an epicardial lead under a \gls{mri} magnetic field are extremely small.
+
+Along with these measurements we also tested sensitivity along the length of sensor showing that the further out from the gauge bridge the more sensitive the sensor was. This is demonstrated on figure \ref{fig:posAndHeight}. 
+
+\begin{figure}[htb!]
+	\centering
+	\includegraphics[width=0.85\textwidth]{Assets/1stTrials_50_90.png}
+	\caption{Mean voltage response of the sensor as a function of height for different distances from the center (50--100 mm). 
+		A small and relatively flat voltage is observed across all radii, while at larger heights (farther from the bridge) the measurements diverge, showing higher sensitivity near the center (50 mm). 
+		See Methods Section for details on torque transfer and distance selection.}
+	\label{fig:posAndHeight}
+\end{figure}
+
+\begin{figure}[hbt!]
+	\centering
+	
+	\subfigure[]{
+		\includegraphics[width=0.9\textwidth]{Assets/powerFitFr.png}
+	}
+	\hfill
+	\subfigure[]{
+		\includegraphics[width=0.9\textwidth]{Assets/inverseRfitFr.png}
+	}
+	\caption{Left: $Ar^{-1}$ fit, force rises as the tip approaches the dipole center. Right: log–log verification.}
+	\label{fig:fit}
+\end{figure}
+
+\begin{figure}[htb!]
+	\centering
+	\includegraphics[width=0.85\textwidth]{Assets/example_plot.png}
+	\caption{}
+\end{figure}
+
+Figure \ref{fig:posAndHeight} shows a small voltage for all distances from 50mm to 100mm and a range of voltages once we are high up (far from the bridge) with higher sensitivity near the center at 50mm.

@@ -1,52 +1,36 @@
 \section{Magnetic Field Generation and mapping}
+\label{sec:FieldGeneration}
 
-Magnetic fields were generated in multiple ways, seeking to archive the most reliable or similar situation as one would encounter on a clinic. The most intuitive way to accomplish this in a lab setting was to use neodymium magnets with the only problem being static or step-wise change of its magnetic flux, but proving to be quite effective and strong. 
+Seeking to archive the most reliable or similar situation as one would encounter on a clinical \gls{mri}, magnetic fields in the lab were generated using two approaches. The most intuitive methods involved either neodymium permanent magnets or a copper-wound solenoid. Each approach presents advantages and limitations. For example, a neodymium magnet produces a strong, fixed at its maximum value, magnetic field ($B_0$) with distance being the only parameter that affects its strength. Much like an actual \gls{mri}). In contrast, the magnetic field of a solenoid is dependent on the current flowing through its wire, allowing for fine changes of magnetic field ($B_0$) without physically relocating the magnet or the probe.
 
-Another approach included using a custom-built air-core solenoid, approximately 15 cm in length and 10 cm in outer diameter. The solenoid was densely wound with copper wire ($\sim$1 mm diameter), forming an inner core of approximately 5 cm. A Pasco Scientific SF-9584 DC power supply was used to deliver currents in the range of 0--4 A, corresponding to magnetic field strengths from 1 to 18.9 Gauss for this solenoid. 
-Finally, in line to mimic that of a static but increasingly stronger magnetic field inside an \gls{mri} we used a set of educational Helmholtz coils
-
-Further describe this coils, size, number of turns, pasco, series so on
-
-Around our torque contraption allowing us to see changes with its strength in real time using the same Pasco Scientific SF-9584 DC power supply.
-
-\subsection{Magnetic Field and Gradient Mapping Platform}
+The approach used in this section was the later. A custom-built air-core solenoid of approximately 15 cm in length and 10 cm in outer diameter was densely wound with copper wire ($\sim$1 mm diameter) meaning a winding density of $50,000$ turns per meter, forming an inner core of approximately 5 cm. A Pasco Scientific SF-9584 DC power supply was used to deliver currents in the range of 0--4 A, corresponding to magnetic field strengths from 1 to 18.9 Gauss at about 8cm for this solenoid. 
 
 Magnetic field strength ($B_0$) and gradient ($\nabla B_0$) measurements were performed using a commercial Gaussmeter (Model GM2, AlphaLab Inc., Salt Lake City, UT).  The GM2 operates on the Hall effect principle, wherein a voltage is generated across a probe when exposed to a perpendicular magnetic field. This voltage is proportional to the local magnetic flux density, enabling precise spot measurements of field magnitude. The Gaussmeter used has an accuracy of 1\% of the DC reading in the 16$^\circ$C to 29$^\circ$C range.
 
-To ensure spatial accuracy and reproducibility, a fixture made from rigid  \gls{pvc} was constructed by previous Creighton University students \cite{haddixProposal}. The platform comprises a 300 mm square base and a 280 mm diameter vertical circular plate, perforated with a 5x5 grid of probe-access holes spaced at 20 mm intervals as shown in figure \ref{fig:fieldmapping}. Each access point was numerically indexed to facilitate 2D field mapping in the X-Y plane.
+In the lab, our solenoid center sits at 11 cm from a optical breadboard. At its front, three positions were selected to place the gaussmeter probe to check for homogeneity, at the center (r=0 cm,$\theta$=0), southwest (r=10 cm, $\theta$=225), and east (r=10 cm, $\theta$=0). This was achieved by using a translational station positioning the probe 10 away from the solenoid's entrance. The station uses 3 servomotors, one for each Cartesian axis, to accurately position the probe with changes less than a tenth of a millimeter. However, the distance across the z-axis was limited to 11 mm by the servo's maximum extension. This setup was used for experiment in section \ref{sec:Translational}. To make a quick check across a wider range, a ruler was fixed at the same three positions described and the probe was steadily translated about 20 cm to the solenoid entrance and back. Data was recorded using the manufacturer’s default software, AlphaApp with a sampling time of 1 reading per second, for about 2 min. Video recording allowed to map time, and distance enabling a rough map of the B field and its gradient.
+
+\subsection{Magnetic Field and Gradient Mapping Platform}
+
+To ensure spatial accuracy and reproducible measurements, a fixture made from rigid  \gls{pvc} was constructed by previous Creighton University students \cite{haddixProposal}. The platform consists of a 300(W) $\times$ 420(L) $\times$ 40(H) mm rectangular prism as base and a 280 mm diameter vertical circular plate, perforated with a polar grid of probe-access holes, with 12 radial lines spaced at 30°. Each line contains 5 holes at uniform radial spacing of 20mm, sharing a single central hole as shown in Figure \ref{fig:fieldmapping} for 49 different positions. Each access point was numerically indexed to facilitate 2D field mapping in the X-Y plane. This fixture has a total weight of about 9kg and height of 35 mm positioning the center at 21 mm to align with the \gls{mri}'s isocenter.
 
 \begin{figure}[hbt!]
     \centering
     \subfigure[PVC-based mapping platform.\label{fig:fieldmapping_a}]{
-        \includegraphics[width=0.48\textwidth]{Assets/Picture3.jpeg}
+        \includegraphics[width=0.48\textwidth]{Assets/Picture3.jpg}
     }
     \hfill
     \subfigure[Example field map output from MRI fringe region.\label{fig:fieldmapping_b}]{
         \includegraphics[width=0.40\textwidth]{Assets/MagFieldMap.png}
     }
 
-    \caption[PVC-based magnetic field mapping platform]{PVC-based magnetic field mapping platform. Used for spatial $B_0$ and $\nabla B_0$ measurement. As shown in Ferreira 2017 \cite{haddixProposal,ferreira2017}.}
+    \caption[PVC-based magnetic field mapping platform]{PVC-based magnetic field mapping platform. Used for spatial $B_0$ and $\nabla B_0$ measurement. based on design from Ferreira, et al. (2017) \cite{haddixProposal,ferreira2017}.}
     \label{fig:fieldmapping}
 \end{figure}
 
-
-
 %LABVIEW program and Alpha Labs Protocols
-Once the field‑mapping phantom and Gaussmeter probe are co‑aligned, data capture was streamlined using LabVIEW to be sufficiently flexible and precise for our proximity measurements near an \gls{mri}. The manufacturer’s default software, AlphaApp, provides basic data‑logging, recording, live screen streaming, and plotting of measurements from USB‑enabled AlphaLab meters\cite{AlphaApp}. However, AlphaApp does not expose control over sampling frequency or allow real‑time adjustment of acquisition parameter, limiting fine temporal resolution when the probe is moved into steep field gradients. In contrast, using \gls{lvi} interface allows for configurable sampling intervals, buffer control, and precise timing protocols, enabling us to push the device for much higher accuracy as the probe approaches and crosses isocontour regions within the \gls{mri} fringe. We developed that \gls{lvi} by leveraging the AlphaLab Data Acquisition Communication Protocol \cite{AlphaAppProtocol} to command the device directly via USB, providing control over timing and sample rate.
+Once the field‑mapping fixture and Gaussmeter probe are co‑aligned, data capture is streamlined using LabVIEW to be sufficiently flexible and precise for our proximity measurements near an \gls{mri}. The manufacturer’s default software, AlphaApp, provides basic data‑logging, recording, live screen streaming, and plotting of measurements from USB‑enabled AlphaLab meters\cite{AlphaApp}. However, AlphaApp's control over sampling frequency is limited by design, therefore limiting fine temporal resolution when the probe is moved into steep field gradients. In contrast, using \gls{lvi} interface allows for configurable sampling intervals, buffer control, and precise timing protocols, enabling us to push the device for much higher accuracy as the probe approaches and crosses isocontour regions within the \gls{mri} fringe. We developed that \gls{lvi} by leveraging the AlphaLab Data Acquisition Communication Protocol \cite{AlphaAppProtocol} to command the device directly via USB series port, providing control over timing and sample rate. The data acquisition procedure for magnetic flux mapping is organized in this \gls{lvi}, whose basic logic is summarized in Appendix  . 
 
-The data acquisition procedure for magnetic flux mapping is organized in this \gls{lvi}, whose basic logic is summarized in Figure~\ref{fig:gaussmeter-flowchart}. Upon startup, the \gls{lvi} initializes serial communication with the Gaussmeter, loads user-defined parameters (such as file name, mode of acquisition, delay time, and probe coordinates), and clears buffers in preparation for logging. The user may select either a continuous or an individual sampling mode. In continuous mode, the \gls{lvi} iterates through a defined number of data points with a fixed delay between samples; in individual mode, each data capture is triggered manually, allowing for precise positioning or timing. For both modes, each cycle involves reading the spatial coordinates, sending a measurement command, recording the returned magnetic flux value, and updating a graphical display as well as the output file.
-
-While the flowchart reflects the core logic, it does not fully convey the customization added to the \gls{lvi} interface. For example, the front panel includes input fields for patient table (couch) parameters such as couch speed and displacement points. As mentioned above, phantom is discretized with radial and angular indices: angular positions span 12 sectors clockwise from the 12 o’clock position (0 to 11 or A to L), and radial depths range from the center (0) to the outer edge (6). The probe’s spatial location is represented in polar coordinates, and the system plots magnetic flux as a function of position rather than time, allowing for intuitive visualization of the MRI fringe field across the phantom surface.
-
-
-\begin{figure}[htb!]
-	\centering
-    \includegraphics[width=0.80\textwidth]{Assets/flowchart.png} 
-	\caption{Flowchart of the Gaussmeter VI data acquisition algorithm.}
-	\label{fig:gaussmeter-flowchart}
-\end{figure}
-
-In clinical use, the entire fixture is intended to be shifted axially along the Z-direction of a horizontal bore MRI scanner using controlled couch increments (e.g., 10 cm). This translation allows for volumetric sampling of $B_0$ over several planes. The spatial magnetic field gradient$\nabla B_0$ can then be estimated numerically using finite difference calculations between adjacent measurement points. This method has previously been applied to MRI mapping in the work by Ferreira \cite{ferreira2017}.
+In clinical use, the entire fixture is intended to be shifted axially along the Z-direction of a horizontal bore MRI scanner using controlled couch increments (e.g., 10 cm). This translation allows for volumetric sampling of $B_0$ over several planes. The spatial magnetic field gradient $\nabla B_0$ can then be estimated numerically using finite difference calculations between adjacent measurement points, as developed in Chapter \ref{sec:translationalForceBG}. This method has previously been applied to MRI mapping in the work by Ferreira \cite{ferreira2017}.
 
 
 

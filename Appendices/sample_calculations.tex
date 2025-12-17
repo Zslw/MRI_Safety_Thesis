@@ -1,10 +1,45 @@
-\section{Smallest measurable force of translational fixture}
-\label{sec:smallestForce}
+\section{Sample Calculation for Scaling at 30~G}
+\label{app:scaling}
 
-For a specimen of $m = 0.1\,\text{g} = 1\times10^{-4}\,\text{kg}$, the smallest measurable magnetic force is given by
+Given that the MRI main field in the reference case is $B_0 = 3~\text{T}$, we consider a laboratory solenoid producing $B_0 = 30~\text{G} = 3\times10^{-3}~\text{T}$ with a $5.691\times10^{-3} \text{T}/\text{m}$ field gradient in z direction.
+The magnetic force acting on a weakly magnetic material is given by
 
 \begin{equation}
-	F_{m,\min} = m g \frac{z}{L}
+	\rho \chi = \frac{\mu_0 g \tan(\alpha)}{B_0 \frac{dB_0}{dz}},
+	\label{eq:rhochi_def}
+\end{equation}
+
+where $\mu_0 = 1.256637\times10^{-6}~\text{N/A}^2$, $g = 9.8067~\text{m/s}^2$, $\rho$ is the density of the laboratory material, and $\alpha$ is the equilibrium deflection angle of the pendulum, approximated by $\tan\alpha \approx 10/1000 = 0.01$ for a $1~\text{cm}$ displacement over a $1~\text{m}$ string.
+
+\vspace{1em}
+For a scaled solenoid field of, assuming $B_0 (dB_0/dz)$ scales quadratically with the magnetic field relative to the original MRI field of 3~T, we have
+
+\begin{align}
+(B_0 \frac{dB_0}{dz})_{lab} = (B_0 \frac{dB_0}{dz})_{MRI} \left( \frac{B_{0,lab}}{B_{0,MRI}} \right)^2.
+\end{align}
+
+Substituting the numerical values , the scaled gradient term for 30~G becomes
+\begin{align}
+B_0 \frac{dB_0}{dz} = 1.71\times10^{-5}~\text{T}^2/\text{m}.
+\end{align}
+
+Thus,
+\begin{align}
+\rho\chi = \frac{(1.256637\times10^{-6})(9.8067)(0.01)}{1.71\times10^{-5}} = 7.22\times10^{-3}.
+\end{align}
+
+Assuming $\rho = 7000~\text{kg/m}^3$, the effective magnetic susceptibility for a ferromagnetic mimic becomes
+\begin{align}
+\chi = \rho\chi \times \rho = (7.22\times10^{-3})(7000) = 5.05\times10^{1} \approx 50.
+\end{align}
+
+\section{Smallest measurable force of translational fixture}
+\label{app:smallestForce}
+
+Following section \ref{sec:Smallestmeasurable} For a specimen of $m = 0.1\,\text{g} = 1\times10^{-4}\,\text{kg}$, the smallest measurable magnetic force is given by equation \ref{eq:minForce}
+
+\begin{equation}
+	F_{m,\min} = m g \frac{z}{L}, \quad	\text{(Eq.~\ref{eq:minForce})} \nonumber 
 \end{equation}
 
 \noindent where $g = 9.81\,\text{m/s}^2$, $z = 1\times10^{-3}\,\text{m}$, and $L = 1\,\text{m}$. Substituting these values yields
@@ -19,3 +54,174 @@ For a specimen of $m = 0.1\,\text{g} = 1\times10^{-4}\,\text{kg}$, the smallest 
 	\frac{F_m}{F_g} = \frac{z}{L} = 10^{-3},
 \end{equation}
 \noindent indicating that the setup can detect magnetic forces as small as one-thousandth of the object’s weight.
+
+\section{Smallest measurable force of translational fixture}
+\label{app:smallestTorque}
+
+
+\section{Kirchhoff analysis of Circuit}
+\label{app:Kirchhoff}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.7\textwidth]{assets/opAmp.png}
+	\caption{Schematic of the Wheatstone bridge with strain gauges $S1$ and $S2$, fixed resistors $R=R1=R2$, and operational amplifier with feedback resistor $R_f$. This configuration corresponds to the transfer function in Equation~\eqref{eq:kirchov12}.}
+	\label{fig:opamp_bridge}
+\end{figure}
+
+
+Using \gls{kcl}, in Figure \ref{fig:opamp_bridge} for node $V_A$ which corresponds to the positive leg of the op amp, or non inverting voltage, we have
+
+\begin{align*}
+	\frac{V_A - V_{in}}{S1} + \frac{V_A}{S2} &= 0 \\
+	\frac{S2 (V_A - V_{in}) + S1 V_A}{\cancel{S1 S2}} &= 0 \\
+	V_A (S2 + S1) - S2 V_{in} &= 0 \\
+	V_A &= \frac{S2 V_{in}}{S2 + S1}.
+\end{align*}
+
+Similarly, for the node $V_B$ corresponding to the inverting input of the op-amp
+
+\begin{align*}
+	\frac{V_B - V_{in}}{R} + \frac{V_V}{R} + \frac{V_B - V_{out}}{R_f} &= 0 \\
+	\frac{R_f (2V_B - V_{in}) + R (V_B - V{out})}{\cancel{R R_f}} &= 0 \\
+	V_B (2R_f + R) - R_f V_{in} - RV_{out} &= 0 \\
+	V_B &= \frac{R_f V_{in} + R V_{out}}{2R_f + R}.
+\end{align*}
+
+At this point, we make a standard ideal op-amp assumption, the op-amp has infinite open-loop gain, meaning any finite output voltage corresponds to a vanishingly small input voltage difference. That is, for the difference amplifier
+
+\begin{equation}
+    V_{out} = A_{\text{ol}} (V_A - V_B), \quad A_{\text{ol}} \rightarrow \infty,
+\end{equation}
+
+which implies $V_A \approx V_B$. Substituting $V_A = V_B$ into the previous equations allows us to solve for the closed-loop transfer function
+
+\begin{align*}
+	\frac{S2 V_{in}}{S2+S1}  &= \frac{R_f V_{in} + R V_{out}}{2R_f + R} \\
+ \frac{V_{out}}{V_{in}}&= 	\frac{R_f (S2 - S1) + S2 R}{R (S2 + S1)} \\
+\frac{V_{out}}{V_{in}}&= 		\frac{R_f}{R} \frac{S2 - S1}{S2 + S1} + \frac{S2}{S2 + S1} \tag{\ref{eq:kirchov12}}
+\end{align*}
+
+\noindent
+In summary, the output voltage is composed of two contributions: a differential term amplified by the ratio $R_f / R$, which captures the imbalance between the strain gauges $S1$ and $S2$, and a baseline voltage division term $S2 / (S2 + S1)$ that represents the inherent bridge offset. This expression clearly shows how the Wheatstone bridge imbalance is amplified by the op-amp to produce the measurable output.
+
+
+\section{Explaining the behavior of Coarse-Fine Tuning with Potentiomenters in Circuit}
+\label{app:pots}
+
+\begin{figure}[hbt!]
+	\centering
+	\includegraphics[width=0.11\textwidth]{Assets/pots.png}
+	\caption{Schematic of the coarse–fine potentiometer configuration used for the voltage-divider derivations in Figure \ref{fig:torqueCircuit}.}
+	\label{fig:pots}
+\end{figure}
+
+\subsection{1. Derivation of the Node Voltage}
+Starting with KVL around the loop
+
+\begin{equation}
+V_{\text{in}} - I R_{1} - I R_{2} = 0,
+\end{equation}
+Factor out the current
+\begin{equation}
+V_{\text{in}} = I (R_{1}+R_{2}),
+\end{equation}
+Solve for the series current
+\begin{equation}
+I = \frac{V_{\text{in}}}{R_{1}+R_{2}},
+\end{equation}
+The node voltage is the drop across the lower resistor \(R_{2}\)
+\begin{equation}
+V_{\text{node}} = I\,R_{2} = 
+\left( \frac{V_{\text{in}}}{R_{1}+R_{2}} \right) R_{2}.
+\end{equation}
+Final voltage-divider form
+\begin{equation}
+\boxed{V_{\text{node}} = V_{\text{in}}\,
+	\frac{R_{2}}{R_{1}+R_{2}} }. \tag{\ref{eq:voltageDivider}}
+\end{equation}
+
+\subsection*{2. Numerical Evaluation for Fine Pot Positions}
+For these evaluations
+\begin{equation}
+V_{\text{in}} = 5.0~\text{V}, \qquad
+R_{1}=10~\text{k}\Omega, \qquad
+R_{2} \in [0,1000]~\Omega.
+\end{equation}
+
+\subsubsection*{2.1 Halfway Fine Adjustment \(\,R_{2}=500~\Omega\)}
+\begin{equation}
+V_{\text{node}} 
+= 5.0\,
+\frac{500}{10000 + 500}
+= 5.0 \left( \frac{500}{10500} \right)
+= 5.0 (0.047619)
+= 0.2381~\text{V}.
+\end{equation}
+
+\subsubsection*{2.2 Tabulated Values for Fine Pot Settings}
+\begin{equation}
+V_{\text{node}} = 5\,
+\frac{R_{2}}{10000 + R_{2}}.
+\end{equation}
+
+\begin{center}
+	\begin{tabular}{c|c|c}
+		\hline
+		Fine Pot Setting & $R_{2}$ (Ohms) & $V_{\text{node}}$ (V) \\
+		\hline
+		Max & $1000$ & $0.4545$ \\
+		Mid & $500$  & $0.2381$ \\
+		Min & $0$    & $0$ \\
+		\hline
+	\end{tabular}
+\end{center}
+
+\subsection*{3. Coarse Adjustment with Fine Fixed at Midpoint}
+Now fix the fine pot at
+\begin{equation}
+R_{2}=500~\Omega.
+\end{equation}
+The 10 k coarse pot wiper divides $R_{1}$ into two portions.  
+Let the coarse wiper position be $\alpha\in[0,1]$, where
+
+\begin{equation}
+\alpha = 0 : \text{wiper at top}, \quad
+\alpha = 1 : \text{wiper at bottom}.
+\end{equation}
+
+The wiper voltage is a weighted average between the supply (5 V)  
+and the node voltage computed with the fixed fine setting
+\begin{equation}
+V_{\text{node,fine}=500}
+= 0.2381~\text{V}.
+\end{equation}
+Thus the coarse-wiper voltage is
+\begin{equation}
+V_{\text{wiper}} = (1-\alpha)(5.0) + \alpha (0.2381).
+\end{equation}
+
+\subsubsection*{3.1 Coarse-Wiper Table (Fine Fixed at Half)}
+\begin{center}
+	\begin{tabular}{c|c|c}
+		\hline
+		Coarse Setting & $\alpha$ & $V_{\text{wiper}}$ (V) \\
+		\hline
+		Top (Min Coarse)    & $0$   & $5.000$ \\
+		Midpoint            & $0.5$ & $2.619$ \\
+		Bottom (Max Coarse) & $1$   & $0.238$ \\
+		\hline
+	\end{tabular}
+\end{center}
+
+\subsection*{4. Interpretation}
+At $\alpha=0$ (coarse at minimum), the wiper sits at the full input voltage
+\begin{equation}
+V_{\text{wiper}} = 5~\text{V},
+\end{equation}
+which is independent of the fine adjustment.  
+At $\alpha=1$ (coarse at maximum), the wiper voltage collapses into the range controlled solely by the fine pot
+\begin{equation}
+V_{\text{wiper}} = V_{\text{node,fine}}.
+\end{equation}
+Thus the coarse pot sets the overall span,  
+and the fine pot determines the precise lower-region tuning.
