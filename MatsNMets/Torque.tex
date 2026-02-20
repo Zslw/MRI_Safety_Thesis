@@ -1,35 +1,9 @@
-\section{Torque Measurement via Counter-torque}
-\label{sec:metsTorque}
-
+\subsection{Torque Measurement Apparatus}
+\label{sec:TorqMeasureApp}
 
 For the torque estimation, ASTM 2213-17 \cite{astm2213} lists five different methodologies. Calculation based on measured displacement force method, low friction surface method, suspension method, torsional spring method, and pulley method. In section \ref{sec:LitRev}, the results on three of these methods were revised. Those included low friction, pulley and a variation of torsional spring methods \cite{Woods2021_MRIdisplacement,stoianovici2024,Seo2021767}, which showed good results but further considerations are needed. In our case a torque measurement device, previously shown in Figure \ref{fig:parameters}, capable of holding both the sensor and subject was developed and will be further explained in section \ref{sec:TorqMeasureApp}. In addition to the sensor and circuit developed in section \ref{sec:circuitDesignNsensor}, a \gls{daq} system and a computer with a \gls{lvi} was needed. 
 
 
-\subsection{MRI Magnetic field conditions in lab recreation}
-
-For the initial configuration, a permanent-magnet–based torque setup was implemented as shown in Figure \ref{fig:neodymiumset}. This first arrangement employed four neodymium magnets, each magnetized through their thickness, with nominal dimensions of 1/4 in thickness and 5/16 in outer diameter. The magnets were mounted symmetrically on a rigid mechanical frame, with their magnetization axes oriented to produce a static magnetic field across the region occupied by the torque arm. Threaded lateral adjusters and a central support allow controlled positioning and alignment of the magnets relative to the rotating element.
-
-
-\begin{figure}[hbt!]
-	\centering
-	\subfigure[Initial permanent-magnet torque measurement setup. The apparatus employs four neodymium magnets symmetrically mounted on a rigid frame to generate a static magnetic field across the torque arm. \label{fig:neodymiumset}]{
-		\includegraphics[width=0.45\textwidth]{Assets/neodymiumset.jpeg}
-	}
-	\hfill
-	\subfigure[Helmholtz coil configuration used to generate a controllable and approximately uniform static magnetic field at the coil center. The coils are driven with equal currents in the same direction to superpose their magnetic fields.\label{fig:helmholtzsetup}]{
-		\includegraphics[width=0.45\textwidth]{Assets/helmholtzNPole2.jpeg}
-	}
-
-	\caption{Comparison of the two magnetic field generation setups used for torque measurements: (a) a permanent-magnet–based configuration providing a fixed static field, and (b) a Helmholtz coil configuration enabling controlled variation of magnetic field strength.}
-	\label{fig:torque_compare}
-\end{figure}
-
-A second setup (Figure \ref{fig:helmholtzsetup}) utilized Helmholtz Coils EM‑6722 from PASCO Scientific to create a controlled, nearly uniform static magnetic field that could be varied in strength and observed in real time. These Helmholtz coils consist of two identical coils, each wound with 200 turns, they were wired so current flowed in the same direction. They had an inner radius of about 10.06 cm and outer radius around 10.58 cm, and they sit on a optical base that lets us adjust the center-to-center spacing close to where the field is most uniform (about one diameter apart). The coils used a maximum DC current of 2 A, which we supply with the PASCO Scientific SF-9584 DC power supply to increase the magnetic field incrementally; as current increases, so too does the magnetic flux density between the coils, allowing us to observe corresponding torque changes on our contraption.
-
-
-
-\subsection{Torque Measurement Apparatus}
-\label{sec:TorqMeasureApp}
 On the final part of the assessment, the magnetically induced torque on a horizontally oriented subject was measured. To achieve this, a non-magnetic pole was fabricated with clinical considerations in mind. Figure \ref{fig:parameters} shows the pole, which was made from Delrin\textsuperscript{\texttrademark} and is 200 mm tall with 51 mm of diameter it can be attached to a PVC base for support with a nylon screw and it features a space for a non-magnetic bearing to sit. This non-magnetic ceramic bearing is meant to reduce as much friction for the rotation as possible while keeping everything non magnetic. Figure \ref{fig:bearing} shows a close up to the bearing, which has a plastic notch capable of holding a 10 mm thick ruler (lever arm) to spin. 
 
 The induced torque on the subject, explained in section \ref{sec:torqueBG}, is transmitted mechanically to a non-magnetic ruler which then would apply a force on the sensor introduced in section \ref{sec:circuitDesignNsensor}. This sensor would bend on and the counter-force would be measured using strain gauges. 
@@ -45,7 +19,7 @@ The induced torque on the subject, explained in section \ref{sec:torqueBG}, is t
 		\includegraphics[width=0.45\textwidth]{Assets/torqueClinic2 3.jpeg}
 	}
 	
-	\caption{Main Torque fixture, this fixture was modified designed to include a base and a ring to hold the sensor. Previous work only included the main pole.}
+	\caption[Non-magnetic torque fixture for horizontal subject orientation]{Main Torque fixture, this fixture was modified designed to include a base and a ring to hold the sensor. Previous work only included the main pole.}
 	\label{fig:torqueFixture}
 \end{figure}
 
@@ -56,21 +30,50 @@ To show the effects of the magnetic field on the setup, a big ferromagnetic dowe
 
 However a smaller dowel is needed, this dowel would experiment much smaller torques based on size only. And following the same logic as in translational this would be a better test subject at lab scale. With a small magnetic field, high magnetic susceptibility and small volume, following equation \ref{eq:torqueCal} proportionality is ensured.
 
+\input{MatsNMets/lever_arm.tex}
 
-\subsubsection*{In Lab Measurement Protocol}
+\input{MatsNMets/smallest_torque.tex}
 
-
+\subsection{In Lab Methodology and Setup}
+\label{sec:InLab_Torque}
 During the experiment, 2 measurements were performed. Magnetic field flux in Gauss using the AlphaLab Inc. Gaussmeter, described before, and Voltage from the strain gauge plus circuit sensor. 
 
 The experiment consisted of, with the sensor fixed in the ideal position, vary the magnetic field produced by the Helmholtz coils -mimicking the behavior in distance as a real MRI-increasing as we get closer to isocenter. Then the respective voltage produced by the deformation of the sensor is recorded. Finally, the voltage to weight calibration serves to estimate the induced torque of the system.
+
+experiment done 3 times, 1st with helmholtz coils for 2 different lenght rods
+
+and then with a set of 4 neodymium magnets in a different holder for the smaller rod.
 
 
 \begin{figure}[htb!]
 	\centering
 	\includegraphics[width=0.75\textwidth]{Assets/TorqueSetup.jpeg}
-	\caption{Experimental setup for torque. Includes magnetic field generation and measurement devices, 1 through 4. 5 is the circuit explained in section \ref{sec:circuit}, 6. is a \gls{daq} system connected to a laptop and 7. is the main device where the dowel subject sits.}
+	\caption[Experimental setup for measuring magnetically induced torque.]{Experimental setup for torque. Includes magnetic field generation and measurement devices, 1 through 4. 5 is the circuit explained in section \ref{sec:circuit}, 6. is a \gls{daq} system connected to a laptop and 7. is the main device where the dowel subject sits.}
 	\label{fig:equipment_list_zoomed}
 \end{figure}
+
+\subsubsection{Magnetic field conditions}
+
+For the initial configuration, a permanent-magnet–based torque setup was implemented as shown in Figure \ref{fig:neodymiumset}. This first arrangement employed four neodymium magnets, each magnetized through their thickness, with nominal dimensions of 1/4 in thickness and 5/16 in outer diameter. The magnets were mounted symmetrically on a rigid mechanical frame, with their magnetization axes oriented to produce a static magnetic field across the region occupied by the torque arm. Threaded lateral adjusters and a central support allow controlled positioning and alignment of the magnets relative to the rotating element.
+
+
+\begin{figure}[hbt!]
+	\centering
+	\subfigure[Initial permanent-magnet torque measurement setup. The apparatus employs four neodymium magnets symmetrically mounted on a rigid frame to generate a static magnetic field across the torque arm. \label{fig:neodymiumset}]{
+		\includegraphics[width=0.45\textwidth]{Assets/neodymiumset.jpeg}
+	}
+	\hfill
+	\subfigure[Helmholtz coil configuration used to generate a controllable and approximately uniform static magnetic field at the coil center. The coils are driven with equal currents in the same direction to superpose their magnetic fields.\label{fig:helmholtzsetup}]{
+		\includegraphics[width=0.45\textwidth]{Assets/helmholtzNPole2.jpeg}
+	}
+	
+	\caption[Two setups used for torque measurements]{Comparison of the two magnetic field generation setups used for torque measurements: (a) a permanent-magnet–based configuration providing a fixed static field, and (b) a Helmholtz coil configuration enabling controlled variation of magnetic field strength.}
+	\label{fig:torque_compare}
+\end{figure}
+
+A second setup (Figure \ref{fig:helmholtzsetup}) utilized Helmholtz Coils EM‑6722 from PASCO Scientific to create a controlled, nearly uniform static magnetic field that could be varied in strength and observed in real time. These Helmholtz coils consist of two identical coils, each wound with 200 turns, they were wired so current flowed in the same direction. They had an inner radius of about 10.06 cm and outer radius around 10.58 cm, and they sit on a optical base that lets us adjust the center-to-center spacing close to where the field is most uniform (about one diameter apart). The coils used a maximum DC current of 2 A, which we supply with the PASCO Scientific SF-9584 DC power supply to increase the magnetic field incrementally; as current increases, so too does the magnetic flux density between the coils, allowing us to observe corresponding torque changes on our contraption.
+
+
 
 \subsubsection{In Clinic Measurement Protocol}
 

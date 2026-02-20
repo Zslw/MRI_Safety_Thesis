@@ -1,19 +1,24 @@
-This chapter details the experimental setups  and measurement procedures developed to quantify \gls{mri}-induced translational forces and torque acting on post-surgical epicardial pacing lead when exposed to its static magnetic field. Three non-magnetic test apparatus were constructed. Specifically designed to measure these forces with the precision required for clinical applications, in accordance to ASTM guidelines.
+This chapter details the experimental setups  and measurement procedures developed to quantify \gls{mri}-induced translational forces and torque acting on post-surgical epicardial pacing lead when exposed to its static magnetic field. Given the challenges associated with clinical access for experimental testing, as \gls{mri} scanner time is typically associated with long scheduling delays and short available measurement periods, a secondary objective of this work was to improve the quality of our experimental setup in order to maximize the efficiency of data acquisition during these limited observation windows. This chapter describes the experiments that were conducted and the methodologies implemented.
 
-Given the challenges associated with clinical access for experimental testing, as MRI scanner time is typically associated with long scheduling delays and short available measurement periods, a secondary objective of this work was to improve the quality of our experimental setup in order to maximize the efficiency of data acquisition during these limited observation windows. This chapter describes the experiments that were conducted and the methodologies implemented.
-
-Previous students of Creighton University have developed the laboratory-scaled instruments and associated software necessary to evaluate magnetic forces in a controlled environment. This was achieved by generating a smaller but reproducible magnetic field in the laboratory, enabling characterization of ferromagnetic materials.  While this laboratory-generated field was not sufficient to directly measure or characterize the epicardial lead itself, it allowed for evaluation of the accuracy and measurement capacity of each instrument, as well as for the observation of the physical phenomena described in sections \ref{sec:translationalForceBG} and  \ref{sec:torqueBG} with its relevant expressions in equation \ref{eq:relevantExpressions}.
+Previous students of Creighton University have developed the laboratory-scaled instruments and associated software necessary to evaluate magnetic forces in a controlled environment. This was achieved by generating a smaller but reproducible magnetic field in the laboratory, enabling characterization of ferromagnetic materials.  While this laboratory-generated field was not sufficient to directly measure or characterize the epicardial lead itself, it allowed for evaluation of the accuracy and measurement capacity of each instrument, as well as for the observation of the physical phenomena described in sections \ref{sec:translationalForceBG} and  \ref{sec:torqueBG}.
 Importantly, both translational force and torque scale predictably with the magnetic field strength, specifically, $F \propto B_0 \, \frac{dB_0}{dz}$ and $\tau \propto B_0^2$, which allows the laboratory setup to reproduce the same dimensionless relationships observed under clinical (3T) conditions, merely at smaller magnitudes. Therefore, by appropriately scaling $\chi_m$ and $\rho$ (see Appendix~\ref{app:scaling}), the essential magnetic behavior can be simulated without requiring a full-strength MRI system.
 
-Three distinct experimental setups were involved in this study: (1) a spatial field mapping platform to characterize $B_0$ and $\nabla B_0$, (2) a pendulum-based deflection apparatus to assess translational force through angular displacement, and (3) a torque measurement system for rotational force assessments. In this chapter we will explain our setup and rationale, as well as the proven modifications to the instruments in order to provide a reproducible map of action to test our instruments.
+Three non-magnetic test apparatus were constructed, specifically designed to measure these forces with the precision required for clinical applications, in accordance to ASTM guidelines \cite{astm2213,astmF2052,astmF2182,ASTM_F2503_2023}. First, a spatial field mapping platform to characterize $B_0$ and $\nabla B_0$. Alongside but independently, a pendulum-based deflection apparatus to assess translational force through angular displacement. Finally, a strain sensor with a low-friction pole and lever arm measurement system for rotational force (torque) assessments. In this chapter we explain our setup and rationale, as well as the proven modifications to the instruments, their sensitivity, and precision, in order to provide a reproducible map of action to test our instruments. To accomplish this, the chapter is divided into the three experiments we described. Each of them constituted of three parts, a technical description of the fixtures developed, the in-lab testing leading into a first clinical methodology. 
 
+
+\section{Magnetic Field Generation and mapping}
+\label{sec:FieldGeneration}
 \input{MatsNMets/Magnetic Field Generation}
 %Gaussmeter and Hall effect?
 
+\section{Translational Force Measurement via Angular Deflection}
+\label{sec:Translational}
 \input{MatsNMets/Translational}
 
-\input{MatsNMets/circuitDesign}
 
+\section{Torque Measurement via Counter-torque}
+\label{sec:metsTorque}
+\input{MatsNMets/circuitDesign}
 \input{MatsNMets/Torque}
 %Torque transfer mechanically? tie with magnetic moment and dipoles, explain the max angle 45deg min 90 or 180
 %Strain Gauge and deformation?

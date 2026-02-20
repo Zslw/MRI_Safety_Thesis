@@ -1,0 +1,31 @@
+%Derivative and fit
+
+In our lab, we aimed to determine the magnetic susceptibility $\chi_m$ of the test sample. Using Eqs.~(\ref{eq:translationalForce}) and (\ref{eq:deflectionAngle}), it can be expressed as
+
+\begin{subequations}
+	\begin{equation}
+		\chi = \frac{\mu_0 m g}{V}\frac{\tan (\alpha)}{ B_0 \frac{dB_0}{dz}}.
+		\label{eq:chi}
+	\end{equation}
+	\begin{equation}
+		\frac{\chi}{\rho} = \mu_0 g\frac{\tan (\alpha)}{ B_0 \frac{dB_0}{dz}}.
+		\label{eq:chi_rho}
+	\end{equation}
+	\label{eq:chis}
+\end{subequations}
+
+\noindent this provides a direct estimation of magnetic susceptibility from angular deflection measurements, provided the field and its gradient are known. For experimental purposes, a plot of the deflection angle versus the product of field strength and field gradient allows one to extract $\chi_m$ from the slope of a linear fit, following
+
+\begin{equation}
+	\boxed{\tan (\alpha) =   \frac{\chi_m }{\rho \mu_0 g}  \cdot B_0 \frac{dB_0}{dz}}
+	\label{eq:forFit}
+\end{equation}
+
+In general, these forces are described as a function of the static field strength ($B_0$), its spatial gradient ($\nabla B_0$), and the material properties such as magnetic susceptibility ($\chi$) and density ($\rho$). In practice the spatial gradient can be obtained by taking the finite difference in to very close points on a field strength map along the z-axis
+
+\begin{equation}
+	\label{eq:finiteDiff}
+	\frac{dB}{dz} \approx \frac{B_2 - B_1}{z_2 - z_1}
+\end{equation}
+
+\noindent where $B_1$ and $B_2$ represent the measured magnetic flux densities at positions displaced symmetrically from the location of interest. Using a 1-mm separation ($z_2 - z_1$) keeps the approximation in the linear regime while remaining resolvable on the field map. 

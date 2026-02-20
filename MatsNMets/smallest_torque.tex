@@ -1,0 +1,78 @@
+\subsection{Smallest measurable torque}
+\label{sec:SmallTorque}
+\begin{wrapfigure}{l}{0.48\textwidth}
+	\centering
+	%\vspace{-5pt}
+	\includegraphics[width=\linewidth]{Assets/cantileverDiagram.png}
+	\caption{Cantilever Beam of length L with concentrated load F at the free end.}
+	\label{fig:cantileverDiagram}
+	%\vspace{10pt}
+\end{wrapfigure}
+
+
+For torque measurements, the sensitivity of cantilever-based torque sensors is determined primarily by the relationship between the applied tip load and the strain induced at the fixed end of the beam. Figure \ref{fig:cantileverDiagram} shows a diagram for a thin cylindrical beam of length $L$, diameter $D$, and Young’s modulus $E$, fixed at one end and subjected to a transverse point load $F$ at the free tip, classical beam theory \cite{hibbeler2016mechanics} gives the maximum surface strain as
+
+\begin{equation}
+	\epsilon = \frac{32 F L}{\pi E D^3}.
+	\label{eq:strain_beam}
+\end{equation}
+
+\noindent This relationship indicates that the strain is inversely related to the Young's modulus and the cube of the diameter and directly proportional to beam length. As a result, longer and thinner rods increase the observable signal by producing greater stresses for the same applied force.  
+
+Following the geometry used by Chiu \textit{et al.} \cite{Chiu2016CharacterizationOA}, a wire of $L = 69.85\,{mm}$ and $D = 0.64\,{mm}$ fabricated from Nitinol ($E = 66.2\,{GPa}$) achieved an empirical detection limit of $0.49\,{mN}$, corresponding to an output change of approximately $5\,{mV}$. 
+Using Equation~\ref{eq:strain_beam}\footnote{Sample calculations on this limit can be found on appendix \ref{app:smallestTorque}}, this translates to a geometric sensitivity factor on the order of $L/D^3 \approx 2.66\times10^8\,{m^{-2}}$. 
+
+\begin{wrapfigure}{r}{0.48\textwidth}
+	\centering
+	\vspace{-30pt}
+	\includegraphics[width=\linewidth]{Assets/cantilever3d.png}
+	\caption{Cantilever setup showing the fixed cylinder and strain gauges ''sandwiching" the rod at its base.}
+	\label{fig:cantilever3d}
+	\vspace{-10pt}
+\end{wrapfigure}
+
+A similar configuration can, in principle, achieve micro-Newton sensitivity when paired with a low-noise amplification circuit, provided the strain gauge and readout maintain linear response and the system noise floor remains below the equivalent strain corresponding to the smallest measurable force.
+
+%\subsection{Conversion from Strain to Electrical Signal}
+
+A metallic foil strain gauge bonded to the beam surface, which its position is shown in Figure \ref{fig:cantilever3d}, converts the mechanical strain into a measurable change in electrical resistance. For small elastic deformations, the fractional change in resistance is linearly related to strain through the gauge factor $GF$ \cite{fraden2016handbook,MicroMeasurements,OmegaSG}
+
+\begin{equation}
+	\frac{\Delta R}{R} = GF \, \epsilon,
+	\label{eq:resistance_strain}
+\end{equation}
+
+\noindent
+where $GF$ is typically in the range of $2.0$–$2.2$ for constant foil gauges. 
+Combining Equations~\ref{eq:strain_beam} and \ref{eq:resistance_strain} gives the total resistance change due to an applied tip force.
+
+\begin{equation}
+	\Delta R = R_0 \, GF \, \frac{32 F L}{\pi E D^3}.
+	\label{eq:resistance_force}
+\end{equation}
+
+\noindent
+This resistance change is converted to a differential voltage when the gauge is part of a Wheatstone bridge circuit. 
+For a half-bridge configuration, utilized by Chiu, \textit{et al.} \cite{Chiu2016CharacterizationOA} , where two active strain gauges form adjacent arms of the bridge, the small-signal output voltage under excitation $V_{exc}$ is approximately \cite{fraden2016handbook,NI_AN078_1998}
+
+\begin{equation}
+	V_{out} \approx \frac{V_{exc}}{2} \, GF \, \epsilon,
+	\label{eq:bridge_output}
+\end{equation}
+
+\noindent Assuming perfect linearity, little temperature drift, and perfect bridge balancing. The direct proportionality between applied force and bridge voltage may be obtained by substituting Equation~\ref{eq:strain_beam}:
+
+\begin{equation}
+	V_{out} = \frac{16 \, GF \, V_{exc}}{\pi E D^3} \, L \, F.
+	\label{eq:force_to_voltage}
+\end{equation}
+
+In practice, the smallest detectable force is governed by the combined noise of the gauge, bridge, and amplifier system. 
+If the noise-equivalent output voltage $V_{noise}$ corresponds to a minimum detectable strain $\epsilon_{min} = 2V_{noise}/(V_{exc} GF)$, then the force detection limit follows from Equation~\ref{eq:strain_beam} as
+
+\begin{equation}
+	F_{min} = \frac{\pi E D^3}{32 L} \, \epsilon_{min}.
+	\label{eq:force_limit}
+\end{equation}
+
+Theoretically, the sensor can resolve forces in the micro-Newton range by optimizing the ratio $L/D^3$, minimizing circuit noise, and utilizing materials with moderate modulus (such as aluminum or Nitinol). Then, assuming a bridge noise ($\sigma$V = 0.0005 V) and the calibration slope for a particular sensor the smallest torque ($\sigma\tau$) or limits of detection can be found. These restrictions can be decreased by averaging ($\sigma$ scales as $1/\sqrt{N}$), by increasing mechanical leverage (slope grows almost linearly with cantilever length), or by enhancing the bridge/amplifier noise performance. For quasi-static measurements, the limits of detection may be moved from tens of mg into the single-mg or sub-mg range using a combination technique (longer/thinner cantilever + averaging + low-noise amplifier); dynamic measurements will be constrained by bandwidth and 1/f drift. In our lab we are limited by the materials available, meaning a test on different sensor was done.

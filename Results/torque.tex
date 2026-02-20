@@ -1,64 +1,117 @@
 \subsection{Sensor Calibration}
 \label{sec:calResult}
 
-During calibration, aluminum based sensor was proven to be the best. 
+
+Out of Table \ref{tab:rods}, rods 4 and 6 (Titanium and plastic) were excluded from the calibration process. As noted, the Titanium was found not practical and the yellow plastic was found broken and needed re-fabrication, furthermore it was not possible to backtrack to its origin so uncertainty on its material makes non reproducible. 
+
+For these reasons, this section focuses on Rods 2 and 3 (aluminum), with only mentions for Rods 5 and 7 (glass and clear plastic, respectively). Aluminum based sensors proved to perform the best and allowed for repetition and documentation.
+
+First, Figure \ref{fig:rods5n7} shows two of the trials done while calibration for glass and clear plastic. Their results shown unreliable, unpredictable changes in Voltage with weight applied. Additionally, tfor either of these two rods remained in the sub-millivolt regime, leaving the region of interest (around 0 to 200 mg) with measurements of $10^{-4}V$ too small to distinguish from noise, as explained in Section~\ref{sec:SmallTorque}.
+
+
+\begin{figure}[H]
+	\centering
+	
+	\subfigure[Voltage readings for Rod5 (Glass) with up to 750 mg of water in increments.\label{fig:glassRod5}]{
+		\includegraphics[width=0.46\textwidth]{Assets/glass_fit.png}
+	}
+	\hfill
+	\subfigure[Voltage readings for Rod7 (Clear Plastic) with up to 800 mg of water in increments..\label{fig:clearRod7}]{
+		\includegraphics[width=0.46\textwidth]{Assets/clear_plastic_fit.png}
+	}
+	\caption[Calibration trial results for low-torque rods showing poor sensor response]{Trial examples for Rods 5 and 7. Both of them showed inconsistency across trials showing minimal to no change in voltage with weight added.}
+	\label{fig:rods5n7}
+\end{figure}
+
+
+As an additional note, these two rods were the thickest of all available rods in Table \ref{tab:rods}. The observed behavior is expected as explained by Equation \ref{eq:force_to_voltage}.
+
+
+
+Next in our calibration process, the Aluminum rods, 2 and 3, showed clear linear trend along all trials and measurements. Figure \ref{fig:scaleCalb} shows this linear trend for 2 identical aluminum rods. The plot shows Rod 2 and 3 color coded, blue and a alike for 2 and red for 3, to show the similarities between to identically fabricated rods. Additionally, this plot features three different sensor rotation configurations (Fig \ref{fig:cantileverConfigs}), corresponding to three lines on each color or rod, where either 0$^\circ$ or 180$^\circ$ give maximum deformation of the strain gauges while 90$^\circ$ is not deforming properly.
 
 \begin{figure}[htb!]
 	\centering
-	\includegraphics[width=0.85\textwidth]{Assets/al_fit_Keep.png}
-	\caption{Calibration curves for two aluminum (AL) rods in three different orientations. Linear fits show consistent response across orientations, confirming the reliability of the lab-built sensor (see Methods Section for details).}
+	\subfigure[Three configurations tested, 0$^\circ$ and 180$^\circ$ are equivalent but flip voltage sign with respect of each other. 90$^\circ$ gives less sensibility as strain gauges does not bend in the proper axis.\label{fig:cantileverConfigs}]{
+		\includegraphics[width=0.85\textwidth]{Assets/calConfigs.png}
+	}
+	\hfill
+	\subfigure[Calibration curves for two aluminum (AL) rods in three different orientations.\label{fig:linearfitAlrods}]{
+	\includegraphics[width=0.95\textwidth]{Assets/al_fit_Keep.png}
+	}
+	\caption{Linear fits show consistent response across orientations, confirming the reliability of the lab-built sensor.}
 	\label{fig:scaleCalb}
 \end{figure}
+
+From this result, the focus was on Rod 3 in either most sensible configuration, showing remarkable consistency across calibration trials. Focusing in the weight region of interest (0 to 200 mg), we found a similar slope than Figure \ref{fig:scaleCalb} using Rod 3 in a different session a week apart. Figure \ref{fig:bestRod} showcases this result and converts the previous units Volts per milligram of water to something more applicable to our interests (V/N). 
 
 \begin{figure}[htb!]
 	\centering
 	\includegraphics[width=0.85\textwidth]{Assets/bestRodfit.png}
-	\caption{}
+	\caption[Calibration trial results for low-torque aluminum rodi n the most sensitive configuration]{Calibration of Rod 3 (aluminum) around the region of interest, or weight of samples, for Rod 3 in the most sensitive configuration. Slope units converted from V/mg to V/N}
+	\label{fig:bestRod}
 \end{figure}
 
-From Fig \ref{fig:scaleCalb} the smallest measurable force the instrument can be determined. Using the slope of the most reliable fit of Aluminum rod $m=-3.4132e-05 (\le 0.29\%), \chi_{red}=1.05$.
+From Fig \ref{fig:bestRod} the smallest measurable force the instrument can be determined. Using the inverse of the slope $k = 1/m = 1/3.64 = 0.275 N/V$ we can find the smallest force detected. In this case, the smallest non-zero voltage was $\Delta V = 0.000885$ which results in $W_{min}\sim0.243 \text{mN}$.
 
-The slope relates voltage changes to mass changes:
-
-$$
-\Delta V = \text{slope} \cdot \Delta m
-$$
-so the smallest measurable mass is
-$$
-m_{min}  =\frac{\Delta V}{| \text{slope}|}
-$$
-
-In this case, the standard error in voltage is $\Delta V = 1.4123e-06$ which results in $m_{min}\sim0.0414 \text{mg}$.This corresponds to a force of roughly 0.41$\mu$Newton, which is significant because forces expected on an epicardial lead under a \gls{mri} magnetic field are extremely small.
-
-Along with these measurements we also tested sensitivity along the length of sensor showing that the further out from the gauge bridge the more sensitive the sensor was. This is demonstrated on figure \ref{fig:posAndHeight}. 
+Along with these measurements we also tested sensitivity along the length of sensor showing that the further out from the gauge bridge the more sensitive the sensor was. Figure \ref{fig:posAndHeight} shows two lines, along the lever arm 90 and 50 mm away from the rotation axis position. Both showcase really small voltages for all forces applied at increasing lengths in the sensor. We can see that the closer to the strain gauges the force is applied the smaller the signal received, on the left side of the graph. However, notice how the tow lines deviate with distance increasing showing that at the tip of the sensor and closest to the rotation axis signal is higher for the same force.
 
 \begin{figure}[htb!]
 	\centering
 	\includegraphics[width=0.85\textwidth]{Assets/1stTrials_50_90.png}
-	\caption{Mean voltage response of the sensor as a function of height for different distances from the center (50--100 mm). 
+	\caption[Effect of height and radial distance on mean sensor voltage response]{Mean voltage response of the sensor as a function of height for different distances from the center (50--100 mm). 
 		A small and relatively flat voltage is observed across all radii, while at larger heights (farther from the bridge) the measurements diverge, showing higher sensitivity near the center (50 mm). 
 		See Methods Section for details on torque transfer and distance selection.}
 	\label{fig:posAndHeight}
 \end{figure}
 
+The expected behavior of the lever arm is showcased in Figure \ref{fig:torque_fit}. Similar to Figure \ref{fig:posAndHeight}, Figure \ref{fig:torque_fit} demonstrates the inverse relation of force and position from the rotation axis ($1/r$) in two ways. First Figure \ref{fig:loglogtorque} shows a log-log plot voltage vs position with an fit $n$ very close to -1. Additionally, a $1/r$ fit on Figure \ref{fig:ABfittorque} provides the constant on top very close to -1 with almost no drift. Signifying, it is a good method to measure torque via the counter force.
+
 \begin{figure}[hbt!]
 	\centering
 	
-	\subfigure[]{
-		\includegraphics[width=0.9\textwidth]{Assets/powerFitFr.png}
+	\subfigure[Log-log plot of effective measured voltage (proportional to force) versus position $r$, showing a power-law fit with exponent $n = -0.997 \pm 0.011$, very close to the theoretically expected value of $-1$. \label{fig:loglogtorque}]{
+		\includegraphics[width=0.45\textwidth]{Assets/powerFitFr.png}
 	}
 	\hfill
-	\subfigure[]{
-		\includegraphics[width=0.9\textwidth]{Assets/inverseRfitFr.png}
+	\subfigure[Direct fit of the form $F(r) = A/r + B$, yielding $A = -1.378 \pm 0.015$ (very close to $-1$ in normalized units) and a negligible offset $B = -0.0069 \pm 0.0002$.\label{fig:ABfittorque}]{
+		\includegraphics[width=0.45\textwidth]{Assets/inverseRfitFr.png}
 	}
-	\caption{Left: $Ar^{-1}$ fit, force rises as the tip approaches the dipole center. Right: log–log verification.}
-	\label{fig:fit}
+	\caption[Expected $1/r$ dependence of torque]{Demonstration of the expected inverse-distance dependence of the force (and thus torque) with respect to the distance $r$ from the rotation axis. Both analyses confirm the $1/r$ dependence characteristic of the torque measurement via counter-force method.}
+	\label{fig:torque_fit}
 \end{figure}
+
+Once the sensor and circuit were calibrated and the best position for measurement in the torque fixture are affixed, we moved on to the in lab measurements of torque. 
+
+\subsection{Torque from Lab scale magnet}
+
+As described in section \ref{sec:InLab_Torque}, torque measurements were performed under three different experimental configurations. When a small uniform magnetic field was applied using Helmholtz coils, the torque produced by the short (2 cm) magnetic dowel remained at or below the detection limit of the measurement system. For that reason, only the longer rod yielded reliable results. Figure \ref{fig:torque_longerRod} shows the maximum torque (N m) against the magnetic flux experimental data (in blue) exhibiting a clear parabolic dependence on $  B  $.
 
 \begin{figure}[htb!]
+	\label{fig:torque_longerRod}
 	\centering
 	\includegraphics[width=0.85\textwidth]{Assets/example_plot.png}
-	\caption{}
+	\caption[Torque vs. magnetic field strength for the longer rod under Helmholtz coils]{Maximum measured torque in Nm as a function of applied magnetic flux density in B for the longer rod under a Helmholtz coil configuration.}
 \end{figure}
 
-Figure \ref{fig:posAndHeight} shows a small voltage for all distances from 50mm to 100mm and a range of voltages once we are high up (far from the bridge) with higher sensitivity near the center at 50mm.
+From the fit parameters, $k = 3.87 \pm 44.5$, $b = -5.56\times10^{-2}$ and $V_0 = 8.45 \times 10 ^{-5}$. The dominant quadratic term ($  k B^2  $) is in excellent agreement with the theoretical expectation for the torque on a magnetic dipole in a uniform field, where $  \tau \propto B^2  $. The linear coefficient $  b  $ is very small and statistically consistent with zero within uncertainty, while the offset $  V_0  $ is negligible, confirming the absence of significant systematic bias in the measurement.
+
+
+A second set of measurements was performed on the shorter (2,cm) magnetic dowel using significantly stronger magnetic fields generated by four neodymium magnets. Figure \ref{fig:torque_shorterRod} shows a parabolic relationship, however the values on torque are smaller for higher magnetic fields 
+
+\begin{figure}[htb!]
+	\label{fig:torque_shorterRod}
+	\centering
+	\includegraphics[width=0.85\textwidth]{Assets/example_plotS.png}
+	\caption[Torque dependence on magnetic field strength for 2 cm rod under neodymium magnet fields]{Maximum torque in Nm as a function of applied magnetic flux density in T for the shorter (2cm) magnetic rod under stronger uniform fields (Neodymium magnets). Blue points is the experimental measurements while orange curve represents a quadratic fit}
+\end{figure}
+
+This time the fit yielded, 
+
+\subsection{Torque from 3T Siemens Magnetom\textsuperscript{\texttrademark} \gls{mri} scanner}
+
+Once in a clinical environment, both the circuit and the \gls{mri}-safe torque measuring fixture were functioning properly and circuit calibration was appropriate for clinical measurements. 
+
+After a single session in the \gls{mri} room no torque was perceived. Neither test material shown any perceptible or measurable torque inside the scanner. 
+
+\FloatBarrier

@@ -1,30 +1,19 @@
-\section{Magnetic Field Generation and mapping}
-\label{sec:FieldGeneration}
+\subsection{Mapping Platform}
 
-Seeking to archive the most reliable or similar situation as one would encounter on a clinical \gls{mri}, magnetic fields in the lab were generated using two approaches. The most intuitive methods involved either neodymium permanent magnets or a copper-wound solenoid. Each approach presents advantages and limitations. For example, a neodymium magnet produces a strong, fixed at its maximum value, magnetic field ($B_0$) with distance being the only parameter that affects its strength. Much like an actual \gls{mri}). In contrast, the magnetic field of a solenoid is dependent on the current flowing through its wire, allowing for fine changes of magnetic field ($B_0$) without physically relocating the magnet or the probe.
-
-The approach used in this section was the later. A custom-built air-core solenoid of approximately 15 cm in length and 10 cm in outer diameter was densely wound with copper wire ($\sim$1 mm diameter) meaning a winding density of $50,000$ turns per meter, forming an inner core of approximately 5 cm. A Pasco Scientific SF-9584 DC power supply was used to deliver currents in the range of 0--4 A, corresponding to magnetic field strengths from 1 to 18.9 Gauss at about 8cm for this solenoid. 
-
-Magnetic field strength ($B_0$) and gradient ($\nabla B_0$) measurements were performed using a commercial Gaussmeter (Model GM2, AlphaLab Inc., Salt Lake City, UT).  The GM2 operates on the Hall effect principle, wherein a voltage is generated across a probe when exposed to a perpendicular magnetic field. This voltage is proportional to the local magnetic flux density, enabling precise spot measurements of field magnitude. The Gaussmeter used has an accuracy of 1\% of the DC reading in the 16$^\circ$C to 29$^\circ$C range.
-
-In the lab, our solenoid center sits at 11 cm from a optical breadboard. At its front, three positions were selected to place the gaussmeter probe to check for homogeneity, at the center (r=0 cm,$\theta$=0), southwest (r=10 cm, $\theta$=225), and east (r=10 cm, $\theta$=0). This was achieved by using a translational station positioning the probe 10 away from the solenoid's entrance. The station uses 3 servomotors, one for each Cartesian axis, to accurately position the probe with changes less than a tenth of a millimeter. However, the distance across the z-axis was limited to 11 mm by the servo's maximum extension. This setup was used for experiment in section \ref{sec:Translational}. To make a quick check across a wider range, a ruler was fixed at the same three positions described and the probe was steadily translated about 20 cm to the solenoid entrance and back. Data was recorded using the manufacturer’s default software, AlphaApp with a sampling time of 1 reading per second, for about 2 min. Video recording allowed to map time, and distance enabling a rough map of the B field and its gradient.
-
-\subsection{Magnetic Field and Gradient Mapping Platform}
-
-To ensure spatial accuracy and reproducible measurements, a fixture made from rigid  \gls{pvc} was constructed by previous Creighton University students \cite{haddixProposal}. The platform consists of a 300(W) $\times$ 420(L) $\times$ 40(H) mm rectangular prism as base and a 280 mm diameter vertical circular plate, perforated with a polar grid of probe-access holes, with 12 radial lines spaced at 30°. Each line contains 5 holes at uniform radial spacing of 20mm, sharing a single central hole as shown in Figure \ref{fig:fieldmapping} for 49 different positions. Each access point was numerically indexed to facilitate 2D field mapping in the X-Y plane. This fixture has a total weight of about 9kg and height of 35 mm positioning the center at 21 mm to align with the \gls{mri}'s isocenter.
+To ensure spatial accuracy and reproducible measurements, a fixture made from rigid  \gls{pvc} was constructed by previous Creighton University students \cite{haddixProposal}. The platform consists of a 300(W) $\times$ 420(L) $\times$ 40(H) mm rectangular prism as base and a 20 mm diameter vertical circular plate, perforated with a polar grid of probe-access holes, with 12 radial lines spaced at 30°. Each line contains 5 holes at uniform radial spacing of 20mm, sharing a single central hole as shown in Figure \ref{fig:fieldmapping} for 49 different positions. Each access point was numerically indexed to facilitate 2D field mapping in the X-Y plane. This fixture has a total weight of about 9kg and height of 35 mm positioning the center at 21 mm to align with the \gls{mri}'s isocenter.
 
 \begin{figure}[hbt!]
-    \centering
-    \subfigure[PVC-based mapping platform.\label{fig:fieldmapping_a}]{
-        \includegraphics[width=0.48\textwidth]{Assets/Picture3.jpg}
-    }
-    \hfill
-    \subfigure[Example field map output from MRI fringe region.\label{fig:fieldmapping_b}]{
-        \includegraphics[width=0.40\textwidth]{Assets/MagFieldMap.png}
-    }
-
-    \caption[PVC-based magnetic field mapping platform]{PVC-based magnetic field mapping platform. Used for spatial $B_0$ and $\nabla B_0$ measurement. based on design from Ferreira, et al. (2017) \cite{haddixProposal,ferreira2017}.}
-    \label{fig:fieldmapping}
+	\centering
+	\subfigure[PVC-based mapping platform.\label{fig:fieldmapping_a}]{
+		\includegraphics[width=0.48\textwidth]{Assets/Picture3.jpg}
+	}
+	\hfill
+	\subfigure[Example field map output from MRI fringe region.\label{fig:fieldmapping_b}]{
+		\includegraphics[width=0.40\textwidth]{Assets/MagFieldMap.png}
+	}
+	
+	\caption[PVC-based magnetic field mapping platform]{PVC-based magnetic field mapping platform. Used for spatial $B_0$ and $\nabla B_0$ measurement. based on design from Ferreira, et al. (2017) \cite{haddixProposal,ferreira2017}.}
+	\label{fig:fieldmapping}
 \end{figure}
 
 %LABVIEW program and Alpha Labs Protocols
@@ -33,4 +22,27 @@ Once the field‑mapping fixture and Gaussmeter probe are co‑aligned, data cap
 In clinical use, the entire fixture is intended to be shifted axially along the Z-direction of a horizontal bore MRI scanner using controlled couch increments (e.g., 10 cm). This translation allows for volumetric sampling of $B_0$ over several planes. The spatial magnetic field gradient $\nabla B_0$ can then be estimated numerically using finite difference calculations between adjacent measurement points, as developed in Chapter \ref{sec:translationalForceBG}. This method has previously been applied to MRI mapping in the work by Ferreira \cite{ferreira2017}.
 
 
+\subsection{Laboratory size: Solenoid and Neodymium Magnets}
+
+Seeking to achieve the most reliable approximation of clinical \gls{mri} conditions, magnetic fields in the lab were generated using two approaches. The methods involved in our experiments used either neodymium permanent magnets or a copper-wound solenoid. Each approach presents advantages and limitations. 
+
+For example, a neodymium magnet can produce a very strong magnetic field ($B_0$ up to ~1–1.4 T near its surface), but its strength at the sample/probe position depends heavily on distance from the magnet (falling off approximately as $1/r^3$) and results in a steep spatial gradient. These properties make neodymium magnets ideal for generating strong localized torque on small samples, where the sample can be positioned very close to the magnet to exploit the peak intensity without requiring power supplies or cooling. The fixed nature of the field, however, limits fine adjustments without physical repositioning.
+
+In contrast, the magnetic field of a solenoid depends directly on the current flowing through its wire, allowing precise, continuous tuning of the field without mechanical repositioning. With appropriate coil design, solenoids can also provide better field uniformity over a defined region, making solenoids better suited for controlled translational force assessments, where variable field strength and gradient are needed to measure forces consistently across distances.
+
+The approach used in this section was the latter. A custom-built air-core solenoid of approximately 15 cm in length and 10 cm in outer diameter was densely wound with copper wire ($\sim$1 mm diameter) meaning a winding density of $50,000$ turns per meter, forming an inner core of approximately 5 cm. A Pasco Scientific SF-9584 DC power supply was used to deliver currents in the range of 0--4 A, corresponding to magnetic field strengths from 1 to 18.9 Gauss at about 8cm from the aperture along its long axis (z-axis) for this solenoid. 
+
+Magnetic field strength ($B_0$) and gradient ($\nabla B_0$) measurements were performed using a commercial Gaussmeter (Model GM2, AlphaLab Inc., Salt Lake City, UT).  The GM2 operates on the Hall effect principle, wherein a voltage is generated across a standard axial probe when exposed to a perpendicular magnetic field. This voltage is proportional to the local magnetic flux density, enabling precise spot measurements of field magnitude. The gaussmeter used has an accuracy of 1\% of the DC reading in the 16$^\circ$C to 29$^\circ$C range \cite{alphalabinc_gm2}.
+
+\begin{figure}[htb!]
+	\centering
+	\includegraphics[width=0.55\textwidth]{Assets/fieldmapping.jpg}
+	\caption{Probe mapping magnetic field generated from solenoid.}
+	\label{fig:solenoidmap}
+\end{figure}
+
+Figure \ref{fig:solenoidmap} shows the experimental setup used to test the probe and obtain a referece map of the magnetic field of our solenoid. At the solenoid entrance, three positions were selected to place the gaussmeter probe to check for homogeneity, at the center (r=0 cm,$\theta$=0), southwest (r=10 cm, $\theta$=225), and east (r=10 cm, $\theta$=0). This was achieved by using a translational stage positioning the probe 10 away from the solenoid's entrance. The stage uses 3 servomotors, one for each cartesian axis, to accurately position the probe with changes less than a tenth of a millimeter. However, the distance across the z-axis was limited to 11 mm by the servo's maximum extension. This setup was used for experiment in section \ref{sec:Translational}. To make a quick check across a wider range, a ruler was fixed at the same three positions described and the probe was steadily translated about 20 cm to the solenoid entrance and back. Data was recorded using the manufacturer’s default software, AlphaApp \cite{AlphaApp} with a sampling time of 1 reading per second, for about 2 min. Video recording was used to map time, and distance enabling a rough map of the B field and its gradient.
+
+
+\subsection{Clinical Work}
 

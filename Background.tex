@@ -1,13 +1,23 @@
-This chapter provides a review of the most important topics to know to fully understand the findings of this current work. It includes an introduction to \gls{mri} scanners, the physics behind them and, more importantly, the possible interactions of the system with matter. Moreover, an emphasis on the static magnetic field of a \gls{mri} scanner and mechanical interactions with epicardial leads is included. A brief discussion on epicardial leads design is included followed by implications for the clinic and the lab setting. 
+This chapter provides a review of the most important topics to fully understand the findings of this current work. It includes an introduction to \gls{mri} scanners, the physics behind them and, more importantly, the possible interactions of the system with matter. Moreover, an emphasis on the static magnetic field of a \gls{mri} scanner and mechanical interactions with epicardial leads is included. A brief discussion on epicardial leads design is included followed by implications for the clinic and the lab setting. 
 
 Most of this chapter content is based on physics and imaging from well known textbooks, including Griffith's Introduction to Electrodynamics \cite{griffiths2013electrodynamics}, and Bushberg's Physics of Medical Imaging \cite{bushberg2011}.
 
-\section{Epicardial Leads}
-\input{LitRev/EpiLeads} %done but in lab leads
-\label{sec:leads}
-
 \section{Magnetic Resonance Imaging}
-\input{LitRev/MRI} %halfway there
+\label{sec:mri}
+\input{Background/MRI} 
+
+
+\section{Epicardial Leads}
+\label{sec:leads}
+\input{Background/EpiLeads} %done but in lab leads
+
+
+\section{Safety Concerns}
+\label{sec:concerns}
+\input{Background/safetyConcerns.tex} 
+
+
+With the tools developed in this chapter, such as comparison against weight equations (\ref{eq:deflectionAngle,eq:gravTorque}), we aim to estimate the magnetic susceptibility and quantify the force and torque of ferromagnetic objects as they interact with lab-size magnets. We also project these forces and torques onto materials with much lower susceptibility in much higher magnetic fields for clinical applications, keeping in mind the proportionality shown in Table~\ref{tab:chi_scaling}.
 
 %\section{ASTM-F Methodologies}
 %ASTM-F standards and mechanical risks
@@ -16,36 +26,15 @@ Most of this chapter content is based on physics and imaging from well known tex
 
 \section{Concluding Remarks}
 
-This chapter has reviewed the essential theoretical foundations for evaluating MRI safety in patients with retained epicardial leads. Epicardial leads, integral to CIEDs, differ from transvenous leads in placement, design (unipolar vs.\ bipolar, coaxial vs.\ coradial), fixation (suturing vs.\ screwing), and material composition (paramagnetic electrodes and conductors; diamagnetic insulation). Their direct attachment to the epicardium and frequent abandonment (often as 5--30\,cm fragments, 0.5--1.5\,mm diameter) heighten concern for mechanical interactions with MRI fields, despite low-to-moderate magnetic susceptibilities that suggest minimal risk.
+This chapter has reviewed the essential theoretical foundations for evaluating MRI safety in patients with retained epicardial leads. MRI fundamentals, static field ($B_0$), RF excitation, gradient encoding, and relaxation ($T_1$, $T_2$), were explained to provide enough information about the scanner function. To assess the interaction with implants, the emphasis was on the static field, capable of inducing translational forces and torques on conductive implants, and the physics that rule the interaction seeking to characterize such forces. Magnetic susceptibility ($\chi_m$) was used to classify materials as diamagnetic, paramagnetic, or ferromagnetic, with most human tissues and the primary constituents of modern epicardial leads (MP-35N conductors, platinum-iridium or titanium electrodes, and polymer insulation) occupying the low-to-moderate paramagnetic range.
 
-MRI fundamentals, static field ($B_0$), RF excitation, gradient encoding, and relaxation ($T_1$, $T_2$), were explained aiming to provide enough information to assess the interaction with implants. The emphasis was on the static field, capable of inducing translational forces and torques on conductive implants, and the physics that rule the interaction seeking to characterize such forces. 
+Epicardial leads, integral to CIEDs, differ from transvenous leads in placement, design (unipolar vs.\ bipolar, coaxial vs.\ coradial), fixation (suturing vs.\ screwing), and material composition (paramagnetic electrodes and conductors; diamagnetic insulation). Their direct attachment to the epicardium and frequent abandonment (often as 5--30\,cm fragments, 0.5--1.5\,mm diameter) heighten concern for mechanical interactions with MRI fields, despite low-to-moderate magnetic susceptibilities that suggest minimal risk.
 
-
-The relevant expressions used throughout this work are summarized below for clarity
-
-
-\begin{figure}[h!]
-	\centering
-	\fbox{%
-		\parbox{0.9\textwidth}{
-			\centering
-			\textbf{Summary of Relevant Expressions}\\[4pt]
-			\(
-			\begin{aligned}
-				\label{eq:relevantExpressions}
-				F_m &= \frac{\chi_m V}{\mu_0} B_0 \frac{dB_0}{dz}, && \text{(Eq.~\ref{eq:translationalForce})} \nonumber \\
-				\frac{F_m}{F_g} &= \tan(\alpha), && \text{(Eq.~\ref{eq:deflectionAngle})} \nonumber \\
-				\tan(\alpha) &= \frac{\chi_m}{\rho \mu_0 g} B_0 \frac{dB_0}{dz}, && \text{(Eq.~\ref{eq:forFit})} \nonumber \\
-				\tau(\theta) &= \tau_{max} \sin(2\theta) ,
-				&& \text{(Eq.~\ref{eq:torque_thetadependece})} \nonumber \\
-				\tau_{\text{max}} &= \frac{\chi_m B_0^2 V}{2 \mu_0}, && \text{(Eq.~\ref{eq:maxtorque})} \nonumber \\
-				\Delta V &= m \Delta W, && \text{(Eq.~\ref{eq:torqueCal})}
-			\end{aligned}
-\)
-}
-}
-\caption{Summary of relevant equations used in this study.}
-\label{fig:relevantExpressions}
-\end{figure}
+Safety hazards associated with the three primary field components were systematically examined. Gradient fields produce acoustic noise and possible peripheral nerve stimulation, radiofrequency pulses can induce localized heating via the antenna effect, and the static field generates both translational forces, maximized at bore entrances where spatial gradients are steepest, and torques on conductive implants \cite{Schenck2000,panych2018}.
 
 Current guidelines (HRS 2017, ESC 2021, CMS) remain conservative, considering systems with abandoned or epicardial leads non--MRI-conditional due to insufficient data, despite evidence that post-2000 leads may be safe under monitoring \cite{vuorinen2021,schaller2021}. This gap motivates the present experimental study. By quantifying static-field forces and torques in controlled settings, using ASTM-based pendulum and torque-transfer methods (resolving forces and torque to $\sim$10$^{-6}$\,N), the work aims to challenge restrictive policies and enable evidence-based updates to clinical MRI protocols for this growing patient population.
+
+The material presented here serves as a physical framework needed to move from theoretical prediction to empirical validation. By quantifying static-field forces and torques on epicardial lead surrogates under controlled, ASTM-aligned conditions, the next experimental chapters directly address the evidence gap that currently restricts \gls{mri} access for a growing patient population.
+%\input{MatsNMets/relevant_eq.tex}
+%Where willl the greatest hazzards be in the MRI scanner?
+%Whats the physical bases for the hazzard

@@ -1,0 +1,18 @@
+A problem to overcome is that, as explained in section \ref{sec:leads}, epicardial leads are malleable (they can be bent or curved into any shape). The model above assumes a rigid dipole that spins uniformly with the magnetic field ($B_0$), for that reason a rigid torque transfer arm should be considered and its description is found on section \ref{sec:TorqMeasureApp}.
+
+The magnetically susceptible test piece experiences a magnetic torque following equation (\ref{eq:magnetic_torque}) and is exerted around the attachment point. The torque transmitted through the joint becomes a force, that can be measured with a sensor located at a known distance ($r_{sensor}$). The relationship of this force to the torque is 
+
+\begin{equation}
+	\tau_{max} = F_{sensor} r_{sensor}
+\end{equation}
+
+\noindent since the sensor stops the rigid arm making an angle of 90 degrees and this behavior is later confirmed in this document (See Fig \ref{fig:posAndHeight}). Because torque is conserved along the rigid body, it provides a practical means to extend the moment arm beyond the base geometry ensuring sufficient space for accurate force sensing while maintaining constant torque transmission. 
+
+Furthermore, the sensor design will determine the signal resolution. In this case, a thin rod stops the arm and bends following the cantilever beam deflection equations. These equations indicate that the strain at the fixed end increases linearly with both the applied force and the beam length, suggesting a mechanical advantage for measuring small forces. Then the strain on the sensor caused by the force applied is measured via strain gauges leading to resistance change. A half-bridge Wheatstone circuit is configured the output voltage corresponding to strain on the cantilever (see Figure \ref{fig:cantilever3d}). The system is linearly calibrated by applying known weights to the free end of the cantilever, yielding the expected relationship
+
+\begin{equation}
+	\Delta V = m \Delta W
+	\label{eq:torqueCal}
+\end{equation}
+
+\noindent where m, the slope of fit, is the calibration factor between voltage change ($\Delta V$) into the corresponding change in applied force ($\Delta W$ Weight). Implementation of this sensor can be found on section \ref{sec:sensorCal} and a further investigation on how small of a force can these devices measure is given in section \ref{sec:SmallTorque}.

@@ -1,0 +1,35 @@
+% 1. Introduction
+%    - What is MRI and why is it used clinically 
+\gls{mri} or Magnetic Resonance Imaging is a medical imaging modality that uses magnetic fields and radiofrequency (\gls{rf}) energy to produce images, rather than ionizing radiation like X-rays. In fact, \gls{mri} modality has exceptional utility in clinical settings, particularly for neurological and musculoskeletal imaging, because it produces images with high sensitivity to anatomical variations and superior soft tissue contrast \cite{bushberg2011}. 
+
+%what our focus and why
+This contrast comes form the magnetic properties of different tissue types such as fat, gray matter, white matter, and cerebral spinal fluid when exposed to a large magnetic field. The strength of a magnetic field, also known as magnetic flux density ($B$), is measured in Tesla (T). An older, alternative unit is the gauss (G), where 1 T = 10,000 G. For perspective, a typical clinic \gls{mri} scanner is 1.5 to 3 Tesla, orders of magnitude stronger than Earth's magnetic field, in the range of 30,000 to 60,000 nT\cite{lowrie1997fundamentals}. Therefore, the exceptionally strong static magnetic fields required for clinical imaging are sufficient to interact with materials normally considered non-magnetic in everyday contexts.
+
+This makes \glspl{aimd} particularly prone to safety risks, as even trace amounts of ferromagnetic materials in device components can experience mechanical forces and torques within the scanner environment. Understanding these risks requires examination of two fundamental aspects, the static magnetic field that the \gls{mri} scanner produces continuously, and the effects of this field on different materials. Primarily biological tissue in typical clinical use, but critically, the specialized alloys used in medical device construction, most importantly in epicardial leads.
+
+% 2. Magnetic Interactions
+% first about the field
+To fully characterize the risk environment for epicardial leads, we must first understand the parts that make the \gls{mri} system and their potential risks. We highlight one of the five main components in the image formation process, the magnet strong static field. Figure \ref{fig:scannerDesign} shows all these components and Figure \ref{fig:siemensTrio} provides an example of a actual, clinically relevant \gls{mri} scanner like the one used at CHI Health Creighton University Medical Center - Bergan Mercy, where experiments took place. Each of these pieces are accompanied by interaction complications if a foreign object lays around the test space. For example, as explained in section \ref{sec:LitRev} heat and electrical interactions are a concern of \gls{rf} fields or Gradient Coils \cite{schaller2021,aboyewa2021}. For mechanical interactions, the interest falls under the mechanisms in which the static magnetic field could possibly interact with wire or thin cylinder like devices. The next section offers a full explanation of the main magnet, enabling a clear understanding of both the source and the spatial distribution of the static magnetic field itself.
+
+\begin{figure}[hbt!]
+	\centering
+	\subfigure[Diagram illustrating the main five components of an MRI scanner. \label{fig:scannerDesign}]{
+		\includegraphics[width=0.50\textwidth]{Assets/scannerDesign.png}
+	}
+	\hfill
+	\subfigure[Siemens 3T Magnetom Trio clinical MRI system.\label{fig:siemensTrio}]{
+		\includegraphics[width=0.42\textwidth]{Assets/siemens-magnetom-trio-3T.png}
+	}
+	
+	\caption[Design schematic and example of a clinical MRI scanner]{MRI scanner schematic and a clinical MRI system.  
+		(a) Simplified MRI scanner design highlighting the main magnet, gradient coils, and RF system, Control electronics, and Console. Adapted from Prince \cite{Prince_MedicalImaging_2015}.  
+		(b) Siemens Magnetom Trio 3T system, like at CUMC Bergan Mercy Hospital. As a modern whole-body MRI scanners, adapted from \cite{Siemens_MagnetomTrio_2025}.}
+	\label{fig:scanner}
+\end{figure}
+
+%static field effect
+\input{Background/staticField.tex}
+
+\subsection{Image generation}
+\label{sec:imageGen}
+\input{Background/oldMRI.tex}
