@@ -9,7 +9,7 @@
 \usepackage[table]{xcolor}
 \usepackage{amsmath}
 \usepackage{cancel} 
-
+\usepackage{placeins}
 \usepackage{hyperref}
 \usepackage{url}
 \usepackage{multicol}
@@ -21,7 +21,8 @@
 \usepackage{setspace}
 \usepackage[letterpaper,left=1.5in,right=1in,top=1in,bottom=1in]{geometry} %margin of bound side 1.5 in, rest of margins 1 in, per Creighton Thesis guideline formats
 \usepackage{pdflscape}
-\usepackage{subfigure}
+%\usepackage{subfigure}
+\usepackage{subcaption}
 \usepackage{float}
 \usepackage{wrapfig}
 \usepackage{pdfpages}
@@ -29,7 +30,6 @@
 \clubpenalty10000 %see above comment
 \usepackage{indentfirst} %This makes the first paragraph of a section indented.  Optional.
 \usepackage{breqn}
-\usepackage{placeins}
 
 %\renewcommand*\thesection{\arabic{section}.1}
 %\renewcommand*\thesubsection{\arabic{section}.\arabic{subsection}.1}
@@ -37,6 +37,18 @@
 
 \setcounter{secnumdepth}{4}
 \setcounter{tocdepth}{4}
+
+%PARA FIGURAS DE 3
+\newlength{\subcolumnwidth}
+\newenvironment{subcolumns}[1][0.45\columnwidth]
+{\valign\bgroup\hsize=#1\setlength{\subcolumnwidth}{\hsize}\vfil##\vfil\cr}
+{\crcr\egroup}
+\newcommand{\nextsubcolumn}[1][]{%
+	\cr\noalign{\hfill}
+	\if\relax\detokenize{#1}\relax\else\hsize=#1\setlength{\subcolumnwidth}{\hsize}\fi
+}
+%\newcommand{\nextsubfigure}{\vfill}
+%PARA FIGURAS DE 3
 
 \begin{document}
 

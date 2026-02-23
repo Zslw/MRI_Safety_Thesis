@@ -12,11 +12,11 @@ First, Figure \ref{fig:rods5n7} shows two of the trials done while calibration f
 \begin{figure}[H]
 	\centering
 	
-	\subfigure[Voltage readings for Rod5 (Glass) with up to 750 mg of water in increments.\label{fig:glassRod5}]{
+	\subfloat[Voltage readings for Rod5 (Glass) with up to 750 mg of water in increments.\label{fig:glassRod5}]{
 		\includegraphics[width=0.46\textwidth]{Assets/glass_fit.png}
 	}
 	\hfill
-	\subfigure[Voltage readings for Rod7 (Clear Plastic) with up to 800 mg of water in increments..\label{fig:clearRod7}]{
+	\subfloat[Voltage readings for Rod7 (Clear Plastic) with up to 800 mg of water in increments..\label{fig:clearRod7}]{
 		\includegraphics[width=0.46\textwidth]{Assets/clear_plastic_fit.png}
 	}
 	\caption[Calibration trial results for low-torque rods showing poor sensor response]{Trial examples for Rods 5 and 7. Both of them showed inconsistency across trials showing minimal to no change in voltage with weight added.}
@@ -32,11 +32,11 @@ Next in our calibration process, the Aluminum rods, 2 and 3, showed clear linear
 
 \begin{figure}[htb!]
 	\centering
-	\subfigure[Three configurations tested, 0$^\circ$ and 180$^\circ$ are equivalent but flip voltage sign with respect of each other. 90$^\circ$ gives less sensibility as strain gauges does not bend in the proper axis.\label{fig:cantileverConfigs}]{
+	\subfloat[Three configurations tested, 0$^\circ$ and 180$^\circ$ are equivalent but flip voltage sign with respect of each other. 90$^\circ$ gives less sensibility as strain gauges does not bend in the proper axis.\label{fig:cantileverConfigs}]{
 		\includegraphics[width=0.85\textwidth]{Assets/calConfigs.png}
 	}
 	\hfill
-	\subfigure[Calibration curves for two aluminum (AL) rods in three different orientations.\label{fig:linearfitAlrods}]{
+	\subfloat[Calibration curves for two aluminum (AL) rods in three different orientations.\label{fig:linearfitAlrods}]{
 	\includegraphics[width=0.95\textwidth]{Assets/al_fit_Keep.png}
 	}
 	\caption{Linear fits show consistent response across orientations, confirming the reliability of the lab-built sensor.}
@@ -70,11 +70,11 @@ The expected behavior of the lever arm is showcased in Figure \ref{fig:torque_fi
 \begin{figure}[hbt!]
 	\centering
 	
-	\subfigure[Log-log plot of effective measured voltage (proportional to force) versus position $r$, showing a power-law fit with exponent $n = -0.997 \pm 0.011$, very close to the theoretically expected value of $-1$. \label{fig:loglogtorque}]{
+	\subfloat[Log-log plot of effective measured voltage (proportional to force) versus position $r$, showing a power-law fit with exponent $n = -0.997 \pm 0.011$, very close to the theoretically expected value of $-1$. \label{fig:loglogtorque}]{
 		\includegraphics[width=0.45\textwidth]{Assets/powerFitFr.png}
 	}
 	\hfill
-	\subfigure[Direct fit of the form $F(r) = A/r + B$, yielding $A = -1.378 \pm 0.015$ (very close to $-1$ in normalized units) and a negligible offset $B = -0.0069 \pm 0.0002$.\label{fig:ABfittorque}]{
+	\subfloat[Direct fit of the form $F(r) = A/r + B$, yielding $A = -1.378 \pm 0.015$ (very close to $-1$ in normalized units) and a negligible offset $B = -0.0069 \pm 0.0002$.\label{fig:ABfittorque}]{
 		\includegraphics[width=0.45\textwidth]{Assets/inverseRfitFr.png}
 	}
 	\caption[Expected $1/r$ dependence of torque]{Demonstration of the expected inverse-distance dependence of the force (and thus torque) with respect to the distance $r$ from the rotation axis. Both analyses confirm the $1/r$ dependence characteristic of the torque measurement via counter-force method.}
