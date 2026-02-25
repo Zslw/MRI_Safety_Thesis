@@ -1,12 +1,22 @@
 \subsection{Sensor and Circuit Design for Torque Measurements}
 \label{sec:circuitDesignNsensor}
 
-A sensor paired with an amplifier circuit made by previous student followed the ideas described in Chiu \textit{et al.}(2016)\cite{Chiu2016CharacterizationOA} work. Distinctively, the introduction of the ability to zero the reference level at 0 V with two trimming potentiometers was implemented. This work predates this document and exists only as lab-notebook entries and circuit sketches. Relevant portions are included both as documentation and as the starting point for the retesting and characterization carried out.
+A sensor paired with an amplifier circuit was made following the ideas described in Chiu \textit{et al.}(2016)\cite{Chiu2016CharacterizationOA}. For our use case the sensor was fabricated from different non-magnetic materials to assess which would make the better sensor. While our circuit introduced the ability to zero the reference level at 0 V with two trimming potentiometers. 
+%This work predates this document and exists only as lab-notebook entries and circuit sketches. Relevant portions are included both as documentation and as the starting point for the retesting and characterization carried out.
 
 \subsubsection{Sensor Design}
 \label{sec:sensor}
 
-Figure \ref{fig:rods} shows a sample from a set of seven beam force sensors were produced with in-lab materials, the sensor is conformed by two main pieces the beam itself and a pair of $\text{OMEGA}^{\text{\tiny \textregistered}}$ precision strain gages (SGD-3/350-LY11) \cite{omega_SGD_LINEAR1_AXIS}, as reviewed in section \ref{sec:SmallTorque}. This strain gages were glued on opposite sides of the rod around 3 to 5 cm from its end. This two variable resistances (strain gages) are part of a Half-Wheatstone bridge configuration and are connected to the circuit with soldered jumper wires, see section \ref{sec:circuit}. The beam materials included glass, aluminum, titanium and two types of plastic. Table \ref{tab:rods} summarizes their characteristics, they were made of similar sizes to test repeatability. Two of the seven available sensors were found to be irreparably damaged, so no further measurements were possible on them.
+\begin{wrapfigure}{r}{0.48\textwidth}
+	\centering
+	\vspace{-30pt}
+	\includegraphics[width=\linewidth]{Assets/cantilever3d.png}
+	\caption{Cantilever setup showing the fixed cylinder and strain gauges ''sandwiching" the rod at its base.}
+	\label{fig:cantilever3d}
+	\vspace{-10pt}
+\end{wrapfigure}
+
+Figure \ref{fig:rods} shows a sample set of seven beam force sensors which were produced in the laboratory. The sensor is formed by two main pieces the beam itself and a pair of $\text{OMEGA}^{\text{\tiny \textregistered}}$ precision strain gages (SGD-3/350-LY11) \cite{omega_SGD_LINEAR1_AXIS}. This strain gauges were glued on opposite sides of the rod around 3 to 5 cm from its end, depicted in Figure \ref{fig:cantilever3d}. This two variable resistances or strain gauges are part of a Half-Wheatstone bridge configuration and are connected to the circuit with soldered jumper wires, described in section \ref{sec:circuit}. The beam materials included glass, aluminum, titanium and two types of plastic. Table \ref{tab:rods} summarizes their characteristics, they were made of similar sizes to test repeatability. Two of the seven available sensors were found to be irreparably damaged, so no further measurements were possible on them.
 
 \begin{figure}[hbt!]
 	\centering
@@ -14,32 +24,34 @@ Figure \ref{fig:rods} shows a sample from a set of seven beam force sensors were
 	\caption[Rod used in the experiment]{Rods fabricated during the torque experiment design. From left to right, (7) Clear Plastic, (6) Yellow plastic\footnotemark[2], (5) Glass, (4) Titanium \footnotemark[1], (3) Aluminum}
 	\label{fig:rods}
 \end{figure}
+
 \begin{table}[htb!]
 	\centering
-	\caption{Characteristics of the rods used in experiments.}
+	\caption{Characteristics of the rods.}
 	\label{tab:rods}
-	\begin{tabular}{lllll}
+	\begin{tabular}{llll}
 		\toprule
-		Rod ID & Material & Diameter (mm) & Length (mm) & Remarks\\
+		Rod ID & Material & Diameter (mm) & Length (mm) \\
 		\midrule
-		Rod1 & Aluminum (Al)& 1.6 & 145.0 & \\
-		Rod2 & Al & 1.6 & 182.00 & \\
-		Rod3 & Al & 1.6 & 182.00 & \\
-		Rod4 &  Titanium & $<1.6$ & 220.00 & Not practical\footnotemark[1]\\
-		Rod5 &  glass & 3.2 & 166.0 &\\
-		Rod6 & yellow plastic & 1.6 & 220.00 & Visible damage\footnotemark[2]\\ 
-		Rod7 &  clear plastic & 2.9 & 180.0 &\\
+		Rod1 & Aluminum (Al)& 1.6 & 145.0  \\
+		Rod2 & Al & 1.6 & 182.00 \\
+		Rod3 & Al & 1.6 & 182.00  \\
+		Rod4 &  Titanium & $<1.6$ & 220.00 \\
+		Rod5 &  glass & 3.2 & 166.0 \\
+		Rod6 & yellow plastic & 1.6 & 220.00 \\ 
+		Rod7 &  clear plastic & 2.9 & 180.0 \\
 		\bottomrule
 	\end{tabular}
 	
 \end{table}
-\footnotetext[1]{This rod was originally stored on a spool and had to be straightened manually. That process introduced micro-cracks, so the material no longer behaved elastically and deviated from Hooke’s law.}
-\footnotetext[2]{This rod was discovered broken in the circuitry and was noticeably bent, indicating the need for full refabrication.}
+%\footnotetext[1]{This rod was originally stored on a spool and had to be straightened manually. That process introduced micro-cracks, so the material no longer behaved elastically and deviated from Hooke’s law.}
+%\footnotetext[2]{This rod was discovered broken in the circuitry and was noticeably bent, indicating the need for full refabrication.}
 
 
 \subsubsection{Circuit Design}
 \label{sec:circuit}
 
+Distinctively, the introduction of the ability to zero the reference level at 0 V with two trimming potentiometers was implemented.
 
 \begin{figure}[htb!]
 	\centering

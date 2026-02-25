@@ -1,42 +1,39 @@
+The final part of this force and torque assessment involves the measurement of the magnetically induced torque on a horizontally oriented object. ASTM 2213-17 \cite{astm2213} lists five different methodologies, calculation based on measured displacement force method, low friction surface method, suspension method, torsional spring method, and pulley method. In section \ref{sec:LitRev}, the results on three of these methods were revised. Those included low friction, pulley and a variation of torsional spring methods \cite{Woods2021_MRIdisplacement,stoianovici2024,Seo2021767}, which showed good results but further considerations are needed. 
+
+Similar to suspension method or string method, we developed a torque measurement device capable of holding both a custom made sensor and test object. The next section will explain further specific physics and the fixture's  components, which include sensor and circuit implementation explained in subsection \ref{sec:circuitDesignNsensor}.
+
 \subsection{Torque Measurement Apparatus}
 \label{sec:TorqMeasureApp}
 
-For the torque estimation, ASTM 2213-17 \cite{astm2213} lists five different methodologies. Calculation based on measured displacement force method, low friction surface method, suspension method, torsional spring method, and pulley method. In section \ref{sec:LitRev}, the results on three of these methods were revised. Those included low friction, pulley and a variation of torsional spring methods \cite{Woods2021_MRIdisplacement,stoianovici2024,Seo2021767}, which showed good results but further considerations are needed. In our case a torque measurement device, previously shown in Figure \ref{fig:parameters}, capable of holding both the sensor and subject was developed and will be further explained in section \ref{sec:TorqMeasureApp}. In addition to the sensor and circuit developed in section \ref{sec:circuitDesignNsensor}, a \gls{daq} system and a computer with a \gls{lvi} was needed. 
-
-
-On the final part of the assessment, the magnetically induced torque on a horizontally oriented subject was measured. To achieve this, a non-magnetic pole was fabricated with clinical considerations in mind. Figure \ref{fig:parameters} shows the pole, which was made from Delrin\textsuperscript{\texttrademark} and is 200 mm tall with 51 mm of diameter it can be attached to a PVC base for support with a nylon screw and it features a space for a non-magnetic bearing to sit. This non-magnetic ceramic bearing is meant to reduce as much friction for the rotation as possible while keeping everything non magnetic. Figure \ref{fig:bearing} shows a close up to the bearing, which has a plastic notch capable of holding a 10 mm thick ruler (lever arm) to spin. 
-
-The induced torque on the subject, explained in section \ref{sec:torqueBG}, is transmitted mechanically to a non-magnetic ruler which then would apply a force on the sensor introduced in section \ref{sec:circuitDesignNsensor}. This sensor would bend on and the counter-force would be measured using strain gauges. 
-
+A non-magnetic fixture was fabricated with clinical considerations in mind. Figure \ref{fig:torqueFixture} shows the main torque fixture, this fixture was designed to include a base and a ring to hold a sensor featured in Figure \ref{fig:parameters}. The main component is a pole made from Delrin\textsuperscript{\texttrademark}, 200 mm tall with 51 mm of diameter. Underneath it a \gls{pvc} base can be attached for support with a nylon screw. On top, it features a space for a non-magnetic ceramic, which is meant to reduce as much friction for the rotation as possible. Finally, around it a ring with a clamp will hold a custom made sensor which will be explained in detail in section \ref{sec:sensor}.
 
 \begin{figure}[hbt!]
 	\centering
-	\subfloat[ This shows the pole and the lever arm of the torque fixture as it would be taken to the clinic, it labels 2 parameters ($L$ red) and ($r$ blue), which were adjusted for maximum torque measurements. \label{fig:parameters}]{
-		\includegraphics[width=0.45\textwidth]{Assets/torqueClinic2 2.jpeg}
+	\subfloat[Main torque fixture pole. Key adjustable parameters for maximizing measured torque are the sensor's tip position $  P  $ (red) and the distance from center to sensor along the transfer arm $  r  $ (blue). \label{fig:parameters}]{
+		\includegraphics[width=0.45\textwidth]{Assets/torqueClinic1 copy.jpeg}
 	}
 	\hfill
-	\subfloat[ A zoom-in to Figure \ref{fig:parameters}, so the plastic notch ontop of the bearing can be seen. it is holding the lever arm and the subject allowing for friction free rotation .\label{fig:bearing}]{
-		\includegraphics[width=0.45\textwidth]{Assets/torqueClinic2 3.jpeg}
+	\subfloat[Close up of the transfer arm on top of fixture (from bottom to top): magnetically susceptible test object, Kydex\textsuperscript{\texttrademark} transfer arm, plastic alignment notch, and ceramic bearing for low-friction rotation. \label{fig:bearing}]{
+		\includegraphics[width=0.45\textwidth]{Assets/torqueClinic2 2.jpeg}
 	}
-	
-	\caption[Non-magnetic torque fixture for horizontal subject orientation]{Main Torque fixture, this fixture was modified designed to include a base and a ring to hold the sensor. Previous work only included the main pole.}
+	\caption[Non-magnetic torque fixture designed for horizontal test object orientation.]{Non-magnetic torque fixture designed for horizontal subject orientation. The pole provides rigid support, the ceramic bearing minimizes rotational friction.}
 	\label{fig:torqueFixture}
 \end{figure}
-
-
-%Power supply
-% Ammeter
-To show the effects of the magnetic field on the setup, a big ferromagnetic dowel was positioned on top of the ceramic bearing. It was around 20cm long and with it a strong dipole moment could be induced, serving as a visual confirmation that the system is working.
-
-However a smaller dowel is needed, this dowel would experiment much smaller torques based on size only. And following the same logic as in translational this would be a better test subject at lab scale. With a small magnetic field, high magnetic susceptibility and small volume, following equation \ref{eq:torqueCal} proportionality is ensured.
-
 \input{MatsNMets/lever_arm.tex}
 
+Once the measuring device is described, we dedicate the next section to assess the smallest measurable torque with the custom made sensor in detail. Followed by the design of a circuit and sensor that aligns with this theory. The description of the circuit and sensor are additional work carried on during this project with the laboratory methodology laid out in section \ref{sec:InLab_Torque}
+
 \input{MatsNMets/smallest_torque.tex}
+
+\input{MatsNMets/circuitDesign.tex}
 
 \subsection{In Lab Methodology and Setup}
 \label{sec:InLab_Torque}
 During the experiment, 2 measurements were performed. Magnetic field flux in Gauss using the AlphaLab Inc. Gaussmeter, described before, and Voltage from the strain gauge plus circuit sensor. 
+
+To show the effects of the magnetic field on the setup, a big ferromagnetic dowel was positioned on top of the ceramic bearing. It was around 20cm long and with it a strong dipole moment could be induced, serving as a visual confirmation that the system is working.
+
+However a smaller dowel is needed, this dowel would experiment much smaller torques based on size only. And following the same logic as in translational this would be a better test subject at lab scale. With a small magnetic field, high magnetic susceptibility and small volume, following equation \ref{eq:torqueCal} proportionality is ensured.
 
 The experiment consisted of, with the sensor fixed in the ideal position, vary the magnetic field produced by the Helmholtz coils -mimicking the behavior in distance as a real MRI-increasing as we get closer to isocenter. Then the respective voltage produced by the deformation of the sensor is recorded. Finally, the voltage to weight calibration serves to estimate the induced torque of the system.
 
