@@ -9,7 +9,7 @@ This makes \glspl{aimd} particularly prone to safety risks, as even trace amount
 
 % 2. Magnetic Interactions
 % first about the field
-To fully characterize the risk environment for epicardial leads, we must first understand the parts that make the \gls{mri} system and their potential risks. We highlight one of the five main components in the image formation process, the magnet strong static field. Figure \ref{fig:scannerDesign} shows all these components and Figure \ref{fig:siemensTrio} provides an example of a actual, clinically relevant \gls{mri} scanner like the one used at CHI Health Creighton University Medical Center - Bergan Mercy, where experiments took place. Each of these pieces are accompanied by interaction complications if a foreign object lays around the test space. For example, as explained in section \ref{sec:LitRev} heat and electrical interactions are a concern of \gls{rf} fields or Gradient Coils \cite{schaller2021,aboyewa2021}. For mechanical interactions, the interest falls under the mechanisms in which the static magnetic field could possibly interact with wire or thin cylinder like devices. The next section offers a full explanation of the main magnet, enabling a clear understanding of both the source and the spatial distribution of the static magnetic field itself.
+To fully characterize the risk environment for epicardial leads, we must first understand the parts that make the \gls{mri} system and their potential risks. We highlight one of the five main components in the image formation process, the magnet strong static field. Figure \ref{fig:scannerDesign} shows all these components and Figure \ref{fig:siemensTrio} provides an example of a actual, clinically relevant \gls{mri} scanner like the one used at CHI Health Creighton University Medical Center - Bergan Mercy, where experiments took place. Each of these pieces are accompanied by interaction complications if a foreign object lays around the test space. 
 
 \begin{figure}[hbt!]
 	\centering
@@ -17,15 +17,20 @@ To fully characterize the risk environment for epicardial leads, we must first u
 		\includegraphics[width=0.50\textwidth]{Assets/scannerDesign.png}
 	}
 	\hfill
-	\subfloat[Siemens 3T Magnetom Trio\textsuperscript{\texttrademark} clinical MRI system.\label{fig:siemensTrio}]{
-		\includegraphics[width=0.42\textwidth]{Assets/siemens-magnetom-trio-3T.png}
+	\subfloat[Siemens 3T Magnetom Trio\textsuperscript{\texttrademark} clinical MRI system at CHI Health Creighton University Medical Center -- Bergan Mercy.\label{fig:siemensTrio}]{
+		\includegraphics[width=0.42\textwidth]{Assets/Photos-12-20-2025 MGN/20251220_111411.jpg}
 	}
+	%\subfloat[Siemens 3T Magnetom Trio\textsuperscript{\texttrademark} clinical MRI system.\label{fig:siemensTrio}]{
+	%	\includegraphics[width=0.42\textwidth]{Assets/siemens-magnetom-trio-3T.png}
+	%}
 	
 	\caption[Design schematic and example of a clinical MRI scanner]{MRI scanner schematic and a clinical MRI system.  
 		(a) Simplified MRI scanner design highlighting the main magnet, gradient coils, and RF system, Control electronics, and Console. Adapted from Prince \cite{Prince_MedicalImaging_2015}.  
-		(b) Siemens Magnetom Trio 3T system, like at CUMC Bergan Mercy Hospital. As a modern whole-body MRI scanners, adapted from \cite{Siemens_MagnetomTrio_2025}.}
+		(b) Siemens Magnetom Trio 3T system at CUMC Bergan Mercy Hospital, where experiments were conducted. Photo courtesy of the research team.}
 	\label{fig:scanner}
 \end{figure}
+
+For example, as explained in section \ref{sec:LitRev} heat and electrical interactions are a concern of \gls{rf} fields or Gradient Coils \cite{schaller2021,aboyewa2021}. For mechanical interactions, the interest falls under the mechanisms in which the static magnetic field could possibly interact with wire or thin cylinder like devices. The next section offers a full explanation of the main magnet, enabling a clear understanding of both the source and the spatial distribution of the static magnetic field itself.
 
 %static field effect
 \input{Background/staticField.tex}

@@ -7,20 +7,24 @@ A sensor paired with an amplifier circuit was made following the ideas described
 \subsubsection{Sensor Design}
 \label{sec:sensor}
 
-\begin{wrapfigure}{r}{0.48\textwidth}
+The sensor is formed by two main pieces the beam itself and a pair of $\text{OMEGA}^{\text{\tiny \textregistered}}$ precision strain gages (SGD-3/350-LY11) \cite{omega_SGD_LINEAR1_AXIS}. This strain gauges were glued on opposite sides of the rod around 3 to 5 cm from its end, depicted in Figure \ref{fig:cantilever3d}. 
+
+\begin{figure}[hbt!]%{R}{0.48\textwidth}
 	\centering
-	\vspace{-30pt}
-	\includegraphics[width=\linewidth]{Assets/cantilever3d.png}
+	%\vspace{-30pt}
+	\includegraphics[width=0.48\textwidth]{Assets/cantilever3d.png}
 	\caption{Cantilever setup showing the fixed cylinder and strain gauges ''sandwiching" the rod at its base.}
 	\label{fig:cantilever3d}
-	\vspace{-10pt}
-\end{wrapfigure}
+	%\vspace{-10pt}
+\end{figure}
 
-Figure \ref{fig:rods} shows a sample set of seven beam force sensors which were produced in the laboratory. The sensor is formed by two main pieces the beam itself and a pair of $\text{OMEGA}^{\text{\tiny \textregistered}}$ precision strain gages (SGD-3/350-LY11) \cite{omega_SGD_LINEAR1_AXIS}. This strain gauges were glued on opposite sides of the rod around 3 to 5 cm from its end, depicted in Figure \ref{fig:cantilever3d}. This two variable resistances or strain gauges are part of a Half-Wheatstone bridge configuration and are connected to the circuit with soldered jumper wires, described in section \ref{sec:circuit}. The beam materials included glass, aluminum, titanium and two types of plastic. Table \ref{tab:rods} summarizes their characteristics, they were made of similar sizes to test repeatability. Two of the seven available sensors were found to be irreparably damaged, so no further measurements were possible on them.
+This two variable resistances or strain gauges are part of a Half-Wheatstone bridge configuration and are connected to the circuit with soldered jumper wires, described in section \ref{sec:circuit}. 
+
+Figure \ref{fig:rods} shows a sample set of seven beam force sensors which were produced in the laboratory. The beam materials included glass, aluminum, titanium and two types of plastic. Table \ref{tab:rods} summarizes their characteristics, they were made of similar sizes to test repeatability. Two of the seven available sensors were found to be irreparably damaged, so no further measurements were possible on them.
 
 \begin{figure}[hbt!]
 	\centering
-	\includegraphics[width=0.65\textwidth]{Assets/rods.png}
+	\includegraphics[width=0.4\textwidth]{Assets/rods.png}
 	\caption[Rod used in the experiment]{Rods fabricated during the torque experiment design. From left to right, (7) Clear Plastic, (6) Yellow plastic\footnotemark[2], (5) Glass, (4) Titanium \footnotemark[1], (3) Aluminum}
 	\label{fig:rods}
 \end{figure}
@@ -33,13 +37,13 @@ Figure \ref{fig:rods} shows a sample set of seven beam force sensors which were 
 		\toprule
 		Rod ID & Material & Diameter (mm) & Length (mm) \\
 		\midrule
-		Rod1 & Aluminum (Al)& 1.6 & 145.0  \\
+		Rod1 & Aluminum (Al)& 1.6 & 145.00  \\
 		Rod2 & Al & 1.6 & 182.00 \\
 		Rod3 & Al & 1.6 & 182.00  \\
 		Rod4 &  Titanium & $<1.6$ & 220.00 \\
-		Rod5 &  glass & 3.2 & 166.0 \\
+		Rod5 &  glass & 3.2 & 166.00 \\
 		Rod6 & yellow plastic & 1.6 & 220.00 \\ 
-		Rod7 &  clear plastic & 2.9 & 180.0 \\
+		Rod7 &  clear plastic & 2.9 & 180.00 \\
 		\bottomrule
 	\end{tabular}
 	
@@ -51,35 +55,35 @@ Figure \ref{fig:rods} shows a sample set of seven beam force sensors which were 
 \subsubsection{Circuit Design}
 \label{sec:circuit}
 
-Distinctively, the introduction of the ability to zero the reference level at 0 V with two trimming potentiometers was implemented.
+The measurements for the experiment in section \ref{sec:metsTorque} were done utilizing the already existing circuit prototype. 
 
 \begin{figure}[htb!]
 	\centering
 	\includegraphics[width=\textwidth]{Assets/circuit.png}
-	\caption[Torque‐measurement circuit based on Chiu 2016]{Circuit developed for the torque measurement setup, following the design principles of Chiu \textit{et al.} (2016)\cite{Chiu2016CharacterizationOA}. Features include, 1. half Wheastone Bridge Strain Gauge, 2. Amplifier, 3. Low-pass filter, 4. Coarse–fine adjustable reference network.}
+	\caption[Torque‐measurement circuit based on Chiu 2016]{Circuit developed for the torque measurement setup, following the design principles of Chiu \textit{et al.} (2016)\cite{Chiu2016CharacterizationOA}. Features include, 1. Half Wheastone Bridge Strain Gauge, 2. Amplifier, 3. Low-pass filter, 4. Coarse–fine adjustable reference network.}
 	\label{fig:torqueCircuit}
 \end{figure}
 
-The measurements for the experiment in section \ref{sec:metsTorque} were done utilizing the already existing circuit prototype, a description and electronic analysis is given that followed its scrutiny. Figure \ref{fig:torqueCircuit} shows the circuit main parts, it includes four main sections, the Wheatstone bridge, the amplifier, a low pass filter and the ground offset potentiometers. From a Kirchhoff analysis for the first two sections, the transmission function was derived as
+Figure \ref{fig:torqueCircuit} shows the circuit four main sections, the Wheatstone bridge, the amplifier, a low pass filter and the ground offset potentiometers. Being the potentiometers an addition from the original design. A Kirchhoff analysis for the first two sections yielded the transmission function
 
 \begin{equation}
 	\label{eq:kirchov12}
-	\frac{V_{out}}{V_{in}} = \frac{R_f}{R} \frac{S2 - S1}{S2 + S1} + \frac{S2}{S2 + S1}
+	\frac{V_{out}}{V_{in}} = \frac{R_{FEEDBACK}}{R} \frac{S_2 - S_1}{S_2 + S_1} + \frac{S_2}{S_2 + S_1}
 \end{equation}
 
-\noindent where $R = R1 = R2$, $S1$ and $S2$ are the strain gauge and $R_f$ is the feedback in figure \ref{fig:torqueCircuit}. The output voltage of the circuit is driven by the relative difference between the two strain gauges compared to their total resistance. The operational amplifier multiplies this small imbalance by the gain factor $\frac{R_f}{R}$. The bridge sets a baseline through the voltage division
+\noindent where $R = R_1 = R_2$, $S_1$ and $S_2$ are the strain gauge variable resistance input or signal coming from the sensor and $R_{FEEDBACK}$ is the feedback loop needed for amplification in figure \ref{fig:torqueCircuit}. The output voltage of the circuit is driven by the relative difference between the two strain gauges compared to their total resistance. The operational amplifier multiplies this small imbalance by the gain factor $\frac{R_{FEEDBACK}}{R}$. The bridge sets a baseline through the voltage division
 $
-\frac{S2}{S2 + S1},
+\frac{S_2}{S_2 + S_1},
 $
 whereas the amplified differential term
 $
-\frac{S2 - S1}{S2 + S1}
+\frac{S_2 - S_1}{S_2 + S_1}
 $
 determines the sensitivity of the circuit to strain. For the complete derivation see appendix \ref{app:Kirchhoff}.
 
 %\subsection*{Low–Pass Filtering and Reference-Voltage Behavior}
 
-After the instrumentation–amplifier stage, the output passes through a first–order RC low–pass filter composed of a \(47~\text{k}\Omega\) resistor in series with a \(10~\mu\text{F}\) capacitor to ground, as in Figure \ref{fig:torqueCircuit} part 3. The time constant is then $\tau= 0.47~\text{s}$ meaning a $0.33~\text{Hz}$ cutoff frequency. Finally, a first–order system with this time constant has a \(10\rightarrow 90\%\) rise time of approximately $1.03~\text{s}$. In other words, whatever the Wheatstone–op-amp transfer function generates, this RC stage only slows its dynamics rather than altering its steady–state gain. It suppresses high–frequency noise from the strain gauge bridge and smooths fast fluctuations that the rod could not physically produce anyway.
+After the instrumentation–amplifier stage, the output passes through a first–order RC low–pass filter composed of a \(47~\text{k}\Omega\) resistor in series with a \(10~\mu\text{F}\) capacitor to ground, as in Figure \ref{fig:torqueCircuit} part 3. The time constant is then $\tau= 0.47~\text{s}$, yielding a $0.33~\text{Hz}$ cutoff frequency. Finally, a first–order system with this time constant has a \(10\rightarrow 90\%\) rise time of approximately $1.03~\text{s}$. In other words, whatever the Wheatstone–op-amp transfer function generates, this RC stage only slows its dynamics rather than altering its steady–state gain. It suppresses high–frequency noise from the strain gauge bridge and smooths fast fluctuations that the rod could not physically produce anyway.
 
 
 %\subsection*{Reference-Voltage Control Using Coarse–Fine Potentiometers}
@@ -97,23 +101,31 @@ Both pots sit in series, forming a programmable voltage divider from 0 to 5V, an
 
 \noindent so sweeping the fine pot moves \(R_{2}\) over a narrow range(\(\sim 0\)–\(1~\text{k}\Omega\)), which shifts the reference only within a small, controllable window. The coarse pot changes the large \(R_{1}\) segment (\(\sim 10~\text{k}\Omega\)), expanding or collapsing the overall span. 
 
+Understanding both the strain at the sensor and the electrical physics of the circuit enables identification of the measurement device's capabilities. We now proceed to validate our sensor construction against the reference provided by Chiu \textit{et al.} (2016)\cite{Chiu2016CharacterizationOA}.
 
+\input{MatsNMets/smallest_torque.tex}
+
+Now we turn to experimentally quantifying the relationship between applied force (or weight) and the voltage output from our system.
 
 \subsection{Sensor Calibration}
 \label{sec:sensorCal}
 
-Prior to any torque measurement, each sensor or rod from table \ref{tab:rods} was tested or calibrated to accomplish two things, ensure use of the most sensible sensor and to acquire the conversion factor or slope of voltage to weight explained in section \ref{sec:Smallestmeasurable}. Additionally orientation and position of the rods was tested to ensure optimal values on these parameters for torque measurements.
+Prior to any torque measurement, each sensor or rod from Table \ref{tab:rods} was tested or calibrated to accomplish two things: ensure the use of the most sensitive sensor and to acquire the conversion factor or slope of voltage to weight. Additionally, the orientation and position of the rods was tested to ensure optimal values on these parameters for torque measurements.
 
 %include scale like calibration and boats, point to graphs on the appendix
-For calibration in the lab, sensor was set in a cantilever position as shown in Figure \ref{fig:boat}, so the bar face horizontally and a small cone-shaped basket made out of tape was attached to hold increments of water. Water was added in $\mu$L increments (equivalent to milligrams) simulating torque loads from 0 to 800 mg. Initial increments of 10 up to 200 $\mu$L covered the expected force range of epicardial leads weight, followed by 50 $\mu L$ increments to demonstrate linearity and sensor stability.
+For calibration in the lab, the sensor was set in a cantilever position as shown in Figure \ref{fig:boat}, so the bar faces horizontally and a small cone-shaped basket made out of tape was attached to hold increments of water. Water was added in $\mu$L increments (equivalent to milligrams) simulating torque loads from 0 to 800 mg. Initial increments of 10 to 200 $\mu $L covered the expected force range of epicardial leads weight, followed by additional 50 $\mu L$ increments to demonstrate linearity and sensor stability.
 
 \begin{figure}[htb!]
 	\centering
-	\includegraphics[width=0.75\textwidth]{Assets/boatSetup.jpeg}
-	\caption[Cantilever setup]{Circuit and sensor. The sensor was clipped with a custom made PVC clamp horizontally to act as a cantilever beam, a boat at length L was added, then a pipette was used to add water and see voltage changes with weight.}
+	\includegraphics[width=0.6\textwidth]{Assets/boatSetupL.jpeg}
+	\caption[Cantilever setup]{Circuit and sensor. The sensor was clamped with a custom made \gls{pvc} holder to act as a cantilever beam. A weigh boat at length $L$ was added, then a pipette was used to add water and calibrate voltage changes with weight.}
 	\label{fig:boat}
 \end{figure}
 
-The change in voltage and water is then plotted and a fit can be found, see Section \ref{sec:calResult}.
+The sensor voltage vs. water mass was plotted and fit to a line to determine the calibration constant. This was done using python pandas library in a Jupyter notebook and is publicly available \cite{juarezluna2025mrisafety}.
+
+%can be found, see Section \ref{sec:calResult}.
 
 Then, in order to find the best position for sensor we set the following experiment, a set of neodymium magnets were aligned to the ceramic bearing to get a static magnetic field, and a platform angled at 45$^\circ$ carried the sensor as we moved it inwards. From section \ref{sec:torqueBG}, it was shown that the maximum torque appears at this angle. Then we tested for the optimal length ($L$) and position from the center ($r$) as shown in Figure \ref{fig:parameters}. This process was repeated to find the sweet spot on distance from the center up to a 100 mm radius and the best height was tested to different lengths along the rod sensor. 
+
+\FloatBarrier

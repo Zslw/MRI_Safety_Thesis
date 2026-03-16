@@ -1,23 +1,9 @@
-\section{Gaussmeter LabView Protocol}
-\label{app:LabView}
-
-Figure~\ref{fig:gaussmeter-flowchart}. Upon startup, the \gls{lvi} initializes serial communication with the Gaussmeter, loads user-defined parameters (such as file name, mode of acquisition, delay time, and probe coordinates), and clears buffers in preparation for logging. The user may select either a continuous or an individual sampling mode. In continuous mode, the \gls{lvi} iterates through a defined number of data points with a fixed delay between samples; in individual mode, each data capture is triggered manually, allowing for precise positioning or timing. For both modes, each cycle involves reading the spatial coordinates, sending a measurement command, recording the returned magnetic flux value, and updating a graphical display as well as the output file.
-
-While the flowchart reflects the core logic, it does not fully convey the customization added to the \gls{lvi} interface. For example, the front panel includes input fields for patient table (couch) parameters such as couch speed and displacement points. As mentioned above, phantom is discretized with radial and angular indices: angular positions span 12 sectors clockwise from the 12 o’clock position (0 to 11 or A to L), and radial depths range from the center (0) to the outer edge (6). The probe’s spatial location is represented in polar coordinates, and the system plots magnetic flux as a function of position rather than time, allowing for intuitive visualization of the MRI fringe field across the phantom surface.
-The \gls{lvi} is operated in the following way.
-
-Flowchart of the Gaussmeter VI data acquisition algorithm
-\includepdf[
-pages=1,
-landscape=false,
-scale=0.90,
-]{TikZ/flowchart.pdf}
-\label{fig:gaussmeter-flowchart}
+%\input{Appendices/gaussmeterLabVIEW}
 
 \section{Sample Data for Stray Magnetic Field Mapping Along the Patient Couch (Backward Pass at (0,0))}
 \label{app:DataStrayField}
 
-Table \ref{tab:sampleStrayFieldBackward} presents a representative subset of the raw dataset from the first backward (retracting) couch translation pass along the longitudinal (z) axis at the central grid coordinate (0,0). Data were logged continuously using the Hall-effect gaussmeter probe. Flux values are raw instrument readings in gauss. The err\_byte column is the gaussmeter's reported error code.
+As mentioned in Section \ref{sec:metClinic_flux}, Table \ref{tab:sampleStrayFieldBackward} presents a representative subset of the raw dataset from the first backward (retracting) couch translation pass along the longitudinal (z) axis at the central grid coordinate (0,0). Data were logged continuously using the Hall-effect gaussmeter probe. Flux values are raw instrument readings in gauss. The err\_byte column is the gaussmeter's reported error code.
 
 Uncertainties: position $\pm 1$ mm (couch display and alignment tolerance), time $\pm 0.01$ s, flux $\pm 0.2\%$ of reading or $\approx \pm 50$ G near full scale.
 
@@ -32,21 +18,21 @@ Uncertainties: position $\pm 1$ mm (couch display and alignment tolerance), time
 		0  & 0 & 0 & 0.50  & 26823 & 64.289 \\
 		0  & 0 & 0 & 1.00  & 26822 & 64.788 \\
 		0  & 0 & 0 & 2.00  & 26824 & 65.788 \\
-		0  & 0 & 0 & 2.75  & 26672 & 66.539 \\
+%		0  & 0 & 0 & 2.75  & 26672 & 66.539 \\
 		0  & 0 & 0 & 3.50  & 24245 & 67.290 \\
-		0  & 0 & 0 & 4.00  & 22911 & 67.790 \\
+%		0  & 0 & 0 & 4.00  & 22911 & 67.790 \\
 		0  & 0 & 0 & 5.00  & 20287 & 68.791 \\
-		0  & 0 & 0 & 6.00  & 16493 & 69.789 \\
+%		0  & 0 & 0 & 6.00  & 16493 & 69.789 \\
 		0  & 0 & 0 & 7.00  & 14331 & 70.788 \\
-		0  & 0 & 0 & 10.00 & 8534  & 73.796 \\
+%		0  & 0 & 0 & 10.00 & 8534  & 73.796 \\
 		0  & 0 & 0 & 12.00 & 5886  & 75.803 \\
 		0  & 0 & 0 & 15.00 & 3563  & 78.807 \\
-		0  & 0 & 0 & 17.00 & 2529  & 80.804 \\
+%		0  & 0 & 0 & 17.00 & 2529  & 80.804 \\
 		0  & 0 & 0 & 20.00 & 1607  & 83.805 \\
-		0  & 0 & 0 & 23.00 & 1053  & 86.800 \\
+%		0  & 0 & 0 & 23.00 & 1053  & 86.800 \\
 		0  & 0 & 0 & 25.00 & 794   & 88.798 \\
-		0  & 0 & 0 & 27.00 & 640   & 90.800 \\
-		0  & 0 & 0 & 29.00 & 570   & 92.801 \\
+%		0  & 0 & 0 & 27.00 & 640   & 90.800 \\
+%		0  & 0 & 0 & 29.00 & 570   & 92.801 \\
 		0  & 0 & 0 & 30.00 & 570   & 93.801 \\
 		\hline
 	\end{tabular}

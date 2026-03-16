@@ -1,59 +1,83 @@
-\subsection{Mapping for a Solenoid in Lab}
+On our first experiment, mapping the magnetic field in both frameworks showed consistency with the expectations from theory at their respective scales. First we show the maps for the solenoid described on Section \ref{sec:labMagnets} for both B and $\nabla$B. Next, a first approach to a 3T field map is given. 
 
-The magnetic field $B$ generated in section \ref{sec:FieldGeneration}, yielded to the following figures. In this particular set of measurements the main objective is to capture the spatial gradient behavior of an static magnetic field produced by a solenoid, which has a constant current flow throughout the experiment. Figure \ref{fig:bfield_time_z} shows two plots from the field mapped, Fig. \ref{fig:bfield_time} shows the magnetic field flux B in gauss as a function of time going in and out to the solenoid front face, while Fig. \ref{fig:bfield_z} shows the estimated respective positions of the probe along the z-axis.
+\subsection{Mapping for a Solenoid in Lab}
+\label{sec:resMapSol}
+
+In this particular set of measurements the main objective is to capture the spatial gradient behavior of an static magnetic field produced by a solenoid, which has a constant current flow throughout the experiment. The magnetic field $B$ yielded maximum strengths of 182.2 G near the solenoid entrance at 0.25 cm along its center axis. Homogeneity tests from both, the "east and southwest" edges (10cm away from center at 0$^\circ$ and 225$^\circ$), showed maximum values of 165.1G at 0.35cm. From this maximum points in space the magnetic flux drops with distance as expected. Figure \ref{fig:bfield_time_z} shows three plots from the field mapped. First, Figure \ref{fig:bfield_time} shows the magnetic field flux B in gauss as a function of time going in and out to the solenoid front face, while Figure \ref{fig:bfield_z} shows the estimated respective positions of the probe along the z-axis on the left as the probe approaches the solenoid (Forwards) and on the right as it retreats (Backwards).
 
 
 \begin{figure}[hbt!]
 	\centering
 	\subfloat[$B$ field as a function of time.\label{fig:bfield_time}]{
-		\includegraphics[width=0.9\textwidth]{Assets/BfieldvsTime.png}
+		\includegraphics[width=0.9\textwidth]{Assets/BvsTime.png}
 	}
 	\hfill
 	\subfloat[$B$ field as a function of $z$-position.\label{fig:bfield_z}]{
-		\includegraphics[width=0.8\textwidth]{Assets/BfieldvsZ.png}
+		\includegraphics[width=0.95\textwidth]{Assets/BvsZ.png}
 	}
 	
 	\caption[$B$-field behavior along time and displacement]{Magnetic field measurements plotted against time and axial displacement. Used to estimate stability and spatial variation of the mapping setup.}
 	\label{fig:bfield_time_z}
 \end{figure}
 
-The three colors represent the position of the probe on each trial, this can be seen clearly on Figure \ref{fig:bfield3d} where the map was plotted as a representative line for their respective side. It is important to notice the similarities between runs on the southwest side and the east side of the front as this expected homogeneity allow us to extrapolate the data around the solenoid similar to Fig \ref{fig:3D_field_plot} confirming the theoretical background and speeding our clinical magnetic field acquisition protocol.
+The three colors represent the position of the probe on each trial. In Figure \ref{fig:bfield_z}, the position z=0 represents the circular face of the solenoid as the probe never entered the magnet. It is important to notice the similarities between runs on the southwest side and the east side of the front as this expected homogeneity allow us to extrapolate the data around the solenoid confirming the theoretical background and speeding our clinical magnetic field acquisition protocol.
 
 
-\begin{figure}[htb!]
-	\centering
-	\includegraphics[width=0.75\textwidth]{Assets/Bfield3dreal.png}
-	\caption[3D reconstructed field map]{Three-dimensional reconstruction of the measured magnetic field, illustrating spatial variation across the mapping region.}
-	\label{fig:bfield3d}
-\end{figure}
 
 Figure \ref{fig:gradb_pair} shows both the calculated gradient from equation \ref{eq:finiteDiff}, and the multiplication by field strength $B$ at the particular current of 2.966 A. The later being useful on experiment \ref{sec:Translational} for finding magnetic force, as per equation \ref{eq:translationalForce}, and for its fit (see Eq.\ref{eq:forFit}) making one point out of the set in the translational experiment described in section \ref{sec:experiment1}.
 
 \begin{figure}[hbt!]
 	\centering
 	\subfloat[$\nabla B$ along the measurement path.\label{fig:gradb}]{
-		\includegraphics[width=0.90\textwidth]{Assets/gradB.png}
+		\includegraphics[width=0.95\textwidth]{Assets/gradBvsZ.png}
 	}
 	\hfill
 	\subfloat[$B\nabla B$ product along the path.\label{fig:b_gradb}]{
-		\includegraphics[width=0.90\textwidth]{Assets/BgradB.png}
+		\includegraphics[width=0.95\textwidth]{Assets/BgradBvsZ.png}
 	}
 	
 	\caption[Spatial magnetic gradients and $B\nabla B$ product]{Computed magnetic field gradients and the $B\nabla B$ product used for translational force characterization.}
 	\label{fig:gradb_pair}
 \end{figure}
 
-In the translational experiment, the current applied to our solenoid was varied, and the magnetic field was measured in specific points within 7 to 8 cm away from the solenoid, this lead to a different results which are the points of equilibrium of the pendulum. These results are meaningful and will be used in section \ref{sec:res_labscale-Translational}. 
+In these figures we see the same behavior shown in Figure \ref{fig:Bz_vs_zSet}, an increasing amount of change as the distance approaches the entrance of the magnet (z=0 in these figures). Similar to Figure \ref{fig:bfield_z} the drop to zero is not visible as the probe doesn't enter the magnet. 
 
-\begin{figure}[htb!]
-	\centering
-	\includegraphics[width=0.9\textwidth]{Assets/magField_behavior_SI.png}
-	\caption[Magnetic field behavior in SI units]{Central magnetic field $B_0$, axial field gradient $dB/dx$, and their product $B_0 dB/dx$ as functions of position along the magnet axis. All quantities are shown in SI units (Tesla, T/m, and T$^2$/m, respectively) with error bars representing the standard error of the mean (SEM).}
-	\label{fig:EquilibriumPointsField}
-\end{figure}
-
-As the measurement of magnetic field was done by varying current and not distance the magnetic field plots looks different of that showed by Figures \ref{fig:bfield_time_z} and \ref{fig:gradb_pair}. Figure \ref{fig:EquilibriumPointsField} shows three plots, which corresponds to the three operations needed to make the field side of Equation \ref{eq:forFit}. As highlighted, in this instance the x-axis, position, refers to the position of the pendulum's end with respect of its gravitational equilibrium point, and each point was taken with a different current applied to the solenoid while the pole remained stationary.
+This same experiment was run for a real \gls{mri} at CHI CUMC Bergan Mercy Hospital. The next section present the first insights of the magnetic field of a 3T \gls{mri} scanner magnet and the challenges it presented.
 
 \subsection{Mapping for 3T Siemens Magnetom\textsuperscript{\texttrademark} \gls{mri} scanner}
+\label{sec:resClinic_map}
+
+The separation mentioned in Section \ref{sec:metClinic_flux} allowed for a better representation of the gradient. Figure \ref{fig:G6_SEP}, shows the field behavior for both directions for the particular coordinate G6. However, in the gradient (Figure \ref{fig:G6_gradBSEP}), a saw-tooth pattern appears as the differences between data points increased. Finally, the product of the field strength ($B$) and its gradient yielded Figure \ref{fig:G6_BgradB}. Plots for the rest of the coordinates can be found as a summary in Figures~\ref{fig:summary_B}, \ref{fig:summary_dBdz}, and~\ref{fig:summary_BgradB}.
+
+%Figure fig:G6_SEP
+%Assets/G6betterPlots/G6_BvsPositionSEP.png
+%Assets/G6betterPlots/G6_gradBSEP.png
 
 
+\begin{figure}[h!]
+	\centering
+	\subfloat[$B$ vs position after separating repeated measurements.\label{fig:G6_BvsPositionSEP}]{
+		\includegraphics[width=0.95\textwidth]{Assets/G6betterPlots/G6_BvsPosition 2.png}
+	}
+	\hfill
+	\subfloat[$\nabla B$ after separating repeated measurements.\label{fig:G6_gradBSEP}]{
+		\includegraphics[width=0.95\textwidth]{Assets/G6betterPlots/G6_dBdz_vsPosition.png}
+	}	
+	\hfill
+	\subfloat[Prodcut $B\nabla B$ for each run separated.\label{fig:G6_BgradB}]{
+		\includegraphics[width=0.95\textwidth]{Assets/G6betterPlots/G6_BgradB_vsPosition.png}
+	}	
+	\caption[Magnetic field and gradient after separation]{Magnetic field with corresponding gradient and product along the measurement path after separating repeated measurements into two independent sequences.}
+	\label{fig:G6_SEP}
+\end{figure}
+
+%a reader needs to know: what did the field actually look like at the bore entrance? What were the peak values? How did G6 compare to the other coordinates? 
+All six coordinates exhibited the expected monotonic increase in field strength as the probe approached the bore entrance, with $B$ decreasing by approximately 2.5--2.9 T over the full 1252 mm couch travel. At the bore entrance, peak field strengths ranged from 2.51 T at G6 to 2.95 T at A6, consistent with the scanner's 3 T isocenter field attenuating into the fringe region sampled by the fixture. 
+
+The spatial gradient $|\nabla B|$ ranged from 5.96 T/m at G6 to 10.39 T/m at A6, and the force-relevant product $|B \nabla B|$ ranged from 12.68 T$^2$/m at G6 to 22.95 T$^2$/m at A6.  The near-axis coordinates (00, G3, G6) agreed within approximately 2\% in peak $B$, confirming lateral homogeneity in that region and consistent with the homogeneity observed in the solenoid mapping of Section~\ref{sec:resMapSol}.
+
+G6, located 100 mm below isocenter along the vertical axis toward the patient table, returned the lowest $|B \nabla B|$ product among all coordinates (12.68 T$^2$/m). While not the position of maximum field gradient, it represents the most physically relevant location for the translational force measurements. It lies closest to where an implanted epicardial lead would sit relative to the scanner bore during a clinical scan. The G6 coordinate therefore yielded the field conditions  ($|B_0| = 2.51$ T and $|\nabla B| = 5.96$ T/m) used as the test location input for the ASTM F2052-15\cite{astmF2052} extrapolation in Section~\ref{sec:resClinicTrans}.
+
+\input{Results/summary_latex}
+
+\FloatBarrier

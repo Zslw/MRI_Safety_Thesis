@@ -8,7 +8,7 @@
    id="svg79"
    sodipodi:docname="circuit.svg"
    inkscape:version="1.4 (e7c3feb1, 2024-10-09)"
-   inkscape:export-filename="circuit.png"
+   inkscape:export-filename="/Users/danieljuarezluna/Documents/Inkscape/circuit.png"
    inkscape:export-xdpi="300"
    inkscape:export-ydpi="300"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
@@ -26,16 +26,17 @@
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
-     inkscape:zoom="1.2399934"
-     inkscape:cx="248.79165"
-     inkscape:cy="132.662"
+     inkscape:zoom="1.2740971"
+     inkscape:cx="357.11565"
+     inkscape:cy="158.93609"
      inkscape:window-width="1464"
      inkscape:window-height="894"
      inkscape:window-x="4"
-     inkscape:window-y="34"
+     inkscape:window-y="33"
      inkscape:window-maximized="0"
      inkscape:current-layer="svg79"
-     inkscape:export-bgcolor="#ffffffff" />
+     inkscape:export-bgcolor="#ffffffff"
+     showgrid="false" />
   <line
      x1="638"
      y1="150"
@@ -483,10 +484,11 @@
   <text
      x="455"
      y="124"
-     style="font-family:Arial;font-size:11px;text-anchor:middle"
+     style="font-size:11px;font-family:Arial;text-anchor:middle"
      dominant-baseline="baseline"
-     transform="rotate(0, 455, 124)"
-     id="text43">RFILTER</text>
+     id="text43">R<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan11">FILTER</tspan></text>
   <text
      x="529.64551"
      y="87.874023"
@@ -549,10 +551,11 @@
   <text
      x="325"
      y="214"
-     style="font-family:Arial;font-size:11px;text-anchor:middle"
+     style="font-size:11px;font-family:Arial;text-anchor:middle"
      dominant-baseline="baseline"
-     transform="rotate(0, 325, 214)"
-     id="text49">RFEEDBACK</text>
+     id="text49">R<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan9">FEEDBACK</tspan></text>
   <text
      x="359.84473"
      y="125.25851"
@@ -693,10 +696,11 @@
   <text
      x="76"
      y="225"
-     style="font-family:Arial;font-size:11px;text-anchor:end"
+     style="font-size:11px;font-family:Arial;text-anchor:end"
      dominant-baseline="middle"
-     transform="rotate(0, 76, 225)"
-     id="text65">S2</text>
+     id="text65">S<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan6">2</tspan></text>
   <path
      d="M 100,225 M 83,232 L 117,218 M 115,223 L 117,218 L 112,216"
      style="fill-opacity:0;fill:rgb(0, 0, 0);stroke:rgb(0, 0, 0);stroke-linecap:square;stroke-width:2"
@@ -729,10 +733,11 @@
   <text
      x="166"
      y="219"
-     style="font-family:Arial;font-size:11px;text-anchor:end"
+     style="font-size:11px;font-family:Arial;text-anchor:end"
      dominant-baseline="middle"
-     transform="rotate(0, 166, 219)"
-     id="text68">R2</text>
+     id="text68">R<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan8">2</tspan></text>
   <line
      x1="180"
      y1="110"
@@ -761,10 +766,11 @@
   <text
      x="166"
      y="129"
-     style="font-family:Arial;font-size:11px;text-anchor:end"
+     style="font-size:11px;font-family:Arial;text-anchor:end"
      dominant-baseline="middle"
-     transform="rotate(0, 166, 129)"
-     id="text70">R1</text>
+     id="text70">R<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan7">1</tspan></text>
   <line
      x1="100"
      y1="110"
@@ -787,10 +793,11 @@
   <text
      x="76"
      y="135"
-     style="font-family:Arial;font-size:11px;text-anchor:end"
+     style="font-size:11px;font-family:Arial;text-anchor:end"
      dominant-baseline="middle"
-     transform="rotate(0, 76, 135)"
-     id="text71">S1</text>
+     id="text71">S<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan5">1</tspan></text>
   <path
      d="M 100,135 M 83,142 L 117,128 M 115,133 L 117,128 L 112,126"
      style="fill-opacity:0;fill:rgb(0, 0, 0);stroke:rgb(0, 0, 0);stroke-linecap:square;stroke-width:2"
@@ -872,7 +879,7 @@
      x="578.98993"
      y="17.920792" />
   <rect
-     style="opacity:0.507;fill:#000000;fill-opacity:0.17122;stroke:#000000;stroke-width:1.911;stroke-dasharray:none;stroke-opacity:0.854281"
+     style="display:inline;opacity:0.507;fill:#000000;fill-opacity:0.17122;stroke:#000000;stroke-width:1.911;stroke-dasharray:none;stroke-opacity:0.854281"
      id="rect82-0-4"
      width="134.64127"
      height="156.06801"

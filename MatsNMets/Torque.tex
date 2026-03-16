@@ -10,37 +10,28 @@ A non-magnetic fixture was fabricated with clinical considerations in mind. Figu
 \begin{figure}[hbt!]
 	\centering
 	\subfloat[Main torque fixture pole. Key adjustable parameters for maximizing measured torque are the sensor's tip position $  P  $ (red) and the distance from center to sensor along the transfer arm $  r  $ (blue). \label{fig:parameters}]{
-		\includegraphics[width=0.45\textwidth]{Assets/torqueClinic1 copy.jpeg}
+		\includegraphics[width=0.45\textwidth]{Assets/torqueClinic2 2.jpeg}
 	}
 	\hfill
 	\subfloat[Close up of the transfer arm on top of fixture (from bottom to top): magnetically susceptible test object, Kydex\textsuperscript{\texttrademark} transfer arm, plastic alignment notch, and ceramic bearing for low-friction rotation. \label{fig:bearing}]{
-		\includegraphics[width=0.45\textwidth]{Assets/torqueClinic2 2.jpeg}
+		\includegraphics[width=0.45\textwidth]{Assets/torqueClinic2 3.jpeg}
 	}
 	\caption[Non-magnetic torque fixture designed for horizontal test object orientation.]{Non-magnetic torque fixture designed for horizontal subject orientation. The pole provides rigid support, the ceramic bearing minimizes rotational friction.}
 	\label{fig:torqueFixture}
 \end{figure}
 \input{MatsNMets/lever_arm.tex}
 
-Once the measuring device is described, we dedicate the next section to assess the smallest measurable torque with the custom made sensor in detail. Followed by the design of a circuit and sensor that aligns with this theory. The description of the circuit and sensor are additional work carried on during this project with the laboratory methodology laid out in section \ref{sec:InLab_Torque}
-
-\input{MatsNMets/smallest_torque.tex}
+Once the measuring device is described, we dedicate the next sections to describe the design of a circuit and sensor followed by assessment of the smallest measurable torque with the custom made sensor in detail. The description of the circuit and sensor are additional work carried on during this project with the laboratory methodology laid out in section \ref{sec:InLab_Torque}
 
 \input{MatsNMets/circuitDesign.tex}
 
 \subsection{In Lab Methodology and Setup}
 \label{sec:InLab_Torque}
-During the experiment, 2 measurements were performed. Magnetic field flux in Gauss using the AlphaLab Inc. Gaussmeter, described before, and Voltage from the strain gauge plus circuit sensor. 
+With transfer arm length (5cm) and sensor position (tip at rulers farther edge) optimized and confirmed, the method for the experiment goes as follows: a increasingly stronger magnetic flied is applied to the test object initially positioned such that it makes a approx 45$^\circ$ angle with the magnetic field. The magnetic field is monitored on each increment and recorded in Gauss using the AlphaLab Inc. Gaussmeter, while the sensor and circuit are paired with a \gls{daq} and computer for voltage measurements.
 
-To show the effects of the magnetic field on the setup, a big ferromagnetic dowel was positioned on top of the ceramic bearing. It was around 20cm long and with it a strong dipole moment could be induced, serving as a visual confirmation that the system is working.
-
-However a smaller dowel is needed, this dowel would experiment much smaller torques based on size only. And following the same logic as in translational this would be a better test subject at lab scale. With a small magnetic field, high magnetic susceptibility and small volume, following equation \ref{eq:torqueCal} proportionality is ensured.
-
-The experiment consisted of, with the sensor fixed in the ideal position, vary the magnetic field produced by the Helmholtz coils -mimicking the behavior in distance as a real MRI-increasing as we get closer to isocenter. Then the respective voltage produced by the deformation of the sensor is recorded. Finally, the voltage to weight calibration serves to estimate the induced torque of the system.
-
-experiment done 3 times, 1st with helmholtz coils for 2 different lenght rods
-
-and then with a set of 4 neodymium magnets in a different holder for the smaller rod.
-
+To assess different torque strengths, two test objects of the same material and different lengths were considered. First a long steel solid cylinder of about 20 cm length by  diameter, that way a strong dipole moment could be induced to it, serving as a visual confirmation that the system is working. Second, a smaller cylinder of about 2cm long and same diameter served as the main test object as we aim to measure the smallest magnetically induced torque possible. Following the same logic as in translational experiment this torque scales proportionally following equation \ref{eq:torqueCal}.
+ 
+Figures \ref{fig:equipment_list_zoomed} and \ref{fig:torque_compare} show the experimental array. To ensure a wide range of magnetic field strengths capable to interact with both test cylinders we arrange two different sources, a Helmholtz coil and a set of neodymium magnets.
 
 \begin{figure}[htb!]
 	\centering
@@ -49,22 +40,21 @@ and then with a set of 4 neodymium magnets in a different holder for the smaller
 	\label{fig:equipment_list_zoomed}
 \end{figure}
 
-\subsubsection{Magnetic field conditions}
-
-For the initial configuration, a permanent-magnet–based torque setup was implemented as shown in Figure \ref{fig:neodymiumset}. This first arrangement employed four neodymium magnets, each magnetized through their thickness, with nominal dimensions of 1/4 in thickness and 5/16 in outer diameter. The magnets were mounted symmetrically on a rigid mechanical frame, with their magnetization axes oriented to produce a static magnetic field across the region occupied by the torque arm. Threaded lateral adjusters and a central support allow controlled positioning and alignment of the magnets relative to the rotating element.
+%\subsubsection{Magnetic field conditions}
+For a initial configuration, a permanent-magnet–based torque setup was implemented as shown in Figure \ref{fig:neodymiumset}. This first arrangement employed four neodymium magnets, each magnetized through their thickness, with nominal dimensions of 1/4 in thickness and 5/16 in outer diameter. The magnets were mounted symmetrically on a rigid mechanical frame, with their magnetization axes oriented to produce a static magnetic field across the region occupied by the torque arm. Threaded lateral adjusters and a central support allow controlled positioning and alignment of the magnets relative to the rotating element.
 
 
 \begin{figure}[hbt!]
 	\centering
-	\subfloat[Initial permanent-magnet torque measurement setup. The apparatus employs four neodymium magnets symmetrically mounted on a rigid frame to generate a static magnetic field across the torque arm. \label{fig:neodymiumset}]{
+	\subfloat[Four neodymium magnets symmetrically mounted on a rigid frame to generate a static magnetic field across the torque arm. \label{fig:neodymiumset}]{
 		\includegraphics[width=0.45\textwidth]{Assets/neodymiumset.jpeg}
 	}
 	\hfill
-	\subfloat[Helmholtz coil configuration used to generate a controllable and approximately uniform static magnetic field at the coil center. The coils are driven with equal currents in the same direction to superpose their magnetic fields.\label{fig:helmholtzsetup}]{
+	\subfloat[Helmholtz coil generates a controllable and uniform static magnetic field at the coil center.\label{fig:helmholtzsetup}]{
 		\includegraphics[width=0.45\textwidth]{Assets/helmholtzNPole2.jpeg}
 	}
 	
-	\caption[Two setups used for torque measurements]{Comparison of the two magnetic field generation setups used for torque measurements: (a) a permanent-magnet–based configuration providing a fixed static field, and (b) a Helmholtz coil configuration enabling controlled variation of magnetic field strength.}
+	\caption[Two setups used for torque measurements]{Comparison of the two magnetic field generation setups used for torque measurements: (a) a permanent-magnet–based configuration providing a fixed static field, adding more magnets increases the field at the center, and (b) a Helmholtz coil configuration enables controlled variation of magnetic field strength. The coils are driven with equal currents in the same direction to superpose their magnetic fields at the center.}
 	\label{fig:torque_compare}
 \end{figure}
 
@@ -72,14 +62,29 @@ A second setup (Figure \ref{fig:helmholtzsetup}) utilized Helmholtz Coils EM‑6
 
 
 
-\subsubsection{In Clinic Measurement Protocol}
+\subsection{In Clinic Measurement -  Torque}
 
-Torque measurements were conducted ensuring consistency and reproducibility. Prior to setup, both researchers confirmed that all personal belongings and ferromagnetic items had been removed from their pockets. The \gls{lvi} was opened with the necessary parameters configured, and the \gls{dac} was powered on.  A 10-meter jumper wire was connected to the \gls{dac} and integrated into the circuit, with the computer system interfaced to the \gls{dac} for real-time data collection. 
+During the single clinical session while the translational force measurements were underway, the additional equipment for torque assessment was prepared in parallel. The custom torque fixture was assembled, integrating the torque sensor with lightweight balanced lever arms, as shown in Figure \ref{fig:clinicTorque}.
 
-The experimental apparatus was then fitted with the test object—either the magnetically susceptible calibration material or the epicardial lead—mounted on the rotating ruler. Then it was positioned on the MRI room bench at a distance of 1 meter from the bore, measured from the base of the apparatus to the bore face. Finally, the ruler arm was aligned to rest against the strain gauge, oriented as close as possible to 45° relative to the bore axis. 
+The measurement circuit and data acquisition (\gls{daq}) system were set up and connected adjacent to the acquisition computer in the \gls{mri} control room. Connections included power supply to the \gls{daq}, 5V output from the \gls{daq} to the sensor circuit, differential signal lines (plus and minus) for torque readout, \gls{daq}-to-USB interface for real-time logging, and a 10,m extension cable routed from the sensor through the waveguide/port in the wall. following the same pathway previously used for the gaussmeter probe.
 
-In the control room, torque measurements were acquired according to a predefined flowchart procedure, with results recorded on the measurement worksheet. A section of the worksheet was considered complete only when all data fields were marked with an “X.” Section 1 of the worksheet corresponded to measurements performed with the magnetically susceptible calibration object. Following these measurements, the apparatus was retrieved from the MRI room, and the calibration object was replaced with the epicardial lead affixed to the ruler. Section 2 of the worksheet was then completed by repeating the flowchart process with the lead in place.
+\begin{figure}[htb!]
+	\centering
+	\includegraphics[width=0.45\textwidth]{Assets/clinicTorq.jpg}
+	\caption[Torque Device on \gls{mri} couch.]{Torque devices at the bore entrance ready to enter the \gls{mri} scanner. A 10m extension cable allows for communication with circuit at control room.}
+	\label{fig:clinicTorque}
+\end{figure}
 
-Data collection in each section was performed at incremental positions along the MRI bore axis. For both the calibration object (Section 1) and the epicardial lead (Section 2), torque measurements were acquired at eleven translational positions: 100, 90, 80, 70, 60, 50, 40, 30, 20, 10, and 0 cm from the bore face. This systematic sampling allowed for direct comparison of torque response between the calibration object and the epicardial lead across the same magnetic field gradient.
+Once fully connected, the sensor input was functionally tested by applying gentle manual pressure against the lever arm, confirming that deflection produced a clear signal response before entering the scanner room. The assembled fixture was then positioned on the patient table and aligned to scanner isocenter using the built-in room lasers, with the zero-torque reference position permanently marked using tape on the couch surface for positional reproducibility across trials.
+
+Trials commenced with cylinder-shaped samples of non-magnetic stainless steel (316L) and titanium mounted on the lever arms. The rods were oriented to maximize potential rotational response relative to the fringe field gradient, and the couch was incrementally advanced toward the bore entrance to expose the samples to increasing field strength and gradient. Results were documented manually where possible, with refinement planned based on the encountered limitations. 
+
+%Torque measurements were conducted ensuring consistency and reproducibility. Prior to setup, both researchers confirmed that all personal belongings and ferromagnetic items had been removed from their pockets. The \gls{lvi} was opened with the necessary parameters configured, and the \gls{dac} was powered on.  A 10-meter jumper wire was connected to the \gls{dac} and integrated into the circuit, with the computer system interfaced to the \gls{dac} for real-time data collection. 
+
+%The experimental apparatus was then fitted with the test object—either the magnetically susceptible calibration material or the epicardial lead—mounted on the rotating ruler. Then it was positioned on the MRI room bench at a distance of 1 meter from the bore, measured from the base of the apparatus to the bore face. Finally, the ruler arm was aligned to rest against the strain gauge, oriented as close as possible to 45° relative to the bore axis. 
+
+%In the control room, torque measurements were acquired according to a predefined flowchart procedure, with results recorded on the measurement worksheet. A section of the worksheet was considered complete only when all data fields were marked with an “X.” Section 1 of the worksheet corresponded to measurements performed with the magnetically susceptible calibration object. Following these measurements, the apparatus was retrieved from the MRI room, and the calibration object was replaced with the epicardial lead affixed to the ruler. Section 2 of the worksheet was then completed by repeating the flowchart process with the lead in place.
+
+%Data collection in each section was performed at incremental positions along the MRI bore axis. For both the calibration object (Section 1) and the epicardial lead (Section 2), torque measurements were acquired at eleven translational positions: 100, 90, 80, 70, 60, 50, 40, 30, 20, 10, and 0 cm from the bore face. This systematic sampling allowed for direct comparison of torque response between the calibration object and the epicardial lead across the same magnetic field gradient.
 
 

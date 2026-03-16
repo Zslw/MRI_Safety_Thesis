@@ -35,7 +35,7 @@ The entire fixture is shifted axially along the Z-direction of a horizontal bore
 \noindent where $B_1$ and $B_2$ represent the measured magnetic flux densities at positions displaced symmetrically from the location of interest. This fixture has previously been applied to \gls{mri} mapping in the work by Ferreira \cite{ferreira2017}.
 
 
-\subsection{Laboratory size: Solenoid and Neodymium Magnets}
+\subsection{Laboratory scale: Solenoid and Neodymium Magnets}
 \label{sec:labMagnets}
 
 Seeking to achieve the most reliable approximation of clinical \gls{mri} conditions, magnetic fields in the lab were generated using two approaches. The methods involved in our experiments used either neodymium permanent magnets or a copper-wound solenoid. Each approach presents advantages and limitations. 
@@ -56,15 +56,24 @@ The approach used in this section was the latter. A custom-built air-core soleno
 Figure \ref{fig:solenoidmap} shows the experimental setup used to test the probe and obtain a referece map of the magnetic field of our solenoid. At the solenoid entrance, three positions were selected to place the gaussmeter probe to check for homogeneity, at the center (r=0 cm,$\theta$=0), southwest (r=10 cm, $\theta$=225), and east (r=10 cm, $\theta$=0). This was achieved by using a translational stage positioning the probe 10 away from the solenoid's entrance \cite{ThorlabsMotionControl2025}. The stage uses 3 servomotors, one for each cartesian axis, to accurately position the probe with changes less than a tenth of a millimeter. However, the distance across the z-axis was limited to 11 mm by the servo's maximum extension. This setup was used for experiment in section \ref{sec:Translational}. To make a quick check across a wider range, a ruler was fixed at the same three positions described and the probe was steadily translated about 20 cm to the solenoid entrance and back. Data was recorded using the manufacturer’s default software, AlphaApp \cite{AlphaApp} with a sampling time of 1 reading per second, for about 2 min. Video recording was used to map time, and distance enabling a rough map of the B field and its gradient.
 
 
-\subsection{Clinical Work}
+\subsection{In Clinic Measurements - Magnetic Flux}
+\label{sec:metClinic_flux}
 
-To characterize the magnetic field gradient along the scanner’s longitudinal (z) axis, the circular grid fixture was mounted on the patient table. Couch motion controls were first calibrated, allowing precise positioning in millimeters via the four-digit display. Fixture-to-bore clearance was verified, and the fixture proved marginally over-sized for full insertion, constraining the maximum travel depth.
+\begin{figure}[htb!]
+	\centering
+	\includegraphics[width=0.55\textwidth]{Assets/clinicMagF.jpg}
+	\caption[Magnetic Field Mapping Fixture on \gls{mri} couch.]{The mapping fixture was mounted near the bore entrance, researcher calibrated and noted initial position, bore entrance clearance and proper alignment to laser locators.}
+	\label{fig:clinicMap}
+\end{figure}
+
+To characterize the magnetic field gradient along the scanner’s longitudinal (z) axis, the circular grid fixture was mounted on the patient table, as shown in Figure \ref{fig:clinicMap}. Couch motion controls were first calibrated, allowing precise positioning in millimeters via the four-digit display. Fixture-to-bore clearance was verified, and the fixture proved marginally over-sized for full insertion, constraining the maximum travel depth.
 
 The gaussmeter probe was routed through the fixture plate into the MR scanner room with a dedicated acquisition computer, located in the control room. Measurement range was defined from 1 cm away of the bore entrance to approximately 1 m away.
 
-Prior to each acquisition series, the fixture was aligned to scanner isocenter using the built-in laser crosshair and a calibrated ruler. Its position was permanently marked on the table surface for reproducibility. Grid coordinates examined were the central position (00) and off-axis locations A3, A6, G6, and G3 (vertical plane), with the physical heights of G6 and G3 recorded to ensure correspondence with translational couch motion. Uniformity across the grid was additionally confirmed by measurements at right-side coordinate D3.
+Prior to each acquisition series, the fixture was aligned to scanner isocenter using the built-in laser crosshair and a calibrated ruler. Its position was permanently marked on the table surface at (8.5cm from table side edge) to allow reproduction. Grid coordinates examined were the central position (00) and off-axis locations A3, A6, G6, and G3 (vertical plane), with the physical heights of G6 and G3 recorded to ensure correspondence with translational couch motion. Uniformity across the grid was additionally confirmed by measurements at right-side coordinate D3.
 
 At each grid coordinate, the couch was translated continuously while the gaussmeter logged data in paired passes, one advancing into the bore and one retracting, producing independent datasets for hysteresis assessment. In total, 15 raw data tables were acquired, four at the central position (00), two at each off-axis lettered coordinate (A3/A6, G3/G6, D3), and one repeated file following a LabVIEW crash. All files were saved as \gls{csv} with the structure illustrated at appendix \ref{app:DataStrayField}.
 
-Post-acquisition, the \gls{csv} files were imported into Python using the pandas library. Column headers were standardized, and data integrity checks (duplicate removal, timestamp validation) were performed. The flux column was subsequently converted to physical units, and the longitudinal gradient was extracted by numerical differentiation and polynomial fitting routines to determine the optimal representation of the field profile for later modeling.
+\input{Results/clincalDataCleaning}
 
+Afterwards, fhe flux column was subsequently converted to physical units, and the longitudinal gradient was extracted by numerical differentiation to determine the optimal representation of the field profile.
