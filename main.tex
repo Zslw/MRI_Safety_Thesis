@@ -81,19 +81,17 @@
 
 \clearpage
 
-%\addcontentsline{toc}{chapter}{Dedication}%includes dedication in table of contexts.  Chicago Manual of Style argues against listing front matter that is before the TOC in the TOC
-%\input{Formalities/dedication} %optional
+\addcontentsline{toc}{chapter}{Dedication}%includes dedication in table of contexts.  Chicago Manual of Style argues against listing front matter that is before the TOC in the TOC
+\input{Formalities/dedication} %optional
 
-%\clearpage
-
-
-\tableofcontents %automatically generate TOC
 \clearpage
-
-\listoftables %automatically generates list of tables
-\clearpage
-\listoffigures%automatically generates list of figures
-
+{\singlespacing
+	\tableofcontents
+	\clearpage
+	\listoftables
+	\clearpage
+	\listoffigures
+}
 \clearpage
 
 
@@ -122,6 +120,7 @@
 %\input{chapter5}
 \chapter{Discussion and Conclusion}
 \label{ch:disCon}
+\input{discussion_potentially}
 
 %\clearpage
 

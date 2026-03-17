@@ -100,28 +100,3 @@ Figure~\ref{fig:F2052_max_parison} summarises the peak force ratio per device. A
 	\label{fig:F2052_max_parison}
 \end{figure}
 
-Figure~\ref{fig:comparison_gradient} presents the allowable maximum spatial gradient derived from the ASTM F2052-15 Appendix X3 extrapolation (Eq.~X3.9)\cite{astmF2052}, which projects measured deflection angles at the test location onto the clinical scanner conditions of 1.5 T and 3 T. Angles below 2$^\circ$ are floored to 2$^\circ$ for conservative extrapolation, this floor was applied to the Ti Coil and Ti Rod results. The extrapolated allowable spatial gradients substantially exceed the typical scanner limits reported, namely $19$ T/m for 1.5 T systems and $17$ T/m for 3.0 T systems for all four devices. Of most interest, the bipolar lead yields an allowable gradient of 107 T/m at 1.5 T and 54 T/m at 3.0 T, both far beyond the scanner's physical maximum gradient, indicating that the translational force alone does not pose a safety concern under standard clinical conditions.
-
-% ----------------------------------------------------------
-% Figure 3
-% ----------------------------------------------------------
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.85\textwidth]{Assets/comparison_allowable_gradient.png}
-	\caption{Maximum allowable spatial gradient. The measured test location was $B_{0L} = 2.511 T$, $|\nabla B|_L = 5.961 T/m$ With actual maximum gradient marked in red.}
-	\label{fig:comparison_gradient}
-\end{figure}
-
-Figure~\ref{fig:comparison_ordinate} breaks down the force ratio by our mapping fixture coordinates (\ref{fig:fieldmapping_b}) for all devices, being coordinate A6 (closer to the bore top) where the deflection would be most pronounced.  The largest deflections occur closest to the bore entrance, which is the expected worst-case location\cite{astmF2052}. And this positional dependence in height aligns with the $B|\nabla B|$ product peaking at the bore entrance's top as established in literature \cite{mriquestions_dangerous_place}, however our calculated values are higher, suggesting further revision.
-
-% ----------------------------------------------------------
-% Figure 4
-% ----------------------------------------------------------
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.85\textwidth]{Assets/comparison_FR_per_coordinate.png}
-	\caption{Field map and translational Text Cross analysis. Left: Measured $|B \cdot \nabla B|$ per fixture coordinate on the forward pass, sub run B. Right: Predicted Force Ratio ($FR$) per device at each fixture coordinate at bore entrance.}
-	\label{fig:comparison_ordinate}
-\end{figure}
-
-It should be noted, that per F2052-15 \cite{astmF2052}, a passing result for translational force is not sufficient alone to establish MR safety. RF-induced heating (ASTM F2182 \cite{astmF2182}) and torque (ASTM F2213 \cite{astm2213}) must also be assessed. The Ti Rod and 316L stainless steel samples were tested in a single trial only, falling short of the three-repetition minimum required by the standard. These results should therefore be treated as indicative rather than fully compliant.
