@@ -1,42 +1,47 @@
 % 1. Introduction
 %    - What is MRI and why is it used clinically 
-\gls{mri} or Magnetic Resonance Imaging is a medical imaging modality that uses magnetic fields and radiofrequency (\gls{rf}) energy to produce images, rather than ionizing radiation like X-rays. In fact, \gls{mri} modality has exceptional utility in clinical settings, particularly for neurological and musculoskeletal imaging, because it produces images with high sensitivity to anatomical variations and superior soft tissue contrast \cite{bushberg2011}. 
+\gls{mri} or Magnetic Resonance Imaging is a medical imaging modality that uses magnetic fields and radiofrequency (\gls{rf}) energy, rather than ionizing radiation like X-rays, to produce images. These images are made by processing the signals produced when the net magnetization vector returns to equilibrium following an \gls{rf} excitation pulse. In fact, \gls{mri} has exceptional utility in clinical settings, particularly for neurological and musculoskeletal imaging, because it produces images with high sensitivity to anatomical variations and superior soft tissue contrast \cite{bushberg2011}. 
 
-%what our focus and why
-This contrast comes form the magnetic properties of different tissue types such as fat, gray matter, white matter, and cerebral spinal fluid when exposed to a large magnetic field. The strength of a magnetic field, also known as magnetic flux density ($B$), is measured in Tesla (T). An older, alternative unit is the gauss (G), where 1 T = 10,000 G. For perspective, a typical clinic \gls{mri} scanner is 1.5 to 3 Tesla, orders of magnitude stronger than Earth's magnetic field, in the range of 30,000 to 60,000 nT\cite{lowrie1997fundamentals}. Therefore, the exceptionally strong static magnetic fields required for clinical imaging are sufficient to interact with materials normally considered non-magnetic in everyday contexts.
-
-This makes \glspl{aimd} particularly prone to safety risks, as even trace amounts of ferromagnetic materials in device components can experience mechanical forces and torques within the scanner environment. Understanding these risks requires examination of two fundamental aspects, the static magnetic field that the \gls{mri} scanner produces continuously, and the effects of this field on different materials. Primarily biological tissue in typical clinical use, but critically, the specialized alloys used in medical device construction, most importantly in epicardial leads.
+This contrast comes from the proton density and how freely their water molecules move within different tissue types such as fat, gray matter, white matter, and cerebral spinal fluid. When placed in a strong static magnetic field, these hydrogen-rich tissues develop a net equilibrium magnetization aligned with the field. An \gls{rf} pulse temporarily disturbs this equilibrium, and each tissue returns to it at a characteristic times of relaxation that define image contrast. Importantly, generating and sustaining this equilibrium magnetization, requires an exceptionally strong magnetic field.
 
 % 2. Magnetic Interactions
 % first about the field
-To fully characterize the risk environment for epicardial leads, we must first understand the parts that make the \gls{mri} system and their potential risks. We highlight one of the five main components in the image formation process, the magnet strong static field. Figure \ref{fig:scannerDesign} shows all these components and Figure \ref{fig:siemensTrio} provides an example of a actual, clinically relevant \gls{mri} scanner like the one used at CHI Health Creighton University Medical Center - Bergan Mercy, where experiments took place. Each of these pieces are accompanied by interaction complications if a foreign object lays around the test space. 
+To fully characterize the safety considerations relevant to epicardial leads, we must first understand the components of the system. An \gls{mri} scanner is constituted by five main components: the main magnet, the gradient coils, the \gls{rf} coils, the control electronics, and the console or computer for display \cite{Prince_MedicalImaging_2015}. A real example of this system can be found on Chapter \ref{ch:matsNmets}. 
+
+Figure \ref{fig:scannerDesign} shows an exploded view of three cylindrical components arranged concentrically around what would be the patient couch at the center. These cylinders represent the primary magnetic field–generating structures, which must be isolated from the external environment. The outermost and largest cylinder corresponds to the main magnet, which houses superconducting windings capable of generating high magnetic field strength. The magnetic field strength, also known as magnetic flux density ($B$), is measured in Tesla (T). An alternative unit is the gauss (G), where 1 T = 10,000 G. For perspective, a clinical \gls{mri} scanner has a range from 0.5 T to 3 T, and up to 9 T in some systems of magnetic field strength, orders of magnitude stronger than Earth's magnetic field (0.5 G)\cite{bushberg2011, Prince_MedicalImaging_2015,lowrie1997fundamentals}. %Field uniformity is achieved through shimming while confinement is solved with proper shielding.
 
 \begin{figure}[hbt!]
 	\centering
-	\subfloat[%Diagram illustrating the main five components of an MRI scanner. 
-	\label{fig:scannerDesign}]{
-		\includegraphics[width=0.50\textwidth]{Assets/scannerDesign.png}
-	}
-	\hfill
-	\subfloat[%Siemens 3T Magnetom Trio\textsuperscript{\texttrademark} clinical MRI system at CHI Health Creighton University Medical Center -- Bergan Mercy.
-	\label{fig:siemensTrio}]{
-		\includegraphics[width=0.42\textwidth]{Assets/Photos-12-20-2025 MGN/20251220_111411.jpg}
-	}
-	%\subfloat[Siemens 3T Magnetom Trio\textsuperscript{\texttrademark} clinical MRI system.\label{fig:siemensTrio}]{
-	%	\includegraphics[width=0.42\textwidth]{Assets/siemens-magnetom-trio-3T.png}
-	%}
-	
-	\caption[Design schematic and example of a clinical MRI scanner]{MRI scanner schematic and a clinical MRI system.  
-		(a) Simplified MRI scanner design highlighting the main magnet, gradient coils, and RF system, Control electronics, and Console. Adapted from Prince \cite{Prince_MedicalImaging_2015}.  
-		(b) Siemens Magnetom Trio 3T system at CUMC Bergan Mercy Hospital, where experiments were conducted. Photo courtesy of the research team.}
-	\label{fig:scanner}
+	%\subfloat[%Diagram illustrating the main five components of an MRI scanner. 
+		\includegraphics[width=0.90\textwidth]{Assets/mricomps.png}
+	\caption[Design schematic of an MRI scanner]{The main components of an MRI scanner associated with safety hazards: the main magnet, gradient coils, and RF system.}
+	\label{fig:scannerDesign}
 \end{figure}
 
-For example, as explained in section \ref{sec:LitRev} heat and electrical interactions are a concern of \gls{rf} fields or Gradient Coils \cite{schaller2021,aboyewa2021}. For mechanical interactions, the interest falls under the mechanisms in which the static magnetic field could possibly interact with wire or thin cylinder like devices. The next section offers a full explanation of the main magnet, enabling a clear understanding of both the source and the spatial distribution of the static magnetic field itself.
+The magnetic field strength required for clinical imaging is sufficient to interact with materials normally considered non-magnetic in everyday context. The image formation exploits the microscopic magnetic behavior of atomic nuclei within this field. Hydrogen (specifically its proton, $^1H$) is the most utilized element in clinical \gls{mri} because it has the largest magnetic moment and is highly abundant in biological tissues, primarily in water and fat, which constitute the majority of soft tissue composition. 
 
+Normally, these hydrogen atoms have a random orientation of their nuclear magnetic moments (protons) due to thermal energy. When placed in a strong static magnetic field ($B_0$), these nuclear magnetic moments weakly align in parallel (same direction of $B_0$, low-energy state) and antiparallel (opposite direction of $B_0$, high-energy state) directions. 
+
+In addition to aligning with $B_0$, the protons also experience precession, much like the Earth’s rotation around its tilted axis or a spinning top under gravity. This precession occurs at an angular frequency ($\omega_0$) known as the Larmor frequency, which is directly proportional to the magnetic field strength ($B_0$), as described by the Larmor equation $\omega_0 = \gamma B_0.$ This frequency also corresponds to the separation between the proton’s magnetic energy levels, and it is the resonance condition in which an \gls{rf} pulse can be applied to make the transition between these states happen.
+
+%RF coils role
+In Figure \ref{fig:scannerDesign}, the innermost cylinder represents a birdcage resonator or body coil used to transmit \gls{rf} into the patient. Once this \gls{rf} pulse ($B_1$) is applied, synchronized to the Larmor frequency of protons (about 42.58 MHz per tesla), the protons excite and the net magnetization ($M$) tips away from the longitudinal direction ($z$) becoming anti-aligned. In doing so, it causes the magnetic moments of many protons to become synchronized, or phase-coherent. They start to precess together in the transverse plane, creating transverse magnetization ($M_{xy}$).
+
+The instant the \gls{rf} pulse is turned off, the relaxation process starts, these precessing protons start to lose that synchronization due to slight variations in their local magnetic environments. This causes the transverse magnetization signal to gradually fade over time. The decaying oscillations of this signal are detected by the receiver coil, which potentially can be the same that sent them. The time at which the plane ($M_{xy}$) decays is described as transverse relaxation (T2). And the process in which the nuclear spins return to alignment along $B_0$ occurs with characteristic time T1 (longitudinal relaxation). The final \gls{mri} image's depiction of a tissue's brightness or darkness is determined by the \gls{rf} signal produced during these relaxation processes taken together.  
+
+%gradient fields role
+However, this covers one a single signal from a particular spot. Spatial localization of the signal requires knowing the origin of each measurement across all three axes. This is achieved using small, precisely controlled variations in the magnetic field known as gradient fields. The gradient fields are superimposed on $B_0$ and make the magnetic field slightly stronger or weaker depending on position, causing the Larmor frequency of the protons to vary with location.
+
+In practice, three gradient coils systems work together to map space. Their configuration is depicted on Figure \ref{fig:scannerDesign} color-coded. First, a \gls{ssg} (green) selects, typically along the z-axis, a particular axial ``slice” of the body that is being excited by the \gls{rf} pulse. This defines the plane of imaging. Then, a \gls{peg} in yellow, briefly changes the precession speed of protons along an orthogonal axis, i.e. the y-axis, giving each row of tissue a unique phase ``signature". Finally, a \gls{feg} is applied along the x-axis, showed as red, so that protons precess at slightly different frequencies during signal readout. 
+
+Each of these three subsystem is associated with distinct physical interactions that become relevant when conductive or magnetic objects, such as surgical hardware, are present in the scanner environment. For example, the static magnetic field spatial gradient exerts translational forces in the fringe field, rapid switching gradient is required to accomplish spatial encoding, but can induce peripheral nerve stimulation and acoustic noise, and RF coils deposit energy that may lead to tissue heating \cite{mriquestions_dangerous_place, mriquestions_gradient_safety, mriquestions_rf_safety}. These safety concerns are further explored in Section \ref{sec:concerns}.
+
+Continuing on the image acquisition steps, the resulting signals are stored in a frequency domain matrix called k-space. Each line in k-space represents one measurement with a specific gradient configuration. When all necessary lines are filled, the Fourier Transform reconstructs the data into a spatial image, where each pixel corresponds to a small volume element (voxel) of tissue.
+
+The control and computing subsystems coordinate every stage of image acquisition and reconstruction. The host computer and operator console provide the interface through which the technologist selects and supervises scanning protocols, while the pulse programming and measurement control systems synchronize gradient and RF activity \cite{bushberg2011}. Supporting units such as the digitizer, image processor, and compute engine translate the raw analog signals into interpretable digital images through Fourier-based reconstruction algorithms \cite{Prince_MedicalImaging_2015}. Finally, the dedicated power supplies, patient table mechanics, and electromagnetic shielding ensure stable operation, patient positioning, and noise minimization. Of these elements, the static field of the main magnet is the most significant to comprehend for this study as it establishes the imaging environment and is the major source of mechanical risk for implanted devices.
 %static field effect
 \input{Background/staticField.tex}
 
-\subsection{Image generation}
-\label{sec:imageGen}
-\input{Background/oldMRI.tex}
+%\subsection{Image generation}
+%\label{sec:imageGen}
+%\input{Background/oldMRI.tex}

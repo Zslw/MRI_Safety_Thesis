@@ -1,52 +1,53 @@
 %Induction and Heating are related to the gradient fields and the RF coils.
-After briefly reviewing the image generation sequence, observe that it involves the primary components illustrated in Figure \ref{fig:scannerDesign}. These components are associated with various risks and safety concerns. Disregarding control systems and peripherals, the three main sources of hazard are the gradient coils, the \gls{rf} coils, and the main magnet, the latter presenting the most critical safety issues due to its powerful static magnetic field. 
+In section \ref{sec:leads} the main object of study on this work was reviewed and in \ref{sec:mri} the components of an \gls{mri} scanner were introduced, illustrated in Figure \ref{fig:scannerDesign}. These components are associated with various risks and safety concerns. The three main sources of hazard are the gradient coils, the \gls{rf} coils, and the main magnet, the latter presenting the most critical safety issues due to its powerful static magnetic field. 
 
 %gradients safety concerns
 \subsection{Hazards attributed to the encoding Gradient Fields}
 \label{sec:gradients-induction-sound}
-First, the quickly shifting magnetic gradients introduce hazard mechanisms beyond magnetic field strength. For example, when the gradient currents are repeatedly turned on and off, large forces called Lorentz forces, are applied to the coils in the strong magnetic field, leading to significant vibration. That, is the source of the loud "knocking" sounds during MR scans. Noise levels in modern \gls{mri} systems can easily exceed 130 dB, which is roughly a million times more intense in sound pressure than normal conversation or similar to an airplane taking off about 100 meters away, leading to temporary hearing loss as reported in early studies \cite{panych2018}. Consequently, hearing protection is now considered mandatory during MRI procedures.
+
+Encoding gradients fields must switch rapidly and with large current flows.  The typical slew rate ranges from 5 to 250 mT/m/ms, with currents on the order of 100–200 A \cite{bushberg2011,Prince_MedicalImaging_2015}, to accomplish encoding. That quick shifting of magnetic gradients introduce hazard mechanisms beyond magnetic field strength. For example, when the currents are repeatedly turned on and off in the gradient coils, the resulting Lorentz forces, cause significant vibration. That, is the source of the loud ``knocking" sounds during MR scans. Noise levels in modern \gls{mri} systems can easily exceed 130 dB, which is roughly a million times more intense in sound pressure than normal conversation or similar to an airplane taking off about 100 meters away, leading to temporary hearing loss as reported in early studies \cite{panych2018}. Consequently, hearing protection is now considered mandatory during MRI procedures.
 
 Moreover, the rapid temporal variation of \gls{mri} gradient fields induces electric fields within conductive tissues via Faraday’s law. The effect scales with both the rate of change of the magnetic field and the spatial extent of the conductive path through tissue, so even though the absolute magnetic field perturbation from gradients (10–60 mT/m, or less than 1\% of $B_0$) is small, the rapid temporal ramping can induce voltages large enough to reach neural activation thresholds \cite{Davids:2017aa}. Typical clinical systems, limited by FDA guidelines to $\sim$ 40 T/s, remain below the threshold for cardiac excitation, but research systems capable of 300 mT/m gradients and higher slew rates approach that regime, posing theoretical cardiac stimulation risks \cite{bushberg2011, panych2018,Prince_MedicalImaging_2015}. Although these fields are much weaker than those associated with \gls{rf} transmission in terms of tissue heating the time-varying electric potentials can depolarize excitable membranes, producing \gls{pns} or, in extreme cases, involuntary muscle twitching \cite{panych2018,Grainger_MHRA_2014}.
 
 %RF heating mechanism of action
 \subsection{Heating as consequence of Radiofrequency pulses}
 \label{sec:rf-heating}
-Regarding the heating concern, the \gls{rf} field produced by an \gls{mri} scanner consists of both magnetic and electric components. Where, following Faraday's law, the time-varying magnetic field induces electrical currents within conducting loops or materials. Because there is a significant difference in electrical conductivity between the metallic implant and the surrounding human tissue, these currents experience Joule losses \cite{panych2018,aboyewa2021}. This energy is dissipated as heat directly into the adjacent tissue, causing a localized rise in temperature.
+Regarding the heating concern, the \gls{rf} field produced by an \gls{mri} scanner consists of both magnetic and electric components. The time-varying magnetic field induces electrical currents within conducting loops or materials, as described by Faraday's law. Because there is a significant difference in electrical conductivity between the metallic implant and the surrounding human tissue, these currents experience Joule losses \cite{panych2018,aboyewa2021}. This energy is dissipated as heat directly into the adjacent tissue, causing a localized rise in temperature.
 
-For straight metallic implants like epicardial leads, the antenna effect is a dominant mechanism for heating. The tangential component of the RF electric field that runs parallel to the lead causes free charges on the conductor's surface to migrate towards the tip of the lead. Then they accumulate creating a scattered electric field resulting in a much higher total electric field at the lead tips \cite{aboyewa2021,Langman2011}. Heating is further amplified if the physical length of the lead is comparable to the wavelength of the \gls{rf} pulse in the body. Here, the lead can act as a resonator, creating a standing wave of current along its length with maximum heating typically occuring when the lead length is approximately half the wavelength of the \gls{rf} frequency in tissue. For a 3 T MRI system, this resonant length is approximately 12–13 cm \cite{aboyewa2021}.
+For straight metallic implants like epicardial leads, the antenna effect is a dominant mechanism for heating. The tangential component of the RF electric field that runs parallel to the lead causes free charges on the conductor's surface to migrate towards the tip of the lead. There they accumulate, creating a scattered electric field resulting in a much higher total electric field at the lead tips \cite{aboyewa2021,Langman2011}. Heating is further amplified if the physical length of the lead is comparable to the wavelength of the \gls{rf} pulse in the body. Here, the lead can act as a resonator, creating a standing wave of current along its length with maximum heating typically occuring when the lead length is approximately half the wavelength of the \gls{rf} frequency in tissue. For a 3 T MRI system, this resonant length is approximately 12–13 cm \cite{aboyewa2021}.
 
-Finally, the extent of the heating action is determined by several variables, \gls{sar}, lead configuration, and lead structure. \gls{sar} is used to quantify the power deposited per unit mass in the tissue; higher SAR levels generally lead to higher temperature rises \cite{panych2018,aboyewa2021}. The shape, orientation, and termination significantly modify how the \gls{rf} field couples with the lead \cite{panych2018,aboyewa2021}.
+Finally, the extent of the heating action is determined by several variables, \gls{sar}, lead configuration, and lead structure. \gls{sar} is used to quantify the power deposited per unit mass in the tissue, with higher SAR levels leading to higher temperature rises \cite{panych2018,aboyewa2021}. The shape, orientation, and termination significantly modify how the \gls{rf} field couples with the lead \cite{panych2018,aboyewa2021}.
 
 
 \subsection{Risks associated with the Static Magnetic Field}
 \label{sec:pull-fields}
-In terms of the static magnetic field, the safety concerns are visible and much straight forward. The main magnet is the most distinguishing feature and is simultaneously the greatest source of risk associated with the device. This immense strength can cause everyday objects to behave in non-intuitive and dangerous ways, most notably turning ferromagnetic items into high-velocity projectiles \cite{panych2018}.
+In terms of the static magnetic field, the safety concerns are visible and straight forward. The main magnet is the the greatest source of risk. The immense field strength it possess can cause everyday objects to behave in non-intuitive and dangerous ways, most notably turning ferromagnetic items into high-velocity projectiles \cite{panych2018}.
 
 % Force and Torque 
-A ferromagnetic object experiences a translational magnetic force that pulls it toward the scanner \cite{Schenck2000,panych2018} This force is not strongest at the center of the magnet. Rather, it is determined by the spatial gradient of the $B_0$ field. This aligns with theoretical insight of ASTM F2052-15 \cite{astmF2052}. Similarly, objects like those with asymmetric shapes, such as cylinders or needles, experience torque. Torque is the force that tries to twist an object so that its long axis aligns with the magnetic field lines and is dependent on this field with ASTM F2213-17 explaining some methodologies \cite{astm2213}. In the following section a derivation of the equations needed for the quantification and comparison of these forces is given.
+A ferromagnetic object experiences a translational magnetic force that pulls it toward the scanner \cite{Schenck2000,panych2018} This force is strongest at the entrance to the bore, as determined by the spatial gradient of the $B_0$ field. This aligns with theoretical insight of ASTM F2052-15 \cite{astmF2052}. Similarly, objects like those with asymmetric shapes, such as cylinders or needles, will experience torque. Torque is the force twists an object so that its long axis aligns with the magnetic field lines and is dependent on this field.
 
-In linear media, the magnetic flux density is directly proportional to the applied field strength. For magnetic dipoles $  \boldsymbol{m}  $ (or objects well-approximated as dipoles, such as cylindrical shapes), the mechanical interactions with the magnetic field, are governed by the following fundamental expressions from classical electromagnetism,
+In linear media, the magnetic flux density is directly proportional to the applied field strength. For magnetic dipoles $  \boldsymbol{m}  $ (or objects well-approximated as dipoles, such as small/thin cylindrical shapes), the force and torque due to the magnetic field $B_0$, are 
 
 \begin{equation}
-	\mathbf{F} = (\boldsymbol{m} \cdot \nabla)\mathbf{B}.
+%	\mathbf{F} = (\boldsymbol{m} \cdot \nabla)\mathbf{B} \qquad \text{and}
+F_z = m_z \frac{dB_0}{dz} \qquad \text{and}
 	\label{eq:force}
 \end{equation}
 \begin{equation}
-	\boldsymbol{\tau} = \boldsymbol{m} \times \mathbf{B}.
+%	\boldsymbol{\tau} = \boldsymbol{m} \times \mathbf{B},
+\tau = m B_0 \sin\theta,
 	\label{eq:torque}
 \end{equation}
 
-\noindent where $\boldsymbol{m}$ is the magnetic dipole moment and $B$ is the magnetic field. 
-
-These equations represent the general physics of dipole-field interactions and hold universally for induced or permanent dipoles in the low-susceptibility regime relevant to \gls{mri} safety testing. The torque expression (\ref{eq:torque}), in particular, is independent of any specific measurement protocol; however, its practical evaluation in the laboratory, such as the determination of $  \boldsymbol{m}  $ or the orientation relative to the field, depends on the experimental setup and will be detailed further in the context of our measurements.
-For weakly paramagnetic materials, the induced magnetic moment magnitude can be estimated as
+These equations hold universally for induced or permanent dipoles in the low-susceptibility regime relevant to \gls{mri} safety testing. The torque expression (Equation \ref{eq:torque}), in particular, is independent of any specific measurement protocol. However, its practical evaluation in the laboratory, such as the determination of $  \boldsymbol{m}  $ or the orientation relative to the field, depends on the experimental setup and will be detailed further in the context of our measurements.
+For weakly paramagnetic materials, the induced magnetic moment can be estimated as
 
 \begin{equation}
-	m_0 = \frac{1}{\mu_0} \chi_m B_0 V.
+	m_0 = \frac{1}{\mu_0} \chi_m B_0 V,
 	\label{eq:magnitudemoment}
 \end{equation}
 
-\noindent where where $  \chi  $ is the magnetic susceptibility, $  V  $ is the volume of the material, and $  \mu_0  $ is the permeability of free space. With these foundational expressions laid out, we can now develop the specific physical framework for the translational force relevant to our experimental setup.
+\noindent where where $  \chi  $ is the magnetic susceptibility, $  V  $ is the volume of the material, and $  \mu_0  $ is the permeability of free space. With these foundational expressions, we can now develop the specific physical framework for the translational force relevant to our experimental setup.
 
 \input{Background/Translational_effects.tex}
 

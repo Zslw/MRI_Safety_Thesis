@@ -9,7 +9,29 @@ In the laboratory, the complete suite of instruments and associated control/acqu
 Importantly, both translational force and torque scale predictably with the magnetic field strength, $F \propto B_0 \, \frac{dB_0}{dz}$ and $\tau \propto B_0^2$. Consequently, the dimensionless relationships in the behavior remain identical between the laboratory (30 G) and clinical (3 T) regimes. We reproduce the same normalized force and torque signatures that will be encountered in the \gls{mri} suite by scaling the effective susceptibility $  \chi_m  $ and density $  \rho  $ of the test objects (see Appendix \ref{app:scaling}), that is using ferromagnetic objects under small magnetic field. The laboratory results are therefore directly valuable, they confirm that the instruments function as intended and that the physics is captured correctly before any clinical measurements are attempted.
 
 As outlined in section \ref{sec:Scope}, the several constraints of clinical \gls{mri} access necessitated thorough laboratory validation of the instruments and protocols beforehand.
-Through institutional collaboration, CHI CUMC Bergan Mercy Hospital, accommodated a dedicated measurement session on their Siemens Magnetom Trio\textsuperscript{\texttrademark} 3T \gls{mri} scanner, in which measurements were conducted under  radiologist supervision to ensure safety protocol around bringing custom fixtures into the \gls{mri} suite. Accordingly, the clinical session pursued the two complementary goals previously defined, namely to verify device performance and identify workflow issues. Moreover, a clinical session provided the first dataset on the \gls{mri}-induced translational forces and torques acting on post-surgical epicardial pacing leads, thereby closing the loop between bench validation and in-vivo applicability.
+Through institutional collaboration, CHI CUMC Bergan Mercy Hospital, accommodated a dedicated measurement session on their Siemens 3T Magnetom Trio\textsuperscript{\texttrademark} \gls{mri} scanner. Figure \ref{fig:scanner} depicts the scanner in which measurements were conducted under radiologist supervision to ensure safety protocol around bringing custom fixtures into the \gls{mri} suite. 
+
+\begin{figure}[hbt!]
+	\centering
+	\subfloat[%Siemens 3T Magnetom Trio\textsuperscript{\texttrademark} clinical MRI system at CHI Health Creighton University Medical Center -- Bergan Mercy.
+	\label{fig:siemensTrio}]{
+		\includegraphics[width=0.42\textwidth]{Assets/Photos-12-20-2025 MGN/20251220_111411.jpg}
+	}
+	\hfill
+	\subfloat[
+	\label{fig:controlRoom}]{
+		\includegraphics[width=0.42\textwidth]{Assets/controlRoom.jpeg}
+	}
+	
+	%\subfloat[Siemens 3T Magnetom Trio\textsuperscript{\texttrademark} clinical MRI system.\label{fig:siemensTrio}]{
+		%	\includegraphics[width=0.42\textwidth]{Assets/siemens-magnetom-trio-3T.png}
+		%}
+	\caption[Example of a clinical MRI scanner and control room]{(a) Siemens 3T Magnetom Trio\textsuperscript{\texttrademark} system at CHI Health Creighton University Medical Center --- Bergan Mercy, where experiments were conducted. (b) Control room showing the main control computer in stand-by and research instruments on the desk. Photos courtesy of the research team.}
+	\label{fig:scanner}
+\end{figure}
+
+
+Accordingly, the clinical session pursued the two complementary goals previously defined, namely to verify device performance and identify workflow issues. Moreover, a clinical session provided the first dataset on the \gls{mri}-induced translational forces and torques acting on post-surgical epicardial pacing leads, thereby closing the loop between bench validation and in-vivo applicability.
 
 The first challenge presented when estimating the induced magnetic force in an object is to know the spatial behavior of the magnetic field around the object that experience the force given by equation \ref{eq:translationalForce}. The next section, or first experiment, explores this behavior, explains how to measure it both in the lab and at the clinic.
 
