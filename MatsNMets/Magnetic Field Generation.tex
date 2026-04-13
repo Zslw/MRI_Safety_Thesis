@@ -1,35 +1,33 @@
-Magnetic field strength ($B_0$) and gradient ($\nabla B_0$) measurements were performed using a commercial Gaussmeter (Model GM2, AlphaLab Inc., Salt Lake City, UT). The GM2 operates on the Hall effect principle, wherein a voltage is generated across a standard axial probe when exposed to a perpendicular magnetic field. This voltage is proportional to the local magnetic flux density, enabling precise spot measurements of field magnitude. The gaussmeter used has an accuracy of 1\% of the DC reading in the 16$^\circ$C to 29$^\circ$C range \cite{alphalabinc_gm2}.
+Magnetic field strength ($B_0$) and gradient ($\nabla B_0$) measurements were performed using a commercial Gaussmeter (Model GM2, AlphaLab Inc., Salt Lake City, UT). The Gaussmeter used has an accuracy of 1\% of the DC reading in the 16$^\circ$C to 29$^\circ$C range \cite{alphalabinc_gm2}.
 
 The first step in accurately mapping the static magnetic field of an \gls{mri} scanner is to know the precise position of the measurement probe at all times relative to the scanner bore entrance or isocenter. To achieve this spatial accuracy and ensure reproducible field measurements in a clinical environment, a rigid non-magnetic fixture constructed from \gls{pvc} was developed \cite{haddixProposal}.
 
 \subsection{Mapping Platform}
 
-The fixture or platform consists of a 300(W) $\times$ 420(L) $\times$ 40(H) mm rectangular prism as base and a 20 mm diameter vertical circular plate, and has a total weight of about 9kg and height of 35 mm with its center at 21 mm for aligning with the \gls{mri} scanner isocenter. Its plate is perforated with a polar grid of probe-access holes, with 12 radial lines spaced at 30°. Each line contains 5 holes at uniform radial spacing of 20mm, sharing a single central hole as shown in Figure \ref{fig:fieldmapping} for 49 different positions. Each access point was numerically indexed to facilitate 2D field mapping in the X-Y plane. 
+The fixture consists of a rectangular base (300(W) $\times$ 420(L) $\times$ 40(H) mm) and a vertical circular plate of 200 mm diameter. It has a total weight of about 9 kg and height of 350 mm, with its center at 21 mm above the base to align with the \gls{mri} scanner isocenter. The plate is perforated with a polar grid of probe-access holes, with 12 radial lines spaced at 30$^\circ$. Each line contains five holes at uniform of 20 mm radial spacing, all sharing a central hole as shown in Figure \ref{fig:fieldmapping}, resulting in 49 measurement positions. Each access point was numerically indexed to facilitate 2D field mapping in the X-Y plane. 
 
 \begin{figure}[hbt!]
 	\centering
-	\subfloat[PVC-based mapping platform.\label{fig:fieldmapping_a}]{
+	\subfloat[\label{fig:fieldmapping_a}]{
 		\includegraphics[width=0.48\textwidth]{Assets/Picture3.jpg}
 	}
 	\hfill
-	\subfloat[Coordinated circular grid layout and labeling from A to L 0 to 6 .\label{fig:fieldmapping_b}]{
-		\includegraphics[width=0.40\textwidth]{Assets/MagFieldMap.png}
+	\subfloat[\label{fig:fieldmapping_b}]{
+		\includegraphics[width=0.38\textwidth]{Assets/MagFieldMap.png}
 	}
 	
-	\caption[PVC-based magnetic field mapping platform]{PVC-based magnetic field mapping platform. Used for spatial $B_0$ and $\nabla B_0$ measurement. based on design from Ferreira, et al. (2017) \cite{haddixProposal,ferreira2017}.}
+	\caption[PVC-based magnetic field mapping platform]{\gls{pvc}-based magnetic field mapping platform and coordinated circular grid layout labeled from A to L angular and from 0 to 6 radial. This platform was used for spatial $B_0$ and $\nabla B_0$ measurement, based on design from Ferreira, et al. (2017) \cite{haddixProposal,ferreira2017}. }
 	\label{fig:fieldmapping}
 \end{figure}
 
 %LABVIEW program and Alpha Labs Protocols
-These holes in the fixture's plate are used to insert the gaussmeter probe for data capture using LabVIEW, chosen for its flexibility and precision. Our expectation is to move the couch along the z axis with minimal disturbance, thus data acquisition protocol customization is needed. The manufacturer’s default software, AlphaApp, provides basic data‑logging, recording, live screen streaming, and plotting of measurements from USB‑enabled AlphaLab meters\cite{AlphaApp}. 
+These holes in the fixture's plate were used to insert the gaussmeter probe for data capture using LabVIEW, chosen for its flexibility and precision. The manufacturer’s default software, AlphaApp, provides basic data‑logging, recording, live screen streaming, and plotting of measurements from USB‑enabled AlphaLab meters\cite{AlphaApp}. However, AlphaApp's control over sampling frequency is limited by design, therefore limiting fine temporal resolution when the probe is moved into steep field gradients. In contrast, using \gls{lvi} interface allows for configurable sampling intervals, buffer control, and precise timing protocols, enabling higher accuracy as the probe approaches and crosses high gradient regions within the \gls{mri} fringe. We developed that \gls{lvi} by leveraging the AlphaLab Data Acquisition Communication Protocol \cite{AlphaAppProtocol} to command the device directly via a USB series port, providing control over timing and sample rate. %The data acquisition procedure for magnetic flux mapping is organized in this \gls{lvi}, whose basic logic is summarized in Appendix. 
 
-However, AlphaApp's control over sampling frequency is limited by design, therefore limiting fine temporal resolution when the probe is moved into steep field gradients. In contrast, using \gls{lvi} interface allows for configurable sampling intervals, buffer control, and precise timing protocols, enabling higher accuracy as the probe approaches and crosses high gradient regions within the \gls{mri} fringe. We developed that \gls{lvi} by leveraging the AlphaLab Data Acquisition Communication Protocol \cite{AlphaAppProtocol} to command the device directly via a USB series port, providing control over timing and sample rate. %The data acquisition procedure for magnetic flux mapping is organized in this \gls{lvi}, whose basic logic is summarized in Appendix. 
-
-The entire fixture is shifted axially along the Z-direction of a horizontal bore MRI scanner using controlled couch increments (e.g., 10 cm or continuously). This translation allows for volumetric sampling of $B_0$ over several planes. The spatial magnetic field gradient $\nabla B_0$ can then be estimated numerically using finite difference calculations between adjacent measurement points on a field strength map along the z-axis
+The entire fixture was shifted axially along the Z-direction of a horizontal bore MRI scanner using controlled couch increments (e.g., 10 cm or continuously). This translation allowed for volumetric sampling of $B_0$ over several planes. The spatial magnetic field gradient $\nabla B_0$ was estimated numerically using finite difference calculations between adjacent measurement points on a field strength map along the z-axis
 
 \begin{equation}
 	\label{eq:finiteDiff}
-	\frac{dB}{dz} \approx \frac{B_2 - B_1}{z_2 - z_1}
+	\frac{dB}{dz} \approx \frac{B_2 - B_1}{z_2 - z_1},
 \end{equation}
 
 \noindent where $B_1$ and $B_2$ represent the measured magnetic flux densities at positions displaced symmetrically from the location of interest. This fixture has previously been applied to \gls{mri} mapping in the work by Ferreira \cite{ferreira2017}.
@@ -38,13 +36,13 @@ The entire fixture is shifted axially along the Z-direction of a horizontal bore
 \subsection{Laboratory scale: Solenoid and Neodymium Magnets}
 \label{sec:labMagnets}
 
-Seeking to achieve the most reliable approximation of clinical \gls{mri} conditions, magnetic fields in the lab were generated using two approaches. The methods involved in our experiments used either neodymium permanent magnets or a copper-wound solenoid. Each approach presents advantages and limitations. 
+Seeking to achieve the most reliable approximation of clinical \gls{mri} conditions, magnetic fields in the lab were generated using either neodymium permanent magnets or a copper-wound solenoid. Each approach presents advantages and limitations. 
 
 For example, a neodymium magnet can produce a very strong magnetic field ($B_0$ up to ~1–1.4 T near its surface), but its strength at the sample/probe position depends heavily on distance from the magnet (falling off approximately as $1/r^3$) and results in a steep spatial gradient. These properties make neodymium magnets ideal for generating strong localized torque on small samples, where the sample can be positioned very close to the magnet to exploit the peak intensity without requiring power supplies or cooling. The fixed nature of the field, however, limits fine adjustments without physical repositioning.
 
 In contrast, the magnetic field of a solenoid depends directly on the current flowing through its wire, allowing precise, continuous tuning of the field without mechanical repositioning. With appropriate coil design, solenoids can also provide better field uniformity over a defined region, making solenoids better suited for controlled translational force assessments, where variable field strength and gradient are needed to measure forces consistently across distances.
 
-The approach used in this section was the latter. A custom-built air-core solenoid of approximately 15 cm in length and 10 cm in outer diameter was densely wound with copper wire ($\sim$1 mm diameter) meaning a winding density of $50,000$ turns per meter, forming an inner core of approximately 5 cm. A Pasco Scientific SF-9584 DC power supply was used to deliver currents in the range of 0--4 A, corresponding to magnetic field strengths from 1 to 18.9 Gauss at about 8cm from the aperture along its long axis (z-axis) for this solenoid. 
+The approach used in this section was the latter. A custom-built air-core solenoid of approximately 15 cm in length and 10 cm in outer diameter was densely wound with copper wire ($\sim$1 mm diameter, winding density of $50,000$ turns per meter), forming an inner core of approximately 5 cm. A Pasco Scientific SF-9584 DC power supply was used to deliver currents in the range of 0--4 A, corresponding to magnetic field strengths from 1 to 18.9 Gauss at about 8 cm from the aperture along its long axis (z-axis) for this solenoid. 
 
 \begin{figure}[htb!]
 	\centering
@@ -53,11 +51,16 @@ The approach used in this section was the latter. A custom-built air-core soleno
 	\label{fig:solenoidmap}
 \end{figure}
 
-Figure \ref{fig:solenoidmap} shows the experimental setup used to test the probe and obtain a referece map of the magnetic field of our solenoid. At the solenoid entrance, three positions were selected to place the gaussmeter probe to check for homogeneity, at the center (r=0 cm,$\theta$=0), southwest (r=10 cm, $\theta$=225), and east (r=10 cm, $\theta$=0). This was achieved by using a translational stage positioning the probe 10 away from the solenoid's entrance \cite{ThorlabsMotionControl2025}. The stage uses 3 servomotors, one for each cartesian axis, to accurately position the probe with changes less than a tenth of a millimeter. However, the distance across the z-axis was limited to 11 mm by the servo's maximum extension. This setup was used for experiment in section \ref{sec:Translational}. To make a quick check across a wider range, a ruler was fixed at the same three positions described and the probe was steadily translated about 20 cm to the solenoid entrance and back. Data was recorded using the manufacturer’s default software, AlphaApp \cite{AlphaApp} with a sampling time of 1 reading per second, for about 2 min. Video recording was used to map time, and distance enabling a rough map of the B field and its gradient.
+Figure \ref{fig:solenoidmap} shows the experimental setup used to test the probe and obtain a reference map of the magnetic field of our solenoid. Constant current of 4 A was applied to the solenoid. At the solenoid entrance, three positions were selected to place the Gaussmeter probe to check for homogeneity, at the center (r=0 cm,$\theta$=0), southwest (r=10 cm, $\theta$=225$^\circ$), and east (r=10 cm, $\theta$=0$^\circ$). This was achieved by using a translational stage positioning the probe 10 cm away from the solenoid's entrance. 
 
+The stage uses three Thorlabs Z812 servomotors, one for each cartesian axis, to accurately position the probe with changes of less than 0.1 mm, driven via the Kinesis software interface \cite{ThorlabsMotionControl2025, Thorlabs_Kinesis}. While Kinesis-controlled stages support sub-micrometer incremental motion and repeatability on the order of microns \cite{ThorlabsMotionControl2025}, our experiment only required positional accuracy on the order of 0.5 mm. Thus the stage system offered more than sufficient precision and stability for repeatable setup between trials. The translation speed was set up using Kinesis for 0.3 m/s and the maximum displacement of each actuators was 11 mm. This setup was also used for experiment in Section \ref{sec:Translational}. 
+
+To make a quick check across a wider range, a ruler was fixed at the same three positions described and the probe was steadily translated about 20 cm to the solenoid entrance and back. Data was recorded using the manufacturer’s default software, AlphaApp \cite{AlphaApp} with a sampling time of 1 reading per second, for about 2 min. Video recording was used to map time, and distance enabling a rough map of the B field and its gradient.
 
 \subsection{In Clinic Measurements - Magnetic Flux}
 \label{sec:metClinic_flux}
+
+To characterize the magnetic field gradient along the scanner’s longitudinal (z) axis, the circular grid fixture was mounted on the patient couch, as shown in Figure \ref{fig:clinicMap}. Couch motion controls were first calibrated, allowing precise positioning in millimeters via the four-digit display. Fixture-to-bore clearance was verified, and the fixture proved marginally over-sized for full insertion, constraining the maximum travel depth.
 
 \begin{figure}[htb!]
 	\centering
@@ -66,14 +69,12 @@ Figure \ref{fig:solenoidmap} shows the experimental setup used to test the probe
 	\label{fig:clinicMap}
 \end{figure}
 
-To characterize the magnetic field gradient along the scanner’s longitudinal (z) axis, the circular grid fixture was mounted on the patient table, as shown in Figure \ref{fig:clinicMap}. Couch motion controls were first calibrated, allowing precise positioning in millimeters via the four-digit display. Fixture-to-bore clearance was verified, and the fixture proved marginally over-sized for full insertion, constraining the maximum travel depth.
+The gaussmeter probe was routed through the fixture plate into the MR suite with a dedicated acquisition computer, located in the control room. Measurement range was defined from 1 cm away from the bore entrance to approximately 1 m away.
 
-The gaussmeter probe was routed through the fixture plate into the MR scanner room with a dedicated acquisition computer, located in the control room. Measurement range was defined from 1 cm away of the bore entrance to approximately 1 m away.
+Prior to each acquisition series, the fixture was aligned to scanner isocenter using the built-in laser crosshair and a calibrated ruler. Its position was permanently marked on the table surface at (8.5cm from table side edge) for reproducibility. Grid coordinates examined were the central position (00) and off-axis locations A3, A6, G6, and G3 (vertical plane), with the physical heights of G6 and G3 recorded to ensure correspondence with translational couch motion. Uniformity across the grid was additionally confirmed by measurements at right-side coordinate D3.
 
-Prior to each acquisition series, the fixture was aligned to scanner isocenter using the built-in laser crosshair and a calibrated ruler. Its position was permanently marked on the table surface at (8.5cm from table side edge) to allow reproduction. Grid coordinates examined were the central position (00) and off-axis locations A3, A6, G6, and G3 (vertical plane), with the physical heights of G6 and G3 recorded to ensure correspondence with translational couch motion. Uniformity across the grid was additionally confirmed by measurements at right-side coordinate D3.
-
-At each grid coordinate, the couch was translated continuously while the gaussmeter logged data in paired passes, one advancing into the bore and one retracting, producing independent datasets for hysteresis assessment. In total, 15 raw data tables were acquired, four at the central position (00), two at each off-axis lettered coordinate (A3/A6, G3/G6, D3), and one repeated file following a LabVIEW crash. All files were saved as \gls{csv} with the structure illustrated at appendix \ref{app:DataStrayField}.
+At each grid coordinate, the couch was translated continuously while the gaussmeter logged data in paired passes, one advancing into the bore and one retracting, producing independent datasets for hysteresis assessment. In total, 15 raw datasets were acquired, four at the central position (00), two at each off-axis lettered coordinate (A3/A6, G3/G6, D3), and one repeated file following a LabVIEW crash. All files were saved as \gls{csv} with the structure illustrated in Appendix \ref{app:DataStrayField}.
 
 \input{Results/clincalDataCleaning}
 
-Afterwards, fhe flux column was subsequently converted to physical units, and the longitudinal gradient was extracted by numerical differentiation to determine the optimal representation of the field profile.
+Afterwards, the flux column was subsequently converted to physical units, and the longitudinal gradient was extracted by numerical differentiation to determine the optimal representation of the field profile.

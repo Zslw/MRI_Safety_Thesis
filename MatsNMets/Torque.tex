@@ -1,28 +1,32 @@
-The final part of this force and torque assessment involves the measurement of the magnetically induced torque on a horizontally oriented object. ASTM 2213-17 \cite{astm2213} lists five different methodologies, calculation based on measured displacement force method, low friction surface method, suspension method, torsional spring method, and pulley method. In section \ref{sec:LitRev}, the results on three of these methods were revised. Those included low friction, pulley and a variation of torsional spring methods \cite{Woods2021_MRIdisplacement,stoianovici2024,Seo2021767}, which showed good results but further considerations are needed. 
+The final part of this study involves the measurement of the magnetically induced torque on a horizontally-oriented object within the \gls{mri} scanner. ASTM 2213-17 \cite{astm2213} lists five different methodologies: calculation based on measured displacement force method, low friction surface method, suspension method, torsional spring method, and pulley method. In Section \ref{sec:LitRev}, the results of three of these methods (or a variation of them) were reviewed, including pulley, low friction, and a variety of the torsional spring method \cite{stoianovici2024,Woods2021_MRIdisplacement,Seo2021767}, which showed good results.
 
-Similar to suspension method or string method, we developed a torque measurement device capable of holding both a custom made sensor and test object. The next section will explain further specific physics and the fixture's  components, which include sensor and circuit implementation explained in subsection \ref{sec:circuitDesignNsensor}.
+Similar to the suspension or string methods, a torque measurement device capable of quantifying the torque of a bendable test object was developed. This section describes the characteristics of the fixture, followed by an examination of its specialized components, including the sensor and associated circuit. Then, the sensor measurement limits are discussed, along with the calibration procedure employed. Finally, the experimental methodologies implemented using this device are presented.
 
 \subsection{Torque Measurement Apparatus}
 \label{sec:TorqMeasureApp}
 
-A non-magnetic fixture was fabricated with clinical considerations in mind. Figure \ref{fig:torqueFixture} shows the main torque fixture, this fixture was designed to include a base and a ring to hold a sensor featured in Figure \ref{fig:parameters}. The main component is a pole made from Delrin\textsuperscript{\texttrademark}, 200 mm tall with 51 mm of diameter. Underneath it a \gls{pvc} base can be attached for support with a nylon screw. On top, it features a space for a non-magnetic ceramic, which is meant to reduce as much friction for the rotation as possible. Finally, around it a ring with a clamp will hold a custom made sensor which will be explained in detail in section \ref{sec:sensor}.
+A non-magnetic fixture was fabricated with clinical considerations in mind. Figure \ref{fig:torqueFixture} shows the main torque fixture, which consists of a pole, a base and a ring that supports the sensor. The main component is the pole made from Delrin\textsuperscript{\texttrademark}, 200 mm tall and 51 mm in diameter. Underneath it, a \gls{pvc} base is attached for support with a nylon screw. On top, it features a space for a non-magnetic ceramic bearing, which is meant to reduce the friction for the rotation as much as possible. Finally, a ring with a clamp holds a custom made sensor marked in red ($L$) in Figure \ref{fig:parameters}, which will be explained in detail in section \ref{sec:circuitDesignNsensor}. 
+
+A torque transfer arm was added to provide support, because the physical model assumes a rigid dipole that spins uniformly with the magnetic field ($B_0$), while epicardial leads lack this rigidity. Figure \ref{fig:bearing} shows the top of the pole, where the ceramic bearing and a plastic notch holds this transfer arm. The transfer arm is 10 mm thick and is made from Kydex\textsuperscript{\texttrademark}, similar to the ruler described in Section \ref{sec:TransDevice_Testsubjects}. 
 
 \begin{figure}[hbt!]
 	\centering
-	\subfloat[Main torque fixture pole. Key adjustable parameters for maximizing measured torque are the sensor's tip position $  P  $ (red) and the distance from center to sensor along the transfer arm $  r  $ (blue). \label{fig:parameters}]{
+	\subfloat[\label{fig:parameters}]{
 		\includegraphics[width=0.45\textwidth]{Assets/torqueClinic2 2.jpeg}
 	}
 	\hfill
-	\subfloat[Close up of the transfer arm on top of fixture (from bottom to top): magnetically susceptible test object, Kydex\textsuperscript{\texttrademark} transfer arm, plastic alignment notch, and ceramic bearing for low-friction rotation. \label{fig:bearing}]{
+	\subfloat[\label{fig:bearing}]{
 		\includegraphics[width=0.45\textwidth]{Assets/torqueClinic2 3.jpeg}
 	}
-	\caption[Non-magnetic torque fixture designed for horizontal test object orientation.]{Non-magnetic torque fixture designed for horizontal subject orientation. The pole provides rigid support, the ceramic bearing minimizes rotational friction.}
+	\caption[Torque fixture designed for horizontal test object orientation.]{Non-magnetic torque fixture designed for horizontal test object orientation. (a) The torque fixture pole provides rigid support. The key adjustable parameters for maximizing measured torque are the sensor's tip position $  L  $ (red) and the distance from center to sensor along the transfer arm $  r  $ (blue). (b) Close up of the transfer arm on top of fixture (from bottom to top): magnetically susceptible test object, Kydex\textsuperscript{\texttrademark} transfer arm, plastic alignment notch, and ceramic bearing for low-friction rotation.
+	}
 	\label{fig:torqueFixture}
 \end{figure}
-\input{MatsNMets/lever_arm.tex}
 
-Once the measuring device is described, we dedicate the next sections to describe the design of a circuit and sensor followed by assessment of the smallest measurable torque with the custom made sensor in detail. The description of the circuit and sensor are additional work carried on during this project with the laboratory methodology laid out in section \ref{sec:InLab_Torque}
+This way, the magnetically susceptible test piece experiences a magnetic torque following equation (\ref{eq:magnetic_torque}) exerted around the attachment point. So, the torque transmitted through the joint becomes a force, and is measured with a sensor located at a known distance ($r_{sensor}$) from the axis of rotation on the transfer arm, marked with blue in Figure \ref{fig:parameters}. The physics of this device follows that of a lever arm, $\tau_{max} = F_{sensor} r_{sensor}$, since the sensor provide a normal force that opposes that rotation. Because torque is conserved along the rigid body, it provides a practical means to extend the moment arm beyond the base geometry ensuring sufficient space for accurate force sensing while maintaining constant torque transmission. 
 
+In this case, the sensor is a thin rod bends following the cantilever beam deflection equations \cite{hibbeler2016mechanics}. These equations indicate that the strain at the fixed end increases linearly with both the applied force and the beam length, suggesting a mechanical advantage for measuring small forces. 
+ 
 \input{MatsNMets/circuitDesign.tex}
 
 \subsection{In Lab Methodology and Setup}
@@ -36,7 +40,7 @@ Figures \ref{fig:equipment_list_zoomed} and \ref{fig:torque_compare} show the ex
 \begin{figure}[htb!]
 	\centering
 	\includegraphics[width=0.75\textwidth]{Assets/TorqueSetup.jpeg}
-	\caption[Experimental setup for measuring magnetically induced torque.]{Experimental setup for torque. Includes magnetic field generation and measurement devices, 1 through 4. 5 is the circuit explained in section \ref{sec:circuit}, 6. is a \gls{daq} system connected to a laptop and 7. is the main device where the dowel subject sits.}
+	\caption[Experimental setup for measuring magnetically induced torque.]{Experimental setup for torque. Includes magnetic field generation and measurement devices, 1 through 4. 5 is the circuit explained in section \ref{sec:circuitDesignNsensor}, 6. is a \gls{daq} system connected to a laptop and 7. is the main device where the dowel subject sits.}
 	\label{fig:equipment_list_zoomed}
 \end{figure}
 

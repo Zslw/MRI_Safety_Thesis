@@ -12,44 +12,39 @@ Consider a simple pendulum with a metallic object at its end. This object is fre
 	\label{fig:astm_diagram}
 \end{figure}
 
-After applying Newton's laws at equilibrium the equation $F_m = m \space g \space tan(\alpha)$. Noting that this solution is independent of the point of attachment of the string and holds if the center of magnetic force
-does not coincide with the center of mass \cite{astmF2052}. The magnetic force on a paramagnetic object $F_m$ is also determined from equation (\ref{eq:force}). By using the magnitude of the dipole moment equation (\ref{eq:magnitudemoment}) we can write the magnetic force in a single dimension as
+From Newton's laws at equilibrium point, the magnetic force can be found by measuring the angular deflection $\alpha$ such that 
 
 \begin{equation}
-	F_m = \frac{\chi_m V}{\mu_0} B \nabla B  	\quad \Rightarrow \quad  F_m = \frac{\chi_m V}{\mu_0} B_0 \frac{dB_0}{dz}
+	F_m = mg tan(\alpha). 
+	\label{eq:Newton_translationalForce}
+\end{equation}
+
+Noting that this solution is independent of the point of attachment of the string and holds if the center of magnetic force does not coincide with the center of mass \cite{astmF2052}. On the other hand, by using Equations and \ref{eq:force} \ref{eq:magnitudemoment}, the magnetic force also is
+
+\begin{equation}
+	F_m =  \frac{\chi_m V}{\mu_0} B_0 \frac{dB_0}{dz}
 	\label{eq:translationalForce}
 \end{equation}
 
-\noindent therefore following ASTM F2052-15, the translational force exerted on a device due to a static magnetic field spatial gradient can be evaluated through angular deflection. In the pendulum, test subject is suspended in equilibrium, and the balance of forces leads to
-
-\begin{equation}
-	\frac{F_m}{F_g} = \frac{F_m}{mg} = \tan (\alpha),
-	\label{eq:deflectionAngle}
-\end{equation}
-
-\noindent where $\alpha$ is the deflection angle from vertical, $F_m$ is the magnetically induced translational force, $m$ is the mass of the object, and $g$ is the gravitational acceleration. 
-
-This is valid even in cases when the magnetic force does not operate exactly at the center of mass. As a result, the approach is reliable for evaluating a variety of devices. The formulation of equation (\ref{eq:deflectionAngle}) explains why the measured deflection angle $\alpha$ (and thus $F_m$) depends not on $\chi$ or $B_0$ independently, but on their product. Practically, this insight justifies the lab methodology. Although magnets in our lab, a solenoid or neodymium magnets, generate small magnetic fields (only about 20 to 300 Gauss), we can use ferromagnetic samples, with proportionaly larger $\chi_m$ to replicate clinically relevant force-to-weight ratios ($F_m / F_g$). An estimation for the expected $\chi_m$ can be found on appendix \ref{app:scaling} and summarized in table \ref{tab:chi_scaling} below.
+By comparing the magnetic force to the gravitational force ($F_g = m g$) the safety condition arises. If the device deflects less than $\alpha$ 45$^\circ$, then the magnetically induced deflection force is less than the force on the device due to its weight \cite{astmF2052}. This formulation explains why the measured deflection angle $\alpha$ (and thus $F_m$) depends not on $\chi$ or $B_0$ independently, but on their product. Practically, this insight justifies the lab methodology. Although magnets in our lab, a solenoid or neodymium magnets, generate small magnetic fields (only about 20 to 300 Gauss), we can use samples with proportionaly larger $\chi_m$ to replicate clinically relevant force-to-weight ratios ($F_m / F_g$). An estimation for the expected $\chi_m$ can be found on appendix \ref{app:scaling} and summarized in table \ref{tab:chi_scaling}.
 
 %From equation (\ref{eq:forFit}), 
 The measurable magnetic deflection depends on the ratio between the mechanical term and the magnetic force term. To reproduce the same deflection, 1 cm, at laboratory field strengths much smaller than those in MRI systems, the product must be preserved. Because $B_0 \nabla B_0 \propto B^2_0$ for a geometrically similar field, scaling the field down by a factor of  $10^2$ requires increasing the sample’s effective susceptibility by roughly $10^4$ to maintain the same mechanical response.
 
-Table \ref{tab:chi_scaling} summarizes the scaling. For typical solenoids producing 30–300 G the factor of $\chi_m/\rho$ spans from approximately one hundred-thousandth to one-thousandth of that found in ferromagnetic materials. Consequently, to appropriately mimic translational forces under these laboratory conditions, a realistic value of $\chi_m$ for a ferromagnetic substitute should lie between one and ten.
-
 \begin{table}[htb]
 	\centering
-	\caption[Representative susceptibility scaling in laboratory solenoid model]{Order-of-magnitude summary of laboratory scaling for required susceptibility. 
-		Values shown are representative scaling down three orders of magnitude from 3T field.}
+	\caption[Representative susceptibility scaling for laboratory solenoid fields.]{Values indicate the minimum magnetic susceptibility required to produce a measurable angular deflection (~1 cm over 1 m) under reduced field conditions (30–300 G and 3T), assuming a material density of ~7000 $kg/m^3$.}
 	\label{tab:chi_scaling}
-	\begin{tabular}{r r r r}
-		\toprule
-		$B_0$ (T) & $B\!\cdot\!\nabla B$ (T$^2$/m) & $\chi / \rho$ & $\chi_m$ \\
-		\midrule
-		$3.0\times10^{-3}$ & $1.707\times10^{-5}$ &  $7.21\times10^{-3}$ & $5.05\times10^{1}$   \\
-		$3.0\times10^{-2}$ & $1.707\times10^{-3}$ & $7.21\times10^{-5}$& $5.05\times10^{-1}$   \\
-		$3.0\times10^{0}$ & $1.707\times10^{1}$ & $7.21\times10^{-9}$& $5.05\times10^{-5}$   \\
-		\bottomrule
+	\begin{tabular}{|c|c|c|c|}
+		\hline
+		$B_0$ (T) & $B\nabla B$ (T$^2$/m) & $\chi/\rho$ (m$^3$/kg) & $\chi_m$ (-) \\
+		\hline
+		$3.0 \times 10^{-3}$ & $1.707 \times 10^{-5}$ & $7.21 \times 10^{-3}$ & $5.05 \times 10^{\phantom{-}1}$ \\
+		$3.0 \times 10^{-2}$ & $1.707 \times 10^{-3}$ & $7.21 \times 10^{-5}$ & $5.05 \times 10^{-1}$ \\
+		$3.0 \times 10^{\phantom{-}0}$  & $1.707 \times 10^{\phantom{-}1}$  & $7.21 \times 10^{-9}$ & $5.05 \times 10^{-5}$ \\
+		\hline
 	\end{tabular}
 \end{table}
 
-According to ASTM F2052 \cite{astmF2052}, a deflection below $45^{\circ}$ occurs when the magnetic force is less than the object's weight. Though not a strict acceptance criterion \cite{Woods2021_MRIdisplacement}. In contrast,  a nonmagnetic stainless steel wire ($\chi_m \approx 10^{-4}$) might show a magnetic force of 30\% of the objects weight, whereas ferromagnetic metals like nickel can exceed two million percent.  That is more than enough to become dangerous projectiles unless restrained \cite{aboyewa2021,Woods2021_MRIdisplacement,panych2018}.
+For typical solenoids producing 30–300 G, the factor of $\chi_m/\rho$ spans from approximately one hundred-thousandth to one-thousandth of that found in ferromagnetic materials. Consequently, to appropriately mimic translational forces under these laboratory conditions, a realistic value of $\chi_m$ for a substitute should lie between one and ten. For example, a nonmagnetic stainless steel wire ($\chi_m \approx 10^{-4}$) might show a magnetic force of 30\% of the object's weight, whereas ferromagnetic metals like nickel can exceed two million percent. That is more than enough to become dangerous projectiles unless restrained \cite{aboyewa2021,Woods2021_MRIdisplacement,panych2018}.
+

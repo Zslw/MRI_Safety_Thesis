@@ -1,22 +1,27 @@
-To assess \gls{mri}-induced translational forces, our lab developed a pendulum-style apparatus or fixture following the geometry and physics outlined in ASTM F2052-15 \cite{astmF2052}. This apparatus enables measurement of small deflection angles to derive displacement forces via gravitational torque balance (see Eq.~\ref{eq:deflectionAngle}). The following subsections describe the fixture design and features, the test objects used (including positive controls and epicardial lead holders), the smallest measurable force and associated limitations, and the measurement protocols implemented both in the laboratory (low-field solenoid) and in the clinical 3T MRI environment.
+To assess \gls{mri}-induced translational forces, our lab developed a pendulum-style apparatus or fixture following the geometry and physics outlined in ASTM F2052-15 \cite{astmF2052}. This apparatus enables measurement of small deflection angles to derive magnetic forces via gravitational force balance. The following subsections describe the fixture design and features, the test objects used (including positive controls and epicardial lead holders), the smallest measurable force, and the measurement protocols used in both the laboratory (low-field solenoid) and in the clinical 3T MRI environment.
 
 \subsection{Measurement Device and test objects}
 \label{sec:TransDevice_Testsubjects}
 
-Figure \ref{fig:pendulum_full} presents CAD renders of the pendulum fixture (full assembly and detailed views of the upper and lower rings), created in CATIA to document the design intent and engineering drawings (full set in Appendix \ref{app:A1}). Figure \ref{fig:realPendulum} shows corresponding photographs of the constructed apparatus, with real-world implementation of these features.
-
-The fixture was constructed entirely from \gls{pvc} components, including a vertical post of about 1.5 meters and a rigid base of dimensions 30(L)$\times$20(W)$\times$4.5(H) cm for stabilization. The vertical post includes a set of two rings fixed with nylon screws, to adjust heights, a default suspension height of $L= 1$ meter between these two rings was used for consistency across trials, maintaining the geometry and proportions showed in equation (\ref{eq:minForce}). This distances were measured from the last contact point of the string to the rubber on the top ring to the sample hanging free at ruler's height. The lower ring, in Figure \ref{fig:realpendulum_lower}, features a slit where a custom made Kydex\textsuperscript{\texttrademark} ruler is held by smaller nylon screws. This ruler is detachable and allows for easier transportation and ruler size exchange. The upper ring in the CATIA model (Fig. \ref{fig:realpendulum_upper}) was simplified for demonstration, however the final implementation shows a rubber clamp holding the string.
+Figure \ref{fig:realPendulum} shows the experimental apparatus. Figure \ref{fig:pendulum_full} presents CAD renders of the pendulum fixture created in CATIA to document the design intent and associated engineering drawings (full set in Appendix \ref{app:A1}). The fixture was constructed entirely from \gls{pvc} components, including a vertical post of about 1.5 meters and a rigid base of dimensions 30(L)$\times$20(W)$\times$4.5(H) cm for stabilization, as shown in Figure \ref{fig:realpendulum_full}. The vertical post includes a set of two rings fixed with nylon screws, for height adjustment. A default suspension height of $L= 1$ meter between these two rings was used for consistency across trials, maintaining the geometry and proportions shown in equation (\ref{eq:minForce}). These distances were measured from the last contact point of the string at the rubber interface on the top ring (see Figure \ref{fig:realpendulum_upper}) to the freely hanging sample aligned with the ruler scale. The lower ring, shown in Figure \ref{fig:realpendulum_lower}, features a slit where a custom made Kydex\textsuperscript{\texttrademark} ruler is secured with smaller nylon screws. This ruler is detachable, allowing for easier transportation and interchangeable ruler sizes.
 
 % Left tall pane
+\captionsetup[sub]{labelformat=default}
 	\begin{figure}[htb!]
 	\centering
 		\begin{subcolumns}[0.38\textwidth]
-		\subfloat[Full view of the constructed pendulum fixture.\label{fig:realpendulum_full}]
+		\subfloat[%Full CAD render.
+		\label{fig:pendulum_full}]
+		{\includegraphics[width=\subcolumnwidth, keepaspectratio]{Assets/Part1.png}}
+		
+		\nextsubcolumn[0.38\textwidth]
+		\subfloat[%Full view of the constructed pendulum fixture.
+		\label{fig:realpendulum_full}]
 		{\includegraphics[angle=-90, width=\subcolumnwidth]{Assets/TransFix.jpg}}
 		
 		\nextsubcolumn[0.19\textwidth]
 		
-		\vspace{-0.5cm}  
+		\vspace{-0.3cm}  
 		\subfloat[Upper ring.\label{fig:realpendulum_upper}]
 		{\includegraphics[width=\subcolumnwidth]{Assets/stringZoom.png}}
 		
@@ -25,15 +30,11 @@ The fixture was constructed entirely from \gls{pvc} components, including a vert
 		
 		\subfloat[Lower ring.\label{fig:realpendulum_lower}]
 		{\includegraphics[width=\subcolumnwidth]{Assets/rulerZoom.jpeg}}
-		
-		\nextsubcolumn[0.38\textwidth]
-		\subfloat[Full CAD render.\label{fig:pendulum_full}]
-		{\includegraphics[width=\subcolumnwidth, keepaspectratio]{Assets/Part1.png}}
-		
 	\end{subcolumns}
-\caption[Full and detailed views of the pendulum fixture]{Full and detailed views of the pendulum fixture. Panel (b) captures the full ensemble CAD model. Panel (c) shows the upper ring was designed to secure the pendulum string with clamp and rubber attachment. Panel (d) shows the lower ring containing the slit used to align a 1cm-wide by 20 cm ruler perpendicular to the string.}
+\caption[Full and detailed views of the pendulum fixture]{Full and detailed views of the pendulum fixture. (a) Full ensemble as CAD model. (b) Real-size pendulum fixture made of \gls{pvc}. (c) The upper ring designed to secure the pendulum string with clamp and rubber attachment. (d)The lower ring containing the slit used to align a 1cm-wide by 20 cm ruler perpendicular to the string.}
 \label{fig:realPendulum}
 \end{figure}
+\captionsetup[sub]{labelformat=empty,labelsep=none,skip=-12pt}
 
 After describing the physical implementation of the pendulum fixture, we now evaluate its measurement capabilities. In particular, we determine the smallest detectable translational  force along the z-axis by analyzing the geometry of the deflected pendulum at equilibrium. Whether forces on the order of millinewtons, comparable to the weight of ~1 g, can be resolved depends on the finite precision of the ruler-based deflection measurement and the pendulum's length.
 
@@ -41,12 +42,10 @@ After describing the physical implementation of the pendulum fixture, we now eva
 
 \input{MatsNMets/Smallest_force.tex}
 
-
-
 \subsubsection{Test Objects and Baskets}
 
 %in the lab
-Testing for low field lab measurements a solid ferromagnetic cylinder was used as sample, showed in figure \ref{fig:ferrobject}. Its dimensions were captured with caliper, ruler, and scale, yielding length = 6 mm, diameter = 3 mm, and mass = 0.3648 g therefore density $\rho$= 8.6 g/cm$^3$. The sample was suspended by a 955 mm-long sewing thread, tied with a simple knot at its center. For clinical applications, a 0.25 mm nylon monofilament is recommended. A monofilament nylon thread has low stretch,  complies with MR-safe properties (Non-metallic, Non-conductive, Non-magnetic), and reduces variability introduced by torsional drift or thread elasticity \cite{stoianovici2024, astmF2052}. The bottom of the sample was free to swing, forming a pendulum under gravity effectively aligning with model on figure \ref{fig:astm_diagram} and equation \ref{eq:translationalForce}. A horizontal ruler, fixed along the Z-axis, served as the visual reference to quantify lateral displacements. 
+Testing for low field lab measurements a solid ferromagnetic cylinder was used as sample, showed in Figure \ref{fig:ferrobject}. Its dimensions were captured with caliper, ruler, and scale, yielding length = 6 mm, diameter = 3 mm, and mass = 0.3648 g therefore density $\rho$= 8.6 g/cm$^3$. The sample was suspended by a 955 mm-long sewing thread, tied with a simple knot at its center. For clinical applications, a 0.25 mm nylon monofilament is recommended. A monofilament nylon thread has low stretch,  complies with MR-safe properties (Non-metallic, Non-conductive, Non-magnetic), and reduces variability introduced by torsional drift or thread elasticity \cite{stoianovici2024, astmF2052}. The bottom of the sample was free to swing, forming a pendulum under gravity effectively aligning with model on Figure \ref{fig:astm_diagram} and Equation \ref{eq:translationalForce}. A horizontal ruler, fixed along the Z-axis, served as the visual reference to quantify lateral displacements. 
 
 \begin{figure}[htb!]
 	\centering
@@ -60,10 +59,8 @@ However, this ferromagnetic test object produces a strong response in the small 
 
 The straight titanium wire (Surgical Grade 1) had a diameter of 1.02\,mm, a cut length of 2.3\,cm, and a measured mass of 0.1549\,g with handling tape for adhesion. The straight 316L stainless steel wire (annealed medical/industrial grade) had a diameter of 0.76\,mm, a cut length of 2.2\,cm, and a measured mass of 0.1690\,g (including handling tape). An additional titanium coil (mass = 1.7964\,g) was tested as a further positive control to assess geometry effects. 
 
-For the clinical epicardial lead measurements, the lead itself (mass = 0.1386\,g, diameter = 0.46\,mm, length = 378\,mm) was mounted in a custom 3D-printed \gls{pla} basket described below.
-
 %in the clinic
-To accommodate epicardial lead positioning while maintaining \gls{mri} compatibility, a lightweight, non-magnetic hexagonal comb mesh was developed and fabricated from \gls{pla}. The mesh dimensions were 16 (L) $\times$ 14 (W) $\times$ 1 (H) mm, for a total volume of less than $100 mm^3$ equivalent to around 100 mg given the 1.24 grams per cubic centimeter ($g/cm^3$) \gls{pla} density. Figure \ref{fig:leadHolder} shows a 3D render of the mesh, with the desired proportions. This mesh was 3D printed and has a final weight of 130mg. The mesh was suspended such that the lead axis was aligned approximately parallel to the magnetic field gradient. The mesh's lightweight design aimed to minimize its contribution to the total magnetic force, however its mass was not explicitly subtracted from the translational force calculations.
+The clinical epicardial lead for the clinical trial weighted 138.6\,mg, with a 0.46\,mm diameter and length of 378\,mm. This lead was mounted in a custom 3D-printed \gls{pla} basket, added to easily change test objects while maintaining \gls{mri} compatibility. The lightweight, non-magnetic hexagonal mesh was fabricated from \gls{pla}. The mesh dimensions were 16 (L) $\times$ 14 (W) $\times$ 1 (H) mm, corresponding to a bounding volume of 224 mm$^3$. Due to the hexagonal lattice structure, the effective solid volume is 95.2 mm$^3$, resulting in a mass of at least 118 mg based on PLA material properties. Figure \ref{fig:leadHolder} shows a 3D mesh render with the intended proportions. The corresponding engineering design is provided in Appendix \ref{app:A2}, with STL files available in this Github repository \cite{juarezluna2025mrisafety}. This mesh was 3D printed and has a final weight of 130mg. The mesh was suspended such that the lead axis was aligned approximately parallel to the magnetic field gradient. The mesh's lightweight design aimed to minimize its contribution to the total gravitational force.
 
 \begin{figure}[htb!]
 	\centering
@@ -78,86 +75,85 @@ So far, we have described the materials used in both the lab and the clinic, fro
 \subsection{In Lab Measurement Protocol}
 \label{sec:experiment1}
 
-The solenoid magnet was particularly useful for generating a variable magnetic field for the translational forces measurement tests. It allows for a range of magnetic fields strengths ($B_0$) at a given distance from the magnet without the need of displacing our fixture but essentially needs a different approach to characterizing it. 
+The setup used the custom-made solenoid from Section \ref{sec:labMagnets} and the fixture described in Section \ref{sec:TransDevice_Testsubjects}. Figure \ref{fig:labsetup} shows this experimental laboratory setup used to assess the methodology accuracy and reliability with all components. The test object, shown in Figure \ref{fig:ferrobject}, was attached to a string suspended from the \gls{mri} safe fixture and the angle of deflection was measured visually with a ruler as the object displaced horizontally towards the coil. The gaussmeter probe was positioned to make magnetic field strength and angle deflection measurements at the same time.
 
-\subsubsection*{Alternate Magnetic Field Mapping for This Experiment}
-
-The magnetic field characterization used here differs from Section \ref{sec:labMagnets}. In that earlier mapping, the Gaussmeter probe was translated along the solenoid axis at a fixed current to produce a spatial field profile. For the translational force experiment, this approach was inverted. The pendulum was held stationary at a fixed position (7--8\,cm from the solenoid face), and the solenoid current was varied to increase through a range of magnetic field strengths $B_0$. At each current level, the field was sampled at the pendulum's equilibrium point and at $\pm$0.5\,mm around it, yielding $B_0$, $B_{-0.5}$, and $B_{+0.5}$ for gradient computation.
-
-This approach was chosen because it decouples the mechanical equilibrium of the pendulum from the field scanning motion, ensuring the fixture remains stationary while the magnetic force is varied. As a consequence, the z-axis of the resulting field maps represents the pendulum's equilibrium displacement from its gravitational rest position, not a physical scan of the magnet axis at fixed current. Each data point therefore corresponds to a different applied current at the new equilibrium point rather than a mere change probe location.
-
-Figure~\ref{fig:EquilibriumPointsField} illustrates the three quantities derived from this mapping procedure. The central field $B_0$, the axial gradient $dB/dz$, and their product $B_0\,dB/dz$, which together form the field-side term of Equation~\ref{eq:forFit}. This figure documents the operating range of the solenoid used in the experiment and confirms that $B_0\,dB/dz$ varies monotonically with equilibrium position, a necessary condition for the linear fit described in Section~\ref{sec:res_labscale-Translational}.
-
-\begin{figure}[htb!]
+\begin{figure}[hb!]
 	\centering
-	\includegraphics[width=0.9\textwidth]{Assets/magField_behavior_SI.png}
-	\caption[Magnetic field characterization at pendulum equilibrium positions]{%
-		Magnetic field quantities measured at the pendulum equilibrium positions under varying solenoid current, illustrating the alternate mapping approach used for the translational force experiment.
-		Each data point corresponds to a distinct applied current at the new equilibrium point.
-		\textit{Top:} central field $B_0$ (T).
-		\textit{Middle:} axial gradient $dB/dz$ (T/m), computed via central finite difference at $\pm$0.5\,mm.
-		\textit{Bottom:} product $B_0\,dB/dz$ (T$^2$/m), the field-side forcing term of Eq.~\ref{eq:forFit}.
-		Error bars represent the standard error of the mean (SEM) across repeated Gaussmeter readings at each current level.}
-	\label{fig:EquilibriumPointsField}
-\end{figure}
-
-\subsubsection*{Measurement Protocol}
-
-The gaussmeter in the \gls{lvi} was operated in a single mode, with rest periods between trials due to the time required to stabilize the pendulum after each adjustment. This methodology is detailed below.
-
-The setup used our custom-made solenoid connected to a Pasco power supply capable to deliver up 8 A acting as variable magnetic field generator for our experiment. The test object, as described in section \ref{sec:TransDevice_Testsubjects}, was attached to a string pending from the \gls{mri} safe pole and angle of deflection was measured visually with a ruler on the subject horizontal displacement towards the coil. The gaussmeter was positioned to make magnetic field measurements at the same time as angle deflection. 
-
-\begin{figure}[htb!]
-	\centering
-	\includegraphics[width=0.75\textwidth]{Assets/TransSetup.jpeg}
-	\caption{In-lab experimental setup for MRI translational force assessment.}
+	\includegraphics[width=0.75\textwidth]{Assets/TransSetup.png}
+	\caption[Laboratory experimental setup for translational force assessment]{Laboratory setup for MRI translational force assessment. (1) Magnetic field generation instruments (left), (2) solenoid, (3) fixture with pole (center), (4) gaussmeter probe, (5) translation stage, and (6) gaussmeter read panel (right).}
 	\label{fig:labsetup}
 \end{figure}
 
-Figure \ref{fig:labsetup} shows the experimental lab setup used to assess the methodology accuracy and reliability with all components. The magnetic field generation instruments are on the left side, whereas the gaussmeter with the probe on its translational stage is shown on the right side of the figure. 
-
-As briefly explained in section \ref{sec:FieldGeneration} the translational stage uses three Thorlabs travel motorized actuators driven via the Kinesis software interface \cite{Thorlabs_Kinesis}. While Kinesis-controlled stages support sub-micrometer incremental motion and repeatability on the order of microns \cite{ThorlabsMotionControl2025}, our experiment only required positional accuracy on the order of 0.5 mm. Thus the stage system offered more than sufficient precision and stability for repeatable setup between trials. The translation speed was set up using Kinesis for 0.3 m/s and the maximum displacement of each actuators was 12 mm. Initially, the test object remains at rest (Figure \ref{fig:translational_off}) once the current is flowing the magnetic field on the solenoid pulls the subject towards it (Figure \ref{fig:translational_on}). 
-
+The magnetic field characterization used here differs from Section \ref{sec:labMagnets}. In that earlier mapping, the Gaussmeter probe was translated along the solenoid axis, while the current in the solenoid was held. For the translational force experiment, this approach was inverted. The pendulum was held stationary at a fixed position  of 8\,cm from the solenoid face, and the solenoid current was varied to increase through a range of magnetic field strengths $B_0$. This approach was chosen because it decouples the mechanical equilibrium of the pendulum from the field scanning motion, ensuring the fixture remains stationary while the magnetic force is varied. As a consequence, the z-coordinate of the resulting field maps represents the pendulum's displacement from its gravitational rest position (B = 0). Each data point therefore corresponds to a different applied current and field strength at the new equilibrium point. For example, the test object remains at rest (Figure \ref{fig:translational_off}) once the current is flowing the magnetic field on the solenoid pulls the subject towards it (Figure \ref{fig:translational_on}) the more current was applied to the solenoid the stronger the magnetic field and stronger the force. 
 
 \begin{figure}[hbt!]
 	\centering
-	\subfloat[Subject hanging in pendulum at rest.\label{fig:translational_off}]{
+	\subfloat[\label{fig:translational_off}]{
 		\includegraphics[width=0.45\textwidth]{Assets/translationalOFF_zoom.jpeg}
 	}
 	\hfill
-	\subfloat[Magnetic force pulls the subject towards the magnetic field source.\label{fig:translational_on}]{
+	\subfloat[\label{fig:translational_on}]{
 		\includegraphics[width=0.45\textwidth]{Assets/translationalON_zoom.jpeg}
 	}
 	
-	\caption[Translational force comparison]{Comparison of the test object behavior with and without translational forces during magnetic field exposure.}
+	\caption[Translational force comparison]{Comparison of the test object behavior with and without translational forces during magnetic field exposure. (a) Object hanging in pendulum at rest. (b) Magnetic force pulls the subject towards the magnetic field source.}
 	\label{fig:translational_compare}
 \end{figure}
 
-%The in-lab methodology that ultimately worked inverted the logic of the trials. Instead of fixing the current and observing displacement, the displacement itself was fixed. 
-
-The observed displacements for the test object were of about 1 mm/A from the resting position up to 11 mm. Induced currents remained low because the ferromagnetic body barely moved, the translation stage’s full range was used, the object never entered the solenoid unintentionally, and its’s position was always known. For each current applied, the magnetic field was measured at the equilibrium point and recorded alongside the field flux. A magnetic-field map was then acquired at each corresponding current level, ensuring the equilibrium position and its $\pm$0.5 mm neighbors were carefully sampled. With this method, the value of $B_0$ at equilibrium was known for every current level. The gradient was calculated for each point with the two neighbors. Appendix \ref{sec:appCodeNData} includes sample data from these trials.
-
-The measurements taken for characterizing the local field gradient, at the pendulum's equilibrium position ($B_0$), 0.5 mm below ($B_{-0.5}$), and 0.5 mm above ($B_{+0.5}$) were sampled at least nine times per current level, and gradients were computed using Python pandas library with the central finite difference method (Eq. \ref{eq:finiteDiff}) producing
+Induced currents remained low because the ferromagnetic body barely moved, the translation stage’s full range was used, the object never entered the solenoid unintentionally, and its’s position was always known. For each current applied, the magnetic field was measured at the equilibrium point and recorded alongside the field flux. A magnetic-field map was acquired at each corresponding current level, ensuring the equilibrium position and its $\pm$0.5 mm neighbors were sampled at least nine times. With this method, the value of $B_0$ at equilibrium was known for every current level. The gradient was calculated for each point with the two neighbors as 
 
 \begin{equation}
 	\label{eq:finiteDiff1}
-	\frac{dB}{dz} \approx \frac{B_{+0.5} - B_{-0.5}}{1\ \text{mm}},
+		\left. \frac{dB}{dz} \right|_{z=0} \approx \frac{B_{+0.5} - B_{-0.5}}{1\ \text{mm}}.
 \end{equation}
 
-Using a 1-mm separation ($z_2 - z_1$) keeps the approximation in the linear regime while remaining resolvable on the field map. The 1mm increments in displacement was translated to angular displacement as
+Using a 1-mm separation ($z_2 - z_1$) keeps the approximation in the linear regime while remaining resolvable on the field map. The 1 mm increments in displacement was translated to angular displacement
 
 \begin{equation}
-	\alpha = \tan^{-1}\left(\frac{x}{L}\right)
+	\alpha = \tan^{-1}\left(\frac{x}{L}\right).
 \end{equation}
 
-\input{MatsNMets/translational_diffnFit.tex}
+Furthermore, to determine the magnetic susceptibility $\chi_m$ of the test sample. We use Equations.~(\ref{eq:translationalForce}) and (\ref{eq:Newton_translationalForce}), 
+
+\begin{subequations}
+	\begin{equation}
+		\chi_m = \frac{\mu_0 m g}{V}\frac{\tan (\alpha)}{ B_0 \frac{dB_0}{dz}},
+		\label{eq:chi}
+	\end{equation}
+	\begin{equation}
+		\frac{\chi_m}{\rho} = \mu_0 g\frac{\tan (\alpha)}{ B_0 \frac{dB_0}{dz}}.
+		\label{eq:chi_rho}
+	\end{equation}
+	\label{eq:chis}
+\end{subequations}
+
+\noindent providing a direct estimation of magnetic susceptibility from angular deflection measurements, provided the field and its gradient are known. A plot of the deflection angle versus the product of field strength and field gradient was created. From it, a linear fit extracted $\chi_m$ from the slope following
+
+\begin{equation}
+	\tan (\alpha) =   \frac{\chi_m }{\rho \mu_0 g}  \cdot B_0 \frac{dB_0}{dz}.
+	\label{eq:forFit}
+\end{equation}
 
 %\subsection*{Data Collection and Analysis}
+%Figure~\ref{fig:EquilibriumPointsField} illustrates the three quantities derived from this mapping procedure. The central field $B_0$, the axial gradient $dB/dz$, and their product $B_0\,dB/dz$, which together form the field-side term of Equation~\ref{eq:forFit}. This figure documents the operating range of the solenoid used in the experiment and confirms that $B_0\,dB/dz$ varies monotonically with equilibrium position, a necessary condition for the linear fit described in Section~\ref{sec:res_labscale-Translational}.
 
-All measurements were logged in Microsoft Excel, and photos/videos were captured via smartphone to document behavior. A minimum of three trials were performed for each current level; however, only the final (most consistent) dataset was retained for analysis. Data were exported to a Jupyter Notebook for clean up and processing with \texttt{pandas}, then plotted to evaluate $\tan \alpha$ vs. field gradient force. Propagated uncertainties in $\alpha$ and $dB_0/dz$ were computed using standard error propagation formulas. All analysis code and data are publicly available \cite{juarezluna2025mrisafety}.
+%\begin{figure}[htb!]
+	%\centering
+	%\includegraphics[width=0.9\textwidth]{Assets/magField_behavior_SI.png}
+	%\caption[Magnetic field characterization at pendulum equilibrium positions]{%
+	%	Magnetic field quantities measured at the pendulum equilibrium positions under varying solenoid current, illustrating the alternate mapping approach used for the translational force experiment.
+	%	Each data point corresponds to a distinct applied current at the new equilibrium point.
+	%	\textit{Top:} central field $B_0$ (T).
+	%	\textit{Middle:} axial gradient $dB/dz$ (T/m), computed via central finite difference at $\pm$0.5\,mm.
+	%	\textit{Bottom:} product $B_0\,dB/dz$ (T$^2$/m), the field-side forcing term of Eq.~\ref{eq:forFit}.
+	%	Error bars represent the standard error of the mean (SEM) across nine Gaussmeter readings at each current level.}
+	%\label{fig:EquilibriumPointsField}
+%\end{figure}
+
+All measurements were logged in Microsoft Excel, and photos/videos were captured via smartphone to document behavior. A minimum of three trials were performed for each current level; however, only the final (most consistent) dataset was retained for analysis. Data were exported to a Jupyter Notebook for clean up and processing with \texttt{Pandas}, then plotted to evaluate $\tan \alpha$ vs. field gradient force. Propagated uncertainties in $\alpha$ and $dB_0/dz$ were computed using standard error propagation formulas. Appendix \ref{sec:appCodeNData} includes sample data from these trials and all analysis code and data are publicly available in \cite{juarezluna2025mrisafety}.
 
 \subsection{In Clinic Measurement - Translational Force}
-To quantify magnetically induced translational forces on implantable samples within the \gls{mri} fringe field, the custom translational fixture was positioned on the patient couch, as shown by figure \ref{fig:translational_clinic}.
+To quantify magnetically induced translational forces on implantable samples within the \gls{mri} fringe field, the custom translational fixture was positioned on the patient couch, as shown in figure \ref{fig:translational_clinic}.
 The fixture supported the lightweight baskets (Figure \ref{fig:leadHolder}) suspended by a common sewing string, allowing samples to displace freely under magnetic force while measuring equilibrium position shifts relative to the zero-force state.
 \begin{figure}[hbt!]
 	\centering
@@ -174,14 +170,14 @@ The fixture supported the lightweight baskets (Figure \ref{fig:leadHolder}) susp
 	\label{fig:translational_clinic}
 \end{figure}
 
-The translational fixture and its central basket were aligned to scanner isocenter using the room lasers, with the zero position permanently marked using tape on the couch surface. The distance from the couch edge to the fixture base was measured to enable reproducible placement of the equilibrium position. Due to the strong magnetic forces near the bore entrance, achieving no visible displacement of the empty basket was only possible either outside the MR room or with the basket only, positioned far from the 5-gauss line. This meant repeated repositioning of the fixture and multiple attempts to establish a true zero reference, adding considerable time to the protocol.
+The translational fixture and its central basket were aligned to scanner isocenter using the scanner lasers, with the zero position marked using tape on the couch surface. The distance from the couch edge to the fixture base was measured to enable reproducible placement of the equilibrium position. Due to the strong magnetic forces near the bore entrance, visible alignment of the basket with the ruler zero was only possible either outside the MR suite or with an empty basket. This meant repeated repositioning of the fixture and multiple attempts to establish a true zero reference, adding considerable time to the protocol.
 
 Measurements were performed using a titanium (Ti) sample as a positive control, given its known paramagnetic response in clinical \gls{mri} contexts. Three replicate trials were conducted with the Ti sample, recording both the distance from isocenter and the observed displacement on the fixture scale at each position. The couch was advanced in 50\,mm increments toward the bore entrance and 100\,mm increments away from it to capture the spatial dependence of the force.
 
-The titanium sample was configured as a loosely coiled spring-like shape, oriented horizontally so that its long axis aligned with the scanner's z-direction (longitudinal field) and its diameter was perpendicular to $B_0$. In contrast, a Medtronic STREAMLINE\textsuperscript{\texttrademark} 6492 unipolar epicardial lead was coiled tightly and oriented vertically (perpendicular to $B_0$), a configuration dictated by its greater thickness and stiffness, which facilitated tighter packing.
+The titanium sample was configured as a loosely coiled spring-like shape, oriented horizontally so that its long axis aligned with the scanner's z-direction (longitudinal field) and its diameter was perpendicular to $B_0$. In contrast, a Medtronic STREAMLINE\textsuperscript{\texttrademark} 6492 unipolar epicardial lead was coiled tightly and oriented vertically (perpendicular to $B_0$), a configuration dictated by its greater thickness and stiffness, which facilitated tighter packing. Recognizing that coil geometry and orientation strongly influence induced force and torque, additional trials were performed using straight segments of both the titanium material and 316L stainless steel. These straight configurations followed the identical incremental positioning protocol. 
 
-Recognizing that coil geometry and orientation strongly influence induced force and torque, additional trials were performed using straight segments of both the titanium material and 316L stainless steel. These straight configurations followed the identical incremental positioning protocol. 
+%pictures
 
-In total, eight raw data tables were acquired, three for the coiled titanium sample, three for the coiled epicardial lead, one for the straight titanium segment, and one for the straight 316L stainless steel segment. All displacement measurements were documented manually and later digitized for analysis. Also publicly available \cite{juarezluna2025mrisafety}.
+In total, eight raw data tables were acquired, three for the coiled titanium sample, three for the coiled epicardial lead, one for the straight titanium segment, and one for the straight 316L stainless steel segment. All displacement measurements were documented manually and later digitized for analysis. Also publicly available at \cite{juarezluna2025mrisafety}.
 
 %To guarantee safety and repeatability, the measurement of MRI-induced translational forces on the test items was carried out in accordance with a structured methodology.  Initially, all personal belongings were removed to prevent safety issues. The apparatus, a \gls{pvc} pole equipped with a non-magnetic ruler aligned with the pendulum string, was positioned at a precise distance from the MRI bore. Two sets of measurements were performed sequentially: first using a magnetically susceptible test object, and then with the epicardial lead attached, suspended from a light basket and a heavy basket, respectively, to assess force variations. Moving closer to the bore, a step-wise method was followed to measure displacement at certain translational points. Each measurement phase was completed as per the flowchart-guided process, with detailed data recorded in the a worksheet. The comprehensive protocol, including step-by-step instructions and safety considerations, is provided in Appendix%~\ref{app:} for reference.

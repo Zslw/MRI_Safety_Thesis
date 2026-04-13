@@ -22,18 +22,19 @@ Beyond thermal effects, any induced displacement force or vibration on transveno
 
 \begin{figure}[hb!]
 	\centering
+	\subfloat[\label{fig:tvleadFixation}]{
+	\includegraphics[width=0.55\textwidth]{Assets/activevspassiveFixation.png}
+	}
+	\hfill
 	\subfloat[\label{fig:epileadFixation}]{
 		\includegraphics[width=0.38\textwidth]{Assets/epileadReal.jpeg}
 	}
-	\hfill
-	\subfloat[\label{fig:tvleadFixation}]{
-		\includegraphics[width=0.55\textwidth]{Assets/activevspassiveFixation.png}
-	}
 	
 	\caption[Lead fixation variations in pacing leads]{Lead fixation variations in pacing leads.
-		(a) Medtronic STREAMLINE\textsuperscript{\texttrademark}~6492 unipolar epicardial lead with suture needle at the proximal end followed by a blue fixation coil. 
-		(b) On transvenous leads, passive-fixation leads rely on flexible tines that anchor within myocardial trabeculae, while active-fixation leads employ a retractable helix that screws into the myocardium. 
-		Reprinted from \textit{Clinical Cardiac Pacing, Defibrillation, and Resynchronization Therapy}, Haqqani et al., p. 133, Copyright (2011), with permission from Elsevier \cite{Haggani_CCPDRT_ch4_2011}.}
+		(A) Passive-fixation leads rely on flexible tines that anchor within myocardial trabeculae. (B) Active-fixation leads employ a retractable helix that screws into the myocardium. 
+		Reprinted from \textit{Clinical Cardiac Pacing, Defibrillation, and Resynchronization Therapy}, Haqqani et al., p. 133, Copyright (2011), with permission from Elsevier \cite{Haggani_CCPDRT_ch4_2011}.
+		(C) Medtronic STREAMLINE\textsuperscript{\texttrademark}~6492 unipolar epicardial lead with suture needle at the proximal end followed by a blue fixation coil. 
+		}
 	\label{fig:leadFixation}
 \end{figure}
 
@@ -77,6 +78,8 @@ Moreover, Bipolar leads exhibit further structural variation in their body desig
 	\label{fig:leadDesign}
 \end{figure}
 
+Another important distinction is the clinical use of the epicardial lead, i.e. permanent vs. temporal leads. Permanent leads are relatively uncommon, implanted by surgeons, and primarily indicated in pediatric patients with complex congenital heart disease \cite{mriquestions_epicardial_pacing_leads}. In contrast, temporary epicardial leads are routinely placed after open-heart surgery manage arrhythmia that might arise in the postoperative period\cite{mriquestions_epicardial_pacing_leads,reade2007}. Once the patient is rhythmically stable, these wires are manually removed. However, if resistance is encountered during extraction, they may be clipped at the skin and allowed to retract, resulting in retained wire fragments within the subcutaneous tissues \cite{mriquestions_epicardial_pacing_leads,Mubarak:2023aa}.
+
 %What materials are commonly used in epicardial lead construction?
 The several components of an epicardial lead are made of different materials chosen for their biocompatibility, durability, and electrical properties. Table \ref{tab:lead_material_suscept_qual_mri} summarizes the materials found on a epicardial lead and relates to its magnetic susceptibility. Electrodes are made from inert materials to minimize corrosion and inflammatory reactions over the long term. These include titanium, platinum-iridium alloys, Elgiloy (an alloy of cobalt, iron, chromium, and other metals), and vitreous carbon \cite{Haggani_CCPDRT_ch4_2011, callister2018materials}. Similarly, conductors which carry the electrical signals between the pulse generator and the electrode are commonly made out of MP-35N (alloy of nickel, cobalt, chromium, and molybdenum) \cite{Haggani_CCPDRT_ch4_2011, carpenterMP35N}. Insulation, a protective outer coating of the lead that prevents short-circuiting is made of different polymers like Silicone Rubber (Polysiloxane), Polyurethane, Fluoropolymers \cite{Haggani_CCPDRT_ch4_2011}.
 
@@ -85,7 +88,7 @@ The several components of an epicardial lead are made of different materials cho
 	\caption[Magnetic susceptibility of epicardial lead materials]{Qualitative magnetic susceptibility of common epicardial lead materials and their relevance for MRI safety. \cite{astmF2182,ASTM_F2503_2023,callister2018materials,carpenterMP35N}}
 	\label{tab:lead_material_suscept_qual_mri}
 	\resizebox{\textwidth}{!}{
-		\begin{tabular}{l l l l}
+		\begin{tabular}{|c|c|c|c|}
 			\hline
 			\textbf{Component} & \textbf{Material} & \textbf{Magnetic susceptibility} & \textbf{Relevance for MRI safety} \\
 			\hline
@@ -102,11 +105,10 @@ The several components of an epicardial lead are made of different materials cho
 	}
 \end{table}
 
-
 %sizes
 Because epicardial leads are composed of conductive and paramagnetic materials, an abandoned lead may pose a potential risk in the MR environment. Moreover, its physical dimensions influence the nature of these interactions: greater material volume increases the extent to which the lead can interact with the magnetic field.
 
-An abandoned epicardial lead could measure full-length or fragments after being left behind \cite{vuorinen2021,schaller2021}. Some fragments are described as long as 5 cm, being 2 cm an average length. Further, longer leads are reported up to 30 cm or couple fragments adding to about 21 cm. In diameter size may be compared to standard transvenous pacing leads, that of about half a millimeter to 1.5 mm \cite{vuorinen2021}. And are typically narrower than standard transvenous leads ($\sim$5F, $\simeq$ 1.7 mm outer diameter), often measuring between 0.5 mm and 1.5 mm.
+An abandoned epicardial lead could measure full-length or fragments after being left behind \cite{vuorinen2021,schaller2021}. Some fragments are described as long as 5 cm, being 2 cm an average length. Further, longer leads are reported up to 30 cm or couple fragments adding to about 21 cm. In diameter size may be compared to standard transvenous pacing leads, that of about half a millimeter to 1.5 mm \cite{vuorinen2021}. And are typically narrower than standard transvenous leads ($\sim$5 F, $\simeq$ 1.7 mm outer diameter), often measuring between 0.5 mm and 1.5 mm.
 %How do the physical dimensions (diameter, length, insulation thickness) affect mechanical and magnetic interactions?
 An example of these interaction is that lead length influences \gls{rf}-induced heating through the antenna effect. Longer leads couple more strongly with the radiofrequency field, and maximum heating is expected near the resonant length  \cite{aboyewa2021,panych2018}. For translational force and torque, the total material volume is relevant as well, as both interactions scale with volume and are evaluated relative to gravitational effects. These relationships are discussed further in Section \ref{sec:concerns}.
 

@@ -1,26 +1,23 @@
-This chapter details the experimental setups and measurement procedures developed to quantify \gls{mri}-induced translational forces and torque acting on post-surgical epicardial pacing lead when exposed to its static magnetic field. 
+This chapter details the experimental setups and measurement procedures developed to quantify \gls{mri}-induced translational forces and torque acting on post-surgical epicardial pacing lead when exposed to its static magnetic field. Three non-magnetic test fixtures were constructed, specifically designed to measure these forces with the precision required for clinical applications, in accordance to ASTM guidelines \cite{astm2213,astmF2052,astmF2182,ASTM_F2503_2023}. First, a spatial field mapping platform was fabricated to characterize $B_0$ and $\nabla B_0$. Alongside but independently, a pendulum-based deflection apparatus was made to assess translational force through angular displacement. Finally, a strain sensor with a low-friction pole and lever arm measurement system were designed, cut, and assembled for rotational force (torque) assessments. 
 
-Three non-magnetic test fixtures were constructed, specifically designed to measure these forces with the precision required for clinical applications, in accordance to ASTM guidelines \cite{astm2213,astmF2052,astmF2182,ASTM_F2503_2023}. First, a spatial field mapping platform to characterize $B_0$ and $\nabla B_0$. Alongside but independently, a pendulum-based deflection apparatus to assess translational force through angular displacement. Finally, a strain sensor with a low-friction pole and lever arm measurement system for rotational force (torque) assessments. 
+All three fixtures were developed to be tested in a laboratory framework first. As such, this chapter is divided into the three experiments listed above. Each, constituted of three parts, a technical description of the fixtures developed, the in-lab testing, and an initial clinical methodology. We also outline the design rationale, key modifications, and resulting improvements in sensitivity and precision to support reproducibility.
 
-All three fixtures were developed to be tested in a laboratory framework first. As such, this chapter is divided into the three experiments we described. Each, constituted of three parts, a technical description of the fixtures developed, the in-lab testing, and a first clinical methodology. As we explain our setup, rationale, and proven modifications to the instruments, their sensitivity, and precision, in order to provide a reproducible map of action to test our instruments. 
+In the laboratory, the complete suite of instruments and associated control/acquisition software was constructed and tested in a controlled low-field environment (in range of 30 - 300 G). Although this field strength is two to three orders of magnitude below the 3 T clinical scanner, it was deliberately chosen to enable precise evaluation of the fixtures’ accuracy, sensitivity, resolution, and repeatability without requiring scanner time. The laboratory setup also allowed direct observation of the fundamental physical phenomena described in Sections \ref{sec:translationalForceBG} and \ref{sec:torqueBG} on representative test samples.
 
-In the laboratory, the complete suite of instruments and associated control/acquisition software was constructed and tested in a controlled low-field environment ($\approx$ 30 G). Although this field strength is two orders of magnitude below the 3 T clinical scanner, it was deliberately chosen to enable precise evaluation of the fixtures’ accuracy, sensitivity, resolution, and repeatability without requiring scanner time. The laboratory setup also allowed direct observation of the fundamental physical phenomena described in Sections \ref{sec:translationalForceBG} and \ref{sec:torqueBG} on representative ferromagnetic test samples.
+Importantly, both translational force and torque scale predictably with the magnetic field strength, $F \propto B_0 \, \frac{dB_0}{dz}$ and $\tau \propto B_0^2$. Consequently, the dimensionless relationships in the behavior remain identical between the laboratory and clinical regimes. We reproduced the same normalized force and torque signatures that will be encountered in the \gls{mri} suite by scaling the effective susceptibility $  \chi_m  $ and density $  \rho  $ of the test objects (see Appendix \ref{app:scaling}), for use under small magnetic field. The laboratory results are therefore directly valuable. They confirmed that the instruments function as intended and that the physics is captured correctly before any clinical measurements were attempted.
 
-Importantly, both translational force and torque scale predictably with the magnetic field strength, $F \propto B_0 \, \frac{dB_0}{dz}$ and $\tau \propto B_0^2$. Consequently, the dimensionless relationships in the behavior remain identical between the laboratory (30 G) and clinical (3 T) regimes. We reproduce the same normalized force and torque signatures that will be encountered in the \gls{mri} suite by scaling the effective susceptibility $  \chi_m  $ and density $  \rho  $ of the test objects (see Appendix \ref{app:scaling}), that is using ferromagnetic objects under small magnetic field. The laboratory results are therefore directly valuable, they confirm that the instruments function as intended and that the physics is captured correctly before any clinical measurements are attempted.
-
-As outlined in section \ref{sec:Scope}, the several constraints of clinical \gls{mri} access necessitated thorough laboratory validation of the instruments and protocols beforehand.
-Through institutional collaboration, CHI CUMC Bergan Mercy Hospital, accommodated a dedicated measurement session on their Siemens 3T Magnetom Trio\textsuperscript{\texttrademark} \gls{mri} scanner. Figure \ref{fig:scanner} depicts the scanner in which measurements were conducted under radiologist supervision to ensure safety protocol around bringing custom fixtures into the \gls{mri} suite. 
+As outlined in Section \ref{sec:Scope}, the several constraints of clinical \gls{mri} access necessitated thorough laboratory validation of the instruments and protocols beforehand. Through institutional collaboration, CHI CUMC Bergan Mercy Hospital, accommodated a dedicated measurement session on their Siemens 3T Magnetom Trio\textsuperscript{\texttrademark} \gls{mri} scanner. Figure \ref{fig:scanner} depicts the scanner in which measurements were conducted under supervision to ensure safety protocol. Accordingly, the clinical session pursued the two complementary goals previously defined, namely to verify device performance and identify workflow issues. Moreover, a clinical session provided the first dataset on the \gls{mri}-induced translational forces and torques acting on post-surgical epicardial pacing leads, thereby closing the loop between bench validation and in-vivo applicability.
 
 \begin{figure}[hbt!]
 	\centering
 	\subfloat[%Siemens 3T Magnetom Trio\textsuperscript{\texttrademark} clinical MRI system at CHI Health Creighton University Medical Center -- Bergan Mercy.
 	\label{fig:siemensTrio}]{
-		\includegraphics[width=0.42\textwidth]{Assets/Photos-12-20-2025 MGN/20251220_111411.jpg}
+		\includegraphics[width=0.45\textwidth]{Assets/Photos-12-20-2025 MGN/20251220_111411.jpg}
 	}
 	\hfill
 	\subfloat[
 	\label{fig:controlRoom}]{
-		\includegraphics[width=0.42\textwidth]{Assets/controlRoom.jpeg}
+		\includegraphics[width=0.45\textwidth]{Assets/controlRoom.jpeg}
 	}
 	
 	%\subfloat[Siemens 3T Magnetom Trio\textsuperscript{\texttrademark} clinical MRI system.\label{fig:siemensTrio}]{
@@ -31,21 +28,19 @@ Through institutional collaboration, CHI CUMC Bergan Mercy Hospital, accommodate
 \end{figure}
 
 
-Accordingly, the clinical session pursued the two complementary goals previously defined, namely to verify device performance and identify workflow issues. Moreover, a clinical session provided the first dataset on the \gls{mri}-induced translational forces and torques acting on post-surgical epicardial pacing leads, thereby closing the loop between bench validation and in-vivo applicability.
-
-The first challenge presented when estimating the induced magnetic force in an object is to know the spatial behavior of the magnetic field around the object that experience the force given by equation \ref{eq:translationalForce}. The next section, or first experiment, explores this behavior, explains how to measure it both in the lab and at the clinic.
+The first challenge in estimating the induced magnetic force in an object is determining the spatial behavior of the magnetic field around the object experiencing the force given by equation \ref{eq:translationalForce}. The next section describes the method used for the first experiment, both in the lab and at the clinic.
 
 \section{Mapping the Magnetic Field}
 \label{sec:FieldGeneration}
 \input{MatsNMets/Magnetic Field Generation}
 
-With the spatial behavior of $B$ and $\nabla B$ explored, we move towards the test object itself and how it physically responds to that field. In the next section, experiment two, we present the fixture used to measure the actual displacement a small test object experiences, record the resulting deflection angle, and use that angle, together with Eq.~\ref{eq:deflectionAngle}, to compare the magnetic force directly against the object's weight. At the same time, we take the measured force and work backwards using the field values to determine (or confirm) the material properties, such as effective susceptibility. This cross-check confirms that the underlying physics holds as expected. In the clinic, we assess deflection angle independently from magnetic field behavior providing first insight onto positive control materials and epicardial lead configurations.
+With the spatial behavior of $B$ and $\nabla B$ explored, we move towards the test object itself and how it physically responds to that field. In the next section, we present the fixture used to measure the actual displacement a small test object experiences (experiment two), record the resulting deflection angle, and use that angle to compare the magnetic force directly against the object's weight. At the same time, we take the measured force and work backwards using the field values to determine (or confirm) the material properties, such as effective susceptibility. This cross-check confirms that the underlying physics holds as expected. In the clinic, we assess deflection angle independently from magnetic field behavior providing first insight onto positive control materials and epicardial lead configurations.
 
 \section{Translational Force Measurement via Angular Deflection}
 \label{sec:Translational}
 \input{MatsNMets/Translational}
 
-Once the translational force and material properties are validated through the combined field mapping and deflection measurements, we turn to the second key interaction, the torque induced by the magnetic field on the test object.
+Once the translational force and material properties are validated through the combined field mapping and deflection measurements, we turned to the second key interaction, the torque induced by the magnetic field on the test object.
 The following section, experiment three, describes the fixture developed to measure this torque with high sensitivity. This includes sensor fabrication and methodology development. We record the induced rotation (or counter-deflection), convert it to torque magnitude, and compare the result against the expected torque from the known field strength and the material properties already confirmed in the translational experiment. 
 
 \section{Torque Measurement via Counter-torque}
