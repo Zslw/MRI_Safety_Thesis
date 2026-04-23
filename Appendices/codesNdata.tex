@@ -1,4 +1,22 @@
 %\input{Appendices/gaussmeterLabVIEW}
+% ============================================================
+% APPENDIX C -- Codes and Data Samples
+% ============================================================
+
+
+This appendix provides representative samples of the raw data collected during
+the field mapping and translational force experiments, included here to
+illustrate the data structure and support reproducibility. The complete datasets,
+along with all analysis code, are available in the GitHub repository documented
+in Appendix~\ref{app:github}. Section~\ref{app:DataStrayField} shows a subset of
+the stray magnetic field measurements recorded along the patient couch during the
+backward pass at the central grid coordinate, corresponding to the data processed
+in Figure~\ref{fig:G6_BvsTime_raw}. Section~\ref{app:DataTrans} shows
+a representative subset of the displacement and field measurements from the
+laboratory translational force experiment, corresponding to the data used to
+produce the susceptibility fit in Figure~\ref{fig:fit}.
+
+
 
 \section{Sample Data for Stray Magnetic Field Mapping Along the Patient Couch (Backward Pass at (0,0))}
 \label{app:DataStrayField}
@@ -9,47 +27,45 @@ Uncertainties: position $\pm 1$ mm (couch display and alignment tolerance), time
 
 \begin{table}[htbp]
 	\centering
-	\footnotesize
-	\begin{tabular}{c c c c c c}
+%	\footnotesize
+	\begin{tabular}{|c| c |c|}
 		\hline
-		z$_{\text{pos}}$ [mm] & x$_{\text{pos}}$ [mm] & y$_{\text{pos}}$ [mm] & time [s] & flux [G] & err\_byte \\
+	 time [s] & flux [G] & err\_byte \\
 		\hline
-		0  & 0 & 0 & 0.25  & 26823 & 64.039 \\
-		0  & 0 & 0 & 0.50  & 26823 & 64.289 \\
-		0  & 0 & 0 & 1.00  & 26822 & 64.788 \\
-		0  & 0 & 0 & 2.00  & 26824 & 65.788 \\
-%		0  & 0 & 0 & 2.75  & 26672 & 66.539 \\
-		0  & 0 & 0 & 3.50  & 24245 & 67.290 \\
-%		0  & 0 & 0 & 4.00  & 22911 & 67.790 \\
-		0  & 0 & 0 & 5.00  & 20287 & 68.791 \\
-%		0  & 0 & 0 & 6.00  & 16493 & 69.789 \\
-		0  & 0 & 0 & 7.00  & 14331 & 70.788 \\
-%		0  & 0 & 0 & 10.00 & 8534  & 73.796 \\
-		0  & 0 & 0 & 12.00 & 5886  & 75.803 \\
-		0  & 0 & 0 & 15.00 & 3563  & 78.807 \\
-%		0  & 0 & 0 & 17.00 & 2529  & 80.804 \\
-		0  & 0 & 0 & 20.00 & 1607  & 83.805 \\
-%		0  & 0 & 0 & 23.00 & 1053  & 86.800 \\
-		0  & 0 & 0 & 25.00 & 794   & 88.798 \\
-%		0  & 0 & 0 & 27.00 & 640   & 90.800 \\
-%		0  & 0 & 0 & 29.00 & 570   & 92.801 \\
-		0  & 0 & 0 & 30.00 & 570   & 93.801 \\
+		0.25  & 26823 & 64.039 \\
+		0.50  & 26823 & 64.289 \\
+		 1.00  & 26822 & 64.788 \\
+		 2.00  & 26824 & 65.788 \\
+%		 2.75  & 26672 & 66.539 \\
+		 3.50  & 24245 & 67.290 \\
+%		 4.00  & 22911 & 67.790 \\
+		 5.00  & 20287 & 68.791 \\
+%		 6.00  & 16493 & 69.789 \\
+		 7.00  & 14331 & 70.788 \\
+%		 10.00 & 8534  & 73.796 \\
+		 12.00 & 5886  & 75.803 \\
+		 15.00 & 3563  & 78.807 \\
+%		 17.00 & 2529  & 80.804 \\
+		 20.00 & 1607  & 83.805 \\
+%		 23.00 & 1053  & 86.800 \\
+		 25.00 & 794   & 88.798 \\
+%		 27.00 & 640   & 90.800 \\
+%		 29.00 & 570   & 92.801 \\
+		 30.00 & 570   & 93.801 \\
 		\hline
 	\end{tabular}
-	\caption[Representative raw data – backward pass at (0,0)]{Subset of measurements from the first retracting translation along the z-axis at isocenter (grid 00). Flux decreases as the probe moves away from the bore entrance. Full dataset (120 rows) and all 15 CSV files were imported into Python with pandas for cleaning, alignment of forward/backward pairs, and numerical computation of the longitudinal gradient $\partial B / \partial z$.}
+	\caption[Representative raw data – backward pass at (0,0)]{Subset of measurements from the first retracting translation along the z-axis at isocenter (grid 00). Flux decreases as the probe moves away from the bore entrance. Full datasets (120 rows) and all 15 CSV files were imported into Python with pandas for cleaning, alignment of forward/backward pairs, and numerical computation of the longitudinal gradient $\partial B / \partial z$.}
 	\label{tab:sampleStrayFieldBackward}
 \end{table}
 
 \section{Sample Data for Translational Force Experiment}
 \label{app:DataTrans}
 
-Table \ref{tab:sampleData} presents a representative subset of the displacement–current dataset used for field–gradient and angle calculations for experiment en section \ref{sec:experiment1}
-Uncertainties: position $\pm 0.05$ mm, current $\pm 0.001$ A.
+Table \ref{tab:sampleData} presents a representative subset of the displacement–current datasets used for field–gradient and angle calculations for experiment at Section \ref{sec:experiment1} shown in Figure~\ref{fig:fit}. Uncertainties: position $\pm 0.05$ mm, current $\pm 0.001$ A.
 
 \begin{table}[h!]
 	\centering
-	\footnotesize
-	\begin{tabular}{c c c c c c c c c}
+	\begin{tabular}{|c |c |c |c |c |c |c |c |c|}
 		\hline
 		N & $x$ [mm] & $I$ [A] & $B_{-0.5}$ & $B_0$ & $B_{+0.5}$ & $dB/dx$ & $\theta$ & $B_0\,dB/dx$  \\
 		\hline

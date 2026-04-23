@@ -1,38 +1,38 @@
 
 %summary of the previous chapters
 
-Usually epicardial leads are labeled \gls{mri}-conditional at best \cite{schaller2021,fda2023testing}. Leaving uncertainties on whether patients with these leads can undergo a \gls{mri} scan, despite the fact that these patient population is more likely to need one. 
+Usually temporary epicardial leads are labeled \gls{mri}-conditional at best, leaving uncertainties on whether patients with these leads can undergo a \gls{mri} scan \cite{schaller2021,fda2023testing}. The physical effects that these leads can potentially experience include, magnetically induced forces and torques, and electrical currents produced by gradient encoders \cite{panych2018}. Chapter \ref{ch:background} presented the fundamental concepts and safety considerations of MRI, while Chapter \ref{ch:matsNmets} detailed the experimental design, instrumentation, and methodologies used in this study. 
 
-The different lead types, uni-polar vs bipolar, materials they are made of, size and configuration, and case by case complications pose a real challenge in the identification and testing of these leads under a \gls{mri} environment. Moreover, the effects on the leads are split by physical interaction. Being three the major concerns RF induced-heating, magnetically induced forces and torques, and electrical currents produced by gradient encoders.
-
-In Chapter \ref{ch:background} an explanation on the physics for the particular case of magnetically induced force and torques is given. Leaning into our methodology which has a three step approach with expected measurement limits. 
-
-For this chapter, we present the results found on each of the experiments parallel to Chapter \ref{ch:matsNmets}, that is Magnetic field mapping, Translational Force Measurements, and Torque measurements. In each of these experiments, the focus is on both laboratory work and clinical work. First, the laboratory work shows the expected behavior in a safe, controllable manner and allows us to predict the results on the clinic. Second, the clinical work will orient us and allow for assumption check and methodology fixes. This changes will be addressed in Chapter \ref{ch:disCon}.
+In this chapter, the results obtained from each experiment are presented and analyzed. Each experiment incorporates both laboratory and clinical measurements. In the laboratory setting, we conducted measurements under controlled conditions to characterize behavior and inform expected clinical outcomes. Clinic measurements were used to validate the methods described on Chapter \ref{ch:matsNmets}. This distinction divides the chapter in three experiment each divided in two with their proper result presentation and interpretation.
 
 %"The fool collects facts; the wise man selects them" %I am the fool
 %past tense
 %what you did and what you found
 \section{Magnetic Field Mapping}
+\label{sec:resMapField}
 \input{Results/magfield}
 
-From the measurements of B and $\nabla$B the translational force experiment follows. The next section (\ref{sec:res_labscale-Translational}) shows the laboratory approach findings. After that, we evaluate the deflection angle in the clinic setting and talk about the significance of bringing this fixture to the clinic.
+Together, these field and gradient maps provide the spatial landscape of the magnetic field to determine the translational force measurements meaning. 
 
 \section{Translational Force}
+\label{sec:resTranslationalForce}
 \input{Results/trasnlational}
 
-The last piece of the assessment is the torque measurement. This time, laboratory work includes sensor calibration leading into in-lab measurements, while clinical observations remain unclear.
+The last piece of the study was the torque measurement. Laboratory work included sensor calibration, with extended details found in Appendix \ref{app:addRes_senCal}. In laboratory measurements, torque was successfully detected, exhibiting the expected quadratic dependence on magnetic field strength ($\tau \propto B^2$). At the clinic, no measurable torque were obtained from positive control samples.
 
 \section{Torque} 
+\label{sec:resTorque}
 \input{Results/torque}
-%from lab to clinic expected torque
 
-\section{Key Findings}
+\section{From the Bench to the Scanner}
 
-All measured translational force ratios remained below the ASTM F2052-15 threshold of 1.0. The custom fixtures successfully resolved micro-Newton-scale effects on lightweight epicardial leads. However, the Medtronic STREAMLINE 6942 lead showed greater pendulum deflection than expected under translational testing, and torque measurem	ents on the small reference cylinder were limited by sensor sensitivity in weak Helmholtz-coil fields. In the clinical 3T environment, full quantitative torque acquisition could not be completed.
+The successful collaboration between Creighton University and \gls{bergan} made possible in-clinic data acquisition on a working 3T Siemens Magnetom\textsuperscript{\texttrademark} scanner. All custom fixtures proved MRI-safe, non-interfering, and functional in the clinical environment. Acquiring real-world translational force and field-mapping data constitutes a significant achievement in itself and validates the entire experimental framework developed in this thesis.
 
-The results can be summarized in sequence as follows. First, magnetic field mapping confirmed the expected decay, with $|B\nabla B|\approx ranging from 13-23$~T$^2$/m at the bore entrance in both laboratory and clinical settings. Next, translational force measurements demonstrated that the epicardial lead produced force ratios $\text{FR}=\tan\alpha < 1.0$, with a maximum deflection of $\alpha\approx 5.3^\circ$. Finally, torque calibration curves were linear, laboratory-scale measurements succeeded, although clinical torque runs were incomplete due to time constraints.
+Mapping the magnetic field for the solenoid in the laboratory confirmed the expected spatial gradient behavior and established that the platform could reliably produce the $B \nabla B$ product needed as input for the force model. The ferromagnetic reference in the pendulum yielded force ratios in range of 0.002–0.012 and a $\chi_m = 17.3$, validating the linear force model and confirming that materials with low susceptibility, such as an epicardial lead, would remain within its linear regime at clinical field strengths. Sensor calibration produced a consistent linear voltage-to-force slope and a minimum detectable torque of 0.12 mN$\cdot$m (5 cm arm). This detection floor was the reference threshold against which all subsequent measurements were evaluated. Trials for induced torque confirmed the $\tau \propto B^2$ dependence for two ferromagnetic rods of different sizes under both Helmholtz coil and neodymium magnet configurations, validating the system and establishing a nonzero torque response as the expected baseline for clinical measurements. 
 
-The successful collaboration between Creighton University and CHI Health CUMC-Bergan Mercy enabled in-clinic data acquisition on a working 3T Siemens Magnetom\textsuperscript{\texttrademark} scanner. All custom fixtures proved MRI-safe, non-interfering, and functional in the clinical environment. Acquiring real-world translational force and field-mapping data constitutes a significant achievement in itself and validates the entire experimental framework developed in this thesis.
-
-Next, Chapter \ref{ch:disCon} includes comprehensive methodological improvements, ASTM-criterion comparisons, and clinical recommendations as a closure for this document.
+ In the clinic, mapping the 3T scanner yielded $B \nabla B$ between 12.68 and 22.95 T$^2$/m at the bore entrance along the vertical points in our fixture, with A6 (nearest the bore top) measurement yielding the highest product. All four \glspl{mut} (Medtronic STREAMLINE\textsuperscript{\texttrademark} 6492 unipolar lead, 316L stainless steel, titanium coil, titanium wire) tested for magnetically induced translational force passed the ASTM F2052-15 criterion (FR $<$ 1.0). The temporary unipolar epicardial lead reached the highest deflection $\alpha = 5.32 \circ$ and force ratio FR = 0.093, a larger-than-anticipated displacement of 9 cm, though still well within the safe regime. The coiled geometry likely contributed to this response, as the titanium coil also deflected more than the straight titanium rod despite identical material, suggesting configuration plays a role beyond bulk susceptibility. The The 316L and titanium references behaved as anticipated from laboratory trials, lending confidence to the measurement chain. That both references were measured in a single trial is a limitation, but it does not undermine their role in that session. 
+ 
+ The field strength experienced at the test position (G6 $B_{0L}$ = 2.67 T) served as the test location input for the extrapolation, which showed allowable gradients of 107 T/m at 1.5 T and 54 T/m at 3.0 T for the unipolar lead, both beyond the scanner's physical maximum of 19 T/m. The torque fixture and its strain-gauge sensor operated without interference in the MRI suite, completing the set of three functional custom instruments in the clinical environment. In the clinical torque run, no measurable torque was obtained from either the titanium or stainless steel samples at B $\approx$ 1.5 T. Given that torque scales with sample volume (Equation \ref{eq:maxtorque}), the small stainless steel piece used is likely to have produced a torque below the characterized detection floor at the available field strength.
+ 
+Next, Chapter \ref{ch:disCon} concludes this study with a discussion of methodological improvements, implications, and future directions as a closure for this document.
 

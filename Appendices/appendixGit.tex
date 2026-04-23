@@ -1,0 +1,91 @@
+% ============================================================
+% APPENDIX F -- GitHub Repository
+% ============================================================
+
+
+This thesis is accompanied by a public GitHub repository containing all analysis
+notebooks, raw experimental data, and publication figures. The repository is
+available at the following URL and is cited throughout this work as
+\cite{juarezluna2025mrisafety}:
+
+\begin{center}
+\url{https://github.com/Zslw/mri-translational-force-n-torque-analysis}
+\end{center}
+
+% If advisor confirms the shared drive reference, replace the paragraph below
+% with the agreed wording. Otherwise delete this comment and the placeholder.
+% PLACEHOLDER: [Advisor to confirm whether and how to reference the BORG shared
+% drive backup copy here.]
+
+Because GitHub repositories are public and editable after submission, this
+appendix serves as the authoritative printed record of what existed at the time
+of publication. Any content added after commit \texttt{8435c9b} is supplementary
+and not part of the reported work.
+
+\vspace{1em}
+
+\begin{table}[h]
+\centering
+	\resizebox{\textwidth}{!}{
+\begin{tabular}{ll}
+\hline
+\textbf{Field} & \textbf{Value} \\
+\hline
+Repository & \url{https://github.com/Zslw/mri-translational-force-n-torque-analysis} \\
+Branch & main \\
+Thesis sync commit & \texttt{8435c9b} \\
+Commit message & Final thesis sync: updated notebooks, figures, and appendix calculations \\
+Date of sync & April 23, 2026 \\
+Scanner & Siemens Magnetom 3T, CUMC-Bergan Mercy, Omaha NE \\
+Device tested & Medtronic STREAMLINE 6492 unipolar temporary epicardial lead \\
+Standards followed & ASTM F2052-15, ASTM F2213-17 \\
+Primary result & FR = 0.093 (alpha = 5.32 deg) -- passes F2052-15 (FR less than 1.0) \\
+\hline
+\end{tabular}
+}
+\caption{Repository archive record at time of thesis submission.}
+\label{tab:github_archive}
+\end{table}
+
+\vspace{1em}
+
+\noindent The following folder inventory describes the contents of the repository
+as they existed at commit \texttt{8435c9b}. All paths are relative to the
+\texttt{JupyterLab/} subfolder, which is the root of the analysis code within
+the repository.
+
+\vspace{0.5em}
+
+\begin{itemize}
+    \item \texttt{BfieldSIM/} -- Solenoid field simulation and gaussmeter mapping
+    notebooks. Produces Figures~\ref{fig:Bz_vs_zSet} on simulation, and~\ref{fig:bfield_time_z} and \ref{fig:gradb_pair} for mapping.
+
+    \item \texttt{Translational/} -- Laboratory translational force experiment.
+    Susceptibility fitting and tan(alpha) vs B times grad B analysis. Produces
+    Figure~\ref{fig:fit}. Includes the STL file for the 3D-printed test object
+    basket (Figure~\ref{fig:leadHolder}).
+
+    \item \texttt{Torque/Calibration/} -- Torque sensor fabrication and calibration
+    data. Results appear in Figure~\ref{fig:bestRod} and
+    Appendix~\ref{app:addRes_senCal}.
+
+    \item \texttt{Torque/MRIForces/} -- Laboratory torque measurements under
+    Helmholtz coil and neodymium magnet fields. Produces
+    Figures~\ref{fig:torque_longerRod} and~\ref{fig:torque_shorterRod}.
+
+    \item \texttt{ClinicalData/MappingBField/} -- Clinical magnetic field mapping
+    pipeline for all fixture coordinates. Produces
+    Figures~\ref{fig:G6_SEP}  and
+    Appendix~\ref{app:addRes_map}.
+
+    \item \texttt{ClinicalData/TranslationalExperiment/} -- ASTM F2052-15 pendulum
+    deflection protocol applied to the epicardial lead and reference samples.
+    Produces Figures~\ref{fig:F2052_FR_vs_position} and~\ref{fig:F2052_max_parison}.
+
+    \item \texttt{ClinicalData/} root -- Cross-analysis notebook linking field
+    mapping and translational results. Produces Figures~\ref{fig:comparison_gradient}
+    and~\ref{fig:comparison_ordinate}.
+
+    \item \texttt{SmallestTorquecalcs.xlsx} -- Spreadsheet for the sample
+    calculations in Appendix~\ref{app:smallestTorque}.
+\end{itemize}

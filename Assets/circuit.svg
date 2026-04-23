@@ -8,7 +8,7 @@
    id="svg79"
    sodipodi:docname="circuit.svg"
    inkscape:version="1.4 (e7c3feb1, 2024-10-09)"
-   inkscape:export-filename="/Users/danieljuarezluna/Documents/Inkscape/circuit.png"
+   inkscape:export-filename="circuit.png"
    inkscape:export-xdpi="300"
    inkscape:export-ydpi="300"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
@@ -26,13 +26,13 @@
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
-     inkscape:zoom="1.2740971"
-     inkscape:cx="357.11565"
-     inkscape:cy="158.93609"
+     inkscape:zoom="0.79815286"
+     inkscape:cx="318.23478"
+     inkscape:cy="85.823159"
      inkscape:window-width="1464"
      inkscape:window-height="894"
      inkscape:window-x="4"
-     inkscape:window-y="33"
+     inkscape:window-y="34"
      inkscape:window-maximized="0"
      inkscape:current-layer="svg79"
      inkscape:export-bgcolor="#ffffffff"
@@ -542,15 +542,14 @@
      style="fill-opacity:0;fill:rgb(0, 0, 0);stroke:rgb(0, 0, 0);stroke-linecap:square;stroke-width:2"
      id="path48" />
   <text
-     x="325"
-     y="226"
-     style="font-family:Arial;font-size:11px;text-anchor:middle"
+     x="355.36597"
+     y="231.84152"
+     style="font-size:11px;font-family:Arial;text-anchor:middle"
      dominant-baseline="baseline"
-     transform="rotate(0, 325, 226)"
-     id="text48">24 MΩ</text>
+     id="text48">160kΩ</text>
   <text
-     x="325"
-     y="214"
+     x="355.36597"
+     y="219.84152"
      style="font-size:11px;font-family:Arial;text-anchor:middle"
      dominant-baseline="baseline"
      id="text49">R<tspan
@@ -909,8 +908,8 @@
      id="text82-9"><tspan
        sodipodi:role="line"
        id="tspan82-8"
-       x="0"
-       y="0">2</tspan></text>
+       x="247.40341"
+       y="39.523232">2</tspan></text>
   <text
      xml:space="preserve"
      style="font-size:26.6667px;font-family:Helvetica;-inkscape-font-specification:Helvetica;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;opacity:0.993115;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1.911;stroke-dasharray:none;stroke-opacity:1"

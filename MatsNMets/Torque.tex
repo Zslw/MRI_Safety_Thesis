@@ -29,48 +29,45 @@ In this case, the sensor is a thin rod bends following the cantilever beam defle
  
 \input{MatsNMets/circuitDesign.tex}
 
-\subsection{In Lab Methodology and Setup}
+\subsection{Laboratory Methodology and Setup - Torque}
 \label{sec:InLab_Torque}
-With transfer arm length (5cm) and sensor position (tip at rulers farther edge) optimized and confirmed, the method for the experiment goes as follows: a increasingly stronger magnetic flied is applied to the test object initially positioned such that it makes a approx 45$^\circ$ angle with the magnetic field. The magnetic field is monitored on each increment and recorded in Gauss using the AlphaLab Inc. Gaussmeter, while the sensor and circuit are paired with a \gls{daq} and computer for voltage measurements.
+With the transfer arm length and the sensor position optimized and confirmed, the method for the experiment goes as follows: an increasingly stronger magnetic field was applied to the test object, initially positioned such that it makes a approx 45$^\circ$ angle with the magnetic field. The magnetic field is measured and recorded using the AlphaLab Inc. Gaussmeter. The test object, experiences a torque given by Equation \ref{eq:maxtorque}, transferring it to the arm. There, it is stopped by the sensor described in section \ref{sec:circuitDesignNsensor}, which measures voltage change proportional to the force it receives from the rotating arm. This voltage reading collection was done using a \gls{daq} card and a computer.
 
-To assess different torque strengths, two test objects of the same material and different lengths were considered. First a long steel solid cylinder of about 20 cm length by  diameter, that way a strong dipole moment could be induced to it, serving as a visual confirmation that the system is working. Second, a smaller cylinder of about 2cm long and same diameter served as the main test object as we aim to measure the smallest magnetically induced torque possible. Following the same logic as in translational experiment this torque scales proportionally following equation \ref{eq:torqueCal}.
- 
-Figures \ref{fig:equipment_list_zoomed} and \ref{fig:torque_compare} show the experimental array. To ensure a wide range of magnetic field strengths capable to interact with both test cylinders we arrange two different sources, a Helmholtz coil and a set of neodymium magnets.
+Figure \ref{fig:equipment_list_zoomed} shows the experimental apparatus. In it each relevant piece is labeled and numbered: (1) and (2) are the power supply and Helmholtz coil generating the magnetic field. (3) the gaussmeter probe, which is connected to a computer. (4) Our circuit. (5) Is the \gls{daq} card, also connected to the same computer. And (6) the main torque fixture with sensor, transfer arm and sample.
 
 \begin{figure}[htb!]
 	\centering
 	\includegraphics[width=0.75\textwidth]{Assets/TorqueSetup.jpeg}
-	\caption[Experimental setup for measuring magnetically induced torque.]{Experimental setup for torque. Includes magnetic field generation and measurement devices, 1 through 4. 5 is the circuit explained in section \ref{sec:circuitDesignNsensor}, 6. is a \gls{daq} system connected to a laptop and 7. is the main device where the dowel subject sits.}
+	\caption[Experimental setup for measuring magnetically induced torque.]{Experimental setup for torque measurements. Includes magnetic field generation and measurement devices, (1) through (3). (4) is the sensor circuit, (5) is the \gls{daq} system connected to a laptop. (6) is the main device where the test object sits.}
 	\label{fig:equipment_list_zoomed}
 \end{figure}
 
-%\subsubsection{Magnetic field conditions}
-For a initial configuration, a permanent-magnet–based torque setup was implemented as shown in Figure \ref{fig:neodymiumset}. This first arrangement employed four neodymium magnets, each magnetized through their thickness, with nominal dimensions of 1/4 in thickness and 5/16 in outer diameter. The magnets were mounted symmetrically on a rigid mechanical frame, with their magnetization axes oriented to produce a static magnetic field across the region occupied by the torque arm. Threaded lateral adjusters and a central support allow controlled positioning and alignment of the magnets relative to the rotating element.
+To assess different torque strengths, two test objects of the same material and different lengths were considered. First a long steel solid cylinder of about 20 cm length and 5 mm diameter was used; this way a strong dipole moment could be induced in it, serving as a visual confirmation that the system is working. Second, a smaller cylinder of about 2 cm long and 5 mm diameter was used; with it we attempted to measure the smallest magnetically induced torque possible. Following the same logic as in the translational experiment this torque scales proportionally. 
 
+%\subsubsection{Magnetic field conditions}
+
+Figure \ref{fig:torque_compare} shows two different setups for magnetic field generation. This was done to ensure a wide range of magnetic field strengths. Initially, a Helmholtz Coil EM‑6722 from PASCO Scientific (Figure \ref{fig:helmholtzsetup}) created a controlled, nearly uniform static magnetic field that could be varied in strength and observed in real time. This Helmholtz coil consist of two identical coils, each wound with 200 turns, they were wired so current flowed in the same direction. They had an inner radius of about 10 cm and outer radius of 10.6 cm, and they sit on a optical base that lets us adjust the center-to-center spacing close to where the field is most uniform (about one diameter apart). The coils used a maximum DC current of 2 A, which we supply with the PASCO Scientific SF-9584 DC power supply to increase the magnetic field incrementally; as current increases, so too does the magnetic flux density between the coils, allowing us to observe corresponding torque changes.
 
 \begin{figure}[hbt!]
 	\centering
-	\subfloat[Four neodymium magnets symmetrically mounted on a rigid frame to generate a static magnetic field across the torque arm. \label{fig:neodymiumset}]{
-		\includegraphics[width=0.45\textwidth]{Assets/neodymiumset.jpeg}
-	}
-	\hfill
-	\subfloat[Helmholtz coil generates a controllable and uniform static magnetic field at the coil center.\label{fig:helmholtzsetup}]{
+	\subfloat[\label{fig:helmholtzsetup}]{
 		\includegraphics[width=0.45\textwidth]{Assets/helmholtzNPole2.jpeg}
 	}
+	\hfill
+	\subfloat[\label{fig:neodymiumset}]{
+		\includegraphics[width=0.45\textwidth]{Assets/neodymiumset.jpeg}
+	}
 	
-	\caption[Two setups used for torque measurements]{Comparison of the two magnetic field generation setups used for torque measurements: (a) a permanent-magnet–based configuration providing a fixed static field, adding more magnets increases the field at the center, and (b) a Helmholtz coil configuration enables controlled variation of magnetic field strength. The coils are driven with equal currents in the same direction to superpose their magnetic fields at the center.}
+	\caption[Two setups used for torque measurements]{Comparison of the two magnetic field generation setups used for torque measurements: (a) Helmholtz coil generates a controllable and uniform static magnetic field at the coil center. The coils are driven with equal currents in the same direction to superpose their magnetic fields at the center. (b) Four neodymium magnets symmetrically mounted on a rigid frame to generate a static magnetic field across the torque arm. Adding more magnets increases the field at the center. }
 	\label{fig:torque_compare}
 \end{figure}
 
-A second setup (Figure \ref{fig:helmholtzsetup}) utilized Helmholtz Coils EM‑6722 from PASCO Scientific to create a controlled, nearly uniform static magnetic field that could be varied in strength and observed in real time. These Helmholtz coils consist of two identical coils, each wound with 200 turns, they were wired so current flowed in the same direction. They had an inner radius of about 10.06 cm and outer radius around 10.58 cm, and they sit on a optical base that lets us adjust the center-to-center spacing close to where the field is most uniform (about one diameter apart). The coils used a maximum DC current of 2 A, which we supply with the PASCO Scientific SF-9584 DC power supply to increase the magnetic field incrementally; as current increases, so too does the magnetic flux density between the coils, allowing us to observe corresponding torque changes on our contraption.
-
-
+Figure \ref{fig:neodymiumset} shows a second setup, a set of neodymium magnets. The magnets were mounted symmetrically on a rigid mechanical frame, with their magnetization axes oriented to produce a static magnetic field across the region occupied by the torque arm. Threaded lateral adjustment screws and a central support allow controlled positioning and alignment of the magnets relative to the rotating element. Each magnet came magnetized through their thickness, with nominal dimensions of 1/4 in thickness and 5/16 in outer diameter. 
 
 \subsection{In Clinic Measurement -  Torque}
+\label{sec:clinicTorque}
 
-During the single clinical session while the translational force measurements were underway, the additional equipment for torque assessment was prepared in parallel. The custom torque fixture was assembled, integrating the torque sensor with lightweight balanced lever arms, as shown in Figure \ref{fig:clinicTorque}.
-
-The measurement circuit and data acquisition (\gls{daq}) system were set up and connected adjacent to the acquisition computer in the \gls{mri} control room. Connections included power supply to the \gls{daq}, 5V output from the \gls{daq} to the sensor circuit, differential signal lines (plus and minus) for torque readout, \gls{daq}-to-USB interface for real-time logging, and a 10,m extension cable routed from the sensor through the waveguide/port in the wall. following the same pathway previously used for the gaussmeter probe.
+The custom torque fixture was assembled, integrating the torque sensor with lightweight balanced lever arms on the patient couch, as shown in Figure \ref{fig:clinicTorque}. The circuit and data acquisition (\gls{daq}) card were set up and connected adjacent to the acquisition computer in the \gls{mri} control room. Similar to the gaussmeter probe, a 10,m extension cable was routed from the sensor in the MR suite through the waveguide/port in the wall into the control room.
 
 \begin{figure}[htb!]
 	\centering
@@ -79,9 +76,9 @@ The measurement circuit and data acquisition (\gls{daq}) system were set up and 
 	\label{fig:clinicTorque}
 \end{figure}
 
-Once fully connected, the sensor input was functionally tested by applying gentle manual pressure against the lever arm, confirming that deflection produced a clear signal response before entering the scanner room. The assembled fixture was then positioned on the patient table and aligned to scanner isocenter using the built-in room lasers, with the zero-torque reference position permanently marked using tape on the couch surface for positional reproducibility across trials.
+Once fully connected, the sensor input was functionally tested by applying gentle manual pressure against the lever arm, confirming that deflection produced a clear signal response before entering the scanner room. The assembled fixture was aligned to scanner isocenter using the built-in room lasers, with the zero-torque reference position permanently marked using tape on the couch surface for positional reproducibility across trials.
 
-Trials commenced with cylinder-shaped samples of non-magnetic stainless steel (316L) and titanium mounted on the lever arms. The rods were oriented to maximize potential rotational response relative to the fringe field gradient, and the couch was incrementally advanced toward the bore entrance to expose the samples to increasing field strength and gradient. Results were documented manually where possible, with refinement planned based on the encountered limitations. 
+Trials commenced with cylinder-shaped samples of non-magnetic stainless steel (316L) and titanium mounted on the lever arms. The rods were oriented to maximize potential rotational response relative to the fringe field gradient, and the couch was incrementally advanced toward the bore entrance to expose the samples to increasing field strength and gradient. 
 
 %Torque measurements were conducted ensuring consistency and reproducibility. Prior to setup, both researchers confirmed that all personal belongings and ferromagnetic items had been removed from their pockets. The \gls{lvi} was opened with the necessary parameters configured, and the \gls{dac} was powered on.  A 10-meter jumper wire was connected to the \gls{dac} and integrated into the circuit, with the computer system interfaced to the \gls{dac} for real-time data collection. 
 

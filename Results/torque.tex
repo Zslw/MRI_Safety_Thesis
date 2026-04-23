@@ -1,70 +1,54 @@
-Parallel to section \ref{sec:metsTorque}, we split this section into three pieces, first the results yielded by our sensor-circuit system calibration, then the in-lab work and at last the clinical findings.
-
-\subsection{Sensor Calibration}
-\label{sec:calResult}
-
-\input{Results/sesorcal}
+In parallel with Section \ref{sec:metsTorque}, this section is divided into laboratory and clinical work. This experiment has its bases on applying a magnetic field to a sample that is free to rotate on a low friction surface and align with the magnetic field $B_0$. The sample experiences a torque given by Equation \ref{eq:maxtorque} and the counter-force applied by the level arm is measured in our sensor as voltage change.
 
 \subsection{Torque from Lab scale magnet}
+\label{sec:restorqueLab}
 
-As described in section \ref{sec:InLab_Torque}, torque measurements were performed under two different experimental configurations. When a small uniform magnetic field was applied using Helmholtz coils, the torque produced by the short (2 cm) magnetic test cylinder remained at or below the detection limit of the measurement system. Only the longer rod yielded reliable results. Figure \ref{fig:torque_longerRod} shows the maximum torque (N m) against the magnetic flux experimental data (in blue) exhibiting a parabolic dependence on $  B  $. The data was fit to a full parabola and a zero intercept parabola with the objective to assess the circuit's tare contribution.
+The aluminum-based sensor was calibrated prior to any experiment following methodology described in Section \ref{sec:sensorCal}. Figure \ref{fig:bestRod} shows the resulting calibration curve, from which the slope was obtained in units of V/N.
 
 \begin{figure}[htb!]
 	\centering
-	\includegraphics[width=0.95\textwidth]{Assets/fig_torque_LR.png}
-	\caption[Torque vs. magnetic field strength for the longer cylinder under Helmholtz coils]{Maximum measured torque in mNm as a function of applied magnetic flux density in mB for the longer cylinder under a Helmholtz coil configuration. On the left, a zero intercept fit. Right, a full quadratic fit.}
+	\includegraphics[width=0.85\textwidth]{Assets/bestRodfit.png}
+	\caption[Calibration results for low-torque aluminum rod]{Calibration of aluminum sensor for masses ranging from 0 to 200 mg.}
+	\label{fig:bestRod}
+\end{figure}
+
+The smallest measurable force the instrument can be determined from the inverse of the slope $k = 1/m = 1/3.64 = 0.275 N/V$. Given a minimum measurable voltage was $\Delta V = 0.000885$, the smallest measurable weight was $W_{min} = 0.243\pm 0.003 \text{mN}$,corresponding to minimum measurable torque $\tau_{min} = 0.012 \pm 0.002$ mN $\cdot$m for the 5 cm transfer arm.
+
+As described in Section \ref{sec:InLab_Torque}, torque measurements were performed under two different experimental configurations. First, an anti-Helmholtz coil configuration that increases magnetic field strength at its center with varying current. Second, a set of neodymium magnets which field strength is controlled by distance and number of magnets. Both measured with gaussmeter.
+
+When a very small uniform magnetic field ranging from 0.335 to 3.85 mT was applied using Helmholtz coils, the torque produced by the short (2 cm) ferromagnetic test cylinder remained at or below the detection limit of the measurement system. Only the longer rod yielded reliable results under a similar magnetic field range (0.36 to 2.825 mT). Figure \ref{fig:torque_longerRod} shows the maximum torque measured against the magnetic flux, exhibiting a quadratic dependence on $  B  $. The data was also fit to a second order polynomial, however the extra fitting parameters did not significantly improved the fit. The dominant quadratic term ($  k B^2  $) is in agreement with the theoretical expectation for the torque on a magnetic dipole in a uniform field, where $  \tau \propto B^2  $.
+
+\begin{figure}[htb!]
+	\centering
+	\includegraphics[width=0.65\textwidth]{Assets/fig_torque_LR.png}
+	\caption[Torque vs. magnetic field strength for the longer cylinder under Helmholtz coils]{Maximum measured torque in mN$\cdot$m as a function of applied magnetic flux density in mB for the longer cylinder under a Helmholtz coil configuration. On the left, a zero intercept fit. Right, a full quadratic fit.}
 	\label{fig:torque_longerRod}
 \end{figure}
 
-First with zero intercept, $k    = +379.36  \pm  8.6277 (2.3\%)$ while the full quadratic fit yielded, $k = 386.55 \pm 49.7 (12.9\%)$, $b = -0.054631$ and $V_0 = 8.40 \times 10 ^{-5}$. The dominant quadratic term ($  k B^2  $) is in agreement with the theoretical expectation for the torque on a magnetic dipole in a uniform field, where $  \tau \propto B^2  $. The linear coefficient $  b  $ is very small and statistically consistent with zero within uncertainty, while the offset $  V_0  $ is negligible, confirming the absence of significant systematic bias for this measurement. All fitting parameters are in SI units no scaling. 
+Because of the difficulty quantifying torque for the short cylinder (2 cm) under the low magnetic field from the Helmholtz coil, a second set of measurements was performed using significantly stronger magnetic fields generated by four neodymium magnets. Figure \ref{fig:torque_shorterRod} shows a polynomial relationship. In that case, notice that the 
+measured values required approximately an order of magnitude larger torque to reach higher magnetic fields (roughly 1.5–2×) compared to those in Figure \ref{fig:torque_longerRod}.
 
-Because of the difficulty quantifying torque for the short cylinder (2 cm) under the Helmholtz coil, a second set of measurements was performed using significantly stronger magnetic fields generated by four neodymium magnets. Figure \ref{fig:torque_shorterRod} shows a parabolic relationship. Notice that the values on torque are smaller for higher magnetic fields.
+%The first dataset (SR) requires approximately an order of magnitude larger x to reach y values that are only modestly higher (roughly 1.5–2×) compared to the second dataset (LR).
 
 \begin{figure}[htb!]
 	\centering
-	\includegraphics[width=0.95\textwidth]{Assets/fig_torque_SR_neo.png}
-	\caption[Torque dependence on magnetic field strength for 2 cm cylinder under neodymium magnet fields]{Maximum torque in mNm as a function of applied magnetic flux density in mT for the shorter (2cm) magnetic cylinder under stronger uniform fields (Neodymium magnets). Blue points is the experimental measurements while orange curve represents a quadratic fit. On the left, a zero intercept fit. Right, a full quadratic fit.}
+	\includegraphics[width=0.65\textwidth]{Assets/fig_torque_SR_neo.png}
+	\caption[Torque dependence on magnetic field strength for 2 cm cylinder under neodymium magnet fields]{Maximum torque as a function of applied magnetic flux density for a 2 cm long ferromagnetic cylinder under stronger fields (Neodymium magnets). Blue points is the experimental measurements while orange curve represents a polynomial fit. On the left, a zero intercept fit. Right, a full quadratic fit.}
 	\label{fig:torque_shorterRod}
 \end{figure}
 
-This time the fits yielded, a zero intercept $k = +7.008  \pm  0.2403 (3.4\%)$ and full parabola parameters $k = +17.547 \pm 3.274 (18.7\%)$, $b = -0.44248$ and $V_0 = +4.36 \times 10 ^{-3}$. When a non-zero offset $V_0$ is present the zero intercept model absorbs part of the offset into $k$, biasing it downward. When $V_0$ is genuine noise both models give equivalent information.
-% The $k$ discrepancy on the short cylinder data motivates a circuit improvement.
+The zero-intercept fit yielded $k = 7 \pm 0.2 (3.4\%) \text{N}\cdot\text{m/T}^2$, consistent with the quadratic dependence observed for the long rod. The three-parameter fit returned a comparable $k =  18 \pm 3.27 (18.7\%) \text{N}\cdot\text{m/T}^2$ but with a linear coefficient b and offset $\tau_0$ both carrying uncertainties above 29\%, indicating these terms are not statistically significant. The zero-intercept model is therefore sufficient to describe both datasets.
 
-The resulting $\chi_m$ values (56–113) fall in the ferromagnetic steel range ($\chi_m$ ~ $10\times^2$–$10\times^4$), consistent with the observed reaction to permanent magnets. 
+Both configurations confirm that the sensor resolves the expected $\tau \propto B^2$ dependence, validating the measurement system prior to the clinical session, whose results are described in the next section.
 
-%The factor-of-two spread between long- and short-rod estimates reflects cumulative systematic uncertainty (initial angle, field uniformity in the neodymium setup, possible grade differencebetween rods) and should not be over-interpreted as a precise material property.
-
-For completeness, the results for the magnetic susceptibility $\chi_m$ are summarized on Table \ref{tab:rodSusceptibility} below.
-
-\begin{table}[hbt!]
-	\centering
-	\caption[Magnetic susceptibility of long and short steel cylinder]{Fitted constant $k$ and magnetic susceptibility $\chi_m$ for the long ($L = 22$\,cm) and short ($L = 2$\,cm) rods using two fitting models. All rods have diameter $d = 0.05$\,mm.}
-	\begin{tabular}{|l|l|c|c|}
-		\hline
-		Sample & Model & $k$ (N/m) & $\chi_m$ \\
-		\hline
-		Long rod  & Zero-Intercept        & $379.36 \pm 8.63$  & $220.72 \pm 5.02$ \\
-		($V = 4.320\times10^{-6}$\,m$^3$) & Quadratic & $386.55 \pm 49.73$ & $224.90 \pm 28.94$ \\
-		\hline
-		Short rod  & Zero-Intercept        & $7.008 \pm 0.240$  & $44.85 \pm 1.54$ \\
-		($V = 3.927\times10^{-7}$\,m$^3$) & Quadratic & $17.547 \pm 3.274$ & $112.30 \pm 20.95$ \\
-		\hline
-	\end{tabular}
-	\label{tab:rodSusceptibility}
-\end{table}
-
-
-
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Torque from 3T Siemens Magnetom\textsuperscript{\texttrademark} MRI scanner}
 
-Once in a clinical environment, both the circuit and the \gls{mri}-safe torque measuring fixture were functioning properly and circuit calibration was appropriate for clinical measurements. Based on the magnetic field map acquired in the same session (Section~\ref{sec:FieldGeneration}), the maximum field experienced by the samples during the closest positioning was approximately $B \approx 0.5$ T at $\sim$0.4 m from the bore face.
+In the clinic, the torque fixture was positioned on the scanner couch and samples were advanced toward the bore entrance following the same couch travel path described in Section~\ref{sec:clinicTorque}. The fixture pole was aligned to maximize the expected torque response, with samples free to rotate against the sensor arm. Both the circuit and the \gls{mri}-safe torque measuring fixture were verified to be functioning properly and circuit calibration was appropriate for clinical measurements. Based on the magnetic field map acquired in the same session (Section~\ref{sec:resClinic_map}), the maximum field experienced by the samples during the closest positioning was approximately $B \approx 1.5$ T at $\sim$0.2 m from the bore entrance.
 
-Two types of cylindrical rod samples were tested. One type exhibited a clear response when brought near a strong permanent magnet prior to the session, suggesting a ferromagnetic contribution. The other showed no such response, suspected to be  a weakly paramagnetic or diamagnetic material. However, neither type produced any perceptible or sensor-measurable torque deflection at any position along the couch travel path.
+Prior to mounting samples on the fixture, a qualitative assessment was performed by manually bringing cylindrical samples of titanium and stainless steel near the bore entrance. A slight but perceptible attraction was felt on the stainless steel sample, consistent with its ferromagnetic response observed before the session. The titanium sample produced no such response.
 
-No torque-induced angular shift was detected on the sensor readout for either sample type across all positioning attempts. The signal remained within the noise baseline throughout, with no systematic deflection observed as field strength increased.
-
-The absence of a measurable response is not readily explained by the sensor detection limit alone. The smallest torque resolved by the sensor in calibration was $\tau_{\rm min} = {1.24e-5}{N\cdot m}$ (Section~\ref{sec:calResult}). For a ferromagnetic cylinder of approximately 20 cm length and 4 mm diameter positioned at 0.5 T, the predicted torque from the scaling analysis exceeds $\tau_{\rm min}$ by several orders of magnitude. The null result therefore requires further investigation, and possible explanations are addressed in Chapter~\ref{ch:disCon}.
+Neither sample produced a sensor-measurable torque deflection when mounted on the fixture at the maximum measured field strength position. The signal remained within the noise baseline throughout. The stainless steel sample used in the fixture was the same small piece from the translational experiment. Absence of a signal might be related to the sample dimensions falling below the effective detection threshold at the available field strength given that torque is related to volume by Equation \ref{eq:maxtorque}. Possible explanations and implications for sample selection are addressed in Chapter~\ref{ch:disCon}.
 
 \FloatBarrier

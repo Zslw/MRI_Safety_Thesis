@@ -26,25 +26,34 @@ Noting that this solution is independent of the point of attachment of the strin
 	\label{eq:translationalForce}
 \end{equation}
 
-By comparing the magnetic force to the gravitational force ($F_g = m g$) the safety condition arises. If the device deflects less than $\alpha$ 45$^\circ$, then the magnetically induced deflection force is less than the force on the device due to its weight \cite{astmF2052}. This formulation explains why the measured deflection angle $\alpha$ (and thus $F_m$) depends not on $\chi$ or $B_0$ independently, but on their product. Practically, this insight justifies the lab methodology. Although magnets in our lab, a solenoid or neodymium magnets, generate small magnetic fields (only about 20 to 300 Gauss), we can use samples with proportionaly larger $\chi_m$ to replicate clinically relevant force-to-weight ratios ($F_m / F_g$). An estimation for the expected $\chi_m$ can be found on appendix \ref{app:scaling} and summarized in table \ref{tab:chi_scaling}.
+The safety condition is found by comparing the magnetic force to the gravitational force ($F_g = m g$). If the device deflects less than $\alpha$ 45$^\circ$, then the magnetically induced deflection force is less than the force on the device due to its weight \cite{astmF2052}. This formulation explains why the measured deflection angle $\alpha$ (and thus $F_m$) depends not on material properties or field conditions independently, but on their product. Although magnets in our laboratory, a solenoid or neodymium magnets, generate small magnetic fields (only about 30 to 300 Gauss), we can use samples with proportionally larger $\chi_m/\rho$ to replicate clinically relevant force-to-weight ratio or \gls{fr} (tan($\alpha$)). An estimation for the expected $\chi_m/\rho$ of a material in the clinic to produce a set deflection of 1 cm can be found on appendix \ref{app:scaling} and summarized in Table \ref{tab:chi_scaling}.
 
 %From equation (\ref{eq:forFit}), 
-The measurable magnetic deflection depends on the ratio between the mechanical term and the magnetic force term. To reproduce the same deflection, 1 cm, at laboratory field strengths much smaller than those in MRI systems, the product must be preserved. Because $B_0 \nabla B_0 \propto B^2_0$ for a geometrically similar field, scaling the field down by a factor of  $10^2$ requires increasing the sample’s effective susceptibility by roughly $10^4$ to maintain the same mechanical response.
+The measurable magnetic deflection depends on the ratio between the mechanical term and the magnetic force term. To produce a deflection of 1 cm at 3T given known laboratory conditions, the product of $\chi_m/\rho$ and $B\cdot\nabla B$must be preserved. Scaling the field down by a factor of $10^{3}$ requires increasing the sample’s effective susceptibility by roughly $10^{5}$ to maintain the same mechanical response.
 
-\begin{table}[htb]
+\begin{table}[hbt!]
 	\centering
-	\caption[Representative susceptibility scaling for laboratory solenoid fields.]{Values indicate the minimum magnetic susceptibility required to produce a measurable angular deflection (~1 cm over 1 m) under reduced field conditions (30–300 G and 3T), assuming a material density of ~7000 $kg/m^3$.}
+	\caption[Representative susceptibility scaling for laboratory fields.]{%
+		Minimum $\chi_m/\rho$ and corresponding $\chi_m$ required to produce
+		a measurable deflection ($\tan\alpha = 0.01$, i.e.\ 1\,cm over a 1\,m
+		string) under reduced field conditions, computed from the on-axis
+		solenoid model at each field strength. The 3\,T row uses the ASTM
+		F2052 cited upper bound \cite{astmF2052}. Laboratory rows use a
+		bench solenoid geometry ($R=5$\,cm, $L=20$\,cm), evaluated at the
+		maximum-sensitivity location near the coil exit.
+		Reference density $\rho = 7900$\,kg/m$^3$ for common steel.}
 	\label{tab:chi_scaling}
-	\begin{tabular}{|c|c|c|c|}
+	\begin{tabular}{|l|c|c|cl|}
 		\hline
-		$B_0$ (T) & $B\nabla B$ (T$^2$/m) & $\chi/\rho$ (m$^3$/kg) & $\chi_m$ (-) \\
+		Condition & $B_0\,\nabla B_0$ (T$^2$/m) & $\chi_m/\rho$ (m$^3$/kg) & \multicolumn{2}{c|}{$\chi_m$} \\
 		\hline
-		$3.0 \times 10^{-3}$ & $1.707 \times 10^{-5}$ & $7.21 \times 10^{-3}$ & $5.05 \times 10^{\phantom{-}1}$ \\
-		$3.0 \times 10^{-2}$ & $1.707 \times 10^{-3}$ & $7.21 \times 10^{-5}$ & $5.05 \times 10^{-1}$ \\
-		$3.0 \times 10^{\phantom{-}0}$  & $1.707 \times 10^{\phantom{-}1}$  & $7.21 \times 10^{-9}$ & $5.05 \times 10^{-5}$ \\
+		3\,T clinical (ASTM F2052)  & $4.80\times10^{\phantom{-}1}$  & $2.57\times10^{-9}$ & $\approx$ & $ 1.8\times10^{-5}$ \\
+		3\,T model (ideal solenoid) & $9.76\times10^{\phantom{-}0}$ & $1.26\times10^{-8}$ & $\approx$ & $ 8.8\times10^{-5} $ \\
+		300\,G lab (bench solenoid) & $6.09\times10^{-3}$ & $2.02\times10^{-5}$ & $\approx$ & $ 0.16 $ \\
+		30\,G lab (bench solenoid)  & $6.09\times10^{-5}$ & $2.02\times10^{-3}$ & $\approx$ & $ 15.98$  \\
 		\hline
 	\end{tabular}
 \end{table}
 
-For typical solenoids producing 30–300 G, the factor of $\chi_m/\rho$ spans from approximately one hundred-thousandth to one-thousandth of that found in ferromagnetic materials. Consequently, to appropriately mimic translational forces under these laboratory conditions, a realistic value of $\chi_m$ for a substitute should lie between one and ten. For example, a nonmagnetic stainless steel wire ($\chi_m \approx 10^{-4}$) might show a magnetic force of 30\% of the object's weight, whereas ferromagnetic metals like nickel can exceed two million percent. That is more than enough to become dangerous projectiles unless restrained \cite{aboyewa2021,Woods2021_MRIdisplacement,panych2018}.
+For typical solenoids producing 30–300 G, the factor of $\chi_m/\rho$ spans from approximately ten-thousandth to one-thousandth of that found in ferromagnetic materials. Consequently, to appropriately mimic translational forces under these laboratory conditions, a realistic value of $\chi_m$ for a substitute should lie between one and ten. For example, a nonmagnetic stainless steel wire ($\chi_m \approx 10^{-4}$) might show a magnetic force of 30\% of the object's weight, whereas ferromagnetic metals like nickel can exceed two million percent \cite{panych2018,Woods2021_MRIdisplacement,aboyewa2021}. That is more than enough to become dangerous projectiles unless restrained .
 

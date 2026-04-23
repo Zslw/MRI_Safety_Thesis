@@ -1,4 +1,4 @@
-\subsection{Sensor and Circuit Design for Torque Measurements}
+\subsubsection{Sensor and Circuit Design for Torque Measurements}
 \label{sec:circuitDesignNsensor}
 
 The sensor was paired with an amplifier circuit, made following the ideas described in Chiu \textit{et al.}(2016)\cite{Chiu2016CharacterizationOA}. For our use case the sensor was fabricated from different non-magnetic materials to assess which would make the better sensor. 
@@ -6,7 +6,7 @@ The sensor was paired with an amplifier circuit, made following the ideas descri
 %This work predates this document and exists only as lab-notebook entries and circuit sketches. Relevant portions are included both as documentation and as the starting point for the retesting and characterization carried out.
 
 %\subsubsection{Sensor Design}
-The sensor is formed by the beam and a pair of $\text{OMEGA}^{\text{\tiny \textregistered}}$ precision strain gauges (SGD-3/350-LY11) \cite{omega_SGD_LINEAR1_AXIS}. These strain gauges were epoxied on opposite sides of the rod around 3 to 5 cm from its end, depicted in Figure \ref{fig:cantilever3d}. The strain gauges are part of a Half-Wheatstone bridge configuration and are connected to the circuit with soldered jumper wires.%, described in Section \ref{sec:circuit}. 
+The sensor is formed by the beam and a pair of $\text{OMEGA}^{\text{\tiny \textregistered}}$ precision strain gauges (SGD-3/350-LY11) \cite{omega_SGD_LINEAR1_AXIS} with Gauge Factor $G_F =2 \pm5\%$ \cite{omega_strain_gage_installation}. These strain gauges were epoxied on opposite sides of the rod around 3 to 5 cm from its end, depicted in Figure \ref{fig:cantilever3d}. The strain gauges are part of a Half-Wheatstone bridge configuration and are connected to the circuit with soldered jumper wires.%, described in Section \ref{sec:circuit}. 
 
 \begin{figure}[hbt!]%{R}{0.48\textwidth}
 	\centering
@@ -19,13 +19,6 @@ The sensor is formed by the beam and a pair of $\text{OMEGA}^{\text{\tiny \textr
 
 Figure \ref{fig:rods} shows a sample set of seven beam force sensors which were produced in the laboratory. The beam materials included glass, aluminum, titanium and two types of plastic. Table \ref{tab:rods} summarizes their characteristics. They were made of similar sizes to test repeatability. %Two of the seven available sensors were found to be irreparably damaged, so no further measurements were possible on them.
 
-\begin{figure}[hbt!]
-	\centering
-	\includegraphics[width=0.4\textwidth]{Assets/rods.png}
-	\caption[Rod used in the experiment]{Rods fabricated during the torque experiment design. From left to right, (7) Clear Plastic, (6) Yellow plastic, (5) Glass, (4) Titanium, (3) Aluminum}
-	\label{fig:rods}
-\end{figure}
-
 \begin{table}[htb!]
 	\centering
 	\caption{Characteristics of the sensor rods.}
@@ -33,18 +26,25 @@ Figure \ref{fig:rods} shows a sample set of seven beam force sensors which were 
 	\begin{tabular}{llll}
 		Rod ID & Material & Diameter (mm) & Length (mm) \\
 		\hline
-		1 & Aluminum (Al)& 1.6 & 145  \\
-		2 & Al & 1.6 & 182 \\
-		3 & Al & 1.6 & 182  \\
-		4 &  Titanium & 1.02 & 220 \\
-		5 &  glass & 3.2 & 166.00 \\
-		6 & yellow plastic & 1.6 & 220 \\ 
-		7 &  clear plastic & 2.9 & 180 \\
+		%1 & Aluminum (Al)& 1.6 & 145  \\
+		(1) &  Clear plastic & 2.9 & 180 \\
+		(2) & Aluminum & 1.6 & 182 \\
+		%3 & Al & 1.6 & 182  \\
+		%4 &  Titanium & 1.02 & 220 \\
+		(3) &  Glass & 3.2 & 166.00 \\
+		%6 & yellow plastic & 1.6 & 220 \\ 
+		
 	\end{tabular}
 	
 \end{table}
-%\footnotetext[1]{This rod was originally stored on a spool and had to be straightened manually. That process introduced micro-cracks, so the material no longer behaved elastically and deviated from Hooke’s law.}
-%\footnotetext[2]{This rod was discovered broken in the circuitry and was noticeably bent, indicating the need for full refabrication.}
+
+\begin{figure}[hbt!]
+	\centering
+	\includegraphics[width=0.75\textwidth]{Assets/rods2.jpeg}
+	\caption[Rod used in the calibration process]{Rods fabricated during the torque experiment design: (1) Clear Plastic, (2) Aluminum, (3) Glass.}
+	\label{fig:rods}
+\end{figure}
+
 On the other hand, the circuit prototype of Chiu \textit{et al.}(2016), shown in Figure \ref{fig:torqueCircuit} hav four main sections: the Wheatstone bridge, the amplifier, a low pass filter and the ground offset potentiometers. The potentiometers were an addition to the original design. A Kirchhoff analysis for the first two sections yielded the transmission function.
 
 \begin{figure}[htb!]
@@ -59,7 +59,7 @@ On the other hand, the circuit prototype of Chiu \textit{et al.}(2016), shown in
 	\frac{V_{out}}{V_{in}} = \frac{R_{FEEDBACK}}{R} \frac{S_2 - S_1}{S_2 + S_1} + \frac{S_2}{S_2 + S_1},
 \end{equation}
 
-\noindent where $R = R_1 = R_2$, $S_1$ and $S_2$ are the strain gauge variable resistance input (or signal coming from the sensor) and $R_{FEEDBACK}$ is the feedback loop needed for amplification. The output voltage of the circuit is driven by the relative difference between the two strain gauges compared to their total resistance. The operational amplifier multiplies this small imbalance by the gain factor $\frac{R_{FEEDBACK}}{R}$. The bridge sets a baseline through the voltage division
+\noindent where $R = R_1 = R_2$, $S_1$ and $S_2$ are the strain gauge variable resistance input (or signal coming from the sensor) and $R_{FEEDBACK}$ is the feedback loop needed for amplification. The output voltage of the circuit is driven by the relative difference between the two strain gauges compared to their total resistance. The operational amplifier multiplies this small imbalance by the gain factor $\frac{R_{FEEDBACK}}{R}$, in our circuit $\frac{160k\omega}{1k\omega} = 160$. The bridge sets a baseline through the voltage division
 $
 \frac{S_2}{S_2 + S_1},
 $
@@ -87,15 +87,13 @@ Both potentiometers are connected in series, forming a programmable voltage divi
 \end{equation}
 
 
-\noindent so sweeping the fine pot moves \(R_{2}\) over a narrow range(\(\sim 0\)–\(1~\text{k}\Omega\)), which shifts the reference only within a small, controllable window. The coarse pot changes the large \(R_{1}\) segment (\(\sim 10~\text{k}\Omega\)), expanding or collapsing the overall span. 
+\noindent so sweeping the fine pot moves \(R_{2}\) over a narrow range(\(\sim 0\)–\(1~\text{k}\Omega\)), which shifts the reference only within a small, controllable window. The coarse pot changes the large \(R_{1}\) segment (\(\sim 10~\text{k}\Omega\)), expanding or collapsing the overall span. Connections for this circuit included power supply to a \gls{daq} card, 5V output from the \gls{daq} card to the circuit, differential signal lines (plus and minus) for torque readout, \gls{daq}-to-USB interface for real-time logging, and a 4-pin connection for sensor input.
 
 Understanding both the strain at the sensor and the electrical physics of the circuit enables identification of the measurement device's capabilities. We now proceed to validate our sensor construction against the reference provided by Chiu \textit{et al.} (2016)\cite{Chiu2016CharacterizationOA}.
 
 \input{MatsNMets/smallest_torque.tex}
 
-Now we turn to experimentally quantifying the relationship between applied force (or weight) and the voltage output from our system.
-
-\subsection{Sensor Calibration}
+\subsubsection{Sensor Calibration}
 \label{sec:sensorCal}
 
 Prior to any torque measurement, each sensor or rod from Table \ref{tab:rods} was tested or calibrated to accomplish two things: ensure the use of the most sensitive sensor and to acquire the conversion factor or slope of voltage to weight. Additionally, the orientation and position of the rods was tested to ensure optimal values on these parameters for torque measurements.
@@ -110,17 +108,18 @@ For calibration in the lab, the sensor was set in a cantilever position as shown
 	\label{fig:boat}
 \end{figure}
 
-The sensor voltage vs. water mass was plotted and fit to a line to determine the calibration constant. This was done using python \texttt{Pandas} library in a Jupyter notebook and is publicly available \cite{juarezluna2025mrisafety}. This determine the signal resolution. The system is linearly calibrated by applying known weights to the free end of the cantilever, yielding the expected relationship
+The sensor voltage vs. water mass was plotted and fit to a line to determine the calibration constant. This was done using python \texttt{Pandas} library in a Jupyter notebook and is publicly available \cite{juarezluna2025mrisafety}. 
 
-\begin{equation}
-	\Delta V = k \Delta W
-	\label{eq:torqueCal}
-\end{equation}
 
-\noindent where k, the slope of fit, is the calibration factor between voltage change ($\Delta V$) into the corresponding change in applied force ($\Delta W$ Weight).
+To find the best position for the sensor, the sensor was reoriented from its cantilever configuration to an upright (vertical) position on the main fixture. A pair of neodymium magnets was positioned above the ceramic bearing to provide a localized magnetic field, and a platform angled at 45$^\circ$ was used to position the sensor relative to the field source. The radial distance from the field source ($r$) and the effective contact position along the rod length ($L$) were varied independently, as illustrated in Figure \ref{fig:uprightTorque}. Radial measurements were performed by translating the sensor inward from approximately 90 mm to 50 mm relative to the magnetic source, while axial measurements were conducted independently by varying the contact point along the rod length. 
 
-%can be found, see Section \ref{sec:calResult}.
+\begin{figure}[htb!]
+	\centering
+	\includegraphics[width=0.45\textwidth]{Assets/troqueStand.jpeg}
+	\caption[Upright torque calibration setup]{(1) Circuit and (2) sensor mounted on a (3) translation stage angled 45$^\circ$ relative to the (4) fixture pole. In this configuration, the sensor is held upright to vary the contact point with the transfer arm in two ways: axially along the sensor length $L$ (red) and radially along the transfer arm length $r$ (blue). A pair of (5) neodymium magnets is positioned above to generate a constant magnetic field at the bearing.}
+	\label{fig:uprightTorque}
+\end{figure}
 
-Then, in order to find the best position for sensor we set the following experiment, a set of neodymium magnets were aligned to the ceramic bearing to get a static magnetic field, and a platform angled at 45$^\circ$ carried the sensor as we moved it inwards. From section \ref{sec:torqueBG}, it was shown that the maximum torque appears at this angle. Then we tested for the optimal length ($L$) and position from the center ($r$) as shown in Figure \ref{fig:parameters}. This process was repeated to find the sweet spot on distance from the center up to a 100 mm radius and the best height was tested to different lengths along the rod sensor. 
+Results from this calibration and optimization are detailed in Appendix \ref{app:addRes_senCal}. The aluminum-based sensor was selected for all subsequent measurements due to its reliability. Based on the calibration results, the sensor response depended on the point of force application relative to its geometry: loading closer to the strain gauges reduced the output signal, while loading closer to the rotation axis increased it. Accordingly, for all subsequent experiments the sensor was positioned 5 cm from the rotation axis, with its tip used as the contact point with the transfer arm.
 
 \FloatBarrier

@@ -1,37 +1,103 @@
+% ============================================================
+% APPENDIX B -- Sample Calculations and Methodology Notes
+% ============================================================
+
+This appendix collects sample calculations and methodology notes that support
+the experimental chapters. Each section corresponds to a specific step in the
+analysis and is intended to provide enough detail for reproducibility without
+interrupting the flow of the main text. Section~\ref{app:scaling} derives the
+minimum magnetic susceptibility required to produce a measurable deflection under
+reduced laboratory field conditions, supporting the scaling argument presented in
+Chapter~\ref{ch:background} and Table~\ref{tab:chi_scaling}. 
+Section~\ref{app:smallestForce} works through the smallest measurable translational
+force for the pendulum fixture introduced in Chapter~\ref{ch:matsNmets}.
+Section~\ref{app:smallestTorque} provides the equivalent calculation for the torque
+sensor. Sections~\ref{app:Kirchhoff} through~\ref{app:circuit_caveat} contain
+the Kirchhoff analysis of the strain gauge circuit and an explanation of the
+coarse-fine trim resistor behavior. Section~\ref{app:MethodologyNotes} documents
+practical lessons learned during the laboratory and clinical measurement sessions
+that are relevant to future iterations of the protocol.
+
+
 \section{Sample Calculation for Scaling at 30~G}
 \label{app:scaling}
 
-Given that the MRI main field in the reference case is $B_0 = 3~\text{T}$, we consider a laboratory solenoid producing $B_0 = 30~\text{G} = 3\times10^{-3}~\text{T}$ with a $5.691\times10^{-3} \text{T}/\text{m}$ field gradient in z direction.
-The magnetic force acting on a weakly magnetic material is given by
+This appendix supports Section~\ref{sec:translationalForceBG} and
+Table~\ref{tab:chi_scaling}. The goal is to determine the minimum magnetic
+susceptibility a laboratory test object must possess to produce a measurable
+deflection under reduced field conditions, and to verify that the same
+force-to-weight ratio encountered clinically can be reproduced at bench scale.
 
+From the ASTM~F2052 force balance (Appendix~X3 therein \cite{astmF2052}),
+the equilibrium deflection angle satisfies
 \begin{equation}
-	\rho \chi = \frac{\mu_0 g \tan(\alpha)}{B_0 \frac{dB_0}{dz}},
-	\label{eq:rhochi_def}
+	\tan(\alpha) = \frac{\chi_m}{\rho\,\mu_0\,g}
+	\cdot B_0\frac{dB_0}{dz},
+	\label{eq:forFit_app}
+\end{equation}
+where $\mu_0 = 4\pi\times10^{-7}$\,H/m, $g = 9.807$\,m/s$^2$, $\rho$ is the
+material density, and $B_0\,dB_0/dz$ is the magnetic force product at the
+test location. The product $\chi_m/\rho$ and the field term appear
+symmetrically: to reproduce the same $\tan(\alpha)$ at a lower field, the
+ratio $\chi_m/\rho$ must increase in inverse proportion,
+\begin{equation}
+	\frac{\chi_m}{\rho}\bigg|_{\mathrm{lab}}
+	= \frac{\mu_0\,g\,\tan\alpha}
+	{\left(B_0\,\dfrac{dB_0}{dz}\right)_{\!\mathrm{lab}}}.
+	\label{eq:chi_rho_lab}
 \end{equation}
 
-where $\mu_0 = 1.256637\times10^{-6}~\text{N/A}^2$, $g = 9.8067~\text{m/s}^2$, $\rho$ is the density of the laboratory material, and $\alpha$ is the equilibrium deflection angle of the pendulum, approximated by $\tan\alpha \approx 10/1000 = 0.01$ for a $1~\text{cm}$ displacement over a $1~\text{m}$ string.
+The on-axis field of a finite solenoid of radius $R$ and length $L$,
+normalized to a central field $B_0$, is
+\begin{equation}
+	B_z(z) = \frac{B_0}{2\,B_{ctr}}
+	\left[
+	\frac{z + L/2}{\sqrt{R^2+(z+L/2)^2}}
+	-
+	\frac{z - L/2}{\sqrt{R^2+(z-L/2)^2}}
+	\right],
+\end{equation}
+where $B_{ctr} = (L/2)\big/\sqrt{R^2+(L/2)^2}$ is the analytic
+center value. The force product $B_z\,dB_z/dz$ peaks near the coil exit,
+which is the maximum-sensitivity test location prescribed by
+ASTM~F2052 \cite{astmF2052}.
 
-\vspace{1em}
-For a scaled solenoid field of, assuming $B_0 (dB_0/dz)$ scales quadratically with the magnetic field relative to the original MRI field of 3~T, we have
+A bench solenoid with $R = 5$\,cm and $L = 20$\,cm was modeled at
+$B_0 = 30$\,G $= 3\times10^{-3}$\,T. The maximum force product occurs at
+$z \approx 8.7$\,cm from the solenoid center (near the coil exit), where
+\begin{equation}
+	\left(B_0\frac{dB_0}{dz}\right)_{\!\mathrm{lab}}
+	= 6.09\times10^{-5}\ \mathrm{T^2/m}.
+\end{equation}
+Assuming a target deflection of $\tan\alpha = 0.01$ (1\,cm over a 1\,m
+pendulum string) and substituting into Equation~(\ref{eq:chi_rho_lab}),
+\begin{equation}
+	\frac{\chi_m}{\rho}
+	= \frac{(4\pi\times10^{-7})(9.807)(0.01)}{6.09\times10^{-5}}
+	= 2.02\times10^{-3}\ \mathrm{m^3/kg}.
+\end{equation}
+For a laboratory test material with $\rho = 7900$\,kg/m$^3$ that of common grades of steel,
+\begin{equation}
+	\chi_m = 2.02\times10^{-3} \times 7900 \approx 15.98.
+\end{equation}
 
-\begin{align}
-(B_0 \frac{dB_0}{dz})_{lab} = (B_0 \frac{dB_0}{dz})_{MRI} \left( \frac{B_{0,lab}}{B_{0,MRI}} \right)^2.
-\end{align}
+\subsection*{Comparison with clinical conditions}
 
-Substituting the numerical values , the scaled gradient term for 30~G becomes
-\begin{align}
-B_0 \frac{dB_0}{dz} = 1.71\times10^{-5}~\text{T}^2/\text{m}.
-\end{align}
+ASTM~F2052-15 reports an upper bound of
+$|B_0\,\nabla B_0| < 48$\,T$^2$/m for current 3\,T clinical
+systems \cite{astmF2052}. The ratio of the clinical to laboratory force
+product is
+\begin{equation}
+	\frac{\left(B_0\,\nabla B_0\right)_{\!3\,\mathrm{T}}}
+	{\left(B_0\,\nabla B_0\right)_{\!\mathrm{lab}}}
+	= \frac{48}{6.09\times10^{-5}}
+	\approx 7.9\times10^{5},
+\end{equation}
+and the required $\chi_m/\rho$ scales inversely by the same factor. The
+full results across field levels are summarised in
+Table~\ref{tab:chi_scaling}.
 
-Thus,
-\begin{align}
-\rho\chi = \frac{(1.256637\times10^{-6})(9.8067)(0.01)}{1.71\times10^{-5}} = 7.22\times10^{-3}.
-\end{align}
-
-Assuming $\rho = 7000~\text{kg/m}^3$, the effective magnetic susceptibility for a ferromagnetic mimic becomes
-\begin{align}
-\chi = \rho\chi \times \rho = (7.22\times10^{-3})(7000) = 5.05\times10^{1} \approx 50.
-\end{align}
+For reference, Woods et al.\ \cite{Woods2021_MRIdisplacement} measured deflection angles for 11 common implant alloys on a Siemens Trio 3\,T system under $|B_0\,\nabla B_0| \approx 3.5$--$4.6$\,T$^2$/m. Back-calculating from their measured force ratios, the highest product of strength and gradient yielded a $\chi_m/\rho$ of $4.2\times10^{-7}$\,m$^3$/kg for 316L stainless steel. This is $\sim\!4800$ times smaller than the laboratory threshold in Equation~(\ref{eq:chi_rho_lab}), confirming that none of the tested clinical alloys would produce a detectable deflection under the assumed bench field conditions.
 
 \section{Smallest measurable force of translational fixture}
 \label{app:smallestForce}
@@ -62,11 +128,9 @@ Following Section~\ref{sec:SmallTorque}, we evaluate the strain, voltage respons
 
 \begin{align*}
 	L &= 69.85\,\text{mm} = 6.985\times10^{-2}\,\text{m}, \\
-	D &= 0.64\,\text{mm} = 6.40\times10^{-4}\,\text{m}, \\
+	D &= 0.64\,\text{mm} = 6.604\times10^{-4}\,\text{m}, \\
 	E &= 66.2\,\text{GPa} = 6.62\times10^{10}\,\text{Pa}.
 \end{align*}
-
-\subsection*{Geometric Sensitivity Factor}
 
 The geometric sensitivity term appearing in Equation~\ref{eq:strain_beam} is
 
@@ -77,15 +141,13 @@ The geometric sensitivity term appearing in Equation~\ref{eq:strain_beam} is
 Substituting numerical values,
 
 \begin{align}
-	D^3 &= (6.40\times10^{-4})^3 
-	= 2.62\times10^{-10}\,\text{m}^3, \nonumber\\
-	\frac{L}{D^3} &= \frac{6.985\times10^{-2}}{2.62\times10^{-10}} 
-	= 2.66\times10^{8}\,\text{m}^{-2}.
+	D^3 &= (6.604\times10^{-4})^3 
+	= 2.88\times10^{-10}\,\text{m}^3, \nonumber\\
+	\frac{L}{D^3} &= \frac{6.985\times10^{-2}}{2.88\times10^{-10}} 
+	= 2.43\times10^{8}\,\text{m}^{-2}.
 \end{align}
 
 \noindent This agrees with the order-of-magnitude sensitivity reported in Section~\ref{sec:SmallTorque}.
-
-\subsection*{Strain at the Empirical Detection Limit}
 
 Using Equation~\ref{eq:strain_beam}, the surface strain produced by the minimum detectable force 
 $F = 0.49\,\text{mN} = 4.9\times10^{-4}\,\text{N}$, as reported by Chiu, \textit{et al.} (2016) \cite{Chiu2016CharacterizationOA} is
@@ -99,9 +161,8 @@ Substituting,
 \begin{align}
 	\epsilon &= 
 	\frac{32 (4.9\times10^{-4})(6.985\times10^{-2})}
-	{\pi (6.62\times10^{10})(2.62\times10^{-10})} \nonumber\\
-	&= \frac{1.09\times10^{-3}}{54.5} \nonumber\\
-	&= 2.0\times10^{-5}.
+	{\pi (6.62\times10^{10})(2.88\times10^{-10})} \nonumber\\
+	&= 1.82\times10^{-5}.
 \end{align}
 
 \noindent Thus, the minimum detectable force corresponds to a strain of approximately
@@ -109,31 +170,43 @@ Substituting,
 	\epsilon \approx 20\,\mu\varepsilon.
 \end{equation}
 
-\subsection*{Expected Bridge Output}
-
 Assuming a half-bridge configuration (Equation~\ref{eq:bridge_output}) with
 \begin{align*}
-	GF &= 2.1, \\
+	G_F &= 2, \\
 	V_{exc} &= 5\,\text{V},
 \end{align*}
 the predicted output voltage is
 
 \begin{align}
-	V_{out} &\approx \frac{V_{exc}}{2} GF \epsilon \nonumber\\
-	&= \frac{5}{2}(2.1)(2.0\times10^{-5}) \nonumber\\
-	&= 5.25(2.0\times10^{-5}) \nonumber\\
-	&= 1.05\times10^{-4}\,\text{V}.
+	V_{out} &\approx \frac{V_{exc}}{2} G_F \epsilon \nonumber\\
+	&= \frac{5}{2}(2)(2.0\times10^{-5}) \nonumber\\
+	&= 5(2.0\times10^{-5}) \nonumber\\
+	&= 1.0\times10^{-4}\,\text{V}.
 \end{align}
 
 \noindent Therefore,
 \begin{equation}
-	V_{out} \approx 0.105\,\text{mV}.
+	V_{out} \approx 0.1\,\text{mV}.
 \end{equation}
 
 Additional amplification is therefore required to reach the experimentally observed 
-$\sim 5\,\text{mV}$ signal level.
+$\sim 3\,\text{mV}$ signal level.
 
-\subsection*{Force Detection Limit from Noise Floor}
+However, using Chiu, \textit{et al.} (2016) reported gain and assuming noise at
+
+\begin{align*}
+	V_{noise}  &= 3 mV, \\
+	G &= 100,
+\end{align*}
+
+We got an $\epsilon_{min}$ of 
+
+\begin{align}
+	\epsilon_{min} &= 
+			\frac{2 V_{noise}}{V_{exc} G_F \quad \text{gain}} \\
+	&=	\frac{2 (0.003)}{5 (2) (100)} \\
+	&=	6 \mu\varepsilon.
+\end{align}
 
 Using Equation~\ref{eq:force_limit}, the minimum detectable force for a given minimum strain $\epsilon_{min}$ is
 
@@ -141,19 +214,17 @@ Using Equation~\ref{eq:force_limit}, the minimum detectable force for a given mi
 	F_{min} = \frac{\pi E D^3}{32 L}\,\epsilon_{min}.
 \end{equation}
 
-If the system resolves strains on the order of $10\,\mu\varepsilon = 1.0\times10^{-5}$, then
+If the system resolves strains on the order of $1\,\mu\varepsilon = 6\times10^{-6}$, then
 
 \begin{align}
 	F_{min} &= 
-	\frac{\pi (6.62\times10^{10})(2.62\times10^{-10})}
+	\frac{\pi (6.62\times10^{10})(2.88\times10^{-10})}
 	{32(6.985\times10^{-2})}
-	(1.0\times10^{-5}) \nonumber\\
-	&= 2.44\times10^{-4}\,\text{N} \nonumber\\
-	&= 0.24\,\text{mN}.
+	(6\times10^{-6}) \nonumber\\
+	&= 0.161 \text{mN}.
 \end{align}
 
-\noindent This confirms that sub-milliNewton resolution is feasible with the given geometry, 
-and micro-Newton sensitivity becomes achievable with reduced noise, increased $L/D^3$, 
+\noindent This confirms micro-Newton sensitivity becomes achievable with reduced noise, increased $L/D^3$, 
 and signal averaging.
 
 \section{Kirchhoff analysis of Circuit}
@@ -199,20 +270,19 @@ which implies $V_A \approx V_B$. Substituting $V_A = V_B$ into the previous equa
 \end{align*}
 
 \noindent
-In summary, the output voltage is composed of two contributions: a differential term amplified by the ratio $R_f / R$, which captures the imbalance between the strain gauges $S1$ and $S2$, and a baseline voltage division term $S2 / (S2 + S1)$ that represents the inherent bridge offset. This expression clearly shows how the Wheatstone bridge imbalance is amplified by the op-amp to produce the measurable output.
+In summary, the output voltage is composed of two contributions: a differential term amplified by the ratio $R_f / R = 160$, which captures the imbalance between the strain gauges $S1$ and $S2$, and a baseline voltage division term $S2 / (S2 + S1)$ that represents the inherent bridge offset. This expression clearly shows how the Wheatstone bridge imbalance is amplified by the op-amp to produce the measurable output.
 
 
-\section{Explaining the behavior of Coarse-Fine Tuning with Potentiomenters in Circuit}
+\subsection{Explaining the behavior of Coarse-Fine Tuning with trim resistors in Circuit}
 \label{app:pots}
 
 \begin{figure}[hbt!]
 	\centering
 	\includegraphics[width=0.11\textwidth]{Assets/pots.png}
-	\caption[Schematic of the coarse–fine potentiometer configuration]{Schematic of the coarse–fine potentiometer configuration used for the voltage-divider derivations in Figure \ref{fig:torqueCircuit}.}
+	\caption[Schematic of the coarse–fine trim resistors configuration]{Schematic of the coarse–fine trim resistors (POTs) configuration used for the voltage-divider derivations in Figure \ref{fig:torqueCircuit}.}
 	\label{fig:pots}
 \end{figure}
 
-\subsection{Derivation of the Node Voltage}
 Starting with KVL around the loop
 
 \begin{equation}
@@ -237,7 +307,6 @@ Final voltage-divider form
 	\frac{R_{2}}{R_{1}+R_{2}} }. \tag{\ref{eq:voltageDivider}}
 \end{equation}
 
-\subsection*{2. Numerical Evaluation for Fine Pot Positions}
 For these evaluations
 \begin{equation}
 V_{\text{in}} = 5.0~\text{V}, \qquad
@@ -245,7 +314,7 @@ R_{1}=10~\text{k}\Omega, \qquad
 R_{2} \in [0,1000]~\Omega.
 \end{equation}
 
-\subsubsection*{2.1 Halfway Fine Adjustment \(\,R_{2}=500~\Omega\)}
+\textbf{Halfway Fine Adjustment \(\,R_{2}=500~\Omega\)}
 \begin{equation}
 V_{\text{node}} 
 = 5.0\,
@@ -255,7 +324,6 @@ V_{\text{node}}
 = 0.2381~\text{V}.
 \end{equation}
 
-\subsubsection*{2.2 Tabulated Values for Fine Pot Settings}
 \begin{equation}
 V_{\text{node}} = 5\,
 \frac{R_{2}}{10000 + R_{2}}.
@@ -273,7 +341,6 @@ V_{\text{node}} = 5\,
 	\end{tabular}
 \end{center}
 
-\subsection*{3. Coarse Adjustment with Fine Fixed at Midpoint}
 Now fix the fine pot at
 \begin{equation}
 R_{2}=500~\Omega.
@@ -297,7 +364,7 @@ Thus the coarse-wiper voltage is
 V_{\text{wiper}} = (1-\alpha)(5.0) + \alpha (0.2381).
 \end{equation}
 
-\subsubsection*{3.1 Coarse-Wiper Table (Fine Fixed at Half)}
+\textbf{Coarse-Wiper Table (Fine Fixed at Half)}
 \begin{center}
 	\begin{tabular}{c|c|c}
 		\hline
@@ -310,7 +377,6 @@ V_{\text{wiper}} = (1-\alpha)(5.0) + \alpha (0.2381).
 	\end{tabular}
 \end{center}
 
-\subsection*{4. Interpretation}
 At $\alpha=0$ (coarse at minimum), the wiper sits at the full input voltage
 \begin{equation}
 V_{\text{wiper}} = 5~\text{V},
@@ -322,3 +388,24 @@ V_{\text{wiper}} = V_{\text{node,fine}}.
 \end{equation}
 Thus the coarse pot sets the overall span,  
 and the fine pot determines the precise lower-region tuning.
+
+\subsection{Circuit design caveat}
+\label{app:circuit_caveat}
+
+From the torque methodology developed in Section \ref{sec:InLab_Torque}, a set of neodymium magnets was introduced to increase the magnetic field strength to 300 G, compared to the 30 G provided by the Helmholtz coil, because the short rod in the smaller fields produced signals that were too small to yield reliable results. The calibration established a detection limit of $\tau_{\min} = 0.012,\text{mN}\cdot\text{m}$. For the short rod in the Helmholtz configuration the maximum field strength was $B_{\max} = 3.85,\text{mT}$), and using the $\chi_m$ obtained from the neodymium-based fit, the expected torque was $\tau_{\text{expected}} = 0.26,\text{mN}\cdot\text{m}$. This corresponds to a ratio of $\tau_{\text{expected}} / \tau_{\min} \approx 21.7$, which is well above the detection threshold in principle.
+
+A likely explanation is the influence of noise in the measurement circuit, particularly from the trim resistors when the signal approaches the detection limit. During calibration, a noise level of approximately 0.8 mV was observed when the trim resistors were used to null the signal prior to applying load. However, this was variable across sensors, as noted by Dr. Rutel (University of Oklahoma), placing the balancing trim resistor at the output of the amplifier, Figure \ref{fig:pots} right after Figure \ref{fig:opamp_bridge}, effectively suppresses part of the measurable signal. Incorporating the trim resistors directly into the Wheatstone bridge arm would instead allow null balancing at the bridge level, eliminating residual offset at the source and improving sensitivity for low-torque measurements.
+
+
+\section{Methodology notes}
+\label{app:MethodologyNotes}
+
+The following paragraphs describe the methods troubleshooting and practical improvement on the methodology. For a complete description of the final version of the methodologies applied on this work see \ref{ch:matsNmets}
+
+For the translational force experiment in the lab (Section \ref{sec:experiment1}), initial trials attempted to map the magnetic field from the furthest position of the pendulum, 8 cm from the solenoid face, at a constant solenoid current in a single run. The idea was to obtain ($B_0$) at the pendulum’s resting position and then compute the field gradient at any point from that map. Afterward, the pendulum was allowed to be slowly pulled toward the solenoid to its equilibrium position so its displacement (in cm) could be recorded. This was repeated while increasing the solenoid current in 0.5 A steps, aiming to fit the resulting equilibrium positions using Eq. \ref{eq:forFit}. 
+
+These attempts produced inconsistent results that pointed to errors inherent to the setup. Because the current, rather than the entire apparatus position, was changed, the value of $B_0$ at the pendulum’s resting position did not correspond to the required by Eq. \ref{eq:forFit}. Even using the mapped field, estimating the correct value for the magnetic field for each equilibrium position was unreliable. Moreover, predicting equilibrium positions before running the experiment proved difficult. Additional complications came from solenoid imperfections, current leakage, and induced currents, all of which became significant once displacements exceeded 1 cm. At higher fields the pendulum was sometimes pulled fully into the solenoid. 
+
+Another factor was the gaussmeter restriction on accurate motion tracking to roughly 11–12 mm on the translation stage. While this approach resembles the proposed clinical protocol, the scale of the apparatus and the nonuniform fields make it impractical. Once the approach was inverted, as explained in Section \ref{sec:experiment1} the methodology, deflection angle measurments resulted in $\chi_m$ values with 0.5\% precision, validating the methodology.
+
+In the clinic, a single mapping session gave both B and $\nabla$B at any point, and left the angle measurement as the critical step (see Section \ref{sec:clinicTrans}). However, the initial attempt revealed practical challenges with string attachment to the baskets. Knotting proved time-consuming and inconsistent across different basket designs, leading to variability in suspension length and tension. To streamline future sessions, pre-prepared assemblies are recommended: additional 3D-printed baskets should be fabricated, each paired with a fixed-length string segment of approximately 1.3\,m, with \glspl[]{mut} attached pre-weighted, and labeled for rapid deployment. Similarly on the torque pipeline (see Section \ref{sec:clinicTorque}), multiple lever arms of identical size should be fabricated in advance, each with \gls{mut} samples pre-attached to ensure consistent mounting and to facilitate rapid swapping during trials.

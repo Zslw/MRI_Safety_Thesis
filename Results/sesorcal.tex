@@ -1,83 +1,72 @@
+% ============================================================
+% APPENDIX E -- Torque Sensor Calibration Additional Results
+% ============================================================
 
-Out of Table \ref{tab:rods}, rods 4 and 6 (Titanium and plastic) were excluded from the calibration process. As noted, the Titanium was found not practical and the yellow plastic was found broken and needed re-fabrication, furthermore it was not possible to backtrack to its origin so uncertainty on its material makes non reproducible. 
+This appendix presents supplementary results from the torque sensor calibration process described in Section~\ref{sec:sensorCal}. The aluminum-based sensor was selected for all reported measurements based on its consistency and sensitivity relative to the other candidate materials. The figures here document the calibration trials for the glass and clear plastic sensors, which showed insufficient linearity and voltage range for reliable use. Together these results justify the sensor selection and positioning choices reported in Chapter~\ref{ch:matsNmets} and use for results presented in Chapter \ref{ch:results}.
 
-For these reasons, this section focuses on Rods 2 and 3 (aluminum), with only mentions for Rods 5 and 7 (glass and clear plastic, respectively). Aluminum based sensors proved to perform the best and allowed for repetition and documentation.
+The sensor calibration consisted in incrementally adding weight to our sensor as described in section \ref{sec:sensorCal}. The strain sensors studied included clear plastic, aluminum, and glass. Each sensor was tested for linearity voltage vs. weight up to 800 mg. Figure \ref{fig:rods5n7} shows calibration plots for two of the trials done. (a) The glass sensor showed some linearity, but small mean voltage range of operation even at max weight. The slope found for each fit is too different and non reproducible. (b) The clear plastic sensor showed stiffer,  showing better slope trend consistency but still being too uncertain.
 
-First, Figure \ref{fig:rods5n7} shows two of the trials done while calibration for glass and clear plastic. Their results shown unreliable, unpredictable changes in Voltage with weight applied. Additionally, tfor either of these two rods remained in the sub-millivolt regime, leaving the region of interest (around 0 to 200 mg) with measurements of $10^{-4}V$ too small to distinguish from noise, as explained in Section~\ref{sec:SmallTorque}.
+These results demonstrated that these sensors were unreliable, and characterized by unpredictable changes in voltage when weight was applied. Additionally, both sensor had a sub-millivolt range, ineffective for measurements. These two rods were the thickest of all available rods in Table \ref{tab:rods}. The observed behavior is expected as explained by Equation \ref{eq:force_to_voltage}.
 
 
-\begin{figure}[H]
+\begin{figure}[htb!]
 	\centering
 	
-	\subfloat[Voltage readings for Rod5 (Glass) with up to 750 mg of water in increments.\label{fig:glassRod5}]{
-		\includegraphics[width=0.46\textwidth]{Assets/glass_fit.png}
+	\subfloat[\label{fig:glassRod5}]{
+		\includegraphics[width=\textwidth]{Assets/glass_fit.png}
 	}
 	\hfill
-	\subfloat[Voltage readings for Rod7 (Clear Plastic) with up to 800 mg of water in increments..\label{fig:clearRod7}]{
-		\includegraphics[width=0.46\textwidth]{Assets/clear_plastic_fit.png}
+	\subfloat[\label{fig:clearRod7}]{
+		\includegraphics[width=\textwidth]{Assets/clear_plastic_fit.png}
 	}
-	\caption[Calibration trial results for low-torque rods showing poor sensor response]{Trial examples for Rods 5 and 7. Both of them showed inconsistency across trials showing minimal to no change in voltage with weight added.}
+	\caption[Calibration trial results for low-torque rods showing poor sensor response]{Trial examples for Rods 5 and 7. Both of them showed inconsistency across trials showing minimal to no change in voltage with weight added. (a) Voltage readings for Rod5 (Glass) with up to 750 mg of water in increments. (b) Voltage readings for Rod7 (Clear Plastic) with up to 800 mg of water in increments.}
 	\label{fig:rods5n7}
 \end{figure}
 
-
-As an additional note, these two rods were the thickest of all available rods in Table \ref{tab:rods}. The observed behavior is expected as explained by Equation \ref{eq:force_to_voltage}.
-
-
-
-Next in our calibration process, the Aluminum rods, 2 and 3, showed clear linear trend along all trials and measurements. Figure \ref{fig:scaleCalb} shows this linear trend for 2 identical aluminum rods. The plot shows Rod 2 and 3 color coded, blue and a alike for 2 and red for 3, to show the similarities between to identically fabricated rods. Additionally, this plot features three different sensor rotation configurations (Fig \ref{fig:cantileverConfigs}), corresponding to three lines on each color or rod, where either 0$^\circ$ or 180$^\circ$ give maximum deformation of the strain gauges while 90$^\circ$ is not deforming properly.
+In contrast the aluminum rods, 2 and 3, showed a clear linear trend along all trials and measurements (Figure \ref{fig:scaleCalb} ). This plot features three different sensor rotation configurations (Fig \ref{fig:cantileverConfigs}). Either 0$^\circ$ or 180$^\circ$ gave maximum deformation of the strain gauges, while 90$^\circ$ was ineffective.
 
 \begin{figure}[htb!]
 	\centering
-	\subfloat[Three configurations tested, 0$^\circ$ and 180$^\circ$ are equivalent but flip voltage sign with respect of each other. 90$^\circ$ gives less sensibility as strain gauges does not bend in the proper axis.\label{fig:cantileverConfigs}]{
-		\includegraphics[width=0.85\textwidth]{Assets/calConfigs.png}
+		\subfloat[\label{fig:linearfitAlrods}]{
+		\includegraphics[width=0.95\textwidth]{Assets/al_fit.png}
 	}
 	\hfill
-	\subfloat[Calibration curves for two aluminum (AL) rods in three different orientations.\label{fig:linearfitAlrods}]{
-		\includegraphics[width=0.95\textwidth]{Assets/al_fit_Keep.png}
+		\subfloat[\label{fig:cantileverConfigs}]{
+		\includegraphics[width=0.85\textwidth]{Assets/calConfigs.png}
 	}
-	\caption[Orientation Response of cantilever sensor during calibration.]{Linear fits show consistent response across orientations, confirming the reliability of the lab-built sensor.}
+	\caption[Orientation Response of cantilever sensor during calibration.]{Linear fits show consistent response across orientations, confirming the reliability of the lab-built sensor. (a)Calibration curves for two aluminum (AL) rods in three different orientations. (b)Three configurations tested, 0$^\circ$ and 180$^\circ$ are equivalent but flip voltage sign with respect of each other. 90$^\circ$ gives less sensibility as strain gauges does not bend in the proper axis.}
 	\label{fig:scaleCalb}
 \end{figure}
 
-From this result, the focus was on Rod 3 in either most sensible configuration, showing remarkable consistency across calibration trials. Focusing in the weight region of interest (0 to 200 mg), we found a similar slope than Figure \ref{fig:scaleCalb} using Rod 3 in a different session a week apart. Figure \ref{fig:bestRod} showcases this result and converts the previous units Volts per milligram of water to something more applicable to our interests (V/N). 
+From these results, we used rod 3 oriented in either 0 or 180 degrees, since it showed remarkable consistency across calibration trials. Focusing on the weight range(0 to 200 mg), we found similar slopes in repeated calibrations over a period of one week.
 
-\begin{figure}[htb!]
-	\centering
-	\includegraphics[width=0.85\textwidth]{Assets/bestRodfit.png}
-	\caption[Calibration trial results for low-torque aluminum rodi n the most sensitive configuration]{Calibration of Rod 3 (aluminum) around the region of interest, or weight of samples, for Rod 3 in the most sensitive configuration. Slope units converted from V/mg to V/N}
-	\label{fig:bestRod}
-\end{figure}
-
-From Fig \ref{fig:bestRod} the smallest measurable force the instrument can be determined. Using the inverse of the slope $k = 1/m = 1/3.64 = 0.275 N/V$ we can find the smallest force detected. In this case, the smallest non-zero voltage was $\Delta V = 0.000885$ which results in $W_{min} = 0.24752 \text{mN}$.
-
-Along with these measurements we also tested sensitivity along the length of sensor showing that the further out from the gauge bridge the more sensitive the sensor was. Figure \ref{fig:posAndHeight} shows two lines, along the lever arm 90 and 50 mm away from the rotation axis position. Both showcase really small voltages for all forces applied at increasing lengths in the sensor. We can see that the closer to the strain gauges the force is applied the smaller the signal received, on the left side of the graph. However, notice how the tow lines deviate with distance increasing showing that at the tip of the sensor and closest to the rotation axis signal is higher for the same force.
+Figure \ref{fig:posAndHeight} shows two lines, along the lever arm 90 and 50 mm ($r$) away from the rotation axis position. On the x-axis position along the sensor length measurements demonstrated greater sensitivity for greater distances from the strain gauges. And we can see that the 50 mm line deviates from the 90 mm line showing that the closest to the rotation axis, the higher the signal reading for the same force.
 
 \begin{figure}[htb!]
 	\centering
 	\includegraphics[width=0.85\textwidth]{Assets/1stTrials_50_90.png}
-	\caption[Effect of height and radial distance on mean sensor voltage response]{Mean voltage response of the sensor as a function of height for different distances from the center (50--100 mm). 
-		A small and relatively flat voltage is observed across all radii, while at larger heights (farther from the bridge) the measurements diverge, showing higher sensitivity near the center (50 mm). 
-		See Methods Section for details on torque transfer and distance selection.}
+	\caption[Effect of sensor position on mean sensor voltage response]{Mean voltage response of the sensor as a function of length ($L$) for different distances  ($r$) from the center (50--90 mm). 
+		At larger lengths (farther from the strain gauges) an increase in signal reading.
+		Further from the rotation axis the measurements diverge, showing higher sensitivity near the center (50 mm). }
 	\label{fig:posAndHeight}
 \end{figure}
 
-The expected behavior of the lever arm is showcased in Figure \ref{fig:torque_fit}. Similar to Figure \ref{fig:posAndHeight}, Figure \ref{fig:torque_fit} demonstrates the inverse relation of force and position from the rotation axis ($1/r$) in two ways. First Figure \ref{fig:loglogtorque} shows a log-log plot voltage vs position with an fit $n$ very close to -1. Additionally, a $1/r$ fit on Figure \ref{fig:ABfittorque} provides the constant on top very close to -1 with almost no drift. Signifying, it is a good method to measure torque via the counter force. Applying this lever arm (5cm) configuration to the $W_{min}\sim0.243 \text{mN}$ from before, the minimum torque detected yields $ \tau_{min} = 0.01238 \text{mNm}$
+Figure \ref{fig:torque_fit} demonstrates the expected inverse relation of force and position along the transfer arm from the rotation axis ($1/r$) in two ways. First Figure \ref{fig:loglogtorque} shows a log-log plot voltage vs position with a fit n value very close to -1. Additionally, a $A/r$ fit (Figure \ref{fig:ABfittorque}) provides the constant $A$, also very close to -1. This signifies, it is a good method to measure torque via the counter force. 
 
 \begin{figure}[hbt!]
 	\centering
 	
-	\subfloat[Log-log plot of effective measured voltage (proportional to force) versus position $r$, showing a power-law fit with exponent $n = -0.997 \pm 0.011$, very close to the theoretically expected value of $-1$. \label{fig:loglogtorque}]{
-		\includegraphics[width=0.45\textwidth]{Assets/powerFitFr.png}
+	\subfloat[\label{fig:loglogtorque}]{
+		\includegraphics[width=0.85\textwidth]{Assets/powerFitFr.png}
 	}
 	\hfill
-	\subfloat[Direct fit of the form $F(r) = A/r + B$, yielding $A = -1.378 \pm 0.015$ (very close to $-1$ in normalized units) and a negligible offset $B = -0.0069 \pm 0.0002$.\label{fig:ABfittorque}]{
-		\includegraphics[width=0.45\textwidth]{Assets/inverseRfitFr.png}
+	\subfloat[\label{fig:ABfittorque}]{
+		\includegraphics[width=0.85\textwidth]{Assets/inverseRfitFr.png}
 	}
-	\caption[Expected $1/r$ dependence of torque]{Demonstration of the expected inverse-distance dependence of the force (and thus torque) with respect to the distance $r$ from the rotation axis. Both analyses confirm the $1/r$ dependence characteristic of the torque measurement via counter-force method.}
+	\caption[Expected $1/r$ dependence of torque]{Demonstration of the expected inverse-distance dependence of the force (and thus torque) with respect to the distance $r$ from the rotation axis. Both analyses confirm the $1/r$ dependence characteristic of the torque measurement via counter-force method. (a) Log-log plot of effective measured voltage (proportional to force) versus position $r$, showing a power-law fit with exponent $n = -0.997 \pm 0.011$, very close to the theoretically expected value of $-1$. (b) Direct fit of the form $F(r) = A/r + B$, yielding $A = -1.378 \pm 0.015$ (very close to $-1$ in normalized units) and a negligible offset $B = -0.0069 \pm 0.0002$.}
 	\label{fig:torque_fit}
 \end{figure}
 
-Once the sensor and circuit were calibrated and the best position for measurement in the torque fixture are affixed, we moved on to the in lab measurements of torque. 
+Once the sensor and circuit were calibrated and the best position for measurement in the torque fixture are affixed, we moved on to the in laboratory measurements of torque in Section \ref{sec:sensorCal}. 
 
 \FloatBarrier
