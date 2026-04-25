@@ -47,11 +47,11 @@ After describing the physical implementation of the pendulum fixture, we now eva
 
 Testing for low field lab measurements a solid ferromagnetic cylinder was used as sample. While testing for the clinic environment used materials that are expected to exhibit negligible or zero translational force under clinical \gls{mri} conditions. Positive controls were prepared from two common biocompatible, non-ferromagnetic metals, titanium and 316L stainless steel wire, both sourced from TEMCo Industrial (USA) and supplied on their standard spools \cite{temco_ti_wire}. The physical characteristics of all test objects used in this study are summarized in Table \ref{tab:test_objects}. while Figure \ref{fig:objects_basket} shows the samples in real size.
 
-These positive controls and the epicardial lead were mounted in a custom 3D-printed \gls{pla} basket, with the added benefit of easily change test objects while maintaining \gls{mri} compatibility. Figure \ref{fig:leadHolder} shows a 3D render with the intended proportions. The corresponding engineering design is provided in Appendix \ref{app:A2}, with STL files available in this Github repository \cite{juarezluna2025mrisafety}.x The mesh's lightweight design aimed to minimize its contribution to the total gravitational force. Its bounding volume would be 224 mm$^3$. However due to the hexagonal lattice structure, the effective solid volume is 95.2 mm$^3$, resulting in a mass of at least 118 mg based on \gls{pla} material properties. Once printed, it had a final weight of 130mg. 
+These positive controls and the epicardial lead were mounted in a custom 3D-printed \gls{pla} basket, with the added benefit of easily change test objects while maintaining \gls{mri} compatibility. Figure \ref{fig:leadHolder} shows a 3D render with the intended proportions. The corresponding engineering design is provided in Appendix \ref{app:A2}, with STL files available in this Github repository \cite{juarezluna2025mrisafety}. The mesh's lightweight design aimed to minimize its contribution to the total gravitational force. Its bounding volume would be 224 mm$^3$. However due to the hexagonal lattice structure, the effective solid volume is 95.2 mm$^3$, resulting in a mass of at least 118 mg based on \gls{pla} material properties. Once printed, it had a final weight of 130mg. 
 
 \begin{figure}[htb!]
 	\centering
-	\includegraphics[width=0.35\textwidth]{Assets/frameHolder2.png}
+	\includegraphics[width=0.42\textwidth]{Assets/frameHolder2.png}
 	\caption[3D render of the design fo the lead holder]{The design of the lead holder was made as a rectangular lightweight hexagonal mesh (16 (L) $\times$ 14 (W) $\times$ 1 (H) mm) to wrap the epicardial lead around. It is held by the pendulum string}	
 	\label{fig:leadHolder}
 \end{figure}
@@ -74,7 +74,7 @@ These positive controls and the epicardial lead were mounted in a custom 3D-prin
 		Titanium coil & Ti &  -- & -- & 1.7964 \\
 		Epicardial lead & -- &  0.46 & 378 & 0.1386  \\
 		\hline
-		Hexagonal Basket & \gls{pla} & \multicolumn{2}{c|}{See Figure \ref{fig:leadHolder}} & 0.130  \\
+		Hexagonal Basket & \gls{pla} & \multicolumn{2}{c|}{ 16 $\times$ 14 $\times$ 1 mm (Figure \ref{fig:leadHolder})} & 0.130  \\
 		\hline
 	\end{tabular}
 	}
