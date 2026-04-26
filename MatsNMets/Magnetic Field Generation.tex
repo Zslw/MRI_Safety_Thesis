@@ -2,7 +2,7 @@ Magnetic field strength ($B_0$) and gradient ($\nabla B_0$) measurements were pe
 
 The first step in accurately mapping the static magnetic field of an \gls{mri} scanner is to know the precise position of the measurement probe at all times relative to the scanner bore entrance or isocenter. To achieve this spatial accuracy and ensure reproducible field measurements in a clinical environment, a rigid non-magnetic fixture constructed from \gls{pvc} was developed \cite{haddixProposal}.
 
-\subsection{Mapping Platform}
+\subsection{Mapping Fixture}
 \label{sec:mapPlat}
 
 The fixture consists of a rectangular base (300(W) $\times$ 420(L) $\times$ 40(H) mm) and a vertical circular plate of 200 mm diameter. It has a total weight of about 9 kg and height of 350 mm, with its center at 250 mm above the surface to align it with the \gls{mri} scanner isocenter. The plate is perforated with a polar grid of probe-access holes, with 12 radial lines spaced at 30$^\circ$. Each line contains five holes at uniform of 20 mm radial spacing, all sharing a central hole as shown in Figure \ref{fig:fieldmapping}, resulting in 49 measurement positions. Each access point was numerically indexed to facilitate 2D field mapping in the X-Y plane. 
@@ -34,7 +34,7 @@ The entire fixture was shifted axially along the Z-direction of a horizontal bor
 \noindent where $B_1$ and $B_2$ represent the measured magnetic flux densities at positions displaced symmetrically from the location of interest. This fixture has previously been applied to \gls{mri} mapping in the work by Ferreira \cite{ferreira2017}.
 
 
-\subsection{Laboratory scale: Solenoid and Neodymium Magnets}
+\subsection{Laboratory Methodology - Solenoid and Neodymium Magnets}
 \label{sec:labMagnets}
 
 Seeking to achieve the most reliable approximation of clinical \gls{mri} conditions, magnetic fields in the lab were generated using either neodymium permanent magnets or a copper-wound solenoid. Each approach presents advantages and limitations. 
@@ -58,7 +58,7 @@ The stage uses three Thorlabs Z812 servomotors, one for each cartesian axis, to 
 
 To make a quick check across a wider range, a ruler was fixed at the same three positions described and the probe was steadily translated about 20 cm to the solenoid entrance and back. Data was recorded using the manufacturer’s default software, AlphaApp \cite{AlphaApp} with a sampling time of 1 reading per second, for about 2 min. Video recording was used to map time, and distance enabling a rough map of the B field and its gradient.
 
-\subsection{In Clinic Measurements - Magnetic Flux}
+\subsection{In Clinic Measurements - Magnetic Strength and Gradient}
 \label{sec:metClinic_flux}
 
 To characterize the magnetic field gradient along the scanner’s longitudinal (z) axis, the circular grid fixture was mounted on the patient couch, as shown in Figure \ref{fig:clinicMap}. Couch motion controls were first calibrated, allowing precise positioning in millimeters via the four-digit display. Fixture-to-bore clearance was verified, and the fixture proved marginally over-sized for full insertion, constraining the maximum travel depth.
