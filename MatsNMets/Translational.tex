@@ -6,7 +6,7 @@ To assess \gls{mri}-induced translational forces, our lab developed a pendulum-s
 Figure \ref{fig:realPendulum} shows the experimental apparatus. Figure \ref{fig:pendulum_full} presents CAD renders of the pendulum fixture created in CATIA to document the design intent and associated engineering drawings (full set in Appendix \ref{app:A1}). The fixture was constructed entirely from \gls{pvc} components, including a vertical post of about 1.5 meters and a rigid base of dimensions 30(L)$\times$20(W)$\times$4.5(H) cm for stabilization, as shown in Figure \ref{fig:realpendulum_full}. The vertical post includes a set of two rings fixed with nylon screws, for height adjustment. A default suspension height of $L= 1$ meter between these two rings was used for consistency across trials, maintaining the geometry and proportions shown in equation (\ref{eq:minForce}). These distances were measured from the last contact point of the string at the rubber interface on the top ring (see Figure \ref{fig:realpendulum_upper}) to the freely hanging sample aligned with the ruler scale. The lower ring, shown in Figure \ref{fig:realpendulum_lower}, features a slit where a custom made Kydex\textsuperscript{\texttrademark} ruler is secured with smaller nylon screws. This ruler is detachable, allowing for easier transportation and interchangeable ruler sizes.
 
 % Left tall pane
-\captionsetup[sub]{labelformat=default,skip=2pt}
+%\captionsetup[sub]{labelformat=default,skip=2pt}
 	\begin{figure}[htb!]
 	\centering
 		\begin{subcolumns}[0.38\textwidth]
@@ -22,19 +22,19 @@ Figure \ref{fig:realPendulum} shows the experimental apparatus. Figure \ref{fig:
 		\nextsubcolumn[0.19\textwidth]
 		
 		\vspace{-0.3cm}  
-		\subfloat[Upper ring.\label{fig:realpendulum_upper}]
+		\subfloat[\label{fig:realpendulum_upper}]
 		{\includegraphics[width=\subcolumnwidth]{Assets/stringZoom.png}}
 		
 		\vspace{1cm}
 		%\nextsubfigure
 		
-		\subfloat[Lower ring.\label{fig:realpendulum_lower}]
+		\subfloat[\label{fig:realpendulum_lower}]
 		{\includegraphics[width=\subcolumnwidth]{Assets/rulerZoom.jpeg}}
 	\end{subcolumns}
 \caption[Full and detailed views of the pendulum fixture]{Full and detailed views of the pendulum fixture. (a) Full ensemble as CAD model. (b) Real-size pendulum fixture made of \gls{pvc}. (c) The upper ring designed to secure the pendulum string with clamp and rubber attachment. (d)The lower ring containing the slit used to align a 1cm-wide by 20 cm ruler perpendicular to the string.}
 \label{fig:realPendulum}
 \end{figure}
-\captionsetup[sub]{labelformat=empty,labelsep=none,skip=-12pt}
+%\captionsetup[sub]{labelformat=empty,labelsep=none,skip=-12pt}
 
 After describing the physical implementation of the pendulum fixture, we now evaluate its measurement capabilities. In particular, we determine the smallest detectable translational  force along the z-axis by analyzing the geometry of the deflected pendulum at equilibrium. Whether forces on the order of millinewtons, comparable to the weight of ~1 g, can be resolved depends on the finite precision of the ruler-based deflection measurement and the pendulum's length.
 
@@ -47,7 +47,7 @@ After describing the physical implementation of the pendulum fixture, we now eva
 
 Testing for low field lab measurements a solid ferromagnetic cylinder was used as sample. While testing for the clinic environment used materials that are expected to exhibit negligible or zero translational force under clinical \gls{mri} conditions. Positive controls were prepared from two common biocompatible, non-ferromagnetic metals, titanium and 316L stainless steel wire, both sourced from TEMCo Industrial (USA) and supplied on their standard spools \cite{temco_ti_wire}. The physical characteristics of all test objects used in this study are summarized in Table \ref{tab:test_objects}. while Figure \ref{fig:objects_basket} shows the samples in real size.
 
-These positive controls and the epicardial lead were mounted in a custom 3D-printed \gls{pla} basket, with the added benefit of easily change test objects while maintaining \gls{mri} compatibility. Figure \ref{fig:leadHolder} shows a 3D render with the intended proportions. The corresponding engineering design is provided in Appendix \ref{app:A2}, with STL files available in this Github repository \cite{juarezluna2025mrisafety}. The mesh's lightweight design aimed to minimize its contribution to the total gravitational force. Its bounding volume would be 224 mm$^3$. However due to the hexagonal lattice structure, the effective solid volume is 95.2 mm$^3$, resulting in a mass of at least 118 mg based on \gls{pla} material properties. Once printed, it had a final weight of 130mg. 
+These positive controls and the epicardial lead were mounted in a custom 3D-printed \gls{pla} basket, with the added benefit of easily change test objects while maintaining \gls{mri} compatibility. Figure \ref{fig:leadHolder} shows a 3D render with the intended proportions. The corresponding engineering design is provided in Appendix \ref{app:A2}, with STL files available in this Github repository \cite{juarezluna2025mrisafety}. The mesh's lightweight design aimed to minimize its contribution to the total gravitational force. Its bounding volume would be 224 mm$^3$. However due to the hexagonal lattice structure, the effective solid volume is 95.2 mm$^3$, resulting in a mass of at least 118 mg based on \gls{pla} material properties. Once printed, it had a final weight of 130 mg. 
 
 \begin{figure}[htb!]
 	\centering
@@ -132,7 +132,7 @@ Induced currents remained low because the ferromagnetic body barely moved, the t
 		\left. \frac{dB}{dz} \right|_{z=0} \approx \frac{B_{+0.5} - B_{-0.5}}{1\ \text{mm}}.
 \end{equation}
 
-Using a 1-mm separation ($z_2 - z_1$) keeps the approximation in the linear regime while remaining resolvable on the field map. The 1 mm increments in displacement was translated to angular displacement
+Using a 1 mm separation ($z_2 - z_1$) keeps the approximation in the linear regime while remaining resolvable on the field map. The 1 mm increments in displacement was translated to angular displacement
 
 \begin{equation}
 	\alpha = \tan^{-1}\left(\frac{x}{L}\right).
