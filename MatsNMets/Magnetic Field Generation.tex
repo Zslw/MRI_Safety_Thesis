@@ -10,11 +10,11 @@ The fixture consists of a rectangular base (300(W) $\times$ 420(L) $\times$ 40(H
 \begin{figure}[hbt!]
 	\centering
 	\subfloat[\label{fig:fieldmapping_a}]{
-		\includegraphics[width=0.48\textwidth]{Assets/Picture3.jpg}
+		\includegraphics[width=0.48\textwidth]{Assets/Picture3 copy 2.jpg}
 	}
 	\hfill
 	\subfloat[\label{fig:fieldmapping_b}]{
-		\includegraphics[width=0.38\textwidth]{Assets/MagFieldMap.png}
+		\includegraphics[width=0.34\textwidth]{Assets/MagFieldMapAllmthesis.png}
 	}
 	
 	\caption[PVC-based magnetic field mapping platform]{\gls{pvc}-based magnetic field mapping platform and coordinated circular grid layout labeled from A to L angular and from 0 to 6 radial. This platform was used for spatial $B_0$ and $\nabla B_0$ measurement, based on design from Ferreira, et al. (2017) \cite{haddixProposal,ferreira2017}. }
@@ -31,7 +31,7 @@ The entire fixture was shifted axially along the Z-direction of a horizontal bor
 	\frac{dB}{dz} \approx \frac{B_2 - B_1}{z_2 - z_1},
 \end{equation}
 
-\noindent where $B_1$ and $B_2$ represent the measured magnetic flux densities at positions displaced symmetrically from the location of interest. This fixture has previously been applied to \gls{mri} mapping in the work by Ferreira \cite{ferreira2017}.
+\noindent where $B_1$ and $B_2$ represent the measured magnetic flux densities at positions displaced symmetrically from the location of interest. This type of fixture has previously been applied to \gls{mri} mapping in the work by Ferreira \cite{ferreira2017}.
 
 
 \subsection{Laboratory Methodology - Solenoid and Neodymium Magnets}
@@ -48,20 +48,20 @@ The approach used in this section was the latter. A custom-built air-core soleno
 \begin{figure}[htb!]
 	\centering
 	\includegraphics[width=0.55\textwidth]{Assets/fieldmapping.jpg}
-	\caption{Probe mapping magnetic field generated from solenoid.}
+	\caption{Probe mapping magnetic field generated from solenoid. The field was measured at three positions around the solenoid's face: E (East), SW (Southwest) and C (Center). The probe was manually stepped 20 cm away from the solenoid face along the axial direction.}
 	\label{fig:solenoidmap}
 \end{figure}
 
 Figure \ref{fig:solenoidmap} shows the experimental setup used to test the probe and obtain a reference map of the magnetic field of our solenoid. Constant current of 4 A was applied to the solenoid. At the solenoid entrance, three positions were selected to place the Gaussmeter probe to check for homogeneity, at the center (r=0 cm,$\theta$=0$^\circ$), southwest (r=10 cm, $\theta$=225$^\circ$), and east (r=10 cm, $\theta$=0$^\circ$). This was achieved by using a translational stage positioning the probe 10 cm away from the solenoid's entrance. 
 
-The stage uses three Thorlabs Z812 servomotors, one for each cartesian axis, to accurately position the probe with changes of less than 0.1 mm, driven via the Kinesis software interface \cite{ThorlabsMotionControl2025, Thorlabs_Kinesis}. While Kinesis-controlled stages support sub-micrometer incremental motion and repeatability on the order of microns \cite{ThorlabsMotionControl2025}, our experiment only required positional accuracy on the order of 0.5 mm. Thus the stage system offered more than sufficient precision and stability for repeatable setup between trials. The translation speed was set up using Kinesis for 0.3 m/s and the maximum displacement of each actuators was 11 mm. This setup was also used for experiment in Section \ref{sec:Translational}. 
+The stage uses three Thorlabs Z812 servomotors, one for each cartesian axis, to accurately position the probe with changes of less than 0.1 mm, driven via the Kinesis software interface \cite{ThorlabsMotionControl2025, Thorlabs_Kinesis}. While Kinesis-controlled stages support sub-micrometer incremental motion and repeatability on the order of microns \cite{ThorlabsMotionControl2025}, our experiment only required positional accuracy on the order of 0.5 mm. Thus the stage system offered more than sufficient precision and stability for repeatable setup between trials. The translation speed was set up using Kinesis for 0.3 m/s and the maximum displacement of each actuators was 11 mm. This setup was also used for the experiment in Section \ref{sec:Translational}. 
 
 To make a quick check across a wider range, a ruler was fixed at the same three positions described and the probe was steadily translated about 20 cm to the solenoid entrance and back. Data was recorded using the manufacturer’s default software, AlphaApp \cite{AlphaApp} with a sampling time of 1 reading per second, for about 2 min. Video recording was used to map time, and distance enabling a rough map of the B field and its gradient.
 
 \subsection{In Clinic Measurements - Magnetic Strength and Gradient}
 \label{sec:metClinic_flux}
 
-To characterize the magnetic field gradient along the scanner’s longitudinal (z) axis, the circular grid fixture was mounted on the patient couch, as shown in Figure \ref{fig:clinicMap}. Couch motion controls were first calibrated, allowing precise positioning in millimeters via the four-digit display. Fixture-to-bore clearance was verified, and the fixture proved marginally over-sized for full insertion, constraining the maximum travel depth.
+To characterize the magnetic field gradient along the scanner’s longitudinal (z) axis, the circular grid fixture was mounted on the patient couch, as shown in Figure \ref{fig:clinicMap}. Couch motion controls were first calibrated, allowing precise positioning in millimeters via the four-digit display. Fixture-to-bore clearance was verified, and the fixture proved marginally over-sized for full insertion, constraining the maximum travel depth. The gaussmeter probe was routed through the fixture plate into the MR suite with a dedicated acquisition computer, located in the control room. Measurement range was defined from 1 cm away from the bore entrance to approximately 1 m away.
 
 \begin{figure}[htb!]
 	\centering
@@ -70,11 +70,11 @@ To characterize the magnetic field gradient along the scanner’s longitudinal (
 	\label{fig:clinicMap}
 \end{figure}
 
-The gaussmeter probe was routed through the fixture plate into the MR suite with a dedicated acquisition computer, located in the control room. Measurement range was defined from 1 cm away from the bore entrance to approximately 1 m away.
-
 Prior to each acquisition series, the fixture was aligned to scanner isocenter using the built-in laser crosshair and a calibrated ruler. Its position was permanently marked on the table surface at (8.5 cm from table side edge) for reproducibility. Grid coordinates examined were the central position (00) and off-axis locations A3, A6, G6, and G3 (vertical plane), with the physical heights of G6 and G3 recorded to ensure correspondence with translational couch motion. Uniformity across the grid was additionally confirmed by measurements at right-side coordinate D3.
 
-At each grid coordinate, the couch was translated continuously while the gaussmeter logged data in paired passes, one advancing into the bore and one retracting, producing independent datasets for hysteresis assessment. In total, 15 raw datasets were acquired, four at the central position (00), two at each off-axis lettered coordinate (A3/A6, G3/G6, D3), and one repeated file following a LabVIEW crash. All files were saved as \gls{csv} with the structure illustrated in Appendix \ref{app:DataStrayField}.
+At each grid coordinate, the couch was translated continuously while the gaussmeter logged data in paired passes, one run advancing into the bore and one run retracting, producing two independent datasets for hysteresis assessment. Continuous translation was chosen over a step-and-shoot approach because the patient couch controllers do not support positioning to a specific coordinate or velocity. This way, alignment was performed once and the couch was driven manually through the full range, with position tracked from both the logged data and the motion controller screen. 
+
+In total, 15 raw datasets were acquired, four at the central position (00), two at each off-axis lettered coordinate (A3/A6, G3/G6, D3), and one repeated file following a LabVIEW crash. All files were saved as \gls{csv} with the structure illustrated in Appendix \ref{app:DataStrayField}.
 
 \input{Results/clincalDataCleaning}
 

@@ -36,7 +36,7 @@ Figure \ref{fig:realPendulum} shows the experimental apparatus. Figure \ref{fig:
 \end{figure}
 %\captionsetup[sub]{labelformat=empty,labelsep=none,skip=-12pt}
 
-After describing the physical implementation of the pendulum fixture, we now evaluate its measurement capabilities. In particular, we determine the smallest detectable translational  force along the z-axis by analyzing the geometry of the deflected pendulum at equilibrium. Whether forces on the order of millinewtons, comparable to the weight of ~1 g, can be resolved depends on the finite precision of the ruler-based deflection measurement and the pendulum's length.
+After describing the physical implementation of the pendulum fixture, we now evaluate its measurement capabilities. In particular, we determine the smallest detectable translational  force along the z-axis by analyzing the geometry of the deflected pendulum at equilibrium. Whether forces on the order of mN, comparable to the weight of ~1 g, can be resolved depends on the finite precision of the ruler-based deflection measurement and the pendulum's length.
 
 \FloatBarrier
 
@@ -45,7 +45,7 @@ After describing the physical implementation of the pendulum fixture, we now eva
 \subsubsection{Test Objects and Baskets}
 \label{sec:muts}
 
-Testing for low field lab measurements a solid ferromagnetic cylinder was used as sample. While testing for the clinic environment used materials that are expected to exhibit negligible or zero translational force under clinical \gls{mri} conditions. Positive controls were prepared from two common biocompatible, non-ferromagnetic metals, titanium and 316L stainless steel wire, both sourced from TEMCo Industrial (USA) and supplied on their standard spools \cite{temco_ti_wire}. The physical characteristics of all test objects used in this study are summarized in Table \ref{tab:test_objects}. while Figure \ref{fig:objects_basket} shows the samples in real size.
+In the laboratory setting, a solid ferromagnetic cylinder was used as sample. While testing for the clinical environment used materials that are expected to exhibit minimal translational force under clinical \gls{mri} conditions. Positive controls were prepared from two common biocompatible, non-ferromagnetic metals, titanium and 316L stainless steel wire, both sourced from TEMCo Industrial (USA) and supplied on their standard spools \cite{temco_ti_wire}. The physical characteristics of all test objects used in this study are summarized in Table \ref{tab:test_objects}, while Figure \ref{fig:objects_basket} shows the samples in real size.
 
 These positive controls and the epicardial lead were mounted in a custom 3D-printed \gls{pla} basket, with the added benefit of easily change test objects while maintaining \gls{mri} compatibility. Figure \ref{fig:leadHolder} shows a 3D render with the intended proportions. The corresponding engineering design is provided in Appendix \ref{app:A2}, with STL files available in this Github repository \cite{juarezluna2025mrisafety}. The mesh's lightweight design aimed to minimize its contribution to the total gravitational force. Its bounding volume would be 224 mm$^3$. However due to the hexagonal lattice structure, the effective solid volume is 95.2 mm$^3$, resulting in a mass of at least 118 mg based on \gls{pla} material properties. Once printed, it had a final weight of 130 mg. 
 
@@ -90,7 +90,7 @@ These positive controls and the epicardial lead were mounted in a custom 3D-prin
 		\includegraphics[width=0.66\textwidth]{Assets/objs.jpeg}
 	}
 	
-	\caption[Test objects and basket]{Test objects: (a) Ferromagnetic object and string attached. (b)3D Printed basket made of \gls{pla}. (c) 316L Stainless steel sample. (d) Titanium wire (Surgical Grade 1) sample. (e) Wrapped Medtronic STREAMLINE\textsuperscript{\texttrademark} 6492 unipolar epicardial lead. On the bottom of each picture, a ruler in centimeters shows real size.}
+	\caption[Test objects and basket]{Test objects: (a) Ferromagnetic object and string attached. (b)3D Printed basket made of \gls{pla}. (c) 316L Stainless steel sample. (d) Titanium wire (Surgical Grade 1) sample. (e) Wrapped Medtronic STREAMLINE\textsuperscript{\texttrademark} 6492 unipolar epicardial lead. On the bottom of each picture, a ruler in centimeters shows actual size.}
 	\label{fig:objects_basket}
 \end{figure}
 
@@ -100,7 +100,7 @@ So far, we have described the materials used in both the lab and the clinic, fro
 \subsection{Laboratory Methodology and Setup - Translational Force}
 \label{sec:experiment1}
 
-The setup used the custom-made solenoid from Section \ref{sec:labMagnets} and the fixture described in Section \ref{sec:TransDevice_Testsubjects}. Figure \ref{fig:labsetup} shows this experimental laboratory setup used to assess the methodology accuracy and reliability with all components. The test object, shown in Figure \ref{fig:ferrobject}, was attached to a string suspended at 955 mm from the \gls{mri} safe fixture and the angle of deflection was measured visually with a ruler as the object displaced horizontally towards the coil. The gaussmeter probe was positioned to make magnetic field strength and angle deflection measurements at the same time.
+The setup used the custom-made solenoid from Section \ref{sec:labMagnets} and the fixture described in Section \ref{sec:TransDevice_Testsubjects}. Figure \ref{fig:labsetup} shows this experimental laboratory setup used to assess the methodology accuracy and reliability with all components. The test object, shown in Figure \ref{fig:ferrobject}, was attached to a common cotton sewing string suspended at 955 mm from the \gls{mri} safe fixture and the angle of deflection was measured visually with a ruler as the object displaced horizontally towards the coil. The gaussmeter probe was positioned to make magnetic field strength and angle deflection measurements at the same time.
 
 \begin{figure}[hb!]
 	\centering
@@ -109,7 +109,7 @@ The setup used the custom-made solenoid from Section \ref{sec:labMagnets} and th
 	\label{fig:labsetup}
 \end{figure}
 
-The magnetic field characterization used here differs from Section \ref{sec:labMagnets}. In that earlier mapping, the Gaussmeter probe was translated along the solenoid axis, while the current in the solenoid was held. For the translational force experiment, this approach was inverted. The pendulum was held stationary at a fixed position  of 8\,cm from the solenoid face, and the solenoid current was varied to increase through a range of magnetic field strengths $B_0$. This approach was chosen because it decouples the mechanical equilibrium of the pendulum from the field scanning motion, ensuring the fixture remains stationary while the magnetic force is varied. As a consequence, the z-coordinate of the resulting field maps represents the pendulum's displacement from its gravitational rest position (B = 0). Each data point therefore corresponds to a different applied current and field strength at the new equilibrium point. For example, the test object remains at rest (Figure \ref{fig:translational_off}) once the current is flowing the magnetic field on the solenoid pulls the subject towards it (Figure \ref{fig:translational_on}) the more current was applied to the solenoid the stronger the magnetic field and stronger the force. 
+The magnetic field characterization used here differs from Section \ref{sec:labMagnets}. In that earlier mapping, the Gaussmeter probe was translated along the solenoid axis, while the current in the solenoid was held constant. For the translational force experiment, this approach was inverted. The pendulum was held stationary at a fixed position  of 8\,cm from the solenoid face, and the solenoid current was varied to increase through a range of magnetic field strengths $B_0$. This approach was chosen because it decouples the mechanical equilibrium of the pendulum from the field scanning motion, ensuring the fixture remains stationary while the magnetic force is varied. As a consequence, the z-coordinate of the resulting field maps represents the pendulum's displacement from its gravitational rest position (B = 0). Each data point therefore corresponds to a different applied current and field strength at the new equilibrium point. For example, the test object remains at rest (Figure \ref{fig:translational_off}) once the current is flowing the magnetic field on the solenoid pulls the subject towards it (Figure \ref{fig:translational_on}) the more current was applied to the solenoid the stronger the magnetic field and stronger the force. 
 
 \begin{figure}[hbt!]
 	\centering
@@ -180,7 +180,7 @@ All measurements were logged in Microsoft Excel, and photos/videos were captured
 \subsection{In Clinic Measurement - Translational Force}
 \label{sec:clinicTrans}
 
-To quantify magnetically induced translational forces on implantable samples within the \gls{mri} fringe field, the custom translational fixture was positioned on the patient couch, as shown in figure \ref{fig:translational_clinic}.
+To quantify magnetically induced translational forces on implantable samples within the \gls{mri} fringe field, the custom translational fixture was positioned on the patient couch, as shown in Figure \ref{fig:translational_clinic}.
 The fixture supported the lightweight baskets (Figure \ref{fig:leadHolder}) suspended by a common sewing string of length 1010 mm, allowing samples to displace freely under magnetic force while measuring equilibrium position shifts relative to the zero-force state.
 \begin{figure}[hbt!]
 	\centering
@@ -205,6 +205,6 @@ The titanium sample was configured as a loosely coiled spring-like shape, orient
 
 %pictures
 
-In total, eight raw data tables were acquired, three for the coiled titanium sample, three for the coiled epicardial lead, one for the straight titanium segment, and one for the straight 316L stainless steel segment. All displacement measurements were documented manually and later digitized for analysis. Also publicly available at \cite{juarezluna2025mrisafety}. Deflection angles were additionally used to extrapolate allowable spatial gradients at clinical field strengths following F2052-15 Appendix X3.
+In total, eight raw data tables were acquired, three for the coiled titanium sample, three for the coiled epicardial lead, one for the straight titanium segment, and one for the straight 316L stainless steel segment. All displacement measurements were documented manually and later digitized for analysis (also publicly available at \cite{juarezluna2025mrisafety}). Deflection angles were used to extrapolate allowable spatial gradients at clinical field strengths following F2052-15 Appendix X3.
 
 %To guarantee safety and repeatability, the measurement of MRI-induced translational forces on the test items was carried out in accordance with a structured methodology.  Initially, all personal belongings were removed to prevent safety issues. The apparatus, a \gls{pvc} pole equipped with a non-magnetic ruler aligned with the pendulum string, was positioned at a precise distance from the MRI bore. Two sets of measurements were performed sequentially: first using a magnetically susceptible test object, and then with the epicardial lead attached, suspended from a light basket and a heavy basket, respectively, to assess force variations. Moving closer to the bore, a step-wise method was followed to measure displacement at certain translational points. Each measurement phase was completed as per the flowchart-guided process, with detailed data recorded in the a worksheet. The comprehensive protocol, including step-by-step instructions and safety considerations, is provided in Appendix%~\ref{app:} for reference.

@@ -2,7 +2,7 @@
 
 Post-acquisition, the \gls{csv} files were imported into Python using the \texttt{Pandas} library. Column headers were standardized, and data integrity checks (duplicate removal, timestamp validation) were performed. To better illustrate this process, the next set of figures show examples for a single coordinate point (G6 from Figure \ref{fig:fieldmapping_b}) which is representative of all the other coordinates datasets.
 
-First, Figure \ref{fig:G6_BvsTime_raw} depicts the raw data in time for both runs, backwards on the left, forward on the right. Two outliers were observed in all datasets. These outliers were removed with a quick exponential fit to use as baseline. Residuals were removed where the value was greater than $3\sigma$. Excess measurements were taken at the beginning and end of each measuring run, most visible at small times on the left panel, where a sudden plateau appears. This was cut as well, done by removing the leading/trailing near-constant flux checking with nearest neighbors within a tolerance of 1 Gauss.
+First, Figure \ref{fig:G6_BvsTime_raw} depicts the raw data in time for both runs, backwards on the left, forward on the right. Two outliers were observed in all datasets. These outliers were removed with a quick exponential fit to use as baseline. Outliers were removed where the value was greater than $3\sigma$. Excess measurements were taken at the beginning and end of each measuring run, most visible at small times on the left panel, where a sudden plateau appears. This was cut as well, done by removing the leading/trailing near-constant flux checking with nearest neighbors within a tolerance of 1 Gauss.
 
 %Figure \ref{fig:G6_BvsTime_raw}
 %Assets/G6betterPlots/G6_BvsTime_raw.png
@@ -13,7 +13,7 @@ First, Figure \ref{fig:G6_BvsTime_raw} depicts the raw data in time for both run
 	\label{fig:G6_BvsTime_raw}
 \end{figure}
 
-Once both of these problems were removed, the velocity of the patient couch with our fixture was calculated assuming constant speed by averaging the total time with the total distance (1252.0 mm) on each run. This allowed for conversion of the time axis to position along the couch, Figure \ref{fig:G6_position_pair} top rows in blue shows these plots. However, notice that some of the points on the plot are repeated making the plot look a bit step like, this in turn distorts the gradient calculations as central difference no longer works, as seen in Figure \ref{fig:G6_position_pair} bottom rows in red. This repetition arises from the resolution factor of our gaussmeter probe, set to 1 sample every 0.25s (4Hz) for such high field strength was too little resulting in saturation of the instrument. To address this, the datasets were separated into two interleaved sequences (sub-run A and sub-run B), effectively reducing the sampling rate to 2 Hz (0.50 s per sample) and eliminating redundant values for subsequent gradient calculations. Singles were kept in sub-run A.
+Once both of these problems were removed, the velocity of the patient couch with our fixture was calculated assuming constant speed by averaging the total time with the total distance (1252.0 mm) on each run. This allowed for conversion of the time axis to position along the couch, Figure \ref{fig:G6_position_pair} top rows in blue shows these plots. However, notice that some of the points on the plot are repeated making the plot stepped. This in turn distorts the gradient calculations as central difference no longer works, as seen in Figure \ref{fig:G6_position_pair} bottom rows in red. This repetition arises from the resolution factor of our gaussmeter probe. The gaussmeter probe was set to sample at 4 Hz (one sample every 0.25 s). At this field strength, the instrument became saturated, hence the repeated readings. To address this, the datasets were separated into two interleaved sequences (sub-run A and sub-run B), effectively reducing the sampling rate to 2 Hz (0.50 s per sample) and eliminating redundant values for subsequent gradient calculations. Singles were kept in sub-run A.
 
 \begin{figure}[hbt!]
 	\centering
@@ -25,7 +25,7 @@ Once both of these problems were removed, the velocity of the patient couch with
 	%	\includegraphics[width=0.75\textwidth]{Assets/G6betterPlots/G6_gradB.png}
 	%}
 	
-	\caption[Magnetic field and gradient before separation]{Magnetic field(top row)  and corresponding gradient (bottom row) along the measurement path after converting time to position but prior to separating repeated measurements.}
+	\caption[Magnetic field and gradient before separation]{Magnetic field (top row) and corresponding gradient (bottom row) along the measurement path after converting time to position but prior to separating repeated measurements. Cleaned up data can be found in Chapter \ref{sec:resClinic_map}}
 	\label{fig:G6_position_pair}
 \end{figure}
 

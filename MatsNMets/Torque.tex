@@ -31,14 +31,14 @@ In this case, the sensor is a thin rod bends following the cantilever beam defle
 
 \subsection{Laboratory Methodology and Setup - Torque}
 \label{sec:InLab_Torque}
-With the transfer arm length and the sensor position optimized and confirmed, the method for the experiment goes as follows: an increasingly stronger magnetic field was applied to the test object, initially positioned such that it makes a approx 45$^\circ$ angle with the magnetic field. The magnetic field is measured and recorded using the AlphaLab Inc. Gaussmeter. The test object, experiences a torque given by Equation \ref{eq:maxtorque}, transferring it to the arm. There, it is stopped by the sensor described in section \ref{sec:circuitDesignNsensor}, which measures voltage change proportional to the force it receives from the rotating arm. This voltage reading collection was done using a \gls{daq} card and a computer.
+With the transfer arm length and the sensor position optimized and confirmed, the method for the experiment goes as follows: an increasingly stronger magnetic field was applied to the test object, initially positioned such that it makes a approx 45$^\circ$ angle with the magnetic field, following Equation \ref{eq:torque_thetadependece}. The magnetic field is measured and recorded using the AlphaLab Inc. Gaussmeter. The test object, experiences a torque given by Equation \ref{eq:maxtorque}, transferring it to the arm. There, it is stopped by the sensor described in section \ref{sec:circuitDesignNsensor}, which measures voltage change proportional to the force it receives from the rotating arm. This voltage reading collection was done using a \gls{daq} card and a computer.
 
 Figure \ref{fig:equipment_list_zoomed} shows the experimental apparatus. In it each relevant piece is labeled and numbered: (1) and (2) are the power supply and Helmholtz coil generating the magnetic field. (3) the gaussmeter probe, which is connected to a computer. (4) Our circuit. (5) Is the \gls{daq} card, also connected to the same computer. And (6) the main torque fixture with sensor, transfer arm and sample.
 
 \begin{figure}[htb!]
 	\centering
 	\includegraphics[width=0.75\textwidth]{Assets/TorqueSetup.jpeg}
-	\caption[Experimental setup for measuring magnetically induced torque.]{Experimental setup for torque measurements. Includes magnetic field generation and measurement devices, (1) through (3). (4) is the sensor circuit, (5) is the \gls{daq} system connected to a laptop. (6) is the main device where the test object sits.}
+	\caption[Experimental setup for measuring magnetically induced torque.]{Experimental setup for torque measurements. Includes magnetic field generation and measurement devices, (1) through (3). (4) is the sensor circuit, (5) is the \gls{daq} system connected to a laptop. (6) is the main device where the test object sits. The object is positioned at 45° to the static field, corresponding to the angle of maximum torque for a paramagnetic material.}
 	\label{fig:equipment_list_zoomed}
 \end{figure}
 

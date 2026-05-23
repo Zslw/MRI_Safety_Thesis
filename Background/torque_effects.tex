@@ -1,14 +1,14 @@
-\subsubsection{Torque induced by the Static Field}
+\subsubsection{Torque Induced by the Static Field}
 \label{sec:torqueBG}
 
-Consider a metallic rigid cylinder shaped subject (a wire or rod) free to rotate, in a low friction surface, and align to a static magnetic field ($B_0$). The cylinder experiences a torque and has magnetic dipole moment according to eq. (\ref{eq:torque}). For a thin, linear paramagnetic material, the induced magnetic moment depends on its orientation relative to the static magnetic field. It can be expressed as
+Consider a metallic rigid cylinder shaped object (a wire or rod) free to rotate on a low friction surface, and aligned to a static magnetic field ($B_0$). The cylinder experiences a torque and has a magnetic dipole moment according to Equation (\ref{eq:torque}). For an idealized thin, linear paramagnetic material, the induced magnetic moment depends on its orientation relative to the static magnetic field. It can be expressed as
 
 \begin{equation}
 	\mathbf{m} = m_0 \cos (\theta),
 	\label{eq:mprojection}
 \end{equation}
 
-\noindent where $m_0$ is the maximum induced dipole moment, which occurs when the material’s axis is aligned parallel to the $B_0$ field ($\theta$ = 0$^\circ$). When the material is oriented perpendicular to $B_0$ ($\theta$ = 90$^\circ$), the effective component of the dipole moment along the field direction vanishes. This follows from the projection of the dipole moment vector onto the magnetic field axis.
+\noindent where $m_0$ is the maximum induced dipole moment, which occurs when the material’s axis is aligned parallel to the $B_0$ field ($\theta$ = 0$^\circ$). In practice, the moment is reduced but does not fully vanish at $B_0$ ($\theta$ = 90$^\circ$) due to finite geometry. However, this approximation is sufficient for slender devices where the transverse contribution is small. This follows from the projection of the dipole moment vector onto the magnetic field axis.
 
 \begin{figure}[htb!]
 	\centering
@@ -17,7 +17,7 @@ Consider a metallic rigid cylinder shaped subject (a wire or rod) free to rotate
 	\label{fig:m0mcost}
 \end{figure}
 
-In Figure \ref{fig:m0mcost}, the dipole of magnitude $m$, experiences a torque that follows Equation \ref{eq:torque}. From the geometric projection of the dipole moment onto the magnetic field direction (eq. \ref{eq:mprojection}), the torque experienced by the dipole is	
+In Figure \ref{fig:m0mcost}, the dipole of magnitude $m$, experiences a torque that follows Equation \ref{eq:torque}. From the geometric projection of the dipole moment onto the magnetic field direction (Equation \ref{eq:mprojection}), the torque experienced by the dipole is	
 \begin{equation*}
 	|\boldsymbol{\tau}| = m_0 B_0 \sin(\theta) \cos(\theta) = m_0 B_0 \frac{\sin (2\theta)}{2}.
 \end{equation*}
@@ -26,7 +26,7 @@ Using equation \ref{eq:magnitudemoment} for the dipole moment,
 
 \begin{subequations}
 	\begin{equation}
-		\tau(\theta) = \tau_{max} \sin(2\theta), \quad \text{or}
+		\tau(\theta) = \tau_{max} \sin(2\theta), \quad \text{with}
 		\label{eq:torque_thetadependece}
 	\end{equation}
 	\begin{equation}
@@ -39,8 +39,8 @@ Using equation \ref{eq:magnitudemoment} for the dipole moment,
 Once the torque is found, a direct comparison to the object's weight can be made. According to ASTM F2213 \cite{astm2213, stoianovici2024}, the criterion ($c_\tau$) for evaluating magnetically induced torque on medical devices in a magnetic resonance environment is
 
 \begin{equation}
-	c_\tau = \frac{\tau_{max}}{mgl},
+	c_\tau = \frac{\tau_{max}}{mg \mathcal{l}},
 	\label{eq:gravTorque}
 \end{equation} 
 
-\noindent where $\tau_{max}$ is the maximum torque measured or obtained by equation \ref{eq:maxtorque}, thus the maximum induced torque is comparable to the product of the device's longest dimension ($l$) and its weight ($mg$). Under the ASTM gravity-based acceptability criterion, a device is considered acceptable when $c_\tau < 1$.
+\noindent where $\tau_{max}$ is the maximum torque measured or obtained by equation \ref{eq:maxtorque}, thus the maximum induced torque is comparable to the product of the test object's longest dimension ($l$) and its weight ($mg$). Under the ASTM gravity-based acceptability criterion, a device is considered acceptable when $c_\tau < 1$.

@@ -6,7 +6,7 @@ Translational force measurements follow directly from the field maps of Section~
 In the laboratory, the pendulum fixture was held at a fixed position while the solenoid current was varied to sweep the field product $|B\nabla B|$ across a range of values, to replicate the spatial variation of field strength encountered along the bore axis in the clinic. The objective was to validate the force model of Equation~\ref{eq:forFit} by calculating the magnetic susceptibility 
 $\chi_m$ of a ferromagnetic reference sample from the measured deflection angles, following the method described in Section~\ref{sec:experiment1}.
 
-Figure \ref{fig:fit} shows a plot of the observed \gls{fr}, [tan($\alpha$)] against the magnetic field properties (B$\nabla$B) in $T^2/m$, which were determined from mapping the magnetic field. Figure \ref{fig:curve_fit_plot} is a representation of Equation \ref{eq:forFit}, it shows a linear fit with a slope of 160.3 $\pm$ 8.3 and intercept 0.0160 $\pm$ 0.003. Figure \ref{fig:residuals_plot}, shows the residuals for the linear fit suggesting this fit is appropriate.
+Figure \ref{fig:fit} shows a plot of the observed \gls{fr}, [tan($\alpha$)] against the magnetic field properties (B$\nabla$B) in $T^2/m$, which were determined from mapping the magnetic field. Figure \ref{fig:curve_fit_plot} is a representation of Equation \ref{eq:forFit}, it shows a linear fit with a slope of 160 $\pm$ 8 and intercept 0.0160 $\pm$ 0.003. Figure \ref{fig:residuals_plot}, shows the residuals for the linear fit suggesting this fit is appropriate.
 
 \begin{figure}[h!]
 	\centering
@@ -23,7 +23,7 @@ Figure \ref{fig:fit} shows a plot of the observed \gls{fr}, [tan($\alpha$)] agai
 		(Figure~\ref{fig:ferrobject}) under the laboratory solenoid. 
 		(a) Measured $\tan(\alpha)$ versus applied field product 
 		$B_0 \cdot \frac{dB_0}{dz}$, with linear fit (Equation~\ref{eq:forFit}). 
-		(b) Residuals from the linear fit with propagated uncertainty error bars.}
+		(b) Residuals from the linear fit. Error bars were calculated from the uncertainty of the ruler for the distance displaced and the reported uncertainty of the gaussmeter then propagated accordingly.}
 	\label{fig:fit}
 \end{figure}
 
@@ -31,15 +31,14 @@ Figure \ref{fig:fit} shows a plot of the observed \gls{fr}, [tan($\alpha$)] agai
  Following Equation \ref{eq:forFit}, it can be quickly inferred that the magnetic susceptibility of the our sample is given by 
  
  \begin{equation}
- \chi_m = m (\mu_0 \rho g)  
+ \chi_m = m (\mu_0 \rho g),  
  \end{equation}
 
-\noindent where $m$ is the slope found with Figure's \ref{fig:curve_fit_plot} fit, $\mu_0$ the vacuum permittivity, $\rho$ the material's density and $g$ gravity. The test sample was an unidentified ferromagnetic cylinder of measured dimensions and mass in Table \ref{tab:subjectProp}. We obtained a density of $8600 \pm 60$ kg/m$^3$and a magnetic susceptibility $\chi_m = 17.3 \pm 0.1$. For reference, carbon steels such as AISI 1018 have a density of approximately 7870 kg/m$^3$ \cite{matweb_1018}, while pure nickel is approximately 8857 kg/m$^3$ (0.32lb/in$^3$)\cite{mcmaster_ni200}, suggesting the sample is a nickel-rich alloy or a high-density ferromagnetic compound of unknown grade. The rapid magnetization and demagnetization observed when brought near a permanent magnet confirms soft ferromagnetic character.
-
+\noindent where $m$ is the slope found with Figure's \ref{fig:curve_fit_plot} fit, $\mu_0$ the vacuum permittivity, $\rho$ the material's density and $g$ the acceleration due to gravity. The test sample was an unidentified ferromagnetic cylinder of measured dimensions and mass in Table \ref{tab:subjectProp}. We obtained a density of $8600 \pm 60$ kg/m$^3$and a magnetic susceptibility $\chi_m = 17.3 \pm 0.1$. For reference, carbon steels such as AISI 1018 have a density of approximately 7870 kg/m$^3$ \cite{matweb_1018}, while pure nickel is approximately 8857 kg/m$^3$ (0.32lb/in$^3$)\cite{mcmaster_ni200}, suggesting the sample is a nickel-rich alloy or a high-density ferromagnetic compound of unknown grade. Additionally, when brought near to a neodymium magnet, the sample was attracted and showed no remnant magnetization upon separation.
 
 \begin{table}[hbt!]
 	\centering
-	\caption[Properties of the magnetic object – experimental values]{Measured and calculated characteristics of our magnetic object.}
+	\caption[Properties of the magnetic object – experimental values]{Measured and calculated characteristics of our ferromagnetic object.}
 	\begin{tabular}{|l|r@{\,$\pm$\,}l|c|}
 		\hline
 		Property & \multicolumn{2}{c|}{Value} & Unit \\
@@ -48,9 +47,9 @@ Figure \ref{fig:fit} shows a plot of the observed \gls{fr}, [tan($\alpha$)] agai
 		Diameter & 3.00 & 0.01 & mm \\
 		Mass & 0.3648 & 0.0001 & g \\
 		\hline
-		Volume & (4.24$\times 10^{-8}$ & 0.03)$\times 10^{-8}$ & m$^3$ \\
+		Volume & (4.24 & 0.03)$\times 10^{-8}$ & m$^3$ \\
 		Density & 8600 & 60 & kg/m$^3$ \\
-		Mass magnetic susceptibility [$\frac{\chi}{\rho}$] & (2.01$\times 10^{-3}$ & 0.05)$\times 10^{-3}$ & m$^3$/kg \\
+		Mass magnetic susceptibility [$\frac{\chi}{\rho}$] & (2.01 & 0.05)$\times 10^{-3}$ & m$^3$/kg \\
 		Magnetic susceptibility & 17.3 & 0.1 & unitless \\
 		\hline
 	\end{tabular}
@@ -83,7 +82,7 @@ The ASTM F2052-15 acceptance criterion is a force ratio $\mathrm{FR} = \tan(\alp
 	\label{fig:translational_clinic_res}
 \end{figure}
 
-Figure~\ref{fig:translational_clinic_res} shows the epicardial lead mounted on the pendulum fixture at the bore entrance. A visible displacement of up to 9 cm was recorded for the Medtronic STREAMLINE\textsuperscript{\texttrademark} 6492 unipolar epicardial lead, making it the most strongly deflected device among those tested. Figure~\ref{fig:F2052_FR_vs_position} shows the \gls{fr} as a function of z-axis position along the bore axis for our \glspl{mut}. The force ratio increases monotonically as the \gls{mut} approaches the bore entrance (smaller z), consistent with the increasing $B|\nabla B|$ product expected from the magnetic field map. Critically, all \glspl{mut} remained well below the $\mathrm{FR} = 1.0$ threshold across the entire measured range. The Medtronic STREAMLINE\textsuperscript{\texttrademark} 6492 unipolar temporary epicardial lead (a) and the 316L stainless steel reference sample (b) reached the highest force ratios, with maximum mean values of $\tan(\alpha) = 0.0931$ ($\alpha = 5.32^\circ$) and $\tan(\alpha) = 0.0905$ ($\alpha = 5.17^\circ$), respectively. The titanium coil (c) and titanium straight rod (d) showed substantially lower deflections, with maximum mean force ratios of $\tan(\alpha) = 0.0092$ ($\alpha = 0.53^\circ$) and $\tan(\alpha) = 0.0040$ ($\alpha = 0.23^\circ$). The titanium straight wire showed minimal deflection.
+Figure~\ref{fig:translational_clinic_res} shows the epicardial lead mounted on the pendulum fixture at the bore entrance. A visible displacement of up to 9 cm was recorded for the Medtronic STREAMLINE\textsuperscript{\texttrademark} 6492 unipolar epicardial lead, making it the most strongly deflected device among those tested. Figure~\ref{fig:F2052_FR_vs_position} shows the \gls{fr} as a function of z-axis position along the bore axis for our \glspl{mut}. The force ratio increases monotonically as the \gls{mut} approaches the bore entrance (smaller z), consistent with the increasing $B|\nabla B|$ product expected from the magnetic field map. Critically, all \glspl{mut} remained well below the $\mathrm{FR} = 1.0$ threshold across the entire measured range. The Medtronic STREAMLINE\textsuperscript{\texttrademark} 6492 unipolar temporary epicardial lead (a) and the 316L stainless steel reference sample (b) reached the highest force ratios, with maximum mean values of $\tan(\alpha) = 0.1666$ ($\alpha = 9.5^\circ$) and $\tan(\alpha) = 0.1490$ ($\alpha = 8.5^\circ$), respectively. The titanium straight wire (c) and the titanium coil (d) showed substantially lower deflections, with maximum mean force ratios of $\tan(\alpha) = 0.0068$ ($\alpha = 0.4^\circ$) and $\tan(\alpha) = 0.0098$ ($\alpha = 0.6^\circ$). The titanium straight wire showed minimal deflection. However, trials on the straight wires (b) and (c) were measured only once and should be repeated.
 
 
 % ----------------------------------------------------------
@@ -96,7 +95,7 @@ Figure~\ref{fig:translational_clinic_res} shows the epicardial lead mounted on t
 	\label{fig:F2052_FR_vs_position}
 \end{figure}
 
-Figure~\ref{fig:F2052_max_parison} summarises the peak \gls{fr} per \gls{mut}. All four \glspl{mut} passed the F2052-15 criterion; however, it is notable that the unipolar epicardial lead, the primary device of clinical interest, produced a force ratio roughly ten times larger than the titanium reference samples. The 316L stainless steel, included as a higher-susceptibility control material, yielded a peak force ratio comparable to the unipolar lead, as expected given its known magnetic properties. Notably, the coiled geometry of the titanium wire (d) produced larger deflections than their straight counterpart (c), suggesting that conductor geometry contributes meaningfully to the force response independently of material susceptibility. The epicardial lead was also coiled around the basket perpendicular to the field, which could have increased its interaction, therefore additional measurements are needed.
+Figure~\ref{fig:F2052_max_parison} summarizes the peak \gls{fr} per \gls{mut}. All four \glspl{mut} passed the F2052-15 criterion; however, it is notable that the unipolar epicardial lead, the primary device of clinical interest, produced a force ratio roughly ten times larger than the titanium reference samples. The 316L stainless steel, included as a higher-susceptibility control material, yielded a peak force ratio comparable to the unipolar lead, as expected given its known magnetic properties. Notably, the coiled geometry of the titanium wire (d) produced larger deflections than their straight counterpart (c), suggesting that conductor geometry contributes meaningfully to the force response independently of material susceptibility. The epicardial lead was also coiled around the basket perpendicular to the field, which could have increased its interaction, therefore additional measurements are needed.
 
 % ----------------------------------------------------------
 % Figure 2
@@ -111,9 +110,25 @@ Figure~\ref{fig:F2052_max_parison} summarises the peak \gls{fr} per \gls{mut}. A
 %discussion
 % two things: the maximum allowable spatial gradient  following F2052-15 Appendix X3, Eq. X3.9. \cite{astmF2052} and force ratios (FR) at all fixture coordinates from the field map (see Section \ref{resTranslationalForce}).
 
+Figure~\ref{fig:comparison_ordinate} presents two complementary views of the spatial distribution of translational loading across the mapping fixture. Panel (a) shows the measured $|B\nabla B|$ product at each coordinate from the forward pass field map (Section~\ref{sec:resClinic_map}). Panel (b) shows the predicted \gls{fr} at each coordinate for all four \glspl{mut}, obtained by scaling the measured \gls{fr} at the G6 test location linearly with $|B\nabla B|$, following the proportionality of Equation~\ref{eq:forFit}.
+
+Coordinate A6, nearest to the bore top, yields the highest $|B\nabla B|$ product (21.22 T$^2$/m) and consequently the highest predicted \gls{fr} for all \glspl{mut}, approximately twice the values at G6. This positional dependence is consistent with the expected peak of $B|\nabla B|$ near the bore entrance reported in literature~\cite{mriquestions_dangerous_place}. All predicted \gls{fr} values remain well below the $\mathrm{FR} = 1.0$ threshold even at the worst-case coordinate.
+
+% ----------------------------------------------------------
+% Figure 4
+% ----------------------------------------------------------
+\begin{figure}[htb!]
+	\centering
+	\includegraphics[width=0.85\textwidth]{Assets/comparison_FR_per_coordinate_pub.png}
+	\caption[Field map and translational cross analysis.]{Field map and translational cross analysis. (a) Measured $|B \cdot \nabla B|$ per fixture coordinate on the forward pass, sub run B. (b) Predicted Force Ratio (\gls{fr})	 per device at each fixture coordinate at bore entrance.}
+	\label{fig:comparison_ordinate}
+\end{figure}
+
 Additionally, the allowable maximum spatial gradient was extrapolated using the ASTM F2052-15 Appendix X3 extrapolation, which projects measured deflection angles at a test location onto target field conditions ($19$ T/m for 1.5 T systems and $17$ T/m for 3.0 T) \cite{astmF2052}. Given our case, we input $B_{0L} = 2.67 T$ and $|\nabla B|_L = 5.93 T/m$ as test field location field conditions, $\alpha_L$ for each \gls{mut} and project it to find the gradient necessary to produce a $\alpha_C = 45 ^\circ$ deflection on either 1.5 T or 3.0 T compared to their typical values.
 
-Figure~\ref{fig:comparison_gradient} shows that the extrapolated allowable spatial gradients substantially exceed the typical scanner limits for all four \gls{mut}. That is, the magnetically induced force experienced by the \glspl{mut} can only be greater than its weight if the spatial gradient greatly surpasses that of a typical scanner. Of most interest, the unipolar lead yielded an allowable gradient of 113 T/m at 1.5 T and 56 T/m at 3.0 T, both far beyond the scanner's physical maximum gradient, indicating that the translational force alone does not pose a safety concern under standard clinical conditions for this particular sample. Titanium samples showed a deflection angle below 2$^\circ$, Ti Coil ($\alpha = 0.53^\circ$) and Ti Rod ($\alpha = 0.23^\circ$), which were conservatively floored to 2$^\circ$, as F2052-15 recommends. With it, they both yield an allowable gradient of 303 T/m at 1.5 T and 151 T/m at 3.0 T.
+This extrapolation is shown in Figure~\ref{fig:comparison_gradient} and answers the question: under what field conditions would our \glspl{mut} reach the FR = 1 safety threshold? That is, what spatial gradient a clinical scanner would need to produce in order to deflect each device to 45 $^\circ$.
+
+Of most interest, the unipolar lead yielded an allowable gradient of 113 T/m at 1.5 T and 56 T/m at 3.0 T, both far beyond the scanner's physical maximum gradient, indicating that the translational force alone does not pose a safety concern under standard clinical conditions for this particular sample. Titanium samples showed a deflection angle below 2$^\circ$, Ti Coil ($\alpha = 0.53^\circ$) and Ti Rod ($\alpha = 0.23^\circ$), which were conservatively floored to 2$^\circ$, as F2052-15 recommends. With it, they both yield an allowable gradient of 303 T/m at 1.5 T and 151 T/m at 3.0 T.
 
 % ----------------------------------------------------------
 % Figure 3
@@ -125,20 +140,6 @@ Figure~\ref{fig:comparison_gradient} shows that the extrapolated allowable spati
 	\label{fig:comparison_gradient}
 \end{figure}
 
-
-Figure~\ref{fig:comparison_ordinate} presents two complementary views of the spatial distribution of translational loading across the mapping fixture. Panel (a) shows the measured $|B\nabla B|$ product at each coordinate from the forward pass field map (Section~\ref{sec:resClinic_map}). Panel (b) shows the predicted \gls{fr} at each coordinate for all four \glspl{mut}, obtained by scaling the measured \gls{fr} at the G6 test location linearly with $|B\nabla B|$, following the proportionality of Equation~\ref{eq:forFit}.
-
-Coordinate A6, nearest to the bore top, yields the highest $|B\nabla B|$ product (22.95 T$^2$/m) and consequently the highest predicted \gls{fr} for all \glspl{mut}, approximately twice the values at G6. This positional dependence is consistent with the expected peak of $B|\nabla B|$ near the bore entrance reported in literature~\cite{mriquestions_dangerous_place}. All predicted \gls{fr} values remain well below the $\mathrm{FR} = 1.0$ threshold even at the worst-case coordinate.
-
-% ----------------------------------------------------------
-% Figure 4
-% ----------------------------------------------------------
-\begin{figure}[htb!]
-	\centering
-	\includegraphics[width=0.85\textwidth]{Assets/comparison_FR_per_coordinate_pub.png}
-	\caption[Field map and translational cross analysis.]{Field map and translational cross analysis. Left: Measured $|B \cdot \nabla B|$ per fixture coordinate on the forward pass, sub run B. Right: Predicted \gls{fr} per device at each fixture coordinate at bore entrance.}
-	\label{fig:comparison_ordinate}
-\end{figure}
 
 It should be noted, that per F2052-15 \cite{astmF2052}, a passing result for translational force is not sufficient alone to establish MR safety. RF-induced heating (ASTM F2182 \cite{astmF2182}) and torque (ASTM F2213 \cite{astm2213}) must also be assessed. The Ti Rod and 316L stainless steel samples were tested in a single trial only, falling short of the three-repetition minimum required by the standard. These results should therefore be treated as indicative rather than fully compliant. Additional follow-up experiments will be performed. 
 
