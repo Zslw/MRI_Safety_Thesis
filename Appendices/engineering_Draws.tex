@@ -17,7 +17,7 @@ the \gls{mri} environment.
 \makeatletter
 \newcommand{\invisiblesection}[1]{%
 	\refstepcounter{section}% increase section counter
-	\addcontentsline{toc}{section}{#1}% optional: add to TOC
+  \addcontentsline{toc}{section}{\protect\numberline{\thesection}#1}%
 	\phantomsection % for hyperref anchors
 	% No header text printed, no vertical space
 	\def\@currentlabel{\thesection}% for \ref to work correctly
@@ -25,11 +25,11 @@ the \gls{mri} environment.
 \makeatother
 
 
-\invisiblesection{Appendix A1: Pole drawing}
+\invisiblesection{Pole drawing}
 \label{app:A1}
 \includepdf[angle=90,scale=.9,offset=13mm 0mm]{Assets/schematic.pdf}
 
 
-\invisiblesection{Appendix A2: Frame drawing}
+\invisiblesection{Frame drawing}
 \label{app:A2}
 \includepdf[angle=90,scale=.9,offset=13mm 0mm]{Assets/Planos_marco.pdf}

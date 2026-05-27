@@ -389,7 +389,7 @@ V_{\text{wiper}} = V_{\text{node,fine}}.
 Thus the coarse pot sets the overall span,  
 and the fine pot determines the precise lower-region tuning.
 
-\subsection{Circuit design caveat}
+\subsection{Circuit Design Caveat}
 \label{app:circuit_caveat}
 
 From the torque methodology developed in Section \ref{sec:InLab_Torque}, a set of neodymium magnets was introduced to increase the magnetic field strength to 300 G, compared to the 30 G provided by the Helmholtz coil, because the short rod in the smaller fields produced signals that were too small to yield reliable results. The calibration established a detection limit of $\tau_{\min} = 0.012,\text{mN}\cdot\text{m}$. For the short rod in the Helmholtz configuration the maximum field strength was $B_{\max} = 3.85,\text{mT}$), and using the $\chi_m$ obtained from the neodymium-based fit, the expected torque was $\tau_{\text{expected}} = 0.26,\text{mN}\cdot\text{m}$. This corresponds to a ratio of $\tau_{\text{expected}} / \tau_{\min} \approx 21.7$, which is well above the detection threshold in principle.
@@ -397,7 +397,7 @@ From the torque methodology developed in Section \ref{sec:InLab_Torque}, a set o
 A likely explanation is the influence of noise in the measurement circuit, particularly from the trim resistors when the signal approaches the detection limit. During calibration, a noise level of approximately 0.8 mV was observed when the trim resistors were used to null the signal prior to applying load. However, this was variable across sensors, as noted by Dr. Rutel (University of Oklahoma), placing the balancing trim resistor at the output of the amplifier, Figure \ref{fig:pots} right after Figure \ref{fig:opamp_bridge}, effectively suppresses part of the measurable signal. Incorporating the trim resistors directly into the Wheatstone bridge arm would instead allow null balancing at the bridge level, eliminating residual offset at the source and improving sensitivity for low-torque measurements.
 
 
-\section{Methodology notes}
+\section{Methodology Notes}
 \label{app:MethodologyNotes}
 
 The following paragraphs describe the methods troubleshooting and practical improvement on the methodology. For a complete description of the final version of the methodologies applied on this work see \ref{ch:matsNmets}
