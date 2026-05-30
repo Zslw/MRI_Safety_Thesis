@@ -14,3 +14,5 @@
 # Other build or binary files
 *.so
 *.zip
+.DS_Store
+**/.DS_Store
